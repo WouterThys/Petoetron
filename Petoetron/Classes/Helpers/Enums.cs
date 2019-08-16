@@ -11,4 +11,14 @@ namespace Petoetron.Classes.Helpers
         lm = 0,
         kg
     }
+
+    public enum DocumentType
+    {
+        Empty = 0,
+        Pdf = 1,
+        Image = 2,
+        Text = 3,
+        Excel = 4,
+        Csv = 5
+    }
 }

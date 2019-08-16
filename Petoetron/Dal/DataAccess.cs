@@ -103,6 +103,12 @@ namespace Petoetron.Dal
             return list as DataList<T>;
         }
 
+        public bool CodeExists<T>(string code) where T : IObject
+        {
+            DataList<T> dataList = GetCachedList<T>();
+            return dataList != null && dataList.ByCode(code) != null;
+        }
+
         public void OnInserted<T>(T obj) where T : IObject
         {
             if (dataInvoker != null)
@@ -208,5 +214,16 @@ namespace Petoetron.Dal
         public DataList<Customer> Customers { get { return GetList(GetCachedList<Customer>()); } }
         public DataList<Material> Materials { get { return GetList(GetCachedList<Material>()); } }
         public DataList<MaterialType> MaterialTypes { get { return GetList(GetCachedList<MaterialType>()); } }
+
+
+        public IEnumerable<ObjectDocument> GetObjectDocuments(string tableName, long id)
+        {
+            throw new NotImplementedException(); // Fetch from db
+        }
+
+        public IEnumerable<ObjectLog> GetObjectLogs<T>(Filter filter) where T : class, IBaseObject, new()
+        {
+            throw new NotImplementedException(); // Fetch from db
+        }
     }
 }

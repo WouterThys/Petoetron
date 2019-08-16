@@ -28,4 +28,11 @@ namespace Petoetron.Dal
         void NotifyUpdate<T>(T item) where T : IObject;
         void NotifyDelete<T>(T item) where T : IObject;
     }
+
+    public interface IDataChanged<T> where T : IObject
+    {
+        void OnInserted(T inserted);
+        void OnUpdated(T updated);
+        void OnDeleted(T deleted);
+    }
 }

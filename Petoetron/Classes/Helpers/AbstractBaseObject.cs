@@ -1,4 +1,5 @@
 ﻿using Database;
+using Petoetron.Dal;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -16,6 +17,7 @@ namespace Petoetron.Classes.Helpers
         protected string iconPath = "";
         protected bool enabled = true;
         protected DateTime lastModified = DateTime.MinValue;
+        protected List<ObjectDocument> objectDocuments;
 
         public AbstractBaseObject(string code) : base(code)
         {
@@ -46,6 +48,23 @@ namespace Petoetron.Classes.Helpers
                     Enabled == abo.Enabled;
             }
             return false;
+        }
+
+        public void CopyDocuments(IEnumerable<ObjectDocument> newDocs)
+        {
+            if (newDocs != null)
+            {
+                List<ObjectDocument> docs = new List<ObjectDocument>();
+                foreach (ObjectDocument doc in newDocs)
+                {
+                    docs.Add((ObjectDocument)doc.CreateCopy());
+                }
+                ObjectDocuments = docs;
+            }
+            else
+            {
+                ObjectDocuments = null;
+            }
         }
 
         public override void OnChanged(ActionType queryType)
@@ -150,6 +169,27 @@ namespace Petoetron.Classes.Helpers
                 lastModified = value;
                 OnPropertyChanged("LastModified");
             }
+        }
+
+        public IEnumerable<ObjectDocument> ObjectDocuments
+        {
+            get
+            {
+                if (objectDocuments == null)
+                {
+                    objectDocuments = new List<ObjectDocument>(DataAccess.Dal.GetObjectDocuments(TableName, Id));
+                }
+                return objectDocuments;
+            }
+            set
+            {
+                objectDocuments = value != null ? new List<ObjectDocument>(value) : null;
+            }
+        }
+
+        public void UpdateDocuments()
+        {
+            objectDocuments = null;
         }
 
         #endregion

@@ -36,11 +36,13 @@
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v18.2" />
     <Reference Include="DevExpress.Data.v18.2" />
+    <Reference Include="DevExpress.Mvvm.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v18.2.Core" />
     <Reference Include="DevExpress.Utils.v18.2" />
     <Reference Include="DevExpress.XtraBars.v18.2" />
     <Reference Include="DevExpress.Sparkline.v18.2.Core" />
     <Reference Include="DevExpress.XtraEditors.v18.2" />
+    <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -58,8 +60,12 @@
     <Compile Include="Classes\Helpers\AbstractObject.cs" />
     <Compile Include="Classes\Helpers\Enums.cs" />
     <Compile Include="Classes\Helpers\Interfaces.cs" />
+    <Compile Include="Classes\Helpers\Toolbox.cs" />
     <Compile Include="Classes\Material.cs" />
     <Compile Include="Classes\MaterialType.cs" />
+    <Compile Include="Classes\ObjectDocument.cs" />
+    <Compile Include="Classes\ObjectLog.cs" />
+    <Compile Include="ClientContext.cs" />
     <Compile Include="Dal\DataAccess.cs" />
     <Compile Include="Dal\DataList.cs" />
     <Compile Include="Dal\Filters.cs" />
@@ -70,8 +76,45 @@
     <Compile Include="MainView.Designer.cs">
       <DependentUpon>MainView.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainViewModel.cs" />
+    <Compile Include="Models\Base\BaseDocumentViewModel.cs" />
+    <Compile Include="Models\Base\BaseEditViewModel.cs" />
+    <Compile Include="Models\Base\BaseListViewModel.cs" />
+    <Compile Include="Models\Base\BaseViewModel.cs" />
+    <Compile Include="Models\Interfaces.cs" />
+    <Compile Include="Models\ObjectDocumentEditViewModel.cs" />
+    <Compile Include="Models\ObjectFilesModel.cs" />
+    <Compile Include="Models\ObjectLogModel.cs" />
+    <Compile Include="ModuleTypes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DataChangedService.cs" />
+    <Compile Include="Services\DataExportService.cs" />
+    <Compile Include="Views\Base\BaseEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Base\BaseEditView.Designer.cs">
+      <DependentUpon>BaseEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Base\BaseListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Base\BaseListView.Designer.cs">
+      <DependentUpon>BaseListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Base\BaseRibbonControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Base\BaseRibbonControl.Designer.cs">
+      <DependentUpon>BaseRibbonControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Base\BaseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Base\BaseUserControl.Designer.cs">
+      <DependentUpon>BaseUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Interfaces.cs" />
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
@@ -86,7 +129,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\Base\BaseListView.resx">
+      <DependentUpon>BaseListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Base\BaseRibbonControl.resx">
+      <DependentUpon>BaseRibbonControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Base\BaseUserControl.resx">
+      <DependentUpon>BaseUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="Properties\DataSources\Petoetron.Classes.Helpers.AbstractBaseObject.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -102,6 +155,36 @@
       <Project>{2350e2b4-434c-45a3-8d2e-ee96e1d1605d}</Project>
       <Name>Database</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
