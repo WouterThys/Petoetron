@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v18.2" />
     <Reference Include="DevExpress.Data.v18.2" />
+    <Reference Include="DevExpress.Images.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Mvvm.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v18.2.Core" />
     <Reference Include="DevExpress.Utils.v18.2" />
@@ -43,7 +44,10 @@
     <Reference Include="DevExpress.Sparkline.v18.2.Core" />
     <Reference Include="DevExpress.XtraEditors.v18.2" />
     <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -59,12 +63,19 @@
     <Compile Include="Classes\Helpers\AbstractBaseObject.cs" />
     <Compile Include="Classes\Helpers\AbstractObject.cs" />
     <Compile Include="Classes\Helpers\Enums.cs" />
+    <Compile Include="Classes\Helpers\IniFile.cs" />
     <Compile Include="Classes\Helpers\Interfaces.cs" />
+    <Compile Include="Classes\Helpers\LinkList.cs" />
     <Compile Include="Classes\Helpers\Toolbox.cs" />
     <Compile Include="Classes\Material.cs" />
     <Compile Include="Classes\MaterialType.cs" />
     <Compile Include="Classes\ObjectDocument.cs" />
+    <Compile Include="Classes\ObjectLinkLists.cs" />
     <Compile Include="Classes\ObjectLog.cs" />
+    <Compile Include="Classes\PriceType.cs" />
+    <Compile Include="Classes\Quotation.cs" />
+    <Compile Include="Classes\QuotationMaterial.cs" />
+    <Compile Include="Classes\QuotationPrice.cs" />
     <Compile Include="ClientContext.cs" />
     <Compile Include="Dal\DataAccess.cs" />
     <Compile Include="Dal\DataList.cs" />
@@ -81,13 +92,27 @@
     <Compile Include="Models\Base\BaseEditViewModel.cs" />
     <Compile Include="Models\Base\BaseListViewModel.cs" />
     <Compile Include="Models\Base\BaseViewModel.cs" />
+    <Compile Include="Models\Customers\CustomerEditViewModel.cs" />
+    <Compile Include="Models\Customers\CustomerListViewModel.cs" />
     <Compile Include="Models\Interfaces.cs" />
+    <Compile Include="Models\Materials\MaterialEditViewModel.cs" />
+    <Compile Include="Models\Materials\MaterialListViewModel.cs" />
+    <Compile Include="Models\MaterialTypes\MaterialTypeEditViewModel.cs" />
+    <Compile Include="Models\MaterialTypes\MaterialTypeListViewModel.cs" />
     <Compile Include="Models\ObjectDocumentEditViewModel.cs" />
     <Compile Include="Models\ObjectFilesModel.cs" />
     <Compile Include="Models\ObjectLogModel.cs" />
+    <Compile Include="Models\PriceTypes\PriceTypeEditViewModel.cs" />
+    <Compile Include="Models\PriceTypes\PriceTypeListViewModel.cs" />
     <Compile Include="ModuleTypes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Images.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Resources\Images.Designer.cs">
+      <DependentUpon>Images.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\DataChangedService.cs" />
     <Compile Include="Services\DataExportService.cs" />
     <Compile Include="Views\Base\BaseEditView.cs">
@@ -114,7 +139,56 @@
     <Compile Include="Views\Base\BaseUserControl.Designer.cs">
       <DependentUpon>BaseUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Base\ViewHelpers.cs" />
+    <Compile Include="Views\Customers\CustomerEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Customers\CustomerEditView.Designer.cs">
+      <DependentUpon>CustomerEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customers\CustomerListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Customers\CustomerListView.Designer.cs">
+      <DependentUpon>CustomerListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Interfaces.cs" />
+    <Compile Include="Views\Materials\MaterialEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Materials\MaterialEditView.Designer.cs">
+      <DependentUpon>MaterialEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Materials\MaterialListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Materials\MaterialListView.Designer.cs">
+      <DependentUpon>MaterialListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaterialTypes\MaterialTypeEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\MaterialTypes\MaterialTypeEditView.Designer.cs">
+      <DependentUpon>MaterialTypeEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaterialTypes\MaterialTypeListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\MaterialTypes\MaterialTypeListView.Designer.cs">
+      <DependentUpon>MaterialTypeListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PriceTypes\PriceTypeEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PriceTypes\PriceTypeEditView.Designer.cs">
+      <DependentUpon>PriceTypeEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PriceTypes\PriceTypeListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PriceTypes\PriceTypeListView.Designer.cs">
+      <DependentUpon>PriceTypeListView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +203,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Resources\Images.resx">
+      <DependentUpon>Images.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Base\BaseEditView.resx">
+      <DependentUpon>BaseEditView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Base\BaseListView.resx">
       <DependentUpon>BaseListView.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,8 +218,39 @@
     <EmbeddedResource Include="Views\Base\BaseUserControl.resx">
       <DependentUpon>BaseUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Customers\CustomerEditView.resx">
+      <DependentUpon>CustomerEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Customers\CustomerListView.resx">
+      <DependentUpon>CustomerListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Materials\MaterialEditView.resx">
+      <DependentUpon>MaterialEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Materials\MaterialListView.resx">
+      <DependentUpon>MaterialListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MaterialTypes\MaterialTypeEditView.resx">
+      <DependentUpon>MaterialTypeEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MaterialTypes\MaterialTypeListView.resx">
+      <DependentUpon>MaterialTypeListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PriceTypes\PriceTypeEditView.resx">
+      <DependentUpon>PriceTypeEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PriceTypes\PriceTypeListView.resx">
+      <DependentUpon>PriceTypeListView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
+    <Content Include="Config\Settings.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\DataSources\Petoetron.Classes.Customer.datasource" />
     <None Include="Properties\DataSources\Petoetron.Classes.Helpers.AbstractBaseObject.datasource" />
+    <None Include="Properties\DataSources\Petoetron.Classes.Material.datasource" />
+    <None Include="Properties\DataSources\Petoetron.Classes.MaterialType.datasource" />
+    <None Include="Properties\DataSources\Petoetron.Classes.PriceType.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -156,36 +267,7 @@
       <Name>Database</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\add24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pencil24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\delete24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\add48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\delete48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pencil48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\printer24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\export24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\printer48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\export48.png" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

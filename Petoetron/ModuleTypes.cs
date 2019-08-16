@@ -1,16 +1,28 @@
 ﻿using Petoetron.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Petoetron
 {
     public class ModuleTypes
     {
+        public readonly static SimpleModuleType MainViewModule = new SimpleModuleType(-10, -1, "MainView", "Petoetron");
 
+        public readonly static DataListModuleType QuotationListModule = new DataListModuleType(-100, 20, "Quotation");
+        public readonly static AddEditDataModule QuotationEditModule = new AddEditDataModule(-101, 20, "Quotation");
 
+        public readonly static DataListModuleType CustomerListModule = new DataListModuleType(-200, 18, "Customer");
+        public readonly static AddEditDataModule CustomerEditModule = new AddEditDataModule(-201, 18, "Customer");
+
+        public readonly static DataListModuleType MaterialTypeListModule = new DataListModuleType(-300, 19, "MaterialType");
+        public readonly static AddEditDataModule MaterialTypeEditModule = new AddEditDataModule(-301, 19, "MaterialType");
+
+        public readonly static DataListModuleType MaterialListModule = new DataListModuleType(-400, 17, "Material");
+        public readonly static AddEditDataModule MaterialEditModule = new AddEditDataModule(-401, 17, "Material");
+
+        public readonly static DataListModuleType PriceTypeListModule = new DataListModuleType(-500, 20, "PriceType");
+        public readonly static AddEditDataModule PriceTypeEditModule = new AddEditDataModule(-501, 20, "PriceType");
+
+        
 
         public readonly static AddEditDataModule ObjectDocumentEditModule = new AddEditDataModule(-1000, -1, "ObjectDocument");
         public readonly static SimpleModuleType ObjectLogModule = new SimpleModuleType(-1100, -1, "ObjectLog", "Wu us duur gebuurd?");

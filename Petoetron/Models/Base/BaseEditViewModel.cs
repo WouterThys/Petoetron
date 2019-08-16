@@ -64,7 +64,7 @@ namespace Petoetron.Models.Base
             }
         }
 
-        public override void OnLoading()
+        public virtual void OnLoading()
         {
             if (Editable == null)
             {
@@ -86,7 +86,7 @@ namespace Petoetron.Models.Base
             DataChangedService.AddListener(this);
         }
 
-        public override void OnLoaded()
+        public virtual void OnLoaded()
         {
             IsLoading = false;
             UpdateCommands();
@@ -191,7 +191,7 @@ namespace Petoetron.Models.Base
 
         public virtual void Save()
         {
-            if (DataAccess.Dal.CodeExists<TEntity>(Editable.Code))
+            if (Editable.Id < AbstractObject.UNKNOWN_ID && DataAccess.Dal.CodeExists<TEntity>(Editable.Code))
             {
                 MessageBoxService.ShowMessage("" + Editable.Code + " bestuut ul he puljuske", "Bestuut ul", MessageButton.OK);
             }

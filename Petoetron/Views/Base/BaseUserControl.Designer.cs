@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.mvvmContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.images = new Petoetron.Resources.Images(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             this.SuspendLayout();
             // 
@@ -37,11 +38,17 @@
             // 
             this.mvvmContext.ContainerControl = this;
             // 
+            // images
+            // 
+            this.images.DefaultSize = Petoetron.Resources.ImageSize.i16x16;
+            // 
             // BaseUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "BaseUserControl";
+            this.Size = new System.Drawing.Size(175, 185);
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).EndInit();
             this.ResumeLayout(false);
 
@@ -50,5 +57,6 @@
         #endregion
 
         protected DevExpress.Utils.MVVM.MVVMContext mvvmContext;
+        protected Resources.Images images;
     }
 }

@@ -92,6 +92,10 @@ namespace Petoetron.Classes.Helpers
 
         public abstract void AddSqlParameters(DbCommand command);
         public abstract void InitFromReader(DbDataReader reader);
+        public abstract void OnChanged(ActionType type);
+        public abstract void DoInsert();
+        public abstract void DoUpdate();
+        public abstract void DoDelete();
 
         public string GetScript(ActionType actionType)
         {
@@ -114,11 +118,11 @@ namespace Petoetron.Classes.Helpers
         {
             if (Id <= 0)
             {
-                DataAccess.Dal.Insert(this);
+                DoInsert();
             }
             else
             {
-                DataAccess.Dal.Update(this);
+                DoUpdate();
             }
             return true;
         }
@@ -127,28 +131,12 @@ namespace Petoetron.Classes.Helpers
         {
             if (Id > UNKNOWN_ID)
             {
-                DataAccess.Dal.Delete(this);
+                DoDelete();
                 return true;
             }
             return false;
         }
-
-        public virtual void OnChanged(ActionType queryType)
-        {
-            switch(queryType)
-            {
-                case ActionType.Insert:
-                    DataAccess.Dal.OnInserted(this);
-                    break;
-                case ActionType.Update:
-                    DataAccess.Dal.OnUpdated(this);
-                    break;
-                case ActionType.Delete:
-                    DataAccess.Dal.OnDeleted(this);
-                    break;
-            }
-        }
-
+        
         public void OnFailed(Database.DbException dbException)
         {
             

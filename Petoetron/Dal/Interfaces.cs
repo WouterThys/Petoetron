@@ -1,4 +1,5 @@
-﻿using Petoetron.Classes.Helpers;
+﻿using Database;
+using Petoetron.Classes.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,5 +35,11 @@ namespace Petoetron.Dal
         void OnInserted(T inserted);
         void OnUpdated(T updated);
         void OnDeleted(T deleted);
+    }
+
+    public interface IDataAccessCallback
+    {
+        void DbStateChanged(DbState newState);
+        void DbQueryFailed(DbException exception);
     }
 }

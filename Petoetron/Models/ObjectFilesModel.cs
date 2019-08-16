@@ -105,6 +105,7 @@ namespace Petoetron.Models
             IsLoading = true;
             return Task.Factory.StartNew((state) =>
             {
+                OnLoading();
                 // Documents
                 List<ObjectDocument> docs = new List<ObjectDocument>();
                 FileEntity.ObjectDocuments = null;
@@ -126,12 +127,12 @@ namespace Petoetron.Models
             }, DispatcherService);
         }
 
-        public override void OnLoading()
+        public void OnLoading()
         {
 
         }
 
-        public override void OnLoaded()
+        public void OnLoaded()
         {
             IsLoading = false;
         }

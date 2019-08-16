@@ -84,16 +84,6 @@ namespace Petoetron.Models
             }, DispatcherService);
         }
 
-        public override void OnLoading()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void OnLoaded()
-        {
-            throw new NotImplementedException();
-        }
-
         public virtual void OnFromChanged()
         {
             if (IsLoading) return;

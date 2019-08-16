@@ -143,21 +143,21 @@ namespace Petoetron.Views.Base
         protected virtual DXMenuItem CreateMenuItemAdd(GridView view, int rowHandle)
         {
             DXMenuItem menuItemAdd = new DXMenuItem("&Add");
-            menuItemAdd.ImageOptions.Image =   workWatchImages.Images16x16.Images[0];
+            menuItemAdd.ImageOptions.Image = images.Images16x16.Images[0];
             return menuItemAdd;
         }
 
         protected virtual DXMenuItem CreateMenuItemEdit(GridView view, int rowHandle)
         {
             DXMenuItem menuItemAdd = new DXMenuItem("&Edit");
-            menuItemAdd.ImageOptions.Image = workWatchImages.Images16x16.Images[1];
+            menuItemAdd.ImageOptions.Image = images.Images16x16.Images[1];
             return menuItemAdd;
         }
 
         protected virtual DXMenuItem CreateMenuItemDelete(GridView view, int rowHandle)
         {
             DXMenuItem menuItemAdd = new DXMenuItem("&Delete");
-            menuItemAdd.ImageOptions.Image = workWatchImages.Images16x16.Images[2];
+            menuItemAdd.ImageOptions.Image = images.Images16x16.Images[2];
             return menuItemAdd;
         }
         #endregion

@@ -1,4 +1,6 @@
-﻿using Petoetron.Classes.Helpers;
+﻿using Database;
+using Petoetron.Classes.Helpers;
+using Petoetron.Dal;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -58,14 +60,41 @@ namespace Petoetron.Classes
             return false;
         }
 
+        public override void DoInsert() => DataAccess.Dal.Insert(this);
+        public override void DoUpdate() => DataAccess.Dal.Update(this);
+        public override void DoDelete() => DataAccess.Dal.Delete(this);
+
         public override void AddSqlParameters(DbCommand command)
         {
             base.AddBaseSqlParameters(command);
+            DatabaseAccess.AddDbValue(command, "objectName", ObjectName);
+            DatabaseAccess.AddDbValue(command, "objectId", ObjectId);
+            DatabaseAccess.AddDbValue(command, "documentPath", DocumentPath);
         }
 
         public override void InitFromReader(DbDataReader reader)
         {
             base.InitBaseFromReader(reader);
+            ObjectName = DatabaseAccess.RGetString(reader, "objectName");
+            ObjectId = DatabaseAccess.RGetLong(reader, "objectId");
+            DocumentPath = DatabaseAccess.RGetString(reader, "documentPath");
+        }
+
+        public override void OnChanged(ActionType queryType)
+        {
+            base.OnChanged(queryType);
+            switch (queryType)
+            {
+                case ActionType.Insert:
+                    DataAccess.Dal.OnInserted(this);
+                    break;
+                case ActionType.Update:
+                    DataAccess.Dal.OnUpdated(this);
+                    break;
+                case ActionType.Delete:
+                    DataAccess.Dal.OnDeleted(this);
+                    break;
+            }
         }
 
         #endregion

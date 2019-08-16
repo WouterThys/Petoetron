@@ -19,8 +19,6 @@ namespace Petoetron.Models.Base
         }
 
         public abstract Task Load();
-        public abstract void OnLoading();
-        public abstract void OnLoaded();
 
         public ClientContext Context { get { return ClientContext.Context; } }
 

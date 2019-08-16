@@ -12,7 +12,10 @@ namespace Petoetron.Dal
         // Singleton
         private static readonly DataAccess INSTANCE = new DataAccess();
         public static DataAccess Dal { get { return INSTANCE; } }
-        
+
+        // Callback
+        private IDataAccessCallback callback;
+
         // Databases
         private DatabaseAccess Db { get; set; }
 
@@ -25,16 +28,28 @@ namespace Petoetron.Dal
         {
             cache = new Dictionary<Type, IDataList>()
             {
+                { typeof(Quotation), new DataList<Quotation>(new Quotation().TableName) },
+
                 { typeof(Customer), new DataList<Customer>(new Customer().TableName) },
                 { typeof(Material), new DataList<Material>(new Material().TableName) },
                 { typeof(MaterialType), new DataList<MaterialType>(new MaterialType().TableName) },
+                { typeof(PriceType), new DataList<PriceType>(new PriceType().TableName) }
             };
         }
         
-        public void InitializeCallback(INotifyDataChanged dataListener, IDataInvoker dataInvoker)
+        public void AttachDataListener(INotifyDataChanged dataListener)
         {
             this.dataListener = dataListener;
+        }
+
+        public void AttachInvoker(IDataInvoker dataInvoker)
+        {
             this.dataInvoker = dataInvoker;
+        }
+
+        public void AttachCallback(IDataAccessCallback callback)
+        {
+            this.callback = callback;
         }
 
         public void InitializeDatabase(
@@ -56,6 +71,16 @@ namespace Petoetron.Dal
                 connectionString,
                 provider,
                 schema);
+
+            Db.Start();
+        }
+
+        public void Close()
+        {
+            if (Db != null)
+            {
+                Db.CloseDown();
+            }
         }
 
         private DataList<T> GetList<T>(DataList<T> dataList) where T : IObject, new()
@@ -198,12 +223,12 @@ namespace Petoetron.Dal
         #region IDatabaseAccess Interface
         public void DbLogBackState(DbState dbState)
         {
-
+            callback?.DbStateChanged(dbState);
         }
 
         public void DbQueryFailed(DbException dbException)
         {
-
+            callback?.DbQueryFailed(dbException);
         }
 
         public void DbLogInfo(string message)
@@ -211,9 +236,12 @@ namespace Petoetron.Dal
         }
         #endregion
 
+        public DataList<Quotation> Quotations { get { return GetList(GetCachedList<Quotation>()); } }
+
         public DataList<Customer> Customers { get { return GetList(GetCachedList<Customer>()); } }
         public DataList<Material> Materials { get { return GetList(GetCachedList<Material>()); } }
         public DataList<MaterialType> MaterialTypes { get { return GetList(GetCachedList<MaterialType>()); } }
+        public DataList<PriceType> PriceTypes { get { return GetList(GetCachedList<PriceType>()); } }
 
 
         public IEnumerable<ObjectDocument> GetObjectDocuments(string tableName, long id)
@@ -224,6 +252,13 @@ namespace Petoetron.Dal
         public IEnumerable<ObjectLog> GetObjectLogs<T>(Filter filter) where T : class, IBaseObject, new()
         {
             throw new NotImplementedException(); // Fetch from db
+        }
+
+        public IEnumerable<long> FindMaterialsIdsForQuotation(long id)
+        {
+            string sql = "quotationsFindMaterials";
+            IEnumerable<long> ids = Db.FindIds(sql, (cmd) => DatabaseAccess.AddDbValue(cmd, "qId", id));
+            return ids;
         }
     }
 }

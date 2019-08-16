@@ -1,12 +1,13 @@
 ﻿using System.Data.Common;
 using Database;
 using Petoetron.Classes.Helpers;
+using Petoetron.Dal;
 
 namespace Petoetron.Classes
 {
     public class Customer : AbstractBaseObject
     {
-        public override string TableName { get { return "Customers"; } }
+        public override string TableName { get { return "customers"; } }
 
         private string contactName;
         private string street;
@@ -31,9 +32,10 @@ namespace Petoetron.Classes
 
         public override void CopyFrom(IObject toCopy)
         {
-            if (toCopy != null && toCopy is Customer c)
+            if (toCopy is Customer c)
             {
                 base.CopyFrom(toCopy);
+                ContactName = c.ContactName;
                 Street = c.Street;
                 City = c.City;
                 State = c.State;
@@ -46,9 +48,10 @@ namespace Petoetron.Classes
 
         public override bool PropertiesEqual(IObject iObject)
         {
-            if (iObject != null && iObject is Customer c)
+            if (iObject is Customer c)
             {
                 return base.PropertiesEqual(iObject) &&
+                    ContactName == c.ContactName &&
                     Street == c.Street &&
                     City == c.City &&
                     State == c.State &&
@@ -60,9 +63,14 @@ namespace Petoetron.Classes
             return false;
         }
 
+        public override void DoInsert() => DataAccess.Dal.Insert(this);
+        public override void DoUpdate() => DataAccess.Dal.Update(this);
+        public override void DoDelete() => DataAccess.Dal.Delete(this);
+
         public override void AddSqlParameters(DbCommand command)
         {
             base.AddBaseSqlParameters(command);
+            DatabaseAccess.AddDbValue(command, "contactName", ContactName);
             DatabaseAccess.AddDbValue(command, "street", Street);
             DatabaseAccess.AddDbValue(command, "city", City);
             DatabaseAccess.AddDbValue(command, "state", State);
@@ -75,6 +83,7 @@ namespace Petoetron.Classes
         public override void InitFromReader(DbDataReader reader)
         {
             base.InitBaseFromReader(reader);
+            ContactName = DatabaseAccess.RGetString(reader, "contactName");
             Street = DatabaseAccess.RGetString(reader, "street");
             City = DatabaseAccess.RGetString(reader, "city");
             State = DatabaseAccess.RGetString(reader, "state");
@@ -84,55 +93,72 @@ namespace Petoetron.Classes
             Vat = DatabaseAccess.RGetString(reader, "vat");
         }
 
+        public override void OnChanged(ActionType queryType)
+        {
+            base.OnChanged(queryType);
+            switch (queryType)
+            {
+                case ActionType.Insert:
+                    DataAccess.Dal.OnInserted(this);
+                    break;
+                case ActionType.Update:
+                    DataAccess.Dal.OnUpdated(this);
+                    break;
+                case ActionType.Delete:
+                    DataAccess.Dal.OnDeleted(this);
+                    break;
+            }
+        }
+
         #endregion
 
         #region Properties
 
         public string ContactName
         {
-            get => contactName;
+            get => contactName ?? "";
             set { contactName = value; OnPropertyChanged("ContactName"); }
         }
 
         public string Street
         {
-            get => street;
+            get => street ?? "";
             set { street = value; OnPropertyChanged("Street"); }
         }
 
         public string City
         {
-            get => city;
+            get => city ?? "";
             set { city = value; OnPropertyChanged("City"); }
         }
 
         public string State
         {
-            get => state;
+            get => state ?? "";
             set { state = value; OnPropertyChanged("State"); }
         }
 
         public string Zip
         {
-            get => zip;
+            get => zip ?? "";
             set { zip = value; OnPropertyChanged("Zip"); }
         }
 
         public string FixedPhone
         {
-            get => fixedPhone;
+            get => fixedPhone ?? "";
             set { fixedPhone = value; OnPropertyChanged("FixedPhone"); }
         }
 
         public string MobilePhone
         {
-            get => mobilePhone;
+            get => mobilePhone ?? "";
             set { mobilePhone = value; OnPropertyChanged("MobilePhone"); }
         }
 
         public string Vat
         {
-            get => vat;
+            get => vat ?? "";
             set { vat = value; OnPropertyChanged("Vat"); }
         }
         #endregion

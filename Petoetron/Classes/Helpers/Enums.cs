@@ -21,4 +21,12 @@ namespace Petoetron.Classes.Helpers
         Excel = 4,
         Csv = 5
     }
+
+    public enum PriceTypeUnit
+    {
+        PerHour = 0,
+        PerKm = 1,
+        PerKg = 2,
+        PerM = 3
+    }
 }

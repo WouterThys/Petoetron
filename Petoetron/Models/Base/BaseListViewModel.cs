@@ -69,12 +69,12 @@ namespace Petoetron.Models.Base
             }, DispatcherService);
         }
 
-        public override void OnLoading()
+        public void OnLoading()
         {
 
         }
 
-        public override void OnLoaded()
+        public void OnLoaded()
         {
             IsLoading = false;
             UpdateCommands();

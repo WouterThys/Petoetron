@@ -54,8 +54,9 @@
             this.bbiDelete,
             this.bbiPrint,
             this.bbiExport});
+            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.ribbonControl.MaxItemId = 6;
-            this.ribbonControl.Size = new System.Drawing.Size(830, 141);
+            this.ribbonControl.Size = new System.Drawing.Size(968, 194);
             // 
             // ribbonPage1
             // 
@@ -77,17 +78,20 @@
             // gridControl
             // 
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl.Location = new System.Drawing.Point(0, 141);
+            this.gridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gridControl.Location = new System.Drawing.Point(0, 194);
             this.gridControl.MainView = this.gridView;
+            this.gridControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl.MenuManager = this.ribbonControl;
             this.gridControl.Name = "gridControl";
-            this.gridControl.Size = new System.Drawing.Size(830, 384);
+            this.gridControl.Size = new System.Drawing.Size(968, 452);
             this.gridControl.TabIndex = 1;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView});
             // 
             // gridView
             // 
+            this.gridView.DetailHeight = 431;
             this.gridView.GridControl = this.gridControl;
             this.gridView.Name = "gridView";
             // 
@@ -95,24 +99,24 @@
             // 
             this.bbiAdd.Caption = "Plus";
             this.bbiAdd.Id = 1;
-            this.bbiAdd.ImageOptions.Image = global::Petoetron.Properties.Resources.add;
-            this.bbiAdd.ImageOptions.LargeImage = global::Petoetron.Properties.Resources.add1;
+            this.bbiAdd.ImageOptions.ImageIndex = 0;
+            this.bbiAdd.ImageOptions.LargeImageIndex = 0;
             this.bbiAdd.Name = "bbiAdd";
             // 
             // bbiEdit
             // 
             this.bbiEdit.Caption = "Unpussen";
             this.bbiEdit.Id = 2;
-            this.bbiEdit.ImageOptions.Image = global::Petoetron.Properties.Resources.pencil;
-            this.bbiEdit.ImageOptions.LargeImage = global::Petoetron.Properties.Resources.pencil1;
+            this.bbiEdit.ImageOptions.ImageIndex = 1;
+            this.bbiEdit.ImageOptions.LargeImageIndex = 1;
             this.bbiEdit.Name = "bbiEdit";
             // 
             // bbiDelete
             // 
             this.bbiDelete.Caption = "Wug";
             this.bbiDelete.Id = 3;
-            this.bbiDelete.ImageOptions.Image = global::Petoetron.Properties.Resources.delete;
-            this.bbiDelete.ImageOptions.LargeImage = global::Petoetron.Properties.Resources.delete1;
+            this.bbiDelete.ImageOptions.ImageIndex = 2;
+            this.bbiDelete.ImageOptions.LargeImageIndex = 2;
             this.bbiDelete.Name = "bbiDelete";
             // 
             // ribbonPageGroup2
@@ -126,25 +130,26 @@
             // 
             this.bbiPrint.Caption = "Prunt";
             this.bbiPrint.Id = 4;
-            this.bbiPrint.ImageOptions.Image = global::Petoetron.Properties.Resources.printer2;
-            this.bbiPrint.ImageOptions.LargeImage = global::Petoetron.Properties.Resources.printer21;
+            this.bbiPrint.ImageOptions.ImageIndex = 8;
+            this.bbiPrint.ImageOptions.LargeImageIndex = 8;
             this.bbiPrint.Name = "bbiPrint";
             // 
             // bbiExport
             // 
             this.bbiExport.Caption = "Uxcul";
             this.bbiExport.Id = 5;
-            this.bbiExport.ImageOptions.Image = global::Petoetron.Properties.Resources.export;
-            this.bbiExport.ImageOptions.LargeImage = global::Petoetron.Properties.Resources.export1;
+            this.bbiExport.ImageOptions.ImageIndex = 10;
+            this.bbiExport.ImageOptions.LargeImageIndex = 10;
             this.bbiExport.Name = "bbiExport";
             // 
             // BaseListView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gridControl);
+            this.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.Name = "BaseListView";
-            this.Size = new System.Drawing.Size(830, 525);
+            this.Size = new System.Drawing.Size(968, 646);
             this.Controls.SetChildIndex(this.ribbonControl, 0);
             this.Controls.SetChildIndex(this.gridControl, 0);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
@@ -159,14 +164,14 @@
 
         #endregion
 
-        private System.Windows.Forms.BindingSource bsEntities;
-        private DevExpress.XtraGrid.GridControl gridControl;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView;
-        private DevExpress.XtraBars.BarButtonItem bbiAdd;
-        private DevExpress.XtraBars.BarButtonItem bbiEdit;
-        private DevExpress.XtraBars.BarButtonItem bbiDelete;
-        private DevExpress.XtraBars.BarButtonItem bbiPrint;
-        private DevExpress.XtraBars.BarButtonItem bbiExport;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        protected System.Windows.Forms.BindingSource bsEntities;
+        protected DevExpress.XtraGrid.GridControl gridControl;
+        protected DevExpress.XtraGrid.Views.Grid.GridView gridView;
+        protected DevExpress.XtraBars.BarButtonItem bbiAdd;
+        protected DevExpress.XtraBars.BarButtonItem bbiEdit;
+        protected DevExpress.XtraBars.BarButtonItem bbiDelete;
+        protected DevExpress.XtraBars.BarButtonItem bbiPrint;
+        protected DevExpress.XtraBars.BarButtonItem bbiExport;
+        protected DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
     }
 }

@@ -28,8 +28,8 @@ namespace Petoetron.Models
 
         bool IsLoading { get; set; }
         Task Load();
-        void OnLoading();   // Happens on Task Thread
-        void OnLoaded();    // Happens on UI Thread
+        //void OnLoading();   // Happens on Task Thread
+        //void OnLoaded();    // Happens on UI Thread
 
         IMessageBoxService MessageBoxService { get; }
         IDialogService DialogService { get; }
