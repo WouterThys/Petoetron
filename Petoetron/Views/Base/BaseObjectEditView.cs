@@ -1,10 +1,7 @@
-﻿using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DevExpress.Utils.Menu;
+﻿using DevExpress.Utils.Menu;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.Utils.MVVM;
 using DevExpress.XtraLayout.Utils;
-using DevExpress.XtraEditors.DXErrorProvider;
 using Petoetron.Models.Base;
 using Petoetron.Classes.Helpers;
 using Petoetron.Resources;

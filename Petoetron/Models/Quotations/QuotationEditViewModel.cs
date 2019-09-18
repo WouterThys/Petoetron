@@ -5,9 +5,6 @@ using Petoetron.Classes.Helpers;
 using Petoetron.Dal;
 using Petoetron.Models.Base;
 using Petoetron.Models.Customers;
-using Petoetron.Models.Materials;
-using Petoetron.Models.PriceTypes;
-using Petoetron.Models.Quotations.Helpers;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -24,13 +21,9 @@ namespace Petoetron.Models.Quotations
 
 
         public virtual BindingList<Customer> Customers { get; protected set; }
-        public virtual MaterialLinksModel MaterialLinksModel { get; protected set; }
-        public virtual PriceLinksModel PriceLinksModel { get; protected set; }
 
         protected QuotationEditViewModel(Quotation original) : base(ModuleTypes.QuotationEditModule, original)
         {
-            MaterialLinksModel = MaterialLinksModel.Create(() => UpdateCommands());
-            PriceLinksModel = PriceLinksModel.Create();
 
             Load();
 
@@ -43,15 +36,11 @@ namespace Petoetron.Models.Quotations
             base.OnLoading();
 
             tmpCustomers = new List<Customer>(DataAccess.Dal.Customers);
-            MaterialLinksModel.Loading(Editable);
-            PriceLinksModel.Loading(Editable);
         }
 
         public override void OnLoaded()
         {
             Customers = new BindingList<Customer>(tmpCustomers);
-            MaterialLinksModel.Loaded();
-            PriceLinksModel.Loaded();
 
             base.OnLoaded();
         }

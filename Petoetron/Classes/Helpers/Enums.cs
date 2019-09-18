@@ -27,6 +27,7 @@ namespace Petoetron.Classes.Helpers
         PerHour = 0,
         PerKm = 1,
         PerKg = 2,
-        PerM = 3
+        PerM = 3,
+        Fixed = 4
     }
 }

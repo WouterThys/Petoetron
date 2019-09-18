@@ -37,47 +37,24 @@
             this.bbiAddCustomer = new DevExpress.XtraBars.BarButtonItem();
             this.rpgCustomer = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bbiEditCustomer = new DevExpress.XtraBars.BarButtonItem();
-            this.rpgMaterials = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bbiAddMaterial = new DevExpress.XtraBars.BarButtonItem();
             this.bbiEditMaterial = new DevExpress.XtraBars.BarButtonItem();
             this.bbiDeleteMaterial = new DevExpress.XtraBars.BarButtonItem();
-            this.rpgPrices = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bbiAddPrice = new DevExpress.XtraBars.BarButtonItem();
             this.bbiEditPrice = new DevExpress.XtraBars.BarButtonItem();
             this.bbiDeletePrice = new DevExpress.XtraBars.BarButtonItem();
-            this.gcMaterials = new DevExpress.XtraGrid.GridControl();
             this.bsMaterials = new System.Windows.Forms.BindingSource(this.components);
-            this.gvMaterials = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMaterialUnit = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMaterialUnitPrice = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMaterialType = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMaterialDescription = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMaterialCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAmount = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colQuotationId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMaterialId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colQuotation = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMaterial = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.splitterItem1 = new DevExpress.XtraLayout.SplitterItem();
-            this.lcgMaterials = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.gcPrices = new DevExpress.XtraGrid.GridControl();
             this.bsPrices = new System.Windows.Forms.BindingSource(this.components);
-            this.gvPrices = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colAmount1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colQuotationId1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPriceTypeId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colQuotation1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPriceType = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colId1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPriceCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPriceDescription = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPriceUnitPrice = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPriceUnit = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.PricesGridItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.splitterItem2 = new DevExpress.XtraLayout.SplitterItem();
-            this.lcgPrices = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lcgQuotationItems = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.ddbAddItem = new DevExpress.XtraEditors.DropDownButton();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.priceTypeItemView1 = new Petoetron.Views.Quotations.Helpers.PriceTypeItemView();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.priceTypeItemView2 = new Petoetron.Views.Quotations.Helpers.PriceTypeItemView();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InfoMemoEdit.Properties)).BeginInit();
@@ -113,27 +90,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.DeliveryDateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DeliveryDateDateEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForDeliveryDate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcMaterials)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsMaterials)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvMaterials)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgMaterials)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcPrices)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPrices)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvPrices)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PricesGridItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitterItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgPrices)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgQuotationItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataLayoutControl1
             // 
             this.dataLayoutControl1.Controls.Add(this.CustomerIdLookUpEdit);
             this.dataLayoutControl1.Controls.Add(this.DeliveryDateDateEdit);
-            this.dataLayoutControl1.Location = new System.Drawing.Point(12, 133);
+            this.dataLayoutControl1.Location = new System.Drawing.Point(12, 132);
             this.dataLayoutControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.dataLayoutControl1.Size = new System.Drawing.Size(404, 320);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(437, 321);
             this.dataLayoutControl1.Controls.SetChildIndex(this.DeliveryDateDateEdit, 0);
             this.dataLayoutControl1.Controls.SetChildIndex(this.CustomerIdLookUpEdit, 0);
             this.dataLayoutControl1.Controls.SetChildIndex(this.InfoMemoEdit, 0);
@@ -141,79 +115,81 @@
             // InfoMemoEdit
             // 
             this.InfoMemoEdit.Location = new System.Drawing.Point(14, 105);
-            this.InfoMemoEdit.Size = new System.Drawing.Size(376, 201);
+            this.InfoMemoEdit.Size = new System.Drawing.Size(409, 202);
             // 
             // layoutControlGroup2
             // 
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(404, 320);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(437, 321);
             // 
             // layoutControlGroup3
             // 
-            this.layoutControlGroup3.Size = new System.Drawing.Size(404, 320);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(437, 321);
             // 
             // peObjectIcon
             // 
-            this.peObjectIcon.Size = new System.Drawing.Size(110, 117);
+            this.peObjectIcon.Size = new System.Drawing.Size(119, 116);
             // 
             // DescriptionMemoEdit
             // 
-            this.DescriptionMemoEdit.Size = new System.Drawing.Size(290, 93);
+            this.DescriptionMemoEdit.Location = new System.Drawing.Point(135, 36);
+            this.DescriptionMemoEdit.Size = new System.Drawing.Size(314, 92);
             // 
             // CodeTextEdit
             // 
-            this.CodeTextEdit.Size = new System.Drawing.Size(290, 20);
+            this.CodeTextEdit.Location = new System.Drawing.Point(135, 12);
+            this.CodeTextEdit.Size = new System.Drawing.Size(314, 20);
             // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.splitterItem1,
-            this.lcgMaterials,
-            this.splitterItem2,
-            this.lcgPrices});
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1262, 445);
+            this.lcgQuotationItems});
+            this.layoutControlGroup1.Size = new System.Drawing.Size(927, 445);
             // 
             // ItemForDescription
             // 
-            this.ItemForDescription.Size = new System.Drawing.Size(294, 97);
+            this.ItemForDescription.Location = new System.Drawing.Point(123, 24);
+            this.ItemForDescription.Size = new System.Drawing.Size(318, 96);
             // 
             // ItemForCode
             // 
-            this.ItemForCode.Size = new System.Drawing.Size(294, 24);
+            this.ItemForCode.Location = new System.Drawing.Point(123, 0);
+            this.ItemForCode.Size = new System.Drawing.Size(318, 24);
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Size = new System.Drawing.Size(114, 121);
+            this.layoutControlItem1.Size = new System.Drawing.Size(123, 120);
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 121);
-            this.layoutControlItem2.Size = new System.Drawing.Size(408, 324);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 120);
+            this.layoutControlItem2.Size = new System.Drawing.Size(441, 325);
             // 
             // tabbedControlGroup
             // 
-            this.tabbedControlGroup.Size = new System.Drawing.Size(404, 320);
+            this.tabbedControlGroup.Size = new System.Drawing.Size(437, 321);
             // 
             // lcgData
             // 
             this.lcgData.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.ItemForDeliveryDate,
             this.ItemForCustomerId});
-            this.lcgData.Size = new System.Drawing.Size(380, 269);
+            this.lcgData.Size = new System.Drawing.Size(413, 270);
             // 
             // ItemForInfo
             // 
             this.ItemForInfo.Location = new System.Drawing.Point(0, 48);
-            this.ItemForInfo.Size = new System.Drawing.Size(380, 221);
+            this.ItemForInfo.Size = new System.Drawing.Size(413, 222);
             this.ItemForInfo.TextSize = new System.Drawing.Size(65, 13);
             // 
             // lcgDocuments
             // 
-            this.lcgDocuments.Size = new System.Drawing.Size(380, 269);
+            this.lcgDocuments.Size = new System.Drawing.Size(413, 270);
             // 
             // lcgLogs
             // 
-            this.lcgLogs.Size = new System.Drawing.Size(380, 269);
+            this.lcgLogs.Size = new System.Drawing.Size(413, 270);
             // 
             // bbiSave
             // 
@@ -242,19 +218,22 @@
             // 
             // dataLayoutControl
             // 
-            this.dataLayoutControl.Controls.Add(this.gcPrices);
-            this.dataLayoutControl.Controls.Add(this.gcMaterials);
-            this.dataLayoutControl.Size = new System.Drawing.Size(1282, 465);
+            this.dataLayoutControl.Controls.Add(this.priceTypeItemView2);
+            this.dataLayoutControl.Controls.Add(this.priceTypeItemView1);
+            this.dataLayoutControl.Controls.Add(this.ddbAddItem);
+            this.dataLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(846, 286, 650, 400);
+            this.dataLayoutControl.Size = new System.Drawing.Size(947, 465);
+            this.dataLayoutControl.Controls.SetChildIndex(this.ddbAddItem, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.DescriptionMemoEdit, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.CodeTextEdit, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.peObjectIcon, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.dataLayoutControl1, 0);
-            this.dataLayoutControl.Controls.SetChildIndex(this.gcMaterials, 0);
-            this.dataLayoutControl.Controls.SetChildIndex(this.gcPrices, 0);
+            this.dataLayoutControl.Controls.SetChildIndex(this.priceTypeItemView1, 0);
+            this.dataLayoutControl.Controls.SetChildIndex(this.priceTypeItemView2, 0);
             // 
             // Root
             // 
-            this.Root.Size = new System.Drawing.Size(1282, 465);
+            this.Root.Size = new System.Drawing.Size(947, 465);
             // 
             // bsObject
             // 
@@ -300,14 +279,12 @@
             this.bbiEditPrice,
             this.bbiDeletePrice});
             this.ribbonControl.MaxItemId = 16;
-            this.ribbonControl.Size = new System.Drawing.Size(1282, 158);
+            this.ribbonControl.Size = new System.Drawing.Size(947, 158);
             // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rpgCustomer,
-            this.rpgMaterials,
-            this.rpgPrices});
+            this.rpgCustomer});
             // 
             // CustomerIdLookUpEdit
             // 
@@ -323,7 +300,7 @@
             this.CustomerIdLookUpEdit.Properties.DisplayMember = "ContactName";
             this.CustomerIdLookUpEdit.Properties.NullText = "";
             this.CustomerIdLookUpEdit.Properties.ValueMember = "Id";
-            this.CustomerIdLookUpEdit.Size = new System.Drawing.Size(299, 20);
+            this.CustomerIdLookUpEdit.Size = new System.Drawing.Size(332, 20);
             this.CustomerIdLookUpEdit.StyleController = this.dataLayoutControl1;
             this.CustomerIdLookUpEdit.TabIndex = 5;
             // 
@@ -336,7 +313,7 @@
             this.ItemForCustomerId.Control = this.CustomerIdLookUpEdit;
             this.ItemForCustomerId.Location = new System.Drawing.Point(0, 24);
             this.ItemForCustomerId.Name = "ItemForCustomerId";
-            this.ItemForCustomerId.Size = new System.Drawing.Size(380, 24);
+            this.ItemForCustomerId.Size = new System.Drawing.Size(413, 24);
             this.ItemForCustomerId.Text = "Customer";
             this.ItemForCustomerId.TextSize = new System.Drawing.Size(65, 13);
             // 
@@ -351,7 +328,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DeliveryDateDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DeliveryDateDateEdit.Size = new System.Drawing.Size(299, 20);
+            this.DeliveryDateDateEdit.Size = new System.Drawing.Size(332, 20);
             this.DeliveryDateDateEdit.StyleController = this.dataLayoutControl1;
             this.DeliveryDateDateEdit.TabIndex = 6;
             // 
@@ -360,7 +337,7 @@
             this.ItemForDeliveryDate.Control = this.DeliveryDateDateEdit;
             this.ItemForDeliveryDate.Location = new System.Drawing.Point(0, 0);
             this.ItemForDeliveryDate.Name = "ItemForDeliveryDate";
-            this.ItemForDeliveryDate.Size = new System.Drawing.Size(380, 24);
+            this.ItemForDeliveryDate.Size = new System.Drawing.Size(413, 24);
             this.ItemForDeliveryDate.Text = "Delivery Date";
             this.ItemForDeliveryDate.TextSize = new System.Drawing.Size(65, 13);
             // 
@@ -387,14 +364,6 @@
             this.bbiEditCustomer.ImageOptions.LargeImageIndex = 27;
             this.bbiEditCustomer.Name = "bbiEditCustomer";
             // 
-            // rpgMaterials
-            // 
-            this.rpgMaterials.ItemLinks.Add(this.bbiAddMaterial);
-            this.rpgMaterials.ItemLinks.Add(this.bbiEditMaterial);
-            this.rpgMaterials.ItemLinks.Add(this.bbiDeleteMaterial);
-            this.rpgMaterials.Name = "rpgMaterials";
-            this.rpgMaterials.Text = "Muturiuul";
-            // 
             // bbiAddMaterial
             // 
             this.bbiAddMaterial.Caption = "Tuuvugen";
@@ -418,14 +387,6 @@
             this.bbiDeleteMaterial.ImageOptions.ImageIndex = 24;
             this.bbiDeleteMaterial.ImageOptions.LargeImageIndex = 24;
             this.bbiDeleteMaterial.Name = "bbiDeleteMaterial";
-            // 
-            // rpgPrices
-            // 
-            this.rpgPrices.ItemLinks.Add(this.bbiAddPrice);
-            this.rpgPrices.ItemLinks.Add(this.bbiEditPrice);
-            this.rpgPrices.ItemLinks.Add(this.bbiDeletePrice);
-            this.rpgPrices.Name = "rpgPrices";
-            this.rpgPrices.Text = "Pruzen";
             // 
             // bbiAddPrice
             // 
@@ -451,275 +412,107 @@
             this.bbiDeletePrice.ImageOptions.LargeImageIndex = 27;
             this.bbiDeletePrice.Name = "bbiDeletePrice";
             // 
-            // gcMaterials
-            // 
-            this.gcMaterials.DataSource = this.bsMaterials;
-            this.gcMaterials.Location = new System.Drawing.Point(442, 49);
-            this.gcMaterials.MainView = this.gvMaterials;
-            this.gcMaterials.MenuManager = this.ribbonControl;
-            this.gcMaterials.Name = "gcMaterials";
-            this.gcMaterials.Size = new System.Drawing.Size(393, 392);
-            this.gcMaterials.TabIndex = 8;
-            this.gcMaterials.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvMaterials});
-            // 
             // bsMaterials
             // 
             this.bsMaterials.DataSource = typeof(Petoetron.Classes.QuotationMaterial);
             // 
-            // gvMaterials
-            // 
-            this.gvMaterials.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMaterialUnit,
-            this.colMaterialUnitPrice,
-            this.colMaterialType,
-            this.colMaterialDescription,
-            this.colMaterialCode,
-            this.colAmount,
-            this.colQuotationId,
-            this.colMaterialId,
-            this.colQuotation,
-            this.colMaterial,
-            this.colId});
-            this.gvMaterials.GridControl = this.gcMaterials;
-            this.gvMaterials.Name = "gvMaterials";
-            this.gvMaterials.OptionsView.ShowGroupPanel = false;
-            // 
-            // colMaterialUnit
-            // 
-            this.colMaterialUnit.Caption = "Units";
-            this.colMaterialUnit.FieldName = "Material.Unit";
-            this.colMaterialUnit.Name = "colMaterialUnit";
-            this.colMaterialUnit.Visible = true;
-            this.colMaterialUnit.VisibleIndex = 5;
-            this.colMaterialUnit.Width = 163;
-            // 
-            // colMaterialUnitPrice
-            // 
-            this.colMaterialUnitPrice.Caption = "Unit Price";
-            this.colMaterialUnitPrice.FieldName = "Material.UnitPrice";
-            this.colMaterialUnitPrice.Name = "colMaterialUnitPrice";
-            this.colMaterialUnitPrice.Visible = true;
-            this.colMaterialUnitPrice.VisibleIndex = 4;
-            this.colMaterialUnitPrice.Width = 241;
-            // 
-            // colMaterialType
-            // 
-            this.colMaterialType.Caption = "Type";
-            this.colMaterialType.FieldName = "Material.Type.Code";
-            this.colMaterialType.Name = "colMaterialType";
-            this.colMaterialType.Visible = true;
-            this.colMaterialType.VisibleIndex = 2;
-            this.colMaterialType.Width = 200;
-            // 
-            // colMaterialDescription
-            // 
-            this.colMaterialDescription.Caption = "Description";
-            this.colMaterialDescription.FieldName = "Material.Description";
-            this.colMaterialDescription.Name = "colMaterialDescription";
-            this.colMaterialDescription.Visible = true;
-            this.colMaterialDescription.VisibleIndex = 1;
-            this.colMaterialDescription.Width = 240;
-            // 
-            // colMaterialCode
-            // 
-            this.colMaterialCode.Caption = "Code";
-            this.colMaterialCode.FieldName = "Material.Code";
-            this.colMaterialCode.Name = "colMaterialCode";
-            this.colMaterialCode.Visible = true;
-            this.colMaterialCode.VisibleIndex = 0;
-            this.colMaterialCode.Width = 195;
-            // 
-            // colAmount
-            // 
-            this.colAmount.FieldName = "Amount";
-            this.colAmount.Name = "colAmount";
-            this.colAmount.Visible = true;
-            this.colAmount.VisibleIndex = 3;
-            this.colAmount.Width = 200;
-            // 
-            // colQuotationId
-            // 
-            this.colQuotationId.FieldName = "QuotationId";
-            this.colQuotationId.Name = "colQuotationId";
-            // 
-            // colMaterialId
-            // 
-            this.colMaterialId.FieldName = "MaterialId";
-            this.colMaterialId.Name = "colMaterialId";
-            // 
-            // colQuotation
-            // 
-            this.colQuotation.FieldName = "Quotation";
-            this.colQuotation.Name = "colQuotation";
-            this.colQuotation.OptionsColumn.ReadOnly = true;
-            // 
-            // colMaterial
-            // 
-            this.colMaterial.FieldName = "Material";
-            this.colMaterial.Name = "colMaterial";
-            this.colMaterial.OptionsColumn.ReadOnly = true;
-            // 
-            // colId
-            // 
-            this.colId.FieldName = "Id";
-            this.colId.Name = "colId";
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.gcMaterials;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(397, 396);
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
-            // 
             // splitterItem1
             // 
             this.splitterItem1.AllowHotTrack = true;
-            this.splitterItem1.Location = new System.Drawing.Point(408, 0);
+            this.splitterItem1.Location = new System.Drawing.Point(441, 0);
             this.splitterItem1.Name = "splitterItem1";
             this.splitterItem1.Size = new System.Drawing.Size(10, 445);
-            // 
-            // lcgMaterials
-            // 
-            this.lcgMaterials.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem3});
-            this.lcgMaterials.Location = new System.Drawing.Point(418, 0);
-            this.lcgMaterials.Name = "lcgMaterials";
-            this.lcgMaterials.Size = new System.Drawing.Size(421, 445);
-            this.lcgMaterials.Text = "Muturiuul";
-            // 
-            // gcPrices
-            // 
-            this.gcPrices.DataSource = this.bsPrices;
-            this.gcPrices.Location = new System.Drawing.Point(873, 49);
-            this.gcPrices.MainView = this.gvPrices;
-            this.gcPrices.MenuManager = this.ribbonControl;
-            this.gcPrices.Name = "gcPrices";
-            this.gcPrices.Size = new System.Drawing.Size(385, 392);
-            this.gcPrices.TabIndex = 9;
-            this.gcPrices.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvPrices});
             // 
             // bsPrices
             // 
             this.bsPrices.DataSource = typeof(Petoetron.Classes.QuotationPrice);
             // 
-            // gvPrices
+            // lcgQuotationItems
             // 
-            this.gvPrices.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colAmount1,
-            this.colQuotationId1,
-            this.colPriceTypeId,
-            this.colQuotation1,
-            this.colPriceType,
-            this.colId1,
-            this.colPriceCode,
-            this.colPriceDescription,
-            this.colPriceUnitPrice,
-            this.colPriceUnit});
-            this.gvPrices.GridControl = this.gcPrices;
-            this.gvPrices.Name = "gvPrices";
-            this.gvPrices.OptionsView.ShowGroupPanel = false;
+            this.lcgQuotationItems.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem3,
+            this.emptySpaceItem1,
+            this.layoutControlItem4,
+            this.layoutControlItem5,
+            this.emptySpaceItem2});
+            this.lcgQuotationItems.Location = new System.Drawing.Point(451, 0);
+            this.lcgQuotationItems.Name = "lcgQuotationItems";
+            this.lcgQuotationItems.Size = new System.Drawing.Size(917, 445);
+            this.lcgQuotationItems.Text = "Guld";
             // 
-            // colAmount1
+            // ddbAddItem
             // 
-            this.colAmount1.FieldName = "Amount";
-            this.colAmount1.Name = "colAmount1";
-            this.colAmount1.Visible = true;
-            this.colAmount1.VisibleIndex = 2;
+            this.ddbAddItem.Location = new System.Drawing.Point(475, 49);
+            this.ddbAddItem.MenuManager = this.ribbonControl;
+            this.ddbAddItem.Name = "ddbAddItem";
+            this.ddbAddItem.Size = new System.Drawing.Size(442, 22);
+            this.ddbAddItem.StyleController = this.dataLayoutControl;
+            this.ddbAddItem.TabIndex = 8;
+            this.ddbAddItem.Text = "Add";
             // 
-            // colQuotationId1
+            // layoutControlItem3
             // 
-            this.colQuotationId1.FieldName = "QuotationId";
-            this.colQuotationId1.Name = "colQuotationId1";
+            this.layoutControlItem3.Control = this.ddbAddItem;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(446, 26);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
             // 
-            // colPriceTypeId
+            // emptySpaceItem1
             // 
-            this.colPriceTypeId.FieldName = "PriceTypeId";
-            this.colPriceTypeId.Name = "colPriceTypeId";
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(446, 0);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(447, 26);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // colQuotation1
+            // priceTypeItemView1
             // 
-            this.colQuotation1.FieldName = "Quotation";
-            this.colQuotation1.Name = "colQuotation1";
-            this.colQuotation1.OptionsColumn.ReadOnly = true;
+            this.priceTypeItemView1.Location = new System.Drawing.Point(475, 75);
+            this.priceTypeItemView1.Name = "priceTypeItemView1";
+            this.priceTypeItemView1.Size = new System.Drawing.Size(889, 103);
+            this.priceTypeItemView1.TabIndex = 9;
             // 
-            // colPriceType
+            // layoutControlItem4
             // 
-            this.colPriceType.FieldName = "PriceType";
-            this.colPriceType.Name = "colPriceType";
-            this.colPriceType.OptionsColumn.ReadOnly = true;
+            this.layoutControlItem4.Control = this.priceTypeItemView1;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 26);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(893, 107);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
             // 
-            // colId1
+            // priceTypeItemView2
             // 
-            this.colId1.FieldName = "Id";
-            this.colId1.Name = "colId1";
+            this.priceTypeItemView2.Location = new System.Drawing.Point(475, 182);
+            this.priceTypeItemView2.Name = "priceTypeItemView2";
+            this.priceTypeItemView2.Size = new System.Drawing.Size(889, 98);
+            this.priceTypeItemView2.TabIndex = 10;
             // 
-            // colPriceCode
+            // layoutControlItem5
             // 
-            this.colPriceCode.Caption = "Code";
-            this.colPriceCode.FieldName = "PriceType.Code";
-            this.colPriceCode.Name = "colPriceCode";
-            this.colPriceCode.Visible = true;
-            this.colPriceCode.VisibleIndex = 0;
+            this.layoutControlItem5.Control = this.priceTypeItemView2;
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 133);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(893, 102);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
             // 
-            // colPriceDescription
+            // emptySpaceItem2
             // 
-            this.colPriceDescription.Caption = "Description";
-            this.colPriceDescription.FieldName = "PriceType.Description";
-            this.colPriceDescription.Name = "colPriceDescription";
-            this.colPriceDescription.Visible = true;
-            this.colPriceDescription.VisibleIndex = 1;
-            // 
-            // colPriceUnitPrice
-            // 
-            this.colPriceUnitPrice.Caption = "Unit Price";
-            this.colPriceUnitPrice.FieldName = "PriceType.UnitPrice";
-            this.colPriceUnitPrice.Name = "colPriceUnitPrice";
-            this.colPriceUnitPrice.Visible = true;
-            this.colPriceUnitPrice.VisibleIndex = 3;
-            // 
-            // colPriceUnit
-            // 
-            this.colPriceUnit.Caption = "Units";
-            this.colPriceUnit.FieldName = "PriceType.PriceTypeUnit";
-            this.colPriceUnit.Name = "colPriceUnit";
-            this.colPriceUnit.Visible = true;
-            this.colPriceUnit.VisibleIndex = 4;
-            // 
-            // PricesGridItem
-            // 
-            this.PricesGridItem.Control = this.gcPrices;
-            this.PricesGridItem.Location = new System.Drawing.Point(0, 0);
-            this.PricesGridItem.Name = "PricesGridItem";
-            this.PricesGridItem.Size = new System.Drawing.Size(389, 396);
-            this.PricesGridItem.TextSize = new System.Drawing.Size(0, 0);
-            this.PricesGridItem.TextVisible = false;
-            // 
-            // splitterItem2
-            // 
-            this.splitterItem2.AllowHotTrack = true;
-            this.splitterItem2.Location = new System.Drawing.Point(839, 0);
-            this.splitterItem2.Name = "splitterItem2";
-            this.splitterItem2.Size = new System.Drawing.Size(10, 445);
-            // 
-            // lcgPrices
-            // 
-            this.lcgPrices.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.PricesGridItem});
-            this.lcgPrices.Location = new System.Drawing.Point(849, 0);
-            this.lcgPrices.Name = "lcgPrices";
-            this.lcgPrices.Size = new System.Drawing.Size(413, 445);
-            this.lcgPrices.Text = "Pruzen";
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 235);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(893, 161);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // QuotationEditView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "QuotationEditView";
-            this.Size = new System.Drawing.Size(1282, 623);
+            this.Size = new System.Drawing.Size(947, 623);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.InfoMemoEdit.Properties)).EndInit();
@@ -755,18 +548,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.DeliveryDateDateEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DeliveryDateDateEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForDeliveryDate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcMaterials)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsMaterials)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvMaterials)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgMaterials)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcPrices)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPrices)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvPrices)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PricesGridItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitterItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgPrices)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgQuotationItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -782,46 +572,23 @@
         private DevExpress.XtraBars.BarButtonItem bbiAddCustomer;
         private DevExpress.XtraBars.BarButtonItem bbiEditCustomer;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgCustomer;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgMaterials;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgPrices;
         private DevExpress.XtraBars.BarButtonItem bbiAddMaterial;
         private DevExpress.XtraBars.BarButtonItem bbiAddPrice;
-        private DevExpress.XtraGrid.GridControl gcMaterials;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvMaterials;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.SplitterItem splitterItem1;
         private System.Windows.Forms.BindingSource bsMaterials;
-        private DevExpress.XtraGrid.Columns.GridColumn colMaterialUnit;
-        private DevExpress.XtraGrid.Columns.GridColumn colMaterialUnitPrice;
-        private DevExpress.XtraGrid.Columns.GridColumn colMaterialType;
-        private DevExpress.XtraGrid.Columns.GridColumn colMaterialDescription;
-        private DevExpress.XtraGrid.Columns.GridColumn colMaterialCode;
-        private DevExpress.XtraGrid.Columns.GridColumn colAmount;
-        private DevExpress.XtraGrid.Columns.GridColumn colQuotationId;
-        private DevExpress.XtraGrid.Columns.GridColumn colMaterialId;
-        private DevExpress.XtraGrid.Columns.GridColumn colQuotation;
-        private DevExpress.XtraGrid.Columns.GridColumn colMaterial;
-        private DevExpress.XtraGrid.Columns.GridColumn colId;
         private DevExpress.XtraBars.BarButtonItem bbiEditMaterial;
         private DevExpress.XtraBars.BarButtonItem bbiDeleteMaterial;
         private DevExpress.XtraBars.BarButtonItem bbiEditPrice;
         private DevExpress.XtraBars.BarButtonItem bbiDeletePrice;
-        private DevExpress.XtraGrid.GridControl gcPrices;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvPrices;
-        private DevExpress.XtraLayout.LayoutControlGroup lcgMaterials;
-        private DevExpress.XtraLayout.LayoutControlItem PricesGridItem;
-        private DevExpress.XtraLayout.SplitterItem splitterItem2;
-        private DevExpress.XtraLayout.LayoutControlGroup lcgPrices;
         private System.Windows.Forms.BindingSource bsPrices;
-        private DevExpress.XtraGrid.Columns.GridColumn colAmount1;
-        private DevExpress.XtraGrid.Columns.GridColumn colQuotationId1;
-        private DevExpress.XtraGrid.Columns.GridColumn colPriceTypeId;
-        private DevExpress.XtraGrid.Columns.GridColumn colQuotation1;
-        private DevExpress.XtraGrid.Columns.GridColumn colPriceType;
-        private DevExpress.XtraGrid.Columns.GridColumn colId1;
-        private DevExpress.XtraGrid.Columns.GridColumn colPriceCode;
-        private DevExpress.XtraGrid.Columns.GridColumn colPriceDescription;
-        private DevExpress.XtraGrid.Columns.GridColumn colPriceUnitPrice;
-        private DevExpress.XtraGrid.Columns.GridColumn colPriceUnit;
+        private DevExpress.XtraLayout.LayoutControlGroup lcgQuotationItems;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraEditors.DropDownButton ddbAddItem;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private Helpers.PriceTypeItemView priceTypeItemView2;
+        private Helpers.PriceTypeItemView priceTypeItemView1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
     }
 }

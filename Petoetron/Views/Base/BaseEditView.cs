@@ -57,61 +57,7 @@ namespace Petoetron.Views.Base
         #endregion
 
         #region VIEW HELPERS
-        //protected void InitializeLinkTable<E, L, TModel>(
-        //    MVVMContextFluentAPI<TModel> fluent,
-        //    GridView gvLinks, BindingSource bsLinks,
-        //    Expression<Func<TModel, BindingList<L>>> entitySelector,
-        //    Expression<Func<TModel, L>> selectorExpression)
-        //    where TModel : BaseObjectEditViewModel<E>
-        //    where E : class, IBaseObject, new()
-        //    where L : class, IBaseObject, new()
-        //{
-        //    fluent.SetBinding(gvLinks, gv => gv.LoadingPanelVisible, m => m.IsLoading);
-        //    fluent.SetObjectDataSourceBinding(bsLinks, entitySelector, null);
-        //    fluent.WithEvent<ColumnView, FocusedRowObjectChangedEventArgs>(gvLinks, "FocusedRowObjectChanged").SetBinding(
-        //        selectorExpression,
-        //        args => args.Row as L,
-        //        (gView, operation) => gView.FocusedRowHandle = gView.FindRow(operation));
-        //}
-
-        //protected void InitializeLinkLookup<E, L, TModel>(
-        //    MVVMContextFluentAPI<TModel> fluent,
-        //    SearchLookUpEdit beiLookUp,
-        //    SimpleButton sbEdit,
-        //    SimpleButton sbDelete,
-        //    BindingSource bsLinks,
-        //    Expression<Func<TModel, BindingList<L>>> entitySelector,
-        //    Expression<Func<TModel, L>> selectorExpression,
-        //    Expression<Action<TModel>> commandDeleteSelector,
-        //    Expression<Action<TModel>> commandEditSelector)
-        //    where TModel : BaseObjectEditViewModel<E>
-        //    where E : class, IBaseObject, new()
-        //    where L : class, IBaseObject, new()
-        //{
-        //    fluent.BindCommand(sbDelete, commandDeleteSelector);
-        //    fluent.BindCommand(sbEdit, commandEditSelector);
-        //    fluent.SetObjectDataSourceBinding(bsLinks, entitySelector);
-        //    fluent.WithEvent(beiLookUp, "EditValueChanged").SetBinding(
-        //        selectorExpression,
-        //        (args) => beiLookUp.EditValue as L);
-        //}
-
-
-        //protected void InitializeLookUpGridView(GridView gridView)
-        //{
-        //    gridView.OptionsBehavior.Editable = false;
-        //    gridView.OptionsBehavior.AllowIncrementalSearch = true;
-        //    gridView.OptionsSelection.MultiSelect = true;
-        //    gridView.OptionsView.ShowDetailButtons = false;
-        //}
-
-        //protected void InitializeLinkButtons(LabelControl lblAdd, SimpleButton sbEdit, SimpleButton sbDelete)
-        //{
-        //    lblAdd.ImageOptions.Image = images.Images16x16.Images[0];
-        //    sbEdit.ImageOptions.Image = images.Images16x16.Images[1];
-        //    sbDelete.ImageOptions.Image = images.Images16x16.Images[2];
-        //}
-
+        
         public class CodeLengthValidationRule : ValidationRule
         {
             public override bool Validate(Control control, object value)
