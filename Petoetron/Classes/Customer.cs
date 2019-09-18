@@ -16,7 +16,7 @@ namespace Petoetron.Classes
         private string zip;
         private string fixedPhone;
         private string mobilePhone;
-        private string vat;
+        private double vat;
 
         public Customer() : this("") { }
         public Customer(string code) : base(code) { }
@@ -90,7 +90,7 @@ namespace Petoetron.Classes
             Zip = DatabaseAccess.RGetString(reader, "zip");
             FixedPhone = DatabaseAccess.RGetString(reader, "fixedPhone");
             MobilePhone = DatabaseAccess.RGetString(reader, "mobilePhone");
-            Vat = DatabaseAccess.RGetString(reader, "vat");
+            Vat = DatabaseAccess.RGetDouble(reader, "vat");
         }
 
         public override void OnChanged(ActionType queryType)
@@ -156,9 +156,9 @@ namespace Petoetron.Classes
             set { mobilePhone = value; OnPropertyChanged("MobilePhone"); }
         }
 
-        public string Vat
+        public double Vat
         {
-            get => vat ?? "";
+            get => vat;
             set { vat = value; OnPropertyChanged("Vat"); }
         }
         #endregion

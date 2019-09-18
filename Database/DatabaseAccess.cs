@@ -743,10 +743,10 @@ namespace Database
         {
             try
             {
-                AddDbValue(cmd, "tableName", dbInstance.TableName);
+                //AddDbValue(cmd, "tableName", dbInstance.TableName);
                 if (dbInstance is IDbObject dbo)
                 {
-                    AddDbValue(cmd, "deleteId", dbo.Id);
+                    AddDbValue(cmd, "dId", dbo.Id);
                 }
                 if (dbInstance is IDbLink link)
                 {

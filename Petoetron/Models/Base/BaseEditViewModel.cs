@@ -15,7 +15,7 @@ using System.Windows.Forms;
 namespace Petoetron.Models.Base
 {
     [POCOViewModel]
-    public abstract class BaseEditViewModel<TEntity> : BaseDocumentViewModel, IBaseEditViewModel<TEntity>, IDataChanged<TEntity> where TEntity : class, IBaseObject, new()
+    public abstract class BaseEditViewModel<TEntity> : BaseDocumentViewModel, IBaseEditViewModel<TEntity>, IDataChanged<TEntity> where TEntity : class, IObject, new()
     {
         protected bool closeOnSave = false;
         public virtual bool IsSaving { get; protected set; }
@@ -24,23 +24,14 @@ namespace Petoetron.Models.Base
         public virtual TEntity Original { get; protected set; }
         public virtual TEntity Editable { get; protected set; }
 
-        // Helper models
-        public virtual ObjectLogModel ObjectLogModel { get; protected set; }
-        public virtual ObjectFilesModel ObjectFilesModel { get; protected set; }
-
         // Helper variables
         protected bool propertiesEqual;
+        protected bool checkCode = true;
 
 
         protected BaseEditViewModel(IModuleType moduleType, TEntity original) : base(moduleType)
         {
             Original = original;
-
-            ObjectLogModel = ObjectLogModel.Create(moduleType, (f) => DataAccess.Dal.GetObjectLogs<TEntity>(f), original != null ? original.Id : 0);
-            ObjectLogModel.SetParentViewModel(this);
-
-            ObjectFilesModel = ObjectFilesModel.Create(moduleType, (newDocs) => Original.CopyDocuments(newDocs));
-            ObjectFilesModel.SetParentViewModel(this);
         }
 
         public override Task Load()
@@ -57,8 +48,6 @@ namespace Petoetron.Models.Base
             else
             {
                 OnLoading();
-                ObjectFilesModel.FileEntity = Editable;
-                ObjectFilesModel.Load();
                 OnLoaded();
                 return null;
             }
@@ -122,27 +111,18 @@ namespace Petoetron.Models.Base
             get { return Editable?.Code; }
             set { Editable.Code = value; }
         }
-        public virtual string Description
-        {
-            get { return Editable?.Description; }
-            set { Editable.Description = value; }
-        }
-        //public virtual bool ViewEditable
-        //{
-        //    get { return Features == null || Features.CanEdit; }
-        //    set { }
-        //}
+        
 
         public bool CanEditCode()
         {
-            return Editable != null && Editable.IsValid();
+            return Editable != null && Editable.Id > AbstractObject.UNKNOWN_ID;
         }
 
         public virtual bool CanClose()
         {
             return Original.PropertiesEqual(Editable) || Editable.Code.Length < ClientContext.MIN_OBJECT_CODE_LENGTH;
         }
-        
+
 
         #region DOCUMENT
 
@@ -185,13 +165,13 @@ namespace Petoetron.Models.Base
         public virtual bool CanSave()
         {
             if (IsSaving || IsLoading) return false;
-
+            
             return !propertiesEqual && Editable != null && Editable.Code.Length >= ClientContext.MIN_OBJECT_CODE_LENGTH;
         }
 
         public virtual void Save()
         {
-            if (Editable.Id < AbstractObject.UNKNOWN_ID && DataAccess.Dal.CodeExists<TEntity>(Editable.Code))
+            if (checkCode && Editable.Id < AbstractObject.UNKNOWN_ID && DataAccess.Dal.CodeExists<TEntity>(Editable.Code))
             {
                 MessageBoxService.ShowMessage("" + Editable.Code + " bestuut ul he puljuske", "Bestuut ul", MessageButton.OK);
             }
@@ -237,7 +217,7 @@ namespace Petoetron.Models.Base
 
         protected virtual void BeforeSave(TEntity editable)
         {
-            ObjectFilesModel.SaveImage();
+           
         }
 
         public virtual bool CanReset()
@@ -282,7 +262,7 @@ namespace Petoetron.Models.Base
                 IsLoading = true;
                 try
                 {
-                    Editable.Delete();
+                    DoDelete(Editable);
                 }
                 catch (Exception e)
                 {
@@ -295,10 +275,16 @@ namespace Petoetron.Models.Base
             }
         }
 
+        protected virtual void DoDelete(TEntity toDelete)
+        {
+            toDelete.Delete();
+        }
+
+
         public virtual bool CanCopy()
         {
             if (IsSaving || IsLoading) return false;
-            return (Editable != null) && Editable.IsValid();
+            return (Editable != null) && Editable.Id > AbstractObject.UNKNOWN_ID;
         }
 
         public virtual void Copy()

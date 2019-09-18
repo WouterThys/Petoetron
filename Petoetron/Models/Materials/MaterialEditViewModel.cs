@@ -9,7 +9,7 @@ using System.ComponentModel;
 namespace Petoetron.Models.Materials
 {
     [POCOViewModel]
-    public class MaterialEditViewModel : BaseEditViewModel<Material>
+    public class MaterialEditViewModel : BaseObjectEditViewModel<Material>
     {
         public static MaterialEditViewModel Create(Material original)
         {

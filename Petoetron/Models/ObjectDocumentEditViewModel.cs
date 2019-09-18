@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Petoetron.Models
 {
     [POCOViewModel]
-    public class ObjectDocumentEditViewModel : BaseEditViewModel<ObjectDocument>
+    public class ObjectDocumentEditViewModel : BaseObjectEditViewModel<ObjectDocument>
     {
         public static ObjectDocumentEditViewModel Create(ObjectDocument original, IBaseObject obj)
         {

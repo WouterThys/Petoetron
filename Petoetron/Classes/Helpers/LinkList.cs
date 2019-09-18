@@ -2,7 +2,7 @@
 
 namespace Petoetron.Classes.Helpers
 {
-    public abstract class LinkList<T> where T : IBaseObject
+    public abstract class LinkList<T> where T : IObject
     {
         public long ObjectId { get; set; }
 
@@ -31,9 +31,14 @@ namespace Petoetron.Classes.Helpers
 
         public override bool Equals(object obj)
         {
-            return obj is LinkList<T> list &&
+            bool equal = obj is LinkList<T> list &&
                    ObjectId == list.ObjectId &&
                    Ids.SetEquals(list.Ids);
+            if (equal && Values != null)
+            {
+                equal = values.SetEquals(((LinkList<T>)obj).Values);
+            }
+            return equal;
         }
 
         public override int GetHashCode()
@@ -94,7 +99,7 @@ namespace Petoetron.Classes.Helpers
 
         public void Add(T item)
         {
-            if (item != null && item.IsValid() && Values != null)
+            if (item != null && Values != null)
             {
                 ids.Add(item.Id);
                 values.Add(item);

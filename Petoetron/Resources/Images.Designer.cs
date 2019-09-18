@@ -61,6 +61,16 @@
             this.imageCollection16x16.Images.SetKeyName(18, "hand_money.png");
             this.imageCollection16x16.Images.SetKeyName(19, "objects.png");
             this.imageCollection16x16.Images.SetKeyName(20, "money.png");
+            this.imageCollection16x16.Images.SetKeyName(21, "invoice.png");
+            this.imageCollection16x16.Images.SetKeyName(22, "i-beams_add.png");
+            this.imageCollection16x16.Images.SetKeyName(23, "i-beams_edit.png");
+            this.imageCollection16x16.Images.SetKeyName(24, "i-beams_delete.png");
+            this.imageCollection16x16.Images.SetKeyName(25, "money_add.png");
+            this.imageCollection16x16.Images.SetKeyName(26, "money_edit.png");
+            this.imageCollection16x16.Images.SetKeyName(27, "money_delete.png");
+            this.imageCollection16x16.Images.SetKeyName(28, "hand_money_add.png");
+            this.imageCollection16x16.Images.SetKeyName(29, "hand_money_edit.png");
+            this.imageCollection16x16.Images.SetKeyName(30, "hand_money_delete.png");
             // 
             // imageCollection24x24
             // 
@@ -87,6 +97,16 @@
             this.imageCollection24x24.Images.SetKeyName(18, "hand_money.png");
             this.imageCollection24x24.Images.SetKeyName(19, "objects.png");
             this.imageCollection24x24.Images.SetKeyName(20, "money.png");
+            this.imageCollection24x24.Images.SetKeyName(21, "invoice.png");
+            this.imageCollection24x24.Images.SetKeyName(22, "i-beams_add.png");
+            this.imageCollection24x24.Images.SetKeyName(23, "i-beams_edit.png");
+            this.imageCollection24x24.Images.SetKeyName(24, "i-beams_delete.png");
+            this.imageCollection24x24.Images.SetKeyName(25, "money_add.png");
+            this.imageCollection24x24.Images.SetKeyName(26, "money_edit.png");
+            this.imageCollection24x24.Images.SetKeyName(27, "money_delete.png");
+            this.imageCollection24x24.Images.SetKeyName(28, "hand_money_add.png");
+            this.imageCollection24x24.Images.SetKeyName(29, "hand_money_edit.png");
+            this.imageCollection24x24.Images.SetKeyName(30, "hand_money_delete.png");
             // 
             // imageCollection48x48
             // 
@@ -113,6 +133,16 @@
             this.imageCollection48x48.Images.SetKeyName(18, "hand_money.png");
             this.imageCollection48x48.Images.SetKeyName(19, "objects.png");
             this.imageCollection48x48.Images.SetKeyName(20, "money.png");
+            this.imageCollection48x48.Images.SetKeyName(21, "invoice.png");
+            this.imageCollection48x48.Images.SetKeyName(22, "i-beams_add.png");
+            this.imageCollection48x48.Images.SetKeyName(23, "i-beams_edit.png");
+            this.imageCollection48x48.Images.SetKeyName(24, "i-beams_delete.png");
+            this.imageCollection48x48.Images.SetKeyName(25, "money_add.png");
+            this.imageCollection48x48.Images.SetKeyName(26, "money_edit.png");
+            this.imageCollection48x48.Images.SetKeyName(27, "money_delete.png");
+            this.imageCollection48x48.Images.SetKeyName(28, "hand_money_add.png");
+            this.imageCollection48x48.Images.SetKeyName(29, "hand_money_edit.png");
+            this.imageCollection48x48.Images.SetKeyName(30, "hand_money_delete.png");
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection16x16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection24x24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection48x48)).EndInit();

@@ -5,7 +5,7 @@ using Petoetron.Classes;
 
 namespace Petoetron.Views.Materials
 {
-    public partial class MaterialEditView : BaseEditView
+    public partial class MaterialEditView : BaseObjectEditView
     {
         public MaterialEditView()
         {
@@ -35,7 +35,7 @@ namespace Petoetron.Views.Materials
             base.OnLoad(e);
             if (!DesignMode)
             {
-                var fluent = InitBindings<Material, MaterialEditViewModel>();
+                var fluent = InitObjectBindings<Material, MaterialEditViewModel>();
                 fluent.SetObjectDataSourceBinding(bsType, m => m.TypeEntities);
             }
         }

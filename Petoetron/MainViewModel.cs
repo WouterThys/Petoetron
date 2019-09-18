@@ -48,6 +48,7 @@ namespace Petoetron
                 ((IDispatcherService)dispatcher).BeginInvoke(() => 
                 {
                     DocumentManagerService.ActiveDocumentChanged += DocumentManagerService_ActiveDocumentChanged;
+                    ShowDocument(ModuleTypes.QuotationListModule);
                     IsLoading = false;
                 });
             }, DispatcherService);

@@ -19,7 +19,12 @@ namespace Petoetron.Classes
 
         public QuotationMaterial() : this("") { }
         public QuotationMaterial(string code) : base(code) { }
-
+        public QuotationMaterial(Quotation quotation) : this("")
+        {
+            this.quotation = quotation;
+            quotationId = quotation != null ? quotation.Id : 0;
+        }
+        
         #region Base overrides
 
         public override IObject CreateCopy()

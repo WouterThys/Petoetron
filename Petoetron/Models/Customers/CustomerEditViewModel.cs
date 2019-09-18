@@ -6,7 +6,7 @@ using Petoetron.Models.Base;
 namespace Petoetron.Models.Customers
 {
     [POCOViewModel]
-    public class CustomerEditViewModel : BaseEditViewModel<Customer>
+    public class CustomerEditViewModel : BaseObjectEditViewModel<Customer>
     {
         public static CustomerEditViewModel Create(Customer original)
         {

@@ -90,6 +90,7 @@
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Models\Base\BaseDocumentViewModel.cs" />
     <Compile Include="Models\Base\BaseEditViewModel.cs" />
+    <Compile Include="Models\Base\BaseObjectEditViewModel.cs" />
     <Compile Include="Models\Base\BaseListViewModel.cs" />
     <Compile Include="Models\Base\BaseViewModel.cs" />
     <Compile Include="Models\Customers\CustomerEditViewModel.cs" />
@@ -104,6 +105,12 @@
     <Compile Include="Models\ObjectLogModel.cs" />
     <Compile Include="Models\PriceTypes\PriceTypeEditViewModel.cs" />
     <Compile Include="Models\PriceTypes\PriceTypeListViewModel.cs" />
+    <Compile Include="Models\QuotationMaterials\QuotationMaterialEditViewModel.cs" />
+    <Compile Include="Models\QuotationPrices\QuotationPriceEditViewModel.cs" />
+    <Compile Include="Models\Quotations\Helpers\PriceLinksModel.cs" />
+    <Compile Include="Models\Quotations\Helpers\MaterialLinksModel.cs" />
+    <Compile Include="Models\Quotations\QuotationEditViewModel.cs" />
+    <Compile Include="Models\Quotations\QuotationListViewModel.cs" />
     <Compile Include="ModuleTypes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -126,6 +133,12 @@
     </Compile>
     <Compile Include="Views\Base\BaseListView.Designer.cs">
       <DependentUpon>BaseListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Base\BaseObjectEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Base\BaseObjectEditView.Designer.cs">
+      <DependentUpon>BaseObjectEditView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Base\BaseRibbonControl.cs">
       <SubType>UserControl</SubType>
@@ -189,6 +202,24 @@
     <Compile Include="Views\PriceTypes\PriceTypeListView.Designer.cs">
       <DependentUpon>PriceTypeListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\QuotationMaterials\QuotationMaterialEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\QuotationMaterials\QuotationMaterialEditView.Designer.cs">
+      <DependentUpon>QuotationMaterialEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Quotations\QuotationEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Quotations\QuotationEditView.Designer.cs">
+      <DependentUpon>QuotationEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Quotations\QuotationListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Quotations\QuotationListView.Designer.cs">
+      <DependentUpon>QuotationListView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
@@ -211,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Base\BaseListView.resx">
       <DependentUpon>BaseListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Base\BaseObjectEditView.resx">
+      <DependentUpon>BaseObjectEditView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Base\BaseRibbonControl.resx">
       <DependentUpon>BaseRibbonControl.cs</DependentUpon>
@@ -242,6 +276,15 @@
     <EmbeddedResource Include="Views\PriceTypes\PriceTypeListView.resx">
       <DependentUpon>PriceTypeListView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\QuotationMaterials\QuotationMaterialEditView.resx">
+      <DependentUpon>QuotationMaterialEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Quotations\QuotationEditView.resx">
+      <DependentUpon>QuotationEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Quotations\QuotationListView.resx">
+      <DependentUpon>QuotationListView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <Content Include="Config\Settings.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -251,6 +294,9 @@
     <None Include="Properties\DataSources\Petoetron.Classes.Material.datasource" />
     <None Include="Properties\DataSources\Petoetron.Classes.MaterialType.datasource" />
     <None Include="Properties\DataSources\Petoetron.Classes.PriceType.datasource" />
+    <None Include="Properties\DataSources\Petoetron.Classes.Quotation.datasource" />
+    <None Include="Properties\DataSources\Petoetron.Classes.QuotationMaterial.datasource" />
+    <None Include="Properties\DataSources\Petoetron.Classes.QuotationPrice.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -267,7 +313,9 @@
       <Name>Database</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\QuotationPrices\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

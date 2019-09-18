@@ -9,7 +9,7 @@ using System.ComponentModel;
 namespace Petoetron.Models.PriceTypes
 {
     [POCOViewModel]
-    public class PriceTypeEditViewModel : BaseEditViewModel<PriceType>
+    public class PriceTypeEditViewModel : BaseObjectEditViewModel<PriceType>
     {
         public static PriceTypeEditViewModel Create(PriceType original)
         {

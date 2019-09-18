@@ -114,7 +114,7 @@ namespace Petoetron.Classes.Helpers
             Code = DatabaseAccess.RGetString(reader, "code");
         }
 
-        public bool Save()
+        public virtual bool Save()
         {
             if (Id <= 0)
             {
@@ -127,7 +127,7 @@ namespace Petoetron.Classes.Helpers
             return true;
         }
 
-        public bool Delete()
+        public virtual bool Delete()
         {
             if (Id > UNKNOWN_ID)
             {
@@ -139,7 +139,7 @@ namespace Petoetron.Classes.Helpers
         
         public void OnFailed(Database.DbException dbException)
         {
-            
+            DataAccess.Dal.DbQueryFailed(dbException);
         }
         #endregion
 

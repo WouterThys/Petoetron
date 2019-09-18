@@ -5,7 +5,7 @@ using Petoetron.Classes;
 
 namespace Petoetron.Views.Customers
 {
-    public partial class CustomerEditView : BaseEditView
+    public partial class CustomerEditView : BaseObjectEditView
     {
         public CustomerEditView()
         {
@@ -23,7 +23,7 @@ namespace Petoetron.Views.Customers
             base.OnLoad(e);
             if (!DesignMode)
             {
-                var fluent = InitBindings<Customer, CustomerEditViewModel>();
+                var fluent = InitObjectBindings<Customer, CustomerEditViewModel>();
 
             }
         }

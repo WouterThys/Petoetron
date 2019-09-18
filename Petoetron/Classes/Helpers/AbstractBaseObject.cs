@@ -69,7 +69,7 @@ namespace Petoetron.Classes.Helpers
 
         public override void OnChanged(ActionType queryType)
         {
-            LastModified = DateTime.Now;
+            //LastModified = DateTime.Now;
         }
 
         protected override void AddBaseSqlParameters(DbCommand command)

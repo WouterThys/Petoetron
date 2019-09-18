@@ -51,7 +51,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.peObjectIcon.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CodeTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DescriptionTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DescriptionMemoEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForDescription)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -123,7 +123,7 @@
             // dataLayoutControl
             // 
             this.dataLayoutControl.Size = new System.Drawing.Size(663, 601);
-            this.dataLayoutControl.Controls.SetChildIndex(this.DescriptionTextEdit, 0);
+            this.dataLayoutControl.Controls.SetChildIndex(this.DescriptionMemoEdit, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.CodeTextEdit, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.peObjectIcon, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.dataLayoutControl1, 0);
@@ -141,7 +141,7 @@
             // 
             // DescriptionTextEdit
             // 
-            this.DescriptionTextEdit.Size = new System.Drawing.Size(506, 129);
+            this.DescriptionMemoEdit.Size = new System.Drawing.Size(506, 129);
             // 
             // layoutControlGroup1
             // 
@@ -410,7 +410,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.peObjectIcon.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CodeTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DescriptionTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DescriptionMemoEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForDescription)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();

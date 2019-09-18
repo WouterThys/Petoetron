@@ -1,15 +1,15 @@
 ﻿using System;
 using Petoetron.Views.Base;
-using Petoetron.Models.PriceTypes;
+using Petoetron.Models.QuotationMaterials;
 using Petoetron.Classes;
 
-namespace Petoetron.Views.PriceTypes
+namespace Petoetron.Views.QuotationMaterials
 {
-    public partial class PriceTypeEditView : BaseObjectEditView
+    public partial class QuotationMaterialEditView : BaseEditView
     {
-        public PriceTypeEditView()
+        public QuotationMaterialEditView()
         {
-            InitializeModel(typeof(PriceTypeEditViewModel));
+            InitializeModel(typeof(QuotationMaterialEditViewModel));
             InitializeComponent();
             if (!DesignMode)
             {
@@ -21,9 +21,9 @@ namespace Petoetron.Views.PriceTypes
         public override void InitializeLayouts()
         {
             base.InitializeLayouts();
-            ViewHelpers.SetTextAlignment(
-                UnitPriceTextEdit,
-                PriceTypeUnitImageComboBoxEdit);
+            lcgMaterial.Enabled = false;
+
+            
         }
 
         protected override void OnLoad(EventArgs e)
@@ -31,8 +31,9 @@ namespace Petoetron.Views.PriceTypes
             base.OnLoad(e);
             if (!DesignMode)
             {
-                var fluent = InitObjectBindings<PriceType, PriceTypeEditViewModel>();
+                var fluent = InitBindings<QuotationMaterial, QuotationMaterialEditViewModel>();
 
+                fluent.SetObjectDataSourceBinding(bsMaterials, m => m.Materials);
             }
         }
     }

@@ -6,7 +6,7 @@ using Petoetron.Models.Base;
 namespace Petoetron.Models.MaterialTypes
 {
     [POCOViewModel]
-    public class MaterialTypeEditViewModel : BaseEditViewModel<MaterialType>
+    public class MaterialTypeEditViewModel : BaseObjectEditViewModel<MaterialType>
     {
         public static MaterialTypeEditViewModel Create(MaterialType original)
         {

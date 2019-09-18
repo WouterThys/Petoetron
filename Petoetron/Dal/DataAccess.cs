@@ -4,6 +4,7 @@ using Petoetron.Classes.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace Petoetron.Dal
 {
@@ -17,7 +18,7 @@ namespace Petoetron.Dal
         private IDataAccessCallback callback;
 
         // Databases
-        private DatabaseAccess Db { get; set; }
+        public DatabaseAccess Db { get; private set; }
 
         // Cache
         private readonly IDictionary<Type, IDataList> cache;
@@ -29,11 +30,15 @@ namespace Petoetron.Dal
             cache = new Dictionary<Type, IDataList>()
             {
                 { typeof(Quotation), new DataList<Quotation>(new Quotation().TableName) },
+                { typeof(QuotationMaterial), new DataList<QuotationMaterial>(new QuotationMaterial().TableName) },
+                { typeof(QuotationPrice), new DataList<QuotationPrice>(new QuotationPrice().TableName) },
 
                 { typeof(Customer), new DataList<Customer>(new Customer().TableName) },
                 { typeof(Material), new DataList<Material>(new Material().TableName) },
                 { typeof(MaterialType), new DataList<MaterialType>(new MaterialType().TableName) },
-                { typeof(PriceType), new DataList<PriceType>(new PriceType().TableName) }
+                { typeof(PriceType), new DataList<PriceType>(new PriceType().TableName) },
+
+                { typeof(ObjectDocument), new DataList<ObjectDocument>(new ObjectDocument().TableName) },
             };
         }
         
@@ -237,26 +242,37 @@ namespace Petoetron.Dal
         #endregion
 
         public DataList<Quotation> Quotations { get { return GetList(GetCachedList<Quotation>()); } }
+        public DataList<QuotationMaterial> QuotationMaterials { get { return GetList(GetCachedList<QuotationMaterial>()); } }
+        public DataList<QuotationPrice> QuotationPrices { get { return GetList(GetCachedList<QuotationPrice>()); } }
 
         public DataList<Customer> Customers { get { return GetList(GetCachedList<Customer>()); } }
         public DataList<Material> Materials { get { return GetList(GetCachedList<Material>()); } }
         public DataList<MaterialType> MaterialTypes { get { return GetList(GetCachedList<MaterialType>()); } }
         public DataList<PriceType> PriceTypes { get { return GetList(GetCachedList<PriceType>()); } }
 
+        public DataList<ObjectDocument> ObjectDocuments { get { return GetList(GetCachedList<ObjectDocument>()); } }
+
 
         public IEnumerable<ObjectDocument> GetObjectDocuments(string tableName, long id)
         {
-            throw new NotImplementedException(); // Fetch from db
+            return ObjectDocuments.Where(od => od.ObjectName == tableName && od.ObjectId == id);
         }
 
         public IEnumerable<ObjectLog> GetObjectLogs<T>(Filter filter) where T : class, IBaseObject, new()
         {
-            throw new NotImplementedException(); // Fetch from db
+            return new List<ObjectLog>();//throw new NotImplementedException(); // Fetch from db
         }
 
         public IEnumerable<long> FindMaterialsIdsForQuotation(long id)
         {
             string sql = "quotationsFindMaterials";
+            IEnumerable<long> ids = Db.FindIds(sql, (cmd) => DatabaseAccess.AddDbValue(cmd, "qId", id));
+            return ids;
+        }
+
+        public IEnumerable<long> FindPricesIdsForQuotation(long id)
+        {
+            string sql = "quotationsFindPrices";
             IEnumerable<long> ids = Db.FindIds(sql, (cmd) => DatabaseAccess.AddDbValue(cmd, "qId", id));
             return ids;
         }
