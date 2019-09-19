@@ -105,9 +105,9 @@
     <Compile Include="Models\ObjectLogModel.cs" />
     <Compile Include="Models\PriceTypes\PriceTypeEditViewModel.cs" />
     <Compile Include="Models\PriceTypes\PriceTypeListViewModel.cs" />
+    <Compile Include="Models\QuotationPrices\QuotationPriceEditViewModel.cs" />
     <Compile Include="Models\Quotations\Helpers\AbstractQuotationItem.cs" />
-    <Compile Include="Models\Quotations\Helpers\PriceTypeQuotationItem.cs" />
-    <Compile Include="Models\Quotations\Helpers\QuotationMaterialQuotationItem.cs" />
+    <Compile Include="Models\Quotations\Helpers\PriceTypeItemViewModel.cs" />
     <Compile Include="Models\Quotations\QuotationEditViewModel.cs" />
     <Compile Include="Models\Quotations\QuotationListViewModel.cs" />
     <Compile Include="ModuleTypes.cs" />
@@ -201,17 +201,17 @@
     <Compile Include="Views\PriceTypes\PriceTypeListView.Designer.cs">
       <DependentUpon>PriceTypeListView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Quotations\Helpers\BaseQuotationItemView.cs">
+    <Compile Include="Views\QuotationPrices\QuotationPriceEditView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\Quotations\Helpers\BaseQuotationItemView.Designer.cs">
-      <DependentUpon>BaseQuotationItemView.cs</DependentUpon>
+    <Compile Include="Views\QuotationPrices\QuotationPriceEditView.Designer.cs">
+      <DependentUpon>QuotationPriceEditView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Quotations\Helpers\PriceTypeItemView.cs">
+    <Compile Include="Views\Quotations\Helpers\QuotationItemView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\Quotations\Helpers\PriceTypeItemView.Designer.cs">
-      <DependentUpon>PriceTypeItemView.cs</DependentUpon>
+    <Compile Include="Views\Quotations\Helpers\QuotationItemView.Designer.cs">
+      <DependentUpon>QuotationItemView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Quotations\QuotationEditView.cs">
       <SubType>UserControl</SubType>
@@ -281,11 +281,11 @@
     <EmbeddedResource Include="Views\PriceTypes\PriceTypeListView.resx">
       <DependentUpon>PriceTypeListView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Quotations\Helpers\BaseQuotationItemView.resx">
-      <DependentUpon>BaseQuotationItemView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\QuotationPrices\QuotationPriceEditView.resx">
+      <DependentUpon>QuotationPriceEditView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Quotations\Helpers\PriceTypeItemView.resx">
-      <DependentUpon>PriceTypeItemView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Quotations\Helpers\QuotationItemView.resx">
+      <DependentUpon>QuotationItemView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Quotations\QuotationEditView.resx">
       <DependentUpon>QuotationEditView.cs</DependentUpon>
@@ -323,9 +323,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\QuotationMaterials\" />
-    <Folder Include="Models\QuotationPrices\" />
     <Folder Include="Views\QuotationMaterials\" />
-    <Folder Include="Views\QuotationPrices\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

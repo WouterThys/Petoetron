@@ -1,6 +1,6 @@
 ﻿namespace Petoetron.Views.Quotations.Helpers
 {
-    partial class PriceTypeItemView
+    partial class QuotationItemView
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,84 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataLayoutControl = new DevExpress.XtraDataLayout.DataLayoutControl();
+            this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.AmountSpinEdit = new DevExpress.XtraEditors.SpinEdit();
             this.PriceTypePriceTypeUnitImageComboBoxEdit = new DevExpress.XtraEditors.ImageComboBoxEdit();
-            this.PriceTypeDescriptionTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.sbDelete = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.ItemForAmount = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ItemForPriceTypeDescription = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForPriceTypePriceTypeUnit = new DevExpress.XtraLayout.LayoutControlItem();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsData)).BeginInit();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.sbEdit = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).BeginInit();
-            this.dataLayoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
+            this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AmountSpinEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PriceTypePriceTypeUnitImageComboBoxEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PriceTypeDescriptionTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForAmount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForPriceTypeDescription)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForPriceTypePriceTypeUnit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
-            // OptionBar
+            // dataLayoutControl1
             // 
-            this.OptionBar.OptionsBar.MultiLine = true;
-            this.OptionBar.OptionsBar.UseWholeRow = true;
-            // 
-            // barDockControlTop
-            // 
-            this.barDockControlTop.Size = new System.Drawing.Size(467, 26);
-            // 
-            // barDockControlBottom
-            // 
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 110);
-            this.barDockControlBottom.Size = new System.Drawing.Size(467, 0);
-            // 
-            // barDockControlLeft
-            // 
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 26);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 84);
-            // 
-            // barDockControlRight
-            // 
-            this.barDockControlRight.Location = new System.Drawing.Point(467, 26);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 84);
-            // 
-            // bsData
-            // 
-            this.bsData.DataSource = typeof(Petoetron.Classes.QuotationPrice);
-            // 
-            // dataLayoutControl
-            // 
-            this.dataLayoutControl.AllowGeneratingCollectionProperties = DevExpress.Utils.DefaultBoolean.True;
-            this.dataLayoutControl.AllowGeneratingNestedGroups = DevExpress.Utils.DefaultBoolean.True;
-            this.dataLayoutControl.Controls.Add(this.AmountSpinEdit);
-            this.dataLayoutControl.Controls.Add(this.PriceTypePriceTypeUnitImageComboBoxEdit);
-            this.dataLayoutControl.Controls.Add(this.PriceTypeDescriptionTextEdit);
-            this.dataLayoutControl.DataSource = this.bsData;
-            this.dataLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataLayoutControl.Location = new System.Drawing.Point(0, 26);
-            this.dataLayoutControl.Name = "dataLayoutControl";
-            this.dataLayoutControl.Root = this.Root;
-            this.dataLayoutControl.Size = new System.Drawing.Size(467, 84);
-            this.dataLayoutControl.TabIndex = 4;
-            this.dataLayoutControl.Text = "dataLayoutControl1";
+            this.dataLayoutControl1.AllowGeneratingCollectionProperties = DevExpress.Utils.DefaultBoolean.True;
+            this.dataLayoutControl1.AllowGeneratingNestedGroups = DevExpress.Utils.DefaultBoolean.True;
+            this.dataLayoutControl1.Controls.Add(this.AmountSpinEdit);
+            this.dataLayoutControl1.Controls.Add(this.PriceTypePriceTypeUnitImageComboBoxEdit);
+            this.dataLayoutControl1.Controls.Add(this.sbDelete);
+            this.dataLayoutControl1.Controls.Add(this.sbEdit);
+            this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataLayoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.dataLayoutControl1.Margin = new System.Windows.Forms.Padding(0);
+            this.dataLayoutControl1.Name = "dataLayoutControl1";
+            this.dataLayoutControl1.Root = this.Root;
+            this.dataLayoutControl1.Size = new System.Drawing.Size(500, 30);
+            this.dataLayoutControl1.TabIndex = 0;
+            this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
             // AmountSpinEdit
             // 
-            this.AmountSpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsData, "Amount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.AmountSpinEdit.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.AmountSpinEdit.Location = new System.Drawing.Point(52, 36);
-            this.AmountSpinEdit.MenuManager = this.barManager;
+            this.AmountSpinEdit.Location = new System.Drawing.Point(49, 2);
             this.AmountSpinEdit.Name = "AmountSpinEdit";
             this.AmountSpinEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.AmountSpinEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -114,15 +85,13 @@
             this.AmountSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.AmountSpinEdit.Properties.Mask.EditMask = "F";
             this.AmountSpinEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.AmountSpinEdit.Size = new System.Drawing.Size(325, 20);
-            this.AmountSpinEdit.StyleController = this.dataLayoutControl;
+            this.AmountSpinEdit.Size = new System.Drawing.Size(243, 24);
+            this.AmountSpinEdit.StyleController = this.dataLayoutControl1;
             this.AmountSpinEdit.TabIndex = 4;
             // 
             // PriceTypePriceTypeUnitImageComboBoxEdit
             // 
-            this.PriceTypePriceTypeUnitImageComboBoxEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsData, "PriceType.PriceTypeUnit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.PriceTypePriceTypeUnitImageComboBoxEdit.Location = new System.Drawing.Point(381, 36);
-            this.PriceTypePriceTypeUnitImageComboBoxEdit.MenuManager = this.barManager;
+            this.PriceTypePriceTypeUnitImageComboBoxEdit.Location = new System.Drawing.Point(296, 2);
             this.PriceTypePriceTypeUnitImageComboBoxEdit.Name = "PriceTypePriceTypeUnitImageComboBoxEdit";
             this.PriceTypePriceTypeUnitImageComboBoxEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.PriceTypePriceTypeUnitImageComboBoxEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -135,19 +104,20 @@
             new DevExpress.XtraEditors.Controls.ImageComboBoxItem("PerM", Petoetron.Classes.Helpers.PriceTypeUnit.PerM, 3),
             new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Fixed", Petoetron.Classes.Helpers.PriceTypeUnit.Fixed, 4)});
             this.PriceTypePriceTypeUnitImageComboBoxEdit.Properties.UseCtrlScroll = true;
-            this.PriceTypePriceTypeUnitImageComboBoxEdit.Size = new System.Drawing.Size(74, 20);
-            this.PriceTypePriceTypeUnitImageComboBoxEdit.StyleController = this.dataLayoutControl;
+            this.PriceTypePriceTypeUnitImageComboBoxEdit.Size = new System.Drawing.Size(144, 22);
+            this.PriceTypePriceTypeUnitImageComboBoxEdit.StyleController = this.dataLayoutControl1;
             this.PriceTypePriceTypeUnitImageComboBoxEdit.TabIndex = 5;
             // 
-            // PriceTypeDescriptionTextEdit
+            // sbDelete
             // 
-            this.PriceTypeDescriptionTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsData, "PriceType.Description", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.PriceTypeDescriptionTextEdit.Location = new System.Drawing.Point(12, 12);
-            this.PriceTypeDescriptionTextEdit.MenuManager = this.barManager;
-            this.PriceTypeDescriptionTextEdit.Name = "PriceTypeDescriptionTextEdit";
-            this.PriceTypeDescriptionTextEdit.Size = new System.Drawing.Size(443, 20);
-            this.PriceTypeDescriptionTextEdit.StyleController = this.dataLayoutControl;
-            this.PriceTypeDescriptionTextEdit.TabIndex = 6;
+            this.sbDelete.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.sbDelete.Location = new System.Drawing.Point(473, 2);
+            this.sbDelete.MaximumSize = new System.Drawing.Size(25, 25);
+            this.sbDelete.MinimumSize = new System.Drawing.Size(25, 25);
+            this.sbDelete.Name = "sbDelete";
+            this.sbDelete.Size = new System.Drawing.Size(25, 25);
+            this.sbDelete.TabIndex = 6;
+            this.sbDelete.Text = " ";
             // 
             // Root
             // 
@@ -156,7 +126,8 @@
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup1});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(467, 84);
+            this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.Root.Size = new System.Drawing.Size(500, 30);
             this.Root.TextVisible = false;
             // 
             // layoutControlGroup1
@@ -165,81 +136,100 @@
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.ItemForAmount,
-            this.ItemForPriceTypeDescription,
-            this.ItemForPriceTypePriceTypeUnit});
+            this.ItemForPriceTypePriceTypeUnit,
+            this.layoutControlItem1,
+            this.layoutControlItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "autoGeneratedGroup0";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(447, 64);
+            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(500, 30);
             // 
             // ItemForAmount
             // 
             this.ItemForAmount.Control = this.AmountSpinEdit;
-            this.ItemForAmount.Location = new System.Drawing.Point(0, 24);
+            this.ItemForAmount.Location = new System.Drawing.Point(0, 0);
             this.ItemForAmount.Name = "ItemForAmount";
-            this.ItemForAmount.Size = new System.Drawing.Size(369, 40);
+            this.ItemForAmount.Size = new System.Drawing.Size(294, 30);
             this.ItemForAmount.Text = "Amount";
-            this.ItemForAmount.TextSize = new System.Drawing.Size(37, 13);
-            // 
-            // ItemForPriceTypeDescription
-            // 
-            this.ItemForPriceTypeDescription.Control = this.PriceTypeDescriptionTextEdit;
-            this.ItemForPriceTypeDescription.Location = new System.Drawing.Point(0, 0);
-            this.ItemForPriceTypeDescription.Name = "ItemForPriceTypeDescription";
-            this.ItemForPriceTypeDescription.Size = new System.Drawing.Size(447, 24);
-            this.ItemForPriceTypeDescription.Text = "Description";
-            this.ItemForPriceTypeDescription.TextSize = new System.Drawing.Size(0, 0);
-            this.ItemForPriceTypeDescription.TextVisible = false;
+            this.ItemForAmount.TextSize = new System.Drawing.Size(44, 16);
             // 
             // ItemForPriceTypePriceTypeUnit
             // 
             this.ItemForPriceTypePriceTypeUnit.Control = this.PriceTypePriceTypeUnitImageComboBoxEdit;
-            this.ItemForPriceTypePriceTypeUnit.Location = new System.Drawing.Point(369, 24);
+            this.ItemForPriceTypePriceTypeUnit.ControlAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ItemForPriceTypePriceTypeUnit.Location = new System.Drawing.Point(294, 0);
             this.ItemForPriceTypePriceTypeUnit.Name = "ItemForPriceTypePriceTypeUnit";
-            this.ItemForPriceTypePriceTypeUnit.Size = new System.Drawing.Size(78, 40);
+            this.ItemForPriceTypePriceTypeUnit.Size = new System.Drawing.Size(148, 30);
             this.ItemForPriceTypePriceTypeUnit.Text = "Price Type Unit";
             this.ItemForPriceTypePriceTypeUnit.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForPriceTypePriceTypeUnit.TextVisible = false;
             // 
-            // PriceTypeItemView
+            // layoutControlItem1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.layoutControlItem1.Control = this.sbDelete;
+            this.layoutControlItem1.Location = new System.Drawing.Point(471, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(29, 30);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // sbEdit
+            // 
+            this.sbEdit.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.sbEdit.Location = new System.Drawing.Point(444, 2);
+            this.sbEdit.MaximumSize = new System.Drawing.Size(25, 25);
+            this.sbEdit.MinimumSize = new System.Drawing.Size(25, 25);
+            this.sbEdit.Name = "sbEdit";
+            this.sbEdit.Size = new System.Drawing.Size(25, 25);
+            this.sbEdit.TabIndex = 7;
+            this.sbEdit.Text = " ";
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.sbEdit;
+            this.layoutControlItem2.Location = new System.Drawing.Point(442, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(29, 30);
+            this.layoutControlItem2.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextToControlDistance = 0;
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // QuotationItemView
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dataLayoutControl);
-            this.Name = "PriceTypeItemView";
-            this.Size = new System.Drawing.Size(467, 110);
-            this.Controls.SetChildIndex(this.barDockControlTop, 0);
-            this.Controls.SetChildIndex(this.barDockControlBottom, 0);
-            this.Controls.SetChildIndex(this.barDockControlRight, 0);
-            this.Controls.SetChildIndex(this.barDockControlLeft, 0);
-            this.Controls.SetChildIndex(this.dataLayoutControl, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsData)).EndInit();
+            this.Controls.Add(this.dataLayoutControl1);
+            this.MaximumSize = new System.Drawing.Size(5000, 30);
+            this.Name = "QuotationItemView";
+            this.Size = new System.Drawing.Size(500, 30);
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).EndInit();
-            this.dataLayoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
+            this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AmountSpinEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PriceTypePriceTypeUnitImageComboBoxEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PriceTypeDescriptionTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForAmount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForPriceTypeDescription)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForPriceTypePriceTypeUnit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl;
+        private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraEditors.SpinEdit AmountSpinEdit;
         private DevExpress.XtraEditors.ImageComboBoxEdit PriceTypePriceTypeUnitImageComboBoxEdit;
-        private DevExpress.XtraEditors.TextEdit PriceTypeDescriptionTextEdit;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem ItemForAmount;
         private DevExpress.XtraLayout.LayoutControlItem ItemForPriceTypePriceTypeUnit;
-        private DevExpress.XtraLayout.LayoutControlItem ItemForPriceTypeDescription;
+        private DevExpress.XtraEditors.SimpleButton sbDelete;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraEditors.SimpleButton sbEdit;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
     }
 }

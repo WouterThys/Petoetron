@@ -1,10 +1,14 @@
-﻿using DevExpress.Mvvm.DataAnnotations;
+﻿using DevExpress.Mvvm;
+using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.Mvvm.POCO;
 using Petoetron.Classes;
 using Petoetron.Classes.Helpers;
 using Petoetron.Dal;
 using Petoetron.Models.Base;
 using Petoetron.Models.Customers;
+using Petoetron.Models.QuotationPrices;
+using Petoetron.Models.Quotations.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -21,6 +25,8 @@ namespace Petoetron.Models.Quotations
 
 
         public virtual BindingList<Customer> Customers { get; protected set; }
+
+        public virtual BindingList<AbstractQuotationViewModel> QuotationItems { get; set; }
 
         protected QuotationEditViewModel(Quotation original) : base(ModuleTypes.QuotationEditModule, original)
         {
@@ -41,6 +47,39 @@ namespace Petoetron.Models.Quotations
         public override void OnLoaded()
         {
             Customers = new BindingList<Customer>(tmpCustomers);
+            QuotationItems = new BindingList<AbstractQuotationViewModel>();
+            // TODO: load all price types and stuff to create quotation view items
+
+            //TEST
+            //List<AbstractQuotationViewModel> models = new List<AbstractQuotationViewModel>();
+
+            //var p1 = new PriceType()
+            //{
+            //    Id = 1,
+            //    Code = "Price type 1",
+            //    Description = "This is a test price type",
+            //    UnitPrice = 1.23M,
+            //    PriceTypeUnit = PriceTypeUnit.PerKg
+            //};
+            //var p2 = new PriceType()
+            //{
+            //    Id = 2,
+            //    Code = "Price type 2",
+            //    Description = "This is another test price type",
+            //    UnitPrice = 0.36M,
+            //    PriceTypeUnit = PriceTypeUnit.PerKg
+            //};
+            //var qp1 = new QuotationPrice(Editable, p1);
+            //var qp2 = new QuotationPrice(Editable, p2);
+            //var qpvm1 = PriceTypeItemViewModel.Create(qp1);
+            //var qpvm2 = PriceTypeItemViewModel.Create(qp2);
+            //var qpvm3 = PriceTypeItemViewModel.Create(qp2);
+
+            //models.Add(qpvm1);
+            //models.Add(qpvm2);
+            //models.Add(qpvm3);
+            //QuotationItems = new BindingList<AbstractQuotationViewModel>(models);
+            ////TEST
 
             base.OnLoaded();
         }
@@ -88,7 +127,37 @@ namespace Petoetron.Models.Quotations
         }
 
 
-        
+
+        public virtual void AddPriceType(PriceType priceType)
+        {
+            // TODO: add to editable
+            var qp = new QuotationPrice(Editable, priceType);
+
+            QuotationPriceEditViewModel model = QuotationPriceEditViewModel.Create(qp);
+            var res = DialogService.ShowDialog(MessageButton.OKCancel, priceType.Code, model);
+            if (res == MessageResult.OK)
+            {
+                var qpModel = PriceTypeItemViewModel.Create(qp, () => RemoveQuotationPrice(qp));
+                QuotationItems.Add(qpModel);
+            }
+        }
+
+        public virtual void RemoveQuotationPrice(QuotationPrice price)
+        {
+            // TODO: remove from editable
+            foreach (AbstractQuotationViewModel model in QuotationItems)
+            {
+                if (model is PriceTypeItemViewModel qpModel)
+                {
+                    if (qpModel.Price.Equals(price))
+                    {
+                        QuotationItems.Remove(model);
+                        break;
+                    }
+                }
+            }
+        }
+
         #region IDataChanged listeners
         void IDataChanged<Customer>.OnInserted(Customer inserted)
         {

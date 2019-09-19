@@ -8,31 +8,37 @@ using System.Threading.Tasks;
 
 namespace Petoetron.Models.Quotations.Helpers
 {
-    public interface IQuotationItem<T> // where T : INotifyDataChanged?
+    public interface IQuotationItem // where T : INotifyDataChanged?
     {
         long Id { get; }
         string Title { get; }
-        T Data { get; }
+        object Data { get; }
 
         bool CanDeleteItem();
         void DeleteItem();
+
+        bool CanEditItem();
+        void EditItem();
     }
 
     [POCOViewModel]
-    public abstract class AbstractQuotationViewModel<T> : BaseViewModel, IQuotationItem<T>
+    public abstract class AbstractQuotationViewModel : BaseViewModel, IQuotationItem, IEquatable<AbstractQuotationViewModel>
     {
-        private static long id;
-        private T data;
+        private object data;
 
-        protected AbstractQuotationViewModel(T data) : base(ModuleTypes.QuotationItemModule)
+        protected readonly Action _onDelete;
+
+        protected AbstractQuotationViewModel(object data, Action _onDelete) : base(ModuleTypes.QuotationItemModule)
         {
-            id++;
             this.data = data;
+            this._onDelete = _onDelete;
         }
+        
+        public virtual object Data { get { return data; } protected set { data = value; } }// where T : INotifyDataChanged? in setter? -> OnDataChanged -> properties changed stuff
 
-        public virtual long Id { get { return id; } }
-        public virtual T Data { get { return data; } protected set { data = value; } }// where T : INotifyDataChanged? in setter? -> OnDataChanged -> properties changed stuff
+        public abstract long Id { get; }
         public abstract string Title { get; }
+        public abstract void EditItem();
 
         public void UpdateCommands()
         {
@@ -41,12 +47,44 @@ namespace Petoetron.Models.Quotations.Helpers
 
         public virtual bool CanDeleteItem()
         {
-            return !IsLoading;
+            return !IsLoading && _onDelete != null;
         }
 
         public virtual void DeleteItem()
         {
+            _onDelete();
+        }
 
+        public virtual bool CanEditItem()
+        {
+            return !IsLoading && _onDelete != null;
+        }
+
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as AbstractQuotationViewModel);
+        }
+
+        public bool Equals(AbstractQuotationViewModel other)
+        {
+            return other != null &&
+                   Id == other.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return 2108858624 + Id.GetHashCode();
+        }
+
+        public static bool operator ==(AbstractQuotationViewModel model1, AbstractQuotationViewModel model2)
+        {
+            return EqualityComparer<AbstractQuotationViewModel>.Default.Equals(model1, model2);
+        }
+
+        public static bool operator !=(AbstractQuotationViewModel model1, AbstractQuotationViewModel model2)
+        {
+            return !(model1 == model2);
         }
     }
 }

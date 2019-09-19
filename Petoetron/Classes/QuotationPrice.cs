@@ -13,8 +13,11 @@ namespace Petoetron.Classes
     public class QuotationPrice : AbstractObject
     {
         public override string TableName { get { return "quotationprices"; } }
+        private static int insertId = -100;
 
         private double amount;
+        private DateTime date;
+        private string info;
 
         private long quotationId;
         private Quotation quotation;
@@ -24,6 +27,19 @@ namespace Petoetron.Classes
 
         public QuotationPrice() : this("") { }
         public QuotationPrice(string code) : base(code) { }
+        public QuotationPrice(Quotation quotation, PriceType priceType) : this()
+        {
+            Id = insertId--;
+
+            this.quotation = quotation;
+            quotationId = quotation != null ? quotation.Id : 0;
+
+            this.priceType = priceType;
+            priceTypeId = priceType != null ? priceType.Id : 0;
+
+            date = DateTime.Now;
+            amount = 1;
+        }
 
         #region Base overrides
 
@@ -40,6 +56,8 @@ namespace Petoetron.Classes
             {
                 base.CopyFrom(toCopy);
                 Amount = qp.Amount;
+                Date = qp.Date;
+                Info = qp.Info;
                 QuotationId = qp.QuotationId;
                 PriceTypeId = qp.PriceTypeId;
             }
@@ -51,6 +69,8 @@ namespace Petoetron.Classes
             {
                 return base.PropertiesEqual(iObject) &&
                     Amount == qp.Amount &&
+                    Date == qp.Date &&
+                    Info == qp.Info &&
                     QuotationId == qp.QuotationId &&
                     PriceTypeId == qp.PriceTypeId;
             }
@@ -65,6 +85,8 @@ namespace Petoetron.Classes
         {
             base.AddBaseSqlParameters(command);
             DatabaseAccess.AddDbValue(command, "amount", Amount);
+            DatabaseAccess.AddDbValue(command, "date", Date);
+            DatabaseAccess.AddDbValue(command, "info", Amount);
             DatabaseAccess.AddDbValue(command, "quotationId", QuotationId);
             DatabaseAccess.AddDbValue(command, "priceTypeId", PriceTypeId);
         }
@@ -73,6 +95,8 @@ namespace Petoetron.Classes
         {
             base.InitBaseFromReader(reader);
             Amount = DatabaseAccess.RGetDouble(reader, "amount");
+            Date = DatabaseAccess.RGetDateTime(reader, "date");
+            Info = DatabaseAccess.RGetString(reader, "info");
             QuotationId = DatabaseAccess.RGetLong(reader, "quotationId");
             PriceTypeId = DatabaseAccess.RGetLong(reader, "priceTypeId");
         }
@@ -104,6 +128,26 @@ namespace Petoetron.Classes
             {
                 amount = value;
                 OnPropertyChanged("Amount");
+            }
+        }
+
+        public DateTime Date
+        {
+            get => date;
+            set
+            {
+                date = value;
+                OnPropertyChanged("Date");
+            }
+        }
+
+        public string Info
+        {
+            get => info;
+            set
+            {
+                info = value;
+                OnPropertyChanged("Info");
             }
         }
 
