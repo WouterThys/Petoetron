@@ -13,7 +13,7 @@ namespace Petoetron.Classes
     public class QuotationPrice : AbstractObject
     {
         public override string TableName { get { return "quotationprices"; } }
-        private static int insertId = -100;
+        private static long insertId = -10000;
 
         private double amount;
         private DateTime date;
@@ -26,17 +26,19 @@ namespace Petoetron.Classes
         private PriceType priceType;
 
         public QuotationPrice() : this("") { }
-        public QuotationPrice(string code) : base(code) { }
-        public QuotationPrice(Quotation quotation, PriceType priceType) : this()
+        public QuotationPrice(string code) : base(code)
         {
             Id = insertId--;
-
+        }
+        public QuotationPrice(Quotation quotation, PriceType priceType) : this()
+        {
             this.quotation = quotation;
             quotationId = quotation != null ? quotation.Id : 0;
 
             this.priceType = priceType;
             priceTypeId = priceType != null ? priceType.Id : 0;
 
+            code = priceType?.Code;
             date = DateTime.Now;
             amount = 1;
         }

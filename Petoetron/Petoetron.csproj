@@ -105,8 +105,10 @@
     <Compile Include="Models\ObjectLogModel.cs" />
     <Compile Include="Models\PriceTypes\PriceTypeEditViewModel.cs" />
     <Compile Include="Models\PriceTypes\PriceTypeListViewModel.cs" />
+    <Compile Include="Models\QuotationMaterials\QuotationMaterialEditViewModel.cs" />
     <Compile Include="Models\QuotationPrices\QuotationPriceEditViewModel.cs" />
     <Compile Include="Models\Quotations\Helpers\AbstractQuotationItem.cs" />
+    <Compile Include="Models\Quotations\Helpers\MaterialItemViewModel.cs" />
     <Compile Include="Models\Quotations\Helpers\PriceTypeItemViewModel.cs" />
     <Compile Include="Models\Quotations\QuotationEditViewModel.cs" />
     <Compile Include="Models\Quotations\QuotationListViewModel.cs" />
@@ -201,6 +203,12 @@
     <Compile Include="Views\PriceTypes\PriceTypeListView.Designer.cs">
       <DependentUpon>PriceTypeListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\QuotationMaterials\QuotationMaterialEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\QuotationMaterials\QuotationMaterialEditView.Designer.cs">
+      <DependentUpon>QuotationMaterialEditView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\QuotationPrices\QuotationPriceEditView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -281,6 +289,9 @@
     <EmbeddedResource Include="Views\PriceTypes\PriceTypeListView.resx">
       <DependentUpon>PriceTypeListView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\QuotationMaterials\QuotationMaterialEditView.resx">
+      <DependentUpon>QuotationMaterialEditView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\QuotationPrices\QuotationPriceEditView.resx">
       <DependentUpon>QuotationPriceEditView.cs</DependentUpon>
     </EmbeddedResource>
@@ -321,10 +332,7 @@
       <Name>Database</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\QuotationMaterials\" />
-    <Folder Include="Views\QuotationMaterials\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

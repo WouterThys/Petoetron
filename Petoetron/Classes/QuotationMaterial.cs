@@ -1,6 +1,7 @@
 ﻿using Database;
 using Petoetron.Classes.Helpers;
 using Petoetron.Dal;
+using System;
 using System.Data.Common;
 
 namespace Petoetron.Classes
@@ -8,8 +9,11 @@ namespace Petoetron.Classes
     public class QuotationMaterial : AbstractObject
     {
         public override string TableName { get { return "quotationmaterials"; } }
+        private static long insertId = -10000;
 
         private double amount;
+        private DateTime date;
+        private string info;
 
         private long quotationId;
         private Quotation quotation;
@@ -18,11 +22,17 @@ namespace Petoetron.Classes
         private Material material;
 
         public QuotationMaterial() : this("") { }
-        public QuotationMaterial(string code) : base(code) { }
+        public QuotationMaterial(string code) : base(code)
+        {
+            Id = insertId--;
+        }
         public QuotationMaterial(Quotation quotation) : this("")
         {
             this.quotation = quotation;
             quotationId = quotation != null ? quotation.Id : 0;
+
+            date = DateTime.Now;
+            amount = 1;
         }
         
         #region Base overrides
@@ -40,6 +50,8 @@ namespace Petoetron.Classes
             {
                 base.CopyFrom(toCopy);
                 Amount = qm.Amount;
+                Date = qm.Date;
+                Info = qm.Info;
                 QuotationId = qm.QuotationId;
                 MaterialId = qm.MaterialId;
             }
@@ -51,6 +63,8 @@ namespace Petoetron.Classes
             {
                 return base.PropertiesEqual(iObject) &&
                     Amount == qm.Amount &&
+                    Date == qm.Date &&
+                    Info == qm.Info &&
                     QuotationId == qm.QuotationId &&
                     MaterialId == qm.MaterialId;
             }
@@ -65,6 +79,8 @@ namespace Petoetron.Classes
         {
             base.AddBaseSqlParameters(command);
             DatabaseAccess.AddDbValue(command, "amount", Amount);
+            DatabaseAccess.AddDbValue(command, "date", Date);
+            DatabaseAccess.AddDbValue(command, "info", Info);
             DatabaseAccess.AddDbValue(command, "quotationId", QuotationId);
             DatabaseAccess.AddDbValue(command, "materialId", MaterialId);
         }
@@ -73,6 +89,8 @@ namespace Petoetron.Classes
         {
             base.InitBaseFromReader(reader);
             Amount = DatabaseAccess.RGetDouble(reader, "amount");
+            Date = DatabaseAccess.RGetDateTime(reader, "date");
+            Info = DatabaseAccess.RGetString(reader, "info");
             QuotationId = DatabaseAccess.RGetLong(reader, "quotationId");
             MaterialId = DatabaseAccess.RGetLong(reader, "materialId");
         }
@@ -104,6 +122,26 @@ namespace Petoetron.Classes
             {
                 amount = value;
                 OnPropertyChanged("Amount");
+            }
+        }
+
+        public DateTime Date
+        {
+            get => date;
+            set
+            {
+                date = value;
+                OnPropertyChanged("Date");
+            }
+        }
+
+        public string Info
+        {
+            get => info;
+            set
+            {
+                info = value;
+                OnPropertyChanged("Info");
             }
         }
 
@@ -145,6 +183,10 @@ namespace Petoetron.Classes
                     material = null;
                 }
                 materialId = value;
+                if (string.IsNullOrEmpty(Code))
+                {
+                    Code = Material?.Code;
+                }
                 OnPropertyChanged("MaterialId");
             }
         }

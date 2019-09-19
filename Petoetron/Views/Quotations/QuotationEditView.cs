@@ -38,14 +38,11 @@ namespace Petoetron.Views.Quotations
 
             InitializeLookUpEdit(CustomerIdLookUpEdit);
 
+            lcgPriceItems.ExpandButtonVisible = true;
+            lcgMaterialItems.ExpandButtonVisible = true;
+
             ddbAddItem.ImageOptions.Image = images.Images16x16.Images[0];
             bsQuotationItems.ListChanged += BsQuotationItems_ListChanged;
-            bsQuotationItems.DataMemberChanged += BsQuotationItems_DataMemberChanged;
-        }
-
-        private void BsQuotationItems_DataMemberChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void BsQuotationItems_ListChanged(object sender, System.ComponentModel.ListChangedEventArgs e)
@@ -103,6 +100,21 @@ namespace Petoetron.Views.Quotations
         {
             dataLayoutControl.BeginUpdate();
             lcgQuotationItems.BeginUpdate();
+            lcgPriceItems.BeginUpdate();
+            lcgMaterialItems.BeginUpdate();
+
+            List<LayoutControlItem> allItems = new List<LayoutControlItem>(AllLayoutControlItems());
+            foreach (LayoutControlItem lci in allItems)
+            {
+                if (lci.Tag is PriceTypeItemViewModel ptModel)
+                {
+                    RemovePriceTypeQuotationItem(ptModel, lci);
+                }
+                else if (lci.Tag is MaterialItemViewModel miModel)
+                {
+                    RemoveMaterialQuotationItem(miModel, lci);
+                }
+            }
 
             foreach (AbstractQuotationViewModel model in models)
             {
@@ -110,33 +122,46 @@ namespace Petoetron.Views.Quotations
                 {
                     AddPriceTypeQuotationItem(ptiModel);
                 }
-                // else if ..
+                else if (model is MaterialItemViewModel miModel)
+                {
+                    AddMaterialQuotationItem(miModel);
+                }
             }
-            //lcgQuotationItems.Add(new EmptySpaceItem());
 
-            dataLayoutControl.EndUpdate();
+            lcgMaterialItems.EndUpdate();
+            lcgPriceItems.EndUpdate();
             lcgQuotationItems.EndUpdate();
+            dataLayoutControl.EndUpdate();
         }
 
         private void AddQuotationItem(AbstractQuotationViewModel model)
         {
             dataLayoutControl.BeginUpdate();
             lcgQuotationItems.BeginUpdate();
+            lcgPriceItems.BeginUpdate();
+            lcgMaterialItems.BeginUpdate();
 
             if (model is PriceTypeItemViewModel ptiModel)
             {
                 AddPriceTypeQuotationItem(ptiModel);
             }
-            // else if ..
+            else if (model is MaterialItemViewModel miModel)
+            {
+                AddMaterialQuotationItem(miModel);
+            }
 
-            dataLayoutControl.EndUpdate();
+            lcgMaterialItems.EndUpdate();
+            lcgPriceItems.EndUpdate();
             lcgQuotationItems.EndUpdate();
+            dataLayoutControl.EndUpdate();
         }
 
         private void QuotationItemRemoved(IEnumerable<AbstractQuotationViewModel> models)
         {
             dataLayoutControl.BeginUpdate();
             lcgQuotationItems.BeginUpdate();
+            lcgPriceItems.BeginUpdate();
+            lcgMaterialItems.BeginUpdate();
 
             List<LayoutControlItem> allItems = new List<LayoutControlItem>(AllLayoutControlItems());
             foreach (LayoutControlItem lci in allItems)
@@ -148,20 +173,25 @@ namespace Petoetron.Views.Quotations
                     {
                         RemovePriceTypeQuotationItem(ptModel, lci);
                     }
+                    else if (lci.Tag is MaterialItemViewModel miModel)
+                    {
+                        RemoveMaterialQuotationItem(miModel, lci);
+                    }
                 }
             }
 
-            dataLayoutControl.EndUpdate();
+            lcgMaterialItems.EndUpdate();
+            lcgPriceItems.EndUpdate();
             lcgQuotationItems.EndUpdate();
+            dataLayoutControl.EndUpdate();
         }
 
-
-        private void AddPriceTypeQuotationItem(PriceTypeItemViewModel model)
+        private void AddMaterialQuotationItem(MaterialItemViewModel model)
         {
             QuotationItemView view = new QuotationItemView();
             view.InitializeBinding(model);
 
-            LayoutControlGroup group = GetLayoutGroup(model.Title, lcgQuotationItems);
+            LayoutControlGroup group = GetLayoutGroup(model.Title, lcgMaterialItems);
 
             group.BeginUpdate();
             LayoutControlItem item = group.AddItem();
@@ -171,6 +201,49 @@ namespace Petoetron.Views.Quotations
             group.EndUpdate();
         }
 
+        private void AddPriceTypeQuotationItem(PriceTypeItemViewModel model)
+        {
+            QuotationItemView view = new QuotationItemView();
+            view.InitializeBinding(model);
+
+            LayoutControlGroup group = GetLayoutGroup(model.Title, lcgPriceItems);
+
+            group.BeginUpdate();
+            LayoutControlItem item = group.AddItem();
+            item.Control = view;
+            item.TextVisible = false;
+            item.Tag = model;
+            group.EndUpdate();
+        }
+
+        private void RemoveMaterialQuotationItem(MaterialItemViewModel model, LayoutControlItem lci)
+        {
+            LayoutControlGroup group = GetLayoutGroup(model.Title, lcgMaterialItems);
+            group.BeginUpdate();
+            lci.Control.Dispose();
+            group.Remove(lci);
+            group.EndUpdate();
+            if (group.Items.Count == 0)
+            {
+                lcgMaterialItems.Remove(group);
+                layoutGroups.Remove(model.Title);
+            }
+        }
+
+        private void RemovePriceTypeQuotationItem(PriceTypeItemViewModel model, LayoutControlItem lci)
+        {
+            LayoutControlGroup group = GetLayoutGroup(model.Title, lcgPriceItems);
+            group.BeginUpdate();
+            lci.Control.Dispose();
+            group.Remove(lci);
+            group.EndUpdate();
+            if (group.Items.Count == 0)
+            {
+                lcgPriceItems.Remove(group);
+                layoutGroups.Remove(model.Title);
+            }
+        }
+        
         private List<LayoutControlItem> AllLayoutControlItems()
         {
             List<LayoutControlItem> all = new List<LayoutControlItem>();
@@ -185,20 +258,6 @@ namespace Petoetron.Views.Quotations
                 }
             }
             return all;
-        }
-
-        private void RemovePriceTypeQuotationItem(PriceTypeItemViewModel model, LayoutControlItem lci)
-        {
-            LayoutControlGroup group = GetLayoutGroup(model.Title, lcgQuotationItems);
-            group.BeginUpdate();
-            lci.Control.Dispose();
-            group.Remove(lci);
-            group.EndUpdate();
-            if (group.Items.Count == 0)
-            {
-                lcgQuotationItems.Remove(group);
-                layoutGroups.Remove(model.Title);
-            }
         }
 
         private LayoutControlGroup GetLayoutGroup(string code, LayoutGroup parent)
@@ -229,8 +288,18 @@ namespace Petoetron.Views.Quotations
         private void InitDropDownButton()
         {
             List<BarButtonItem> items = new List<BarButtonItem>();
+
+            // Materials
+            BarButtonItem material = CreateBarButtonItem("MUTURIUUL", "Muturiulen", 0);
+            material.Tag = null;
+            fluent.WithEvent<ItemClickEventArgs>(material, "ItemClick").EventToCommand(m => m.AddMaterial());
+            items.Add(material);
+
+            // Price types
             foreach (PriceType priceType in DataAccess.Dal.PriceTypes)
             {
+                if (priceType.IsUnknown()) continue;
+
                 BarButtonItem item = CreateBarButtonItem(priceType.Code, priceType.Description, 0);
                 item.Tag = priceType;
                 fluent.WithEvent<ItemClickEventArgs>(item, "ItemClick").EventToCommand(m => m.AddPriceType(null), (arg) => arg.Item.Tag);
@@ -244,11 +313,12 @@ namespace Petoetron.Views.Quotations
         private static int PopupId;
         private BarButtonItem CreateBarButtonItem(string caption, string name, int imageIndex)
         {
-            BarButtonItem item = new BarButtonItem();
-            item.Caption = caption;
-            item.Id = PopupId++;
-            //item.ImageOptions.ImageIndex = imageIndex;
-            item.Name = name;
+            BarButtonItem item = new BarButtonItem
+            {
+                Caption = caption,
+                Id = PopupId++,
+                Name = name
+            };
             return item;
         }
 

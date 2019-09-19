@@ -6,6 +6,7 @@ using Petoetron.Classes.Helpers;
 using Petoetron.Dal;
 using Petoetron.Models.Base;
 using Petoetron.Models.Customers;
+using Petoetron.Models.QuotationMaterials;
 using Petoetron.Models.QuotationPrices;
 using Petoetron.Models.Quotations.Helpers;
 using System;
@@ -37,50 +38,31 @@ namespace Petoetron.Models.Quotations
         }
 
         private List<Customer> tmpCustomers;
+        private List<AbstractQuotationViewModel> tmpItemViewModels;
         public override void OnLoading()
         {
             base.OnLoading();
 
             tmpCustomers = new List<Customer>(DataAccess.Dal.Customers);
+
+            tmpItemViewModels = new List<AbstractQuotationViewModel>();
+            foreach (QuotationMaterial qm in Editable.Materials.Values)
+            {
+                var mModel = MaterialItemViewModel.Create(qm, () => RemoveQuotationMaterial(qm));
+                tmpItemViewModels.Add(mModel);
+            }
+            foreach (QuotationPrice qp in Editable.Prices.Values)
+            {
+                var qpModel = PriceTypeItemViewModel.Create(qp, () => RemoveQuotationPrice(qp));
+                tmpItemViewModels.Add(qpModel);
+            }
         }
 
         public override void OnLoaded()
         {
             Customers = new BindingList<Customer>(tmpCustomers);
-            QuotationItems = new BindingList<AbstractQuotationViewModel>();
-            // TODO: load all price types and stuff to create quotation view items
-
-            //TEST
-            //List<AbstractQuotationViewModel> models = new List<AbstractQuotationViewModel>();
-
-            //var p1 = new PriceType()
-            //{
-            //    Id = 1,
-            //    Code = "Price type 1",
-            //    Description = "This is a test price type",
-            //    UnitPrice = 1.23M,
-            //    PriceTypeUnit = PriceTypeUnit.PerKg
-            //};
-            //var p2 = new PriceType()
-            //{
-            //    Id = 2,
-            //    Code = "Price type 2",
-            //    Description = "This is another test price type",
-            //    UnitPrice = 0.36M,
-            //    PriceTypeUnit = PriceTypeUnit.PerKg
-            //};
-            //var qp1 = new QuotationPrice(Editable, p1);
-            //var qp2 = new QuotationPrice(Editable, p2);
-            //var qpvm1 = PriceTypeItemViewModel.Create(qp1);
-            //var qpvm2 = PriceTypeItemViewModel.Create(qp2);
-            //var qpvm3 = PriceTypeItemViewModel.Create(qp2);
-
-            //models.Add(qpvm1);
-            //models.Add(qpvm2);
-            //models.Add(qpvm3);
-            //QuotationItems = new BindingList<AbstractQuotationViewModel>(models);
-            ////TEST
-
+            QuotationItems = new BindingList<AbstractQuotationViewModel>(tmpItemViewModels);
+            
             base.OnLoaded();
         }
 
@@ -126,11 +108,41 @@ namespace Petoetron.Models.Quotations
             ShowDocument(model);
         }
 
+        public virtual void AddMaterial()
+        {
+            var qm = new QuotationMaterial(Editable);
 
+            QuotationMaterialEditViewModel model = QuotationMaterialEditViewModel.Create(qm);
+            var res = DialogService.ShowDialog(MessageButton.OKCancel, "Muturiuul", model);
+            if (res == MessageResult.OK && qm.MaterialId > AbstractObject.UNKNOWN_ID)
+            {
+                var mModel = MaterialItemViewModel.Create(qm, () => RemoveQuotationMaterial(qm));
+                Editable.Materials.Add(qm);
+                QuotationItems.Add(mModel);
+                UpdateCommands();
+            }
+        }
+
+        public virtual void RemoveQuotationMaterial(QuotationMaterial material)
+        {
+            // TODO: remove from editable
+            foreach (AbstractQuotationViewModel model in QuotationItems)
+            {
+                if (model is MaterialItemViewModel qmModel)
+                {
+                    if (qmModel.Material.Equals(material))
+                    {
+                        QuotationItems.Remove(model);
+                        Editable.Materials.Remove(material);
+                        UpdateCommands();
+                        break;
+                    }
+                }
+            }
+        }
 
         public virtual void AddPriceType(PriceType priceType)
         {
-            // TODO: add to editable
             var qp = new QuotationPrice(Editable, priceType);
 
             QuotationPriceEditViewModel model = QuotationPriceEditViewModel.Create(qp);
@@ -138,7 +150,9 @@ namespace Petoetron.Models.Quotations
             if (res == MessageResult.OK)
             {
                 var qpModel = PriceTypeItemViewModel.Create(qp, () => RemoveQuotationPrice(qp));
+                Editable.Prices.Add(qp);
                 QuotationItems.Add(qpModel);
+                UpdateCommands();
             }
         }
 
@@ -152,6 +166,8 @@ namespace Petoetron.Models.Quotations
                     if (qpModel.Price.Equals(price))
                     {
                         QuotationItems.Remove(model);
+                        Editable.Prices.Remove(price);
+                        UpdateCommands();
                         break;
                     }
                 }

@@ -45,8 +45,10 @@
             this.bbiDeletePrice = new DevExpress.XtraBars.BarButtonItem();
             this.splitterItem1 = new DevExpress.XtraLayout.SplitterItem();
             this.lcgQuotationItems = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.lcgPriceItems = new DevExpress.XtraLayout.LayoutControlGroup();
             this.ItemForDropdownButton = new DevExpress.XtraLayout.LayoutControlItem();
             this.ddbAddItem = new DevExpress.XtraEditors.DropDownButton();
+            this.lcgMaterialItems = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.bsQuotationItems = new System.Windows.Forms.BindingSource(this.components);
             this.AddQuotationItemPopupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
@@ -87,7 +89,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemForDeliveryDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgQuotationItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgPriceItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForDropdownButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgMaterialItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsQuotationItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddQuotationItemPopupMenu)).BeginInit();
@@ -97,9 +101,9 @@
             // 
             this.dataLayoutControl1.Controls.Add(this.CustomerIdLookUpEdit);
             this.dataLayoutControl1.Controls.Add(this.DeliveryDateDateEdit);
-            this.dataLayoutControl1.Location = new System.Drawing.Point(14, 161);
+            this.dataLayoutControl1.Location = new System.Drawing.Point(14, 126);
             this.dataLayoutControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.dataLayoutControl1.Size = new System.Drawing.Size(509, 398);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(509, 577);
             this.dataLayoutControl1.Controls.SetChildIndex(this.DeliveryDateDateEdit, 0);
             this.dataLayoutControl1.Controls.SetChildIndex(this.CustomerIdLookUpEdit, 0);
             this.dataLayoutControl1.Controls.SetChildIndex(this.InfoMemoEdit, 0);
@@ -107,26 +111,26 @@
             // InfoMemoEdit
             // 
             this.InfoMemoEdit.Location = new System.Drawing.Point(14, 117);
-            this.InfoMemoEdit.Size = new System.Drawing.Size(481, 267);
+            this.InfoMemoEdit.Size = new System.Drawing.Size(481, 446);
             // 
             // layoutControlGroup2
             // 
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(509, 398);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(509, 577);
             // 
             // layoutControlGroup3
             // 
-            this.layoutControlGroup3.Size = new System.Drawing.Size(509, 398);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(509, 577);
             // 
             // peObjectIcon
             // 
-            this.peObjectIcon.Size = new System.Drawing.Size(137, 143);
+            this.peObjectIcon.Size = new System.Drawing.Size(137, 108);
             // 
             // DescriptionMemoEdit
             // 
             this.DescriptionMemoEdit.Location = new System.Drawing.Point(155, 40);
             this.DescriptionMemoEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.DescriptionMemoEdit.Size = new System.Drawing.Size(368, 117);
+            this.DescriptionMemoEdit.Size = new System.Drawing.Size(368, 82);
             // 
             // CodeTextEdit
             // 
@@ -139,12 +143,12 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.splitterItem1,
             this.lcgQuotationItems});
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1081, 549);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1081, 693);
             // 
             // ItemForDescription
             // 
             this.ItemForDescription.Location = new System.Drawing.Point(141, 26);
-            this.ItemForDescription.Size = new System.Drawing.Size(372, 121);
+            this.ItemForDescription.Size = new System.Drawing.Size(372, 86);
             // 
             // ItemForCode
             // 
@@ -153,37 +157,37 @@
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Size = new System.Drawing.Size(141, 147);
+            this.layoutControlItem1.Size = new System.Drawing.Size(141, 112);
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 147);
-            this.layoutControlItem2.Size = new System.Drawing.Size(513, 402);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 112);
+            this.layoutControlItem2.Size = new System.Drawing.Size(513, 581);
             // 
             // tabbedControlGroup
             // 
-            this.tabbedControlGroup.Size = new System.Drawing.Size(509, 398);
+            this.tabbedControlGroup.Size = new System.Drawing.Size(509, 577);
             // 
             // lcgData
             // 
             this.lcgData.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.ItemForDeliveryDate,
             this.ItemForCustomerId});
-            this.lcgData.Size = new System.Drawing.Size(485, 342);
+            this.lcgData.Size = new System.Drawing.Size(485, 521);
             // 
             // ItemForInfo
             // 
             this.ItemForInfo.Location = new System.Drawing.Point(0, 52);
-            this.ItemForInfo.Size = new System.Drawing.Size(485, 290);
+            this.ItemForInfo.Size = new System.Drawing.Size(485, 469);
             this.ItemForInfo.TextSize = new System.Drawing.Size(75, 16);
             // 
             // lcgDocuments
             // 
-            this.lcgDocuments.Size = new System.Drawing.Size(485, 342);
+            this.lcgDocuments.Size = new System.Drawing.Size(485, 521);
             // 
             // lcgLogs
             // 
-            this.lcgLogs.Size = new System.Drawing.Size(485, 342);
+            this.lcgLogs.Size = new System.Drawing.Size(485, 521);
             // 
             // bbiSave
             // 
@@ -215,7 +219,7 @@
             this.dataLayoutControl.Controls.Add(this.ddbAddItem);
             this.dataLayoutControl.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.dataLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(660, 243, 650, 400);
-            this.dataLayoutControl.Size = new System.Drawing.Size(1105, 573);
+            this.dataLayoutControl.Size = new System.Drawing.Size(1105, 717);
             this.dataLayoutControl.Controls.SetChildIndex(this.ddbAddItem, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.DescriptionMemoEdit, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.CodeTextEdit, 0);
@@ -224,7 +228,7 @@
             // 
             // Root
             // 
-            this.Root.Size = new System.Drawing.Size(1105, 573);
+            this.Root.Size = new System.Drawing.Size(1105, 717);
             // 
             // bsObject
             // 
@@ -412,24 +416,33 @@
             this.splitterItem1.AllowHotTrack = true;
             this.splitterItem1.Location = new System.Drawing.Point(513, 0);
             this.splitterItem1.Name = "splitterItem1";
-            this.splitterItem1.Size = new System.Drawing.Size(12, 549);
+            this.splitterItem1.Size = new System.Drawing.Size(12, 693);
             // 
             // lcgQuotationItems
             // 
             this.lcgQuotationItems.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lcgPriceItems,
             this.ItemForDropdownButton,
+            this.lcgMaterialItems,
             this.emptySpaceItem1});
             this.lcgQuotationItems.Location = new System.Drawing.Point(525, 0);
             this.lcgQuotationItems.Name = "lcgQuotationItems";
-            this.lcgQuotationItems.Size = new System.Drawing.Size(556, 549);
+            this.lcgQuotationItems.Size = new System.Drawing.Size(556, 693);
             this.lcgQuotationItems.Text = "Guld";
+            // 
+            // lcgPriceItems
+            // 
+            this.lcgPriceItems.Location = new System.Drawing.Point(0, 267);
+            this.lcgPriceItems.Name = "lcgPriceItems";
+            this.lcgPriceItems.Size = new System.Drawing.Size(530, 367);
+            this.lcgPriceItems.Text = "Undure";
             // 
             // ItemForDropdownButton
             // 
             this.ItemForDropdownButton.Control = this.ddbAddItem;
             this.ItemForDropdownButton.Location = new System.Drawing.Point(0, 0);
             this.ItemForDropdownButton.Name = "ItemForDropdownButton";
-            this.ItemForDropdownButton.Size = new System.Drawing.Size(241, 490);
+            this.ItemForDropdownButton.Size = new System.Drawing.Size(264, 31);
             this.ItemForDropdownButton.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForDropdownButton.TextVisible = false;
             // 
@@ -439,17 +452,24 @@
             this.ddbAddItem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ddbAddItem.MenuManager = this.ribbonControl;
             this.ddbAddItem.Name = "ddbAddItem";
-            this.ddbAddItem.Size = new System.Drawing.Size(237, 27);
+            this.ddbAddItem.Size = new System.Drawing.Size(260, 27);
             this.ddbAddItem.StyleController = this.dataLayoutControl;
             this.ddbAddItem.TabIndex = 8;
             this.ddbAddItem.Text = "Add";
             // 
+            // lcgMaterialItems
+            // 
+            this.lcgMaterialItems.Location = new System.Drawing.Point(0, 31);
+            this.lcgMaterialItems.Name = "lcgMaterialItems";
+            this.lcgMaterialItems.Size = new System.Drawing.Size(530, 236);
+            this.lcgMaterialItems.Text = "Muturiuul";
+            // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(241, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(264, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(289, 490);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(266, 31);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // AddQuotationItemPopupMenu
@@ -463,7 +483,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.Name = "QuotationEditView";
-            this.Size = new System.Drawing.Size(1105, 767);
+            this.Size = new System.Drawing.Size(1105, 911);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.InfoMemoEdit.Properties)).EndInit();
@@ -501,7 +521,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemForDeliveryDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgQuotationItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgPriceItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForDropdownButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgMaterialItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsQuotationItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddQuotationItemPopupMenu)).EndInit();
@@ -533,5 +555,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private System.Windows.Forms.BindingSource bsQuotationItems;
         private DevExpress.XtraBars.PopupMenu AddQuotationItemPopupMenu;
+        private DevExpress.XtraLayout.LayoutControlGroup lcgPriceItems;
+        private DevExpress.XtraLayout.LayoutControlGroup lcgMaterialItems;
     }
 }
