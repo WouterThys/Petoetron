@@ -53,6 +53,13 @@ namespace Petoetron.Classes.Helpers
             return res;
         }
 
+        public double ReadDouble(string section, string key)
+        {
+            string val = ReadValue(section, key);
+            double.TryParse(val, out double res);
+            return res;
+        }
+
         public bool ReadBool(string section, string key)
         {
             string val = ReadValue(section, key);

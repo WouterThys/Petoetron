@@ -17,6 +17,8 @@ using Petoetron.Models.Base;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.Data;
 using DevExpress.Utils.Menu;
+using DevExpress.Utils.Behaviors.Common;
+using System.Diagnostics;
 
 namespace Petoetron.Views.Base
 {
@@ -78,6 +80,7 @@ namespace Petoetron.Views.Base
             where T : class, IBaseObject, new()
         {
             var fluent = mvvmContext.OfType<TModel>();
+            InitializeLayoutPrecistance(fluent.ViewModel.Module.ViewName + ".xml");
             fluent.WithEvent<EventArgs>(this, "Load").EventToCommand(m => m.Load());
 
             // GridView
@@ -114,6 +117,19 @@ namespace Petoetron.Views.Base
             fluent.BindCommand(bbiExport, m => m.ExportList());
 
             return fluent;
+        }
+
+        protected virtual void InitializeLayoutPrecistance(string layoutXmlName)
+        {
+            try
+            {
+                PersistenceBehavior behaviour = behaviorManager.GetBehavior<PersistenceBehavior>(gridControl);
+                behaviour.Properties.Path = layoutXmlName;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Failed to InitializeLayoutPrecistance: " + e);
+            }
         }
 
         #region POPUP MENU

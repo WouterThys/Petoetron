@@ -33,8 +33,10 @@
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.skinRibbonGalleryBarItem = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.bbiDbState = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiShowInfo = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgGeneral = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.documentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
@@ -47,9 +49,11 @@
             this.aceCustomers = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceMaterialTypes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceMaterials = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.acePriceTypes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mvvmContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             this.images = new Petoetron.Resources.Images(this.components);
-            this.acePriceTypes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.behaviorManager = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.bbiReport = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager)).BeginInit();
@@ -59,6 +63,7 @@
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -67,17 +72,18 @@
             this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl.ExpandCollapseItem,
             this.skinRibbonGalleryBarItem,
-            this.bbiDbState});
+            this.bbiDbState,
+            this.bbiShowInfo,
+            this.bbiReport});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl.MaxItemId = 47;
+            this.ribbonControl.MaxItemId = 49;
             this.ribbonControl.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage});
             this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.ribbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl.Size = new System.Drawing.Size(1630, 198);
+            this.ribbonControl.Size = new System.Drawing.Size(1397, 162);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             this.ribbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
@@ -92,10 +98,17 @@
             this.bbiDbState.Id = 46;
             this.bbiDbState.Name = "bbiDbState";
             // 
+            // bbiShowInfo
+            // 
+            this.bbiShowInfo.Caption = "Unfu";
+            this.bbiShowInfo.Id = 47;
+            this.bbiShowInfo.Name = "bbiShowInfo";
+            // 
             // ribbonPage
             // 
             this.ribbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup});
+            this.ribbonPageGroup,
+            this.rpgGeneral});
             this.ribbonPage.Name = "ribbonPage";
             this.ribbonPage.Text = "View";
             // 
@@ -107,14 +120,20 @@
             this.ribbonPageGroup.ShowCaptionButton = false;
             this.ribbonPageGroup.Text = "Appearance";
             // 
+            // rpgGeneral
+            // 
+            this.rpgGeneral.ItemLinks.Add(this.bbiShowInfo);
+            this.rpgGeneral.ItemLinks.Add(this.bbiReport);
+            this.rpgGeneral.Name = "rpgGeneral";
+            this.rpgGeneral.Text = "Ulgumuun";
+            // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.bbiDbState);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 794);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 645);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1630, 32);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1397, 26);
             // 
             // documentManager
             // 
@@ -147,19 +166,21 @@
             this.dpNavigation.Controls.Add(this.dockPanel1_Container);
             this.dpNavigation.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dpNavigation.ID = new System.Guid("0c0b11d5-6b38-4575-8be9-7a7a08070e26");
-            this.dpNavigation.Location = new System.Drawing.Point(0, 198);
+            this.dpNavigation.Location = new System.Drawing.Point(0, 162);
+            this.dpNavigation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dpNavigation.Name = "dpNavigation";
             this.dpNavigation.OriginalSize = new System.Drawing.Size(379, 200);
             this.dpNavigation.SavedSizeFactor = 0D;
-            this.dpNavigation.Size = new System.Drawing.Size(379, 596);
+            this.dpNavigation.Size = new System.Drawing.Size(379, 483);
             this.dpNavigation.Text = "Kuus Iets";
             // 
             // dockPanel1_Container
             // 
             this.dockPanel1_Container.Controls.Add(this.accordionControl);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 37);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(3, 30);
+            this.dockPanel1_Container.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(369, 555);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(372, 450);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // accordionControl
@@ -169,8 +190,9 @@
             this.aceInvoices,
             this.aceData});
             this.accordionControl.Location = new System.Drawing.Point(0, 0);
+            this.accordionControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.accordionControl.Name = "accordionControl";
-            this.accordionControl.Size = new System.Drawing.Size(369, 555);
+            this.accordionControl.Size = new System.Drawing.Size(372, 450);
             this.accordionControl.TabIndex = 0;
             // 
             // aceInvoices
@@ -208,6 +230,12 @@
             this.aceMaterials.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.aceMaterials.Text = "Muturiuul";
             // 
+            // acePriceTypes
+            // 
+            this.acePriceTypes.Name = "acePriceTypes";
+            this.acePriceTypes.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.acePriceTypes.Text = "Pruuzen";
+            // 
             // mvvmContext
             // 
             this.mvvmContext.ContainerControl = this;
@@ -217,21 +245,22 @@
             // 
             this.images.DefaultSize = Petoetron.Resources.ImageSize.i16x16;
             // 
-            // acePriceTypes
+            // bbiReport
             // 
-            this.acePriceTypes.Name = "acePriceTypes";
-            this.acePriceTypes.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.acePriceTypes.Text = "Pruuzen";
+            this.bbiReport.Caption = "Fuctuur";
+            this.bbiReport.Id = 48;
+            this.bbiReport.Name = "bbiReport";
             // 
             // MainView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1630, 826);
+            this.behaviorManager.SetBehaviors(this, new DevExpress.Utils.Behaviors.Behavior[] {
+            ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.Behaviors.Common.PersistenceBehavior.Create(typeof(DevExpress.Utils.BehaviorSource.PersistenceBehaviorSourceForForm), null, DevExpress.Utils.Behaviors.Common.Storage.File, DevExpress.Utils.DefaultBoolean.True)))});
+            this.ClientSize = new System.Drawing.Size(1397, 671);
             this.Controls.Add(this.dpNavigation);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonControl);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainView";
             this.Ribbon = this.ribbonControl;
             this.StatusBar = this.ribbonStatusBar;
@@ -244,6 +273,7 @@
             this.dockPanel1_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,5 +301,9 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement aceMaterials;
         private DevExpress.XtraBars.BarButtonItem bbiDbState;
         private DevExpress.XtraBars.Navigation.AccordionControlElement acePriceTypes;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgGeneral;
+        private DevExpress.XtraBars.BarButtonItem bbiShowInfo;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager;
+        private DevExpress.XtraBars.BarButtonItem bbiReport;
     }
 }

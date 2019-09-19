@@ -1,15 +1,12 @@
-﻿using Petoetron.Classes.Helpers;
-using System;
-using System.Collections.Generic;
+﻿using Petoetron.Classes;
+using Petoetron.Classes.Helpers;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Petoetron
 {
     public class ClientContext : INotifyPropertyChanged
     {
+        private const string INI_PATH = @"Config\Settings.ini";
         public const int MAX_OBJECT_CODE_LENGTH = 45;
         public const int MIN_OBJECT_CODE_LENGTH = 3;
         public const int MAX_OBJECT_DESC_LENGTH = 255;
@@ -20,6 +17,8 @@ namespace Petoetron
         private ClientContext() { }
 
         private IniFile iniFile;
+
+        private Info info;
 
         private string dbServer;
         private string dbSchema;
@@ -44,7 +43,10 @@ namespace Petoetron
 
         public void Initialize()
         {
-            iniFile = new IniFile(@"Config\Settings.ini");
+            iniFile = new IniFile(INI_PATH);
+
+            info = new Info(iniFile);
+            info.Read();
 
             dbServer = iniFile.ReadString("Database", "DbServer");
             dbSchema = iniFile.ReadString("Database", "DbSchema");
@@ -62,7 +64,7 @@ namespace Petoetron
             viewSkin = iniFile.ReadString("View", "ViewSkin");
         }
 
-
+        public Info Info { get => info; }
 
         public string DbServer { get => dbServer; set => dbServer = value; }
         public string DbSchema { get => dbSchema; set => dbSchema = value; }

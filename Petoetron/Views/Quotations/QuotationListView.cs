@@ -1,6 +1,10 @@
 ﻿using Petoetron.Views.Base;
 using Petoetron.Models.Quotations;
 using Petoetron.Classes;
+using DevExpress.XtraGrid.Views.Grid;
+using Petoetron.Classes.Helpers;
+using System;
+using System.Drawing;
 
 namespace Petoetron.Views.Quotations
 {
@@ -20,7 +24,29 @@ namespace Petoetron.Views.Quotations
             }
         }
 
-        private void GridView_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        protected override void SetRowAppearance(RowCellStyleEventArgs args, IBaseObject ibo)
+        {
+            base.SetRowAppearance(args, ibo);
+            if (args.Column.FieldName == "Code" && ibo is Quotation q)
+            {
+                if (q.Paid)
+                {
+                    if (q.DueDate < q.PaidDate)
+                    {
+                        args.Appearance.BackColor = Color.Orange;
+                    }
+                }
+                else
+                {
+                    if (q.DueDate < DateTime.Now)
+                    {
+                        args.Appearance.BackColor = Color.Red;
+                    }
+                }
+            }
+        }
+
+        private void GridView_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
         {
             CreateDefaultPopupMenu<Quotation, QuotationListViewModel>(sender, e);
         }

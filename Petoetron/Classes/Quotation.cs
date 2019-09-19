@@ -16,12 +16,19 @@ namespace Petoetron.Classes
         private Customer customer;
 
         private DateTime deliveryDate;
-
+        private DateTime dueDate;
+        private DateTime paidDate;
+        private bool paid;
+        
         private QuotationMaterialList materials;
         private QuotationPriceList prices;
 
         public Quotation() : this("") { }
-        public Quotation(string code) : base(code) { }
+        public Quotation(string code) : base(code)
+        {
+            deliveryDate = DateTime.Now;
+            dueDate = DateTime.Now;
+        }
 
         #region Base overrides
 
@@ -39,6 +46,9 @@ namespace Petoetron.Classes
                 base.CopyFrom(toCopy);
                 CustomerId = q.CustomerId;
                 DeliveryDate = q.DeliveryDate;
+                DueDate = q.DueDate;
+                PaidDate = q.PaidDate;
+                Paid = q.Paid;
                 Materials = (QuotationMaterialList)q.Materials.CreateCopy();
                 Prices = (QuotationPriceList)q.Prices.CreateCopy();
             }
@@ -51,6 +61,9 @@ namespace Petoetron.Classes
                 return base.PropertiesEqual(iObject) &&
                     CustomerId == q.CustomerId &&
                     DeliveryDate == q.DeliveryDate &&
+                    DueDate == q.DueDate &&
+                    PaidDate == q.PaidDate &&
+                    Paid == q.Paid &&
                     Materials.Equals(q.Materials) &&
                     Prices.Equals(q.Prices);
             }
@@ -193,6 +206,9 @@ namespace Petoetron.Classes
             base.AddBaseSqlParameters(command);
             DatabaseAccess.AddDbValue(command, "customerId", CustomerId);
             DatabaseAccess.AddDbValue(command, "deliveryDate", DeliveryDate);
+            DatabaseAccess.AddDbValue(command, "dueDate", DueDate);
+            DatabaseAccess.AddDbValue(command, "paidDate", PaidDate);
+            DatabaseAccess.AddDbValue(command, "paid", Paid);
         }
 
         public override void InitFromReader(DbDataReader reader)
@@ -200,6 +216,9 @@ namespace Petoetron.Classes
             base.InitBaseFromReader(reader);
             CustomerId = DatabaseAccess.RGetLong(reader, "customerId");
             DeliveryDate = DatabaseAccess.RGetDate(reader, "deliveryDate");
+            DueDate = DatabaseAccess.RGetDate(reader, "dueDate");
+            PaidDate = DatabaseAccess.RGetDate(reader, "paidDate");
+            Paid = DatabaseAccess.RGetBool(reader, "paid");
         }
 
         public override void OnChanged(ActionType queryType)
@@ -216,6 +235,33 @@ namespace Petoetron.Classes
         #endregion
 
         #region Properties
+
+        // Helper for report
+        public Info MyInfo
+        {
+            get { return ClientContext.Context.Info; }
+        }
+
+        public override string Code
+        {
+            get
+            {
+                if (Id > UNKNOWN_ID && (string.IsNullOrEmpty(code) || code.Contains("xxx")))
+                {
+                    int year = DateTime.Now.Year;
+                    code = year.ToString() + "-" + Id.ToString("D6");
+                }
+                else if (Id < UNKNOWN_ID)
+                {
+                    code = DateTime.Now.Year + "-xxxxxx";
+                }
+                return code;
+            }
+            set
+            {
+                base.Code = value;
+            }
+        }
 
         public long CustomerId
         {
@@ -240,11 +286,55 @@ namespace Petoetron.Classes
 
         public DateTime DeliveryDate
         {
-            get => deliveryDate;
+            get => deliveryDate.Date;
             set
             {
                 deliveryDate = value;
                 OnPropertyChanged("DeliveryDate");
+            }
+        }
+
+        public DateTime DueDate
+        {
+            get => dueDate.Date;
+            set
+            {
+                dueDate = value;
+                OnPropertyChanged("DueDate");
+            }
+        }
+
+        public DateTime PaidDate
+        {
+            get
+            {
+                if (Paid)
+                {
+                    return paidDate.Date;
+                }
+                else
+                {
+                    return DateTime.MinValue;
+                }
+            }
+            set
+            {
+                paidDate = value;
+                OnPropertyChanged("PaidDate");
+            }
+        }
+
+        public bool Paid
+        {
+            get => paid;
+            set
+            {
+                if (value && (PaidDate == null || PaidDate.Equals(DateTime.MinValue)))
+                {
+                    PaidDate = DateTime.Now;
+                }
+                paid = value;
+                OnPropertyChanged("Paid");
             }
         }
 

@@ -64,7 +64,7 @@
             this.colLastModified,
             this.colId,
             this.colCode});
-            this.gridView.DetailHeight = 350;
+            this.gridView.DetailHeight = 284;
             // 
             // bbiAdd
             // 
@@ -98,64 +98,73 @@
             // colCustomerId
             // 
             this.colCustomerId.FieldName = "CustomerId";
+            this.colCustomerId.MinWidth = 17;
             this.colCustomerId.Name = "colCustomerId";
-            this.colCustomerId.Width = 64;
+            this.colCustomerId.Width = 55;
             // 
             // colDeliveryDate
             // 
             this.colDeliveryDate.FieldName = "DeliveryDate";
+            this.colDeliveryDate.MinWidth = 17;
             this.colDeliveryDate.Name = "colDeliveryDate";
             this.colDeliveryDate.Visible = true;
             this.colDeliveryDate.VisibleIndex = 2;
-            this.colDeliveryDate.Width = 64;
+            this.colDeliveryDate.Width = 472;
             // 
             // colDescription
             // 
             this.colDescription.FieldName = "Description";
+            this.colDescription.MinWidth = 17;
             this.colDescription.Name = "colDescription";
             this.colDescription.Visible = true;
             this.colDescription.VisibleIndex = 1;
-            this.colDescription.Width = 64;
+            this.colDescription.Width = 471;
             // 
             // colInfo
             // 
             this.colInfo.FieldName = "Info";
+            this.colInfo.MinWidth = 17;
             this.colInfo.Name = "colInfo";
-            this.colInfo.Width = 64;
+            this.colInfo.Width = 55;
             // 
             // colIconPath
             // 
             this.colIconPath.FieldName = "IconPath";
+            this.colIconPath.MinWidth = 17;
             this.colIconPath.Name = "colIconPath";
-            this.colIconPath.Width = 64;
+            this.colIconPath.Width = 55;
             // 
             // colEnabled
             // 
             this.colEnabled.FieldName = "Enabled";
+            this.colEnabled.MinWidth = 17;
             this.colEnabled.Name = "colEnabled";
-            this.colEnabled.Width = 64;
+            this.colEnabled.Width = 55;
             // 
             // colLastModified
             // 
             this.colLastModified.FieldName = "LastModified";
+            this.colLastModified.MinWidth = 17;
             this.colLastModified.Name = "colLastModified";
-            this.colLastModified.Width = 64;
+            this.colLastModified.Width = 55;
             // 
             // colId
             // 
             this.colId.FieldName = "Id";
             this.colId.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.colId.MinWidth = 17;
             this.colId.Name = "colId";
-            this.colId.Width = 64;
+            this.colId.Width = 55;
             // 
             // colCode
             // 
             this.colCode.FieldName = "Code";
             this.colCode.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.colCode.MinWidth = 17;
             this.colCode.Name = "colCode";
             this.colCode.Visible = true;
             this.colCode.VisibleIndex = 0;
-            this.colCode.Width = 64;
+            this.colCode.Width = 117;
             // 
             // QuotationListView
             // 

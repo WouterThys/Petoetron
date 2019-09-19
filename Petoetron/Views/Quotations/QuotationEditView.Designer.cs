@@ -52,6 +52,12 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.bsQuotationItems = new System.Windows.Forms.BindingSource(this.components);
             this.AddQuotationItemPopupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.DueDateDateEdit = new DevExpress.XtraEditors.DateEdit();
+            this.ItemForDueDate = new DevExpress.XtraLayout.LayoutControlItem();
+            this.PaidDateDateEdit = new DevExpress.XtraEditors.DateEdit();
+            this.ItemForPaidDate = new DevExpress.XtraLayout.LayoutControlItem();
+            this.PaidCheckEdit = new DevExpress.XtraEditors.CheckEdit();
+            this.ItemForPaid = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InfoMemoEdit.Properties)).BeginInit();
@@ -95,99 +101,116 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsQuotationItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddQuotationItemPopupMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DueDateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DueDateDateEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForDueDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PaidDateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PaidDateDateEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForPaidDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PaidCheckEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForPaid)).BeginInit();
             this.SuspendLayout();
             // 
             // dataLayoutControl1
             // 
             this.dataLayoutControl1.Controls.Add(this.CustomerIdLookUpEdit);
             this.dataLayoutControl1.Controls.Add(this.DeliveryDateDateEdit);
-            this.dataLayoutControl1.Location = new System.Drawing.Point(14, 126);
+            this.dataLayoutControl1.Controls.Add(this.DueDateDateEdit);
+            this.dataLayoutControl1.Controls.Add(this.PaidDateDateEdit);
+            this.dataLayoutControl1.Controls.Add(this.PaidCheckEdit);
+            this.dataLayoutControl1.Location = new System.Drawing.Point(12, 103);
             this.dataLayoutControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.dataLayoutControl1.Size = new System.Drawing.Size(509, 577);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(437, 467);
+            this.dataLayoutControl1.Controls.SetChildIndex(this.PaidCheckEdit, 0);
+            this.dataLayoutControl1.Controls.SetChildIndex(this.PaidDateDateEdit, 0);
+            this.dataLayoutControl1.Controls.SetChildIndex(this.DueDateDateEdit, 0);
             this.dataLayoutControl1.Controls.SetChildIndex(this.DeliveryDateDateEdit, 0);
             this.dataLayoutControl1.Controls.SetChildIndex(this.CustomerIdLookUpEdit, 0);
             this.dataLayoutControl1.Controls.SetChildIndex(this.InfoMemoEdit, 0);
             // 
             // InfoMemoEdit
             // 
-            this.InfoMemoEdit.Location = new System.Drawing.Point(14, 117);
-            this.InfoMemoEdit.Size = new System.Drawing.Size(481, 446);
+            this.InfoMemoEdit.Location = new System.Drawing.Point(14, 153);
+            this.InfoMemoEdit.Size = new System.Drawing.Size(409, 300);
             // 
             // layoutControlGroup2
             // 
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(509, 577);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(437, 467);
             // 
             // layoutControlGroup3
             // 
-            this.layoutControlGroup3.Size = new System.Drawing.Size(509, 577);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(437, 467);
             // 
             // peObjectIcon
             // 
-            this.peObjectIcon.Size = new System.Drawing.Size(137, 108);
+            this.peObjectIcon.Size = new System.Drawing.Size(118, 87);
             // 
             // DescriptionMemoEdit
             // 
-            this.DescriptionMemoEdit.Location = new System.Drawing.Point(155, 40);
+            this.DescriptionMemoEdit.Location = new System.Drawing.Point(134, 36);
             this.DescriptionMemoEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.DescriptionMemoEdit.Size = new System.Drawing.Size(368, 82);
+            this.DescriptionMemoEdit.Size = new System.Drawing.Size(315, 63);
             // 
             // CodeTextEdit
             // 
-            this.CodeTextEdit.Location = new System.Drawing.Point(155, 14);
+            this.CodeTextEdit.Location = new System.Drawing.Point(134, 12);
             this.CodeTextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.CodeTextEdit.Size = new System.Drawing.Size(368, 22);
+            this.CodeTextEdit.Size = new System.Drawing.Size(315, 20);
             // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.splitterItem1,
             this.lcgQuotationItems});
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1081, 693);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(927, 562);
             // 
             // ItemForDescription
             // 
-            this.ItemForDescription.Location = new System.Drawing.Point(141, 26);
-            this.ItemForDescription.Size = new System.Drawing.Size(372, 86);
+            this.ItemForDescription.Location = new System.Drawing.Point(122, 24);
+            this.ItemForDescription.Size = new System.Drawing.Size(319, 67);
             // 
             // ItemForCode
             // 
-            this.ItemForCode.Location = new System.Drawing.Point(141, 0);
-            this.ItemForCode.Size = new System.Drawing.Size(372, 26);
+            this.ItemForCode.Location = new System.Drawing.Point(122, 0);
+            this.ItemForCode.Size = new System.Drawing.Size(319, 24);
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Size = new System.Drawing.Size(141, 112);
+            this.layoutControlItem1.Size = new System.Drawing.Size(122, 91);
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 112);
-            this.layoutControlItem2.Size = new System.Drawing.Size(513, 581);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 91);
+            this.layoutControlItem2.Size = new System.Drawing.Size(441, 471);
             // 
             // tabbedControlGroup
             // 
-            this.tabbedControlGroup.Size = new System.Drawing.Size(509, 577);
+            this.tabbedControlGroup.Size = new System.Drawing.Size(437, 467);
             // 
             // lcgData
             // 
             this.lcgData.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.ItemForDeliveryDate,
-            this.ItemForCustomerId});
-            this.lcgData.Size = new System.Drawing.Size(485, 521);
+            this.ItemForDueDate,
+            this.ItemForCustomerId,
+            this.ItemForPaid,
+            this.ItemForPaidDate});
+            this.lcgData.Size = new System.Drawing.Size(413, 416);
             // 
             // ItemForInfo
             // 
-            this.ItemForInfo.Location = new System.Drawing.Point(0, 52);
-            this.ItemForInfo.Size = new System.Drawing.Size(485, 469);
-            this.ItemForInfo.TextSize = new System.Drawing.Size(75, 16);
+            this.ItemForInfo.Location = new System.Drawing.Point(0, 96);
+            this.ItemForInfo.Size = new System.Drawing.Size(413, 320);
+            this.ItemForInfo.TextSize = new System.Drawing.Size(63, 13);
             // 
             // lcgDocuments
             // 
-            this.lcgDocuments.Size = new System.Drawing.Size(485, 521);
+            this.lcgDocuments.Size = new System.Drawing.Size(413, 416);
             // 
             // lcgLogs
             // 
-            this.lcgLogs.Size = new System.Drawing.Size(485, 521);
+            this.lcgLogs.Size = new System.Drawing.Size(413, 416);
             // 
             // bbiSave
             // 
@@ -217,9 +240,9 @@
             // dataLayoutControl
             // 
             this.dataLayoutControl.Controls.Add(this.ddbAddItem);
-            this.dataLayoutControl.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.dataLayoutControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(660, 243, 650, 400);
-            this.dataLayoutControl.Size = new System.Drawing.Size(1105, 717);
+            this.dataLayoutControl.Size = new System.Drawing.Size(947, 582);
             this.dataLayoutControl.Controls.SetChildIndex(this.ddbAddItem, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.DescriptionMemoEdit, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.CodeTextEdit, 0);
@@ -228,7 +251,7 @@
             // 
             // Root
             // 
-            this.Root.Size = new System.Drawing.Size(1105, 717);
+            this.Root.Size = new System.Drawing.Size(947, 582);
             // 
             // bsObject
             // 
@@ -238,16 +261,15 @@
             // 
             this.flyoutPanel.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.flyoutPanel.Appearance.Options.UseBackColor = true;
-            this.flyoutPanel.Location = new System.Drawing.Point(78, 144);
-            this.flyoutPanel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.flyoutPanel.Location = new System.Drawing.Point(67, 117);
+            this.flyoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flyoutPanel.OptionsBeakPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.flyoutPanel.OptionsButtonPanel.ButtonPanelHeight = 37;
-            this.flyoutPanel.Size = new System.Drawing.Size(318, 46);
+            this.flyoutPanel.Size = new System.Drawing.Size(273, 37);
             // 
             // flyoutPanelControl
             // 
-            this.flyoutPanelControl.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.flyoutPanelControl.Size = new System.Drawing.Size(318, 46);
+            this.flyoutPanelControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.flyoutPanelControl.Size = new System.Drawing.Size(273, 37);
             // 
             // lcSaving
             // 
@@ -261,8 +283,8 @@
             this.lcSaving.Appearance.Options.UseTextOptions = true;
             this.lcSaving.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.lcSaving.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.lcSaving.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.lcSaving.Size = new System.Drawing.Size(314, 42);
+            this.lcSaving.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lcSaving.Size = new System.Drawing.Size(269, 33);
             // 
             // ribbonControl
             // 
@@ -276,9 +298,9 @@
             this.bbiDeleteMaterial,
             this.bbiEditPrice,
             this.bbiDeletePrice});
-            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.ribbonControl.MaxItemId = 16;
-            this.ribbonControl.Size = new System.Drawing.Size(1105, 194);
+            this.ribbonControl.Size = new System.Drawing.Size(947, 158);
             // 
             // ribbonPage1
             // 
@@ -288,7 +310,7 @@
             // CustomerIdLookUpEdit
             // 
             this.CustomerIdLookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsObject, "CustomerId", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.CustomerIdLookUpEdit.Location = new System.Drawing.Point(101, 72);
+            this.CustomerIdLookUpEdit.Location = new System.Drawing.Point(89, 41);
             this.CustomerIdLookUpEdit.MenuManager = this.ribbonControl;
             this.CustomerIdLookUpEdit.Name = "CustomerIdLookUpEdit";
             this.CustomerIdLookUpEdit.Properties.Appearance.Options.UseTextOptions = true;
@@ -299,7 +321,7 @@
             this.CustomerIdLookUpEdit.Properties.DisplayMember = "ContactName";
             this.CustomerIdLookUpEdit.Properties.NullText = "";
             this.CustomerIdLookUpEdit.Properties.ValueMember = "Id";
-            this.CustomerIdLookUpEdit.Size = new System.Drawing.Size(394, 22);
+            this.CustomerIdLookUpEdit.Size = new System.Drawing.Size(334, 20);
             this.CustomerIdLookUpEdit.StyleController = this.dataLayoutControl1;
             this.CustomerIdLookUpEdit.TabIndex = 5;
             // 
@@ -310,35 +332,35 @@
             // ItemForCustomerId
             // 
             this.ItemForCustomerId.Control = this.CustomerIdLookUpEdit;
-            this.ItemForCustomerId.Location = new System.Drawing.Point(0, 26);
+            this.ItemForCustomerId.Location = new System.Drawing.Point(0, 0);
             this.ItemForCustomerId.Name = "ItemForCustomerId";
-            this.ItemForCustomerId.Size = new System.Drawing.Size(485, 26);
-            this.ItemForCustomerId.Text = "Customer";
-            this.ItemForCustomerId.TextSize = new System.Drawing.Size(75, 16);
+            this.ItemForCustomerId.Size = new System.Drawing.Size(413, 24);
+            this.ItemForCustomerId.Text = "Klunt";
+            this.ItemForCustomerId.TextSize = new System.Drawing.Size(63, 13);
             // 
             // DeliveryDateDateEdit
             // 
             this.DeliveryDateDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsObject, "DeliveryDate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.DeliveryDateDateEdit.EditValue = null;
-            this.DeliveryDateDateEdit.Location = new System.Drawing.Point(101, 46);
+            this.DeliveryDateDateEdit.Location = new System.Drawing.Point(89, 65);
             this.DeliveryDateDateEdit.MenuManager = this.ribbonControl;
             this.DeliveryDateDateEdit.Name = "DeliveryDateDateEdit";
             this.DeliveryDateDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DeliveryDateDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DeliveryDateDateEdit.Size = new System.Drawing.Size(394, 22);
+            this.DeliveryDateDateEdit.Size = new System.Drawing.Size(334, 20);
             this.DeliveryDateDateEdit.StyleController = this.dataLayoutControl1;
             this.DeliveryDateDateEdit.TabIndex = 6;
             // 
             // ItemForDeliveryDate
             // 
             this.ItemForDeliveryDate.Control = this.DeliveryDateDateEdit;
-            this.ItemForDeliveryDate.Location = new System.Drawing.Point(0, 0);
+            this.ItemForDeliveryDate.Location = new System.Drawing.Point(0, 24);
             this.ItemForDeliveryDate.Name = "ItemForDeliveryDate";
-            this.ItemForDeliveryDate.Size = new System.Drawing.Size(485, 26);
-            this.ItemForDeliveryDate.Text = "Delivery Date";
-            this.ItemForDeliveryDate.TextSize = new System.Drawing.Size(75, 16);
+            this.ItemForDeliveryDate.Size = new System.Drawing.Size(413, 24);
+            this.ItemForDeliveryDate.Text = "Luvur dutum";
+            this.ItemForDeliveryDate.TextSize = new System.Drawing.Size(63, 13);
             // 
             // bbiAddCustomer
             // 
@@ -414,9 +436,9 @@
             // splitterItem1
             // 
             this.splitterItem1.AllowHotTrack = true;
-            this.splitterItem1.Location = new System.Drawing.Point(513, 0);
+            this.splitterItem1.Location = new System.Drawing.Point(441, 0);
             this.splitterItem1.Name = "splitterItem1";
-            this.splitterItem1.Size = new System.Drawing.Size(12, 693);
+            this.splitterItem1.Size = new System.Drawing.Size(10, 562);
             // 
             // lcgQuotationItems
             // 
@@ -425,16 +447,16 @@
             this.ItemForDropdownButton,
             this.lcgMaterialItems,
             this.emptySpaceItem1});
-            this.lcgQuotationItems.Location = new System.Drawing.Point(525, 0);
+            this.lcgQuotationItems.Location = new System.Drawing.Point(451, 0);
             this.lcgQuotationItems.Name = "lcgQuotationItems";
-            this.lcgQuotationItems.Size = new System.Drawing.Size(556, 693);
+            this.lcgQuotationItems.Size = new System.Drawing.Size(476, 562);
             this.lcgQuotationItems.Text = "Guld";
             // 
             // lcgPriceItems
             // 
-            this.lcgPriceItems.Location = new System.Drawing.Point(0, 267);
+            this.lcgPriceItems.Location = new System.Drawing.Point(0, 216);
             this.lcgPriceItems.Name = "lcgPriceItems";
-            this.lcgPriceItems.Size = new System.Drawing.Size(530, 367);
+            this.lcgPriceItems.Size = new System.Drawing.Size(452, 297);
             this.lcgPriceItems.Text = "Undure";
             // 
             // ItemForDropdownButton
@@ -442,34 +464,33 @@
             this.ItemForDropdownButton.Control = this.ddbAddItem;
             this.ItemForDropdownButton.Location = new System.Drawing.Point(0, 0);
             this.ItemForDropdownButton.Name = "ItemForDropdownButton";
-            this.ItemForDropdownButton.Size = new System.Drawing.Size(264, 31);
+            this.ItemForDropdownButton.Size = new System.Drawing.Size(224, 26);
             this.ItemForDropdownButton.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForDropdownButton.TextVisible = false;
             // 
             // ddbAddItem
             // 
-            this.ddbAddItem.Location = new System.Drawing.Point(552, 59);
-            this.ddbAddItem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ddbAddItem.Location = new System.Drawing.Point(475, 49);
             this.ddbAddItem.MenuManager = this.ribbonControl;
             this.ddbAddItem.Name = "ddbAddItem";
-            this.ddbAddItem.Size = new System.Drawing.Size(260, 27);
+            this.ddbAddItem.Size = new System.Drawing.Size(220, 22);
             this.ddbAddItem.StyleController = this.dataLayoutControl;
             this.ddbAddItem.TabIndex = 8;
             this.ddbAddItem.Text = "Add";
             // 
             // lcgMaterialItems
             // 
-            this.lcgMaterialItems.Location = new System.Drawing.Point(0, 31);
+            this.lcgMaterialItems.Location = new System.Drawing.Point(0, 26);
             this.lcgMaterialItems.Name = "lcgMaterialItems";
-            this.lcgMaterialItems.Size = new System.Drawing.Size(530, 236);
+            this.lcgMaterialItems.Size = new System.Drawing.Size(452, 190);
             this.lcgMaterialItems.Text = "Muturiuul";
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(264, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(224, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(266, 31);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(228, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // AddQuotationItemPopupMenu
@@ -477,13 +498,82 @@
             this.AddQuotationItemPopupMenu.Name = "AddQuotationItemPopupMenu";
             this.AddQuotationItemPopupMenu.Ribbon = this.ribbonControl;
             // 
+            // DueDateDateEdit
+            // 
+            this.DueDateDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsObject, "DueDate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.DueDateDateEdit.EditValue = null;
+            this.DueDateDateEdit.Location = new System.Drawing.Point(89, 89);
+            this.DueDateDateEdit.MenuManager = this.ribbonControl;
+            this.DueDateDateEdit.Name = "DueDateDateEdit";
+            this.DueDateDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DueDateDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DueDateDateEdit.Size = new System.Drawing.Size(334, 20);
+            this.DueDateDateEdit.StyleController = this.dataLayoutControl1;
+            this.DueDateDateEdit.TabIndex = 7;
+            // 
+            // ItemForDueDate
+            // 
+            this.ItemForDueDate.Control = this.DueDateDateEdit;
+            this.ItemForDueDate.Location = new System.Drawing.Point(0, 48);
+            this.ItemForDueDate.Name = "ItemForDueDate";
+            this.ItemForDueDate.Size = new System.Drawing.Size(413, 24);
+            this.ItemForDueDate.Text = "Vurvul dutum";
+            this.ItemForDueDate.TextSize = new System.Drawing.Size(63, 13);
+            // 
+            // PaidDateDateEdit
+            // 
+            this.PaidDateDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsObject, "PaidDate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.PaidDateDateEdit.EditValue = null;
+            this.PaidDateDateEdit.Location = new System.Drawing.Point(197, 113);
+            this.PaidDateDateEdit.MenuManager = this.ribbonControl;
+            this.PaidDateDateEdit.Name = "PaidDateDateEdit";
+            this.PaidDateDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.PaidDateDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.PaidDateDateEdit.Size = new System.Drawing.Size(226, 20);
+            this.PaidDateDateEdit.StyleController = this.dataLayoutControl1;
+            this.PaidDateDateEdit.TabIndex = 8;
+            // 
+            // ItemForPaidDate
+            // 
+            this.ItemForPaidDate.Control = this.PaidDateDateEdit;
+            this.ItemForPaidDate.Location = new System.Drawing.Point(108, 72);
+            this.ItemForPaidDate.Name = "ItemForPaidDate";
+            this.ItemForPaidDate.Size = new System.Drawing.Size(305, 24);
+            this.ItemForPaidDate.Text = "Dutum";
+            this.ItemForPaidDate.TextSize = new System.Drawing.Size(63, 13);
+            // 
+            // PaidCheckEdit
+            // 
+            this.PaidCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsObject, "Paid", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.PaidCheckEdit.Location = new System.Drawing.Point(89, 113);
+            this.PaidCheckEdit.MenuManager = this.ribbonControl;
+            this.PaidCheckEdit.Name = "PaidCheckEdit";
+            this.PaidCheckEdit.Properties.Caption = "";
+            this.PaidCheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.PaidCheckEdit.Size = new System.Drawing.Size(29, 20);
+            this.PaidCheckEdit.StyleController = this.dataLayoutControl1;
+            this.PaidCheckEdit.TabIndex = 9;
+            // 
+            // ItemForPaid
+            // 
+            this.ItemForPaid.Control = this.PaidCheckEdit;
+            this.ItemForPaid.Location = new System.Drawing.Point(0, 72);
+            this.ItemForPaid.Name = "ItemForPaid";
+            this.ItemForPaid.Size = new System.Drawing.Size(108, 24);
+            this.ItemForPaid.Text = "Butuuld";
+            this.ItemForPaid.TextSize = new System.Drawing.Size(63, 13);
+            // 
             // QuotationEditView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.Name = "QuotationEditView";
-            this.Size = new System.Drawing.Size(1105, 911);
+            this.Size = new System.Drawing.Size(947, 740);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.InfoMemoEdit.Properties)).EndInit();
@@ -527,6 +617,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsQuotationItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddQuotationItemPopupMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DueDateDateEdit.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DueDateDateEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForDueDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PaidDateDateEdit.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PaidDateDateEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForPaidDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PaidCheckEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForPaid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -557,5 +655,11 @@
         private DevExpress.XtraBars.PopupMenu AddQuotationItemPopupMenu;
         private DevExpress.XtraLayout.LayoutControlGroup lcgPriceItems;
         private DevExpress.XtraLayout.LayoutControlGroup lcgMaterialItems;
+        private DevExpress.XtraEditors.DateEdit DueDateDateEdit;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForDueDate;
+        private DevExpress.XtraEditors.DateEdit PaidDateDateEdit;
+        private DevExpress.XtraEditors.CheckEdit PaidCheckEdit;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForPaid;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForPaidDate;
     }
 }

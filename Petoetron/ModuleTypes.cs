@@ -7,6 +7,7 @@ namespace Petoetron
     {
         public readonly static SimpleModuleType MainViewModule = new SimpleModuleType(-10, -1, "MainView", "Petoetron");
         public readonly static SimpleModuleType QuotationItemModule = new SimpleModuleType(-11, -1, "", "");
+        public readonly static SimpleModuleType InfoModule = new SimpleModuleType(-12, -1, "InfoView", "Info");
 
         public readonly static DataListModuleType QuotationListModule = new DataListModuleType(-100, 21, "Quotation");
         public readonly static AddEditDataModule QuotationEditModule = new AddEditDataModule(-101, 21, "Quotation");

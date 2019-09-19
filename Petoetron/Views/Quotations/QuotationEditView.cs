@@ -41,6 +41,8 @@ namespace Petoetron.Views.Quotations
             lcgPriceItems.ExpandButtonVisible = true;
             lcgMaterialItems.ExpandButtonVisible = true;
 
+            ItemForCode.Enabled = false;
+
             ddbAddItem.ImageOptions.Image = images.Images16x16.Images[0];
             bsQuotationItems.ListChanged += BsQuotationItems_ListChanged;
         }
@@ -89,6 +91,9 @@ namespace Petoetron.Views.Quotations
                 // Ribbon
                 fluent.BindCommand(bbiAddCustomer, m => m.AddCustomer());
                 fluent.BindCommand(bbiEditCustomer, m => m.EditCustomer());
+
+                // Data
+                fluent.SetBinding(ItemForPaidDate, itm => itm.Enabled, m => m.Editable.Paid);
 
                 // Dropdown button
                 InitDropDownButton();

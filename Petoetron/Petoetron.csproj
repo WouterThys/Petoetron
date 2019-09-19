@@ -35,17 +35,31 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v18.2" />
+    <Reference Include="DevExpress.Charts.v18.2.Core, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v18.2" />
+    <Reference Include="DevExpress.DataAccess.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Images.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Mvvm.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v18.2.Core, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v18.2.Core, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v18.2.Core, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v18.2.Core" />
+    <Reference Include="DevExpress.RichEdit.v18.2.Core, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v18.2.Export, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v18.2" />
+    <Reference Include="DevExpress.Utils.v18.2.UI, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v18.2" />
     <Reference Include="DevExpress.Sparkline.v18.2.Core" />
+    <Reference Include="DevExpress.XtraCharts.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v18.2" />
+    <Reference Include="DevExpress.XtraGauges.v18.2.Core, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraNavBar.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Extensions, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -67,6 +81,7 @@
     <Compile Include="Classes\Helpers\Interfaces.cs" />
     <Compile Include="Classes\Helpers\LinkList.cs" />
     <Compile Include="Classes\Helpers\Toolbox.cs" />
+    <Compile Include="Classes\Info.cs" />
     <Compile Include="Classes\Material.cs" />
     <Compile Include="Classes\MaterialType.cs" />
     <Compile Include="Classes\ObjectDocument.cs" />
@@ -95,6 +110,7 @@
     <Compile Include="Models\Base\BaseViewModel.cs" />
     <Compile Include="Models\Customers\CustomerEditViewModel.cs" />
     <Compile Include="Models\Customers\CustomerListViewModel.cs" />
+    <Compile Include="Models\Info\InfoViewModel.cs" />
     <Compile Include="Models\Interfaces.cs" />
     <Compile Include="Models\Materials\MaterialEditViewModel.cs" />
     <Compile Include="Models\Materials\MaterialListViewModel.cs" />
@@ -166,6 +182,12 @@
     <Compile Include="Views\Customers\CustomerListView.Designer.cs">
       <DependentUpon>CustomerListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Info\InfoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Info\InfoView.Designer.cs">
+      <DependentUpon>InfoView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Interfaces.cs" />
     <Compile Include="Views\Materials\MaterialEditView.cs">
       <SubType>UserControl</SubType>
@@ -233,6 +255,12 @@
     <Compile Include="Views\Quotations\QuotationListView.Designer.cs">
       <DependentUpon>QuotationListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Reports\QuotationReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Reports\QuotationReport.Designer.cs">
+      <DependentUpon>QuotationReport.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
@@ -271,6 +299,9 @@
     <EmbeddedResource Include="Views\Customers\CustomerListView.resx">
       <DependentUpon>CustomerListView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Info\InfoView.resx">
+      <DependentUpon>InfoView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Materials\MaterialEditView.resx">
       <DependentUpon>MaterialEditView.cs</DependentUpon>
     </EmbeddedResource>
@@ -304,12 +335,19 @@
     <EmbeddedResource Include="Views\Quotations\QuotationListView.resx">
       <DependentUpon>QuotationListView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reports\QuotationReport.resx">
+      <DependentUpon>QuotationReport.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
+    <Content Include="Config\logo.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Config\Settings.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\DataSources\Petoetron.Classes.Customer.datasource" />
     <None Include="Properties\DataSources\Petoetron.Classes.Helpers.AbstractBaseObject.datasource" />
+    <None Include="Properties\DataSources\Petoetron.Classes.Info.datasource" />
     <None Include="Properties\DataSources\Petoetron.Classes.Material.datasource" />
     <None Include="Properties\DataSources\Petoetron.Classes.MaterialType.datasource" />
     <None Include="Properties\DataSources\Petoetron.Classes.PriceType.datasource" />

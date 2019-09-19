@@ -38,11 +38,13 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bbiPrint = new DevExpress.XtraBars.BarButtonItem();
             this.bbiExport = new DevExpress.XtraBars.BarButtonItem();
+            this.behaviorManager = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsEntities)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -54,9 +56,9 @@
             this.bbiDelete,
             this.bbiPrint,
             this.bbiExport});
-            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.ribbonControl.MaxItemId = 6;
-            this.ribbonControl.Size = new System.Drawing.Size(968, 194);
+            this.ribbonControl.Size = new System.Drawing.Size(830, 158);
             // 
             // ribbonPage1
             // 
@@ -77,21 +79,20 @@
             // 
             // gridControl
             // 
+            this.behaviorManager.SetBehaviors(this.gridControl, new DevExpress.Utils.Behaviors.Behavior[] {
+            ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.Behaviors.Common.PersistenceBehavior.Create(typeof(DevExpress.Utils.BehaviorSource.PersistenceBehaviorSourceForControl), null, DevExpress.Utils.Behaviors.Common.Storage.File, DevExpress.Utils.DefaultBoolean.True)))});
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gridControl.Location = new System.Drawing.Point(0, 194);
+            this.gridControl.Location = new System.Drawing.Point(0, 158);
             this.gridControl.MainView = this.gridView;
-            this.gridControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl.MenuManager = this.ribbonControl;
             this.gridControl.Name = "gridControl";
-            this.gridControl.Size = new System.Drawing.Size(968, 452);
+            this.gridControl.Size = new System.Drawing.Size(830, 367);
             this.gridControl.TabIndex = 1;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView});
             // 
             // gridView
             // 
-            this.gridView.DetailHeight = 431;
             this.gridView.GridControl = this.gridControl;
             this.gridView.Name = "gridView";
             // 
@@ -144,12 +145,12 @@
             // 
             // BaseListView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gridControl);
-            this.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "BaseListView";
-            this.Size = new System.Drawing.Size(968, 646);
+            this.Size = new System.Drawing.Size(830, 525);
             this.Controls.SetChildIndex(this.ribbonControl, 0);
             this.Controls.SetChildIndex(this.gridControl, 0);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
@@ -157,6 +158,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsEntities)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,5 +175,6 @@
         protected DevExpress.XtraBars.BarButtonItem bbiPrint;
         protected DevExpress.XtraBars.BarButtonItem bbiExport;
         protected DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager;
     }
 }

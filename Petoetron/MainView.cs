@@ -18,6 +18,9 @@ using Database;
 using Petoetron.Resources;
 using DevExpress.XtraBars.Navigation;
 using Petoetron.Models;
+using Petoetron.Views.Reports;
+using Petoetron.Classes;
+using DevExpress.XtraReports.UI;
 
 namespace Petoetron
 {
@@ -45,16 +48,8 @@ namespace Petoetron
             Ribbon.Merge += Ribbon_Merge;
 
             dpNavigation.Options.ShowCloseButton = false;
-
-            //xtcNavigation.Images = workWatchImages.Images24x24;
-            //workWatchImages.DefaultSize = ImageSize.i24x24;
-            //xtpJobs.ImageOptions.Image = workWatchImages.GetIcon(41);
-            //xtpData.ImageOptions.Image = workWatchImages.GetIcon(18);
-            //xtpSettings.ImageOptions.Image = workWatchImages.GetIcon(19);
-            //bbiLogOut.ImageOptions.Image = workWatchImages.GetIcon(36);
-            //bbiLogOut.ImageOptions.LargeImage = workWatchImages.Images48x48.Images[36];
-
-            //riLanguageCb.AddEnum<UserLanguage>();
+            bbiShowInfo.ImageOptions.ImageIndex = 32;
+            bbiShowInfo.ImageOptions.LargeImageIndex = 32;
 
             // Accordion
             accordionControl.Images = images.Images24x24;
@@ -70,9 +65,18 @@ namespace Petoetron
             aceMaterialTypes.Tag = ModuleTypes.MaterialTypeListModule;
             aceMaterials.Tag = ModuleTypes.MaterialListModule;
             acePriceTypes.Tag = ModuleTypes.PriceTypeListModule;
+
+
+            bbiReport.ItemClick += BbiReport_ItemClick;
         }
 
-
+        private void BbiReport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var fluent = mvvmContext.OfType<MainViewModel>();
+            var report = new QuotationReport();
+            report.SetDataSource(new Quotation());
+            report.ShowPreview();
+        }
 
         protected void InitializeServices()
         {
@@ -95,6 +99,7 @@ namespace Petoetron
 
             fluent.SetBinding(bbiDbState, ss => ss.ImageIndex, m => m.DatabaseState,
                 (args) => DatabaseStateToIcon(args));
+            fluent.BindCommand(bbiShowInfo, m => m.ShowInfo());
 
             //fluent.SetBinding(bbiDatabaseState, ss => ss.ImageIndex, m => m.Context.ServerStatus.DatabaseState,
             //    (args) =>

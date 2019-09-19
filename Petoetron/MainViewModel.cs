@@ -4,6 +4,7 @@ using DevExpress.Mvvm.DataAnnotations;
 using Petoetron.Dal;
 using Petoetron.Models;
 using Petoetron.Models.Base;
+using Petoetron.Models.Info;
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -54,7 +55,18 @@ namespace Petoetron
             }, DispatcherService);
         }
 
+        public virtual bool CanShowInfo()
+        {
+            return !IsLoading;
+        }
 
+        public virtual void ShowInfo()
+        {
+            InfoViewModel model = InfoViewModel.Create();
+            DialogService.ShowDialog(MessageButton.OK, "Unfu", model);
+        }
+
+        #region Modules and Documents
         private void DocumentManagerService_ActiveDocumentChanged(object sender, ActiveDocumentChangedEventArgs e)
         {
             if (e.NewDocument == null)
@@ -83,6 +95,7 @@ namespace Petoetron
                 DataAccess.Dal.Close();
             }
         }
+        #endregion
 
         #region IDataInvoker Interface
         public void InvokeOnMain(Action action)
