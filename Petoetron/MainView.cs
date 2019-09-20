@@ -18,7 +18,6 @@ using Database;
 using Petoetron.Resources;
 using DevExpress.XtraBars.Navigation;
 using Petoetron.Models;
-using Petoetron.Views.Reports;
 using Petoetron.Classes;
 using DevExpress.XtraReports.UI;
 
@@ -65,18 +64,8 @@ namespace Petoetron
             aceMaterialTypes.Tag = ModuleTypes.MaterialTypeListModule;
             aceMaterials.Tag = ModuleTypes.MaterialListModule;
             acePriceTypes.Tag = ModuleTypes.PriceTypeListModule;
-
-
-            bbiReport.ItemClick += BbiReport_ItemClick;
         }
-
-        private void BbiReport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            var fluent = mvvmContext.OfType<MainViewModel>();
-            var report = new QuotationReport();
-            report.SetDataSource(new Quotation());
-            report.ShowPreview();
-        }
+        
 
         protected void InitializeServices()
         {

@@ -53,7 +53,6 @@
             this.mvvmContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             this.images = new Petoetron.Resources.Images(this.components);
             this.behaviorManager = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            this.bbiReport = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager)).BeginInit();
@@ -73,9 +72,9 @@
             this.ribbonControl.ExpandCollapseItem,
             this.skinRibbonGalleryBarItem,
             this.bbiDbState,
-            this.bbiShowInfo,
-            this.bbiReport});
+            this.bbiShowInfo});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonControl.MaxItemId = 49;
             this.ribbonControl.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl.Name = "ribbonControl";
@@ -83,7 +82,7 @@
             this.ribbonPage});
             this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.ribbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl.Size = new System.Drawing.Size(1397, 162);
+            this.ribbonControl.Size = new System.Drawing.Size(1630, 198);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             this.ribbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
@@ -123,17 +122,17 @@
             // rpgGeneral
             // 
             this.rpgGeneral.ItemLinks.Add(this.bbiShowInfo);
-            this.rpgGeneral.ItemLinks.Add(this.bbiReport);
             this.rpgGeneral.Name = "rpgGeneral";
             this.rpgGeneral.Text = "Ulgumuun";
             // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.bbiDbState);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 645);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 794);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1397, 26);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1630, 32);
             // 
             // documentManager
             // 
@@ -166,21 +165,21 @@
             this.dpNavigation.Controls.Add(this.dockPanel1_Container);
             this.dpNavigation.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dpNavigation.ID = new System.Guid("0c0b11d5-6b38-4575-8be9-7a7a08070e26");
-            this.dpNavigation.Location = new System.Drawing.Point(0, 162);
+            this.dpNavigation.Location = new System.Drawing.Point(0, 198);
             this.dpNavigation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dpNavigation.Name = "dpNavigation";
             this.dpNavigation.OriginalSize = new System.Drawing.Size(379, 200);
             this.dpNavigation.SavedSizeFactor = 0D;
-            this.dpNavigation.Size = new System.Drawing.Size(379, 483);
+            this.dpNavigation.Size = new System.Drawing.Size(442, 596);
             this.dpNavigation.Text = "Kuus Iets";
             // 
             // dockPanel1_Container
             // 
             this.dockPanel1_Container.Controls.Add(this.accordionControl);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(3, 30);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 37);
             this.dockPanel1_Container.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(372, 450);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(432, 555);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // accordionControl
@@ -192,7 +191,7 @@
             this.accordionControl.Location = new System.Drawing.Point(0, 0);
             this.accordionControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.accordionControl.Name = "accordionControl";
-            this.accordionControl.Size = new System.Drawing.Size(372, 450);
+            this.accordionControl.Size = new System.Drawing.Size(432, 555);
             this.accordionControl.TabIndex = 0;
             // 
             // aceInvoices
@@ -245,22 +244,17 @@
             // 
             this.images.DefaultSize = Petoetron.Resources.ImageSize.i16x16;
             // 
-            // bbiReport
-            // 
-            this.bbiReport.Caption = "Fuctuur";
-            this.bbiReport.Id = 48;
-            this.bbiReport.Name = "bbiReport";
-            // 
             // MainView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.behaviorManager.SetBehaviors(this, new DevExpress.Utils.Behaviors.Behavior[] {
             ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.Behaviors.Common.PersistenceBehavior.Create(typeof(DevExpress.Utils.BehaviorSource.PersistenceBehaviorSourceForForm), null, DevExpress.Utils.Behaviors.Common.Storage.File, DevExpress.Utils.DefaultBoolean.True)))});
-            this.ClientSize = new System.Drawing.Size(1397, 671);
+            this.ClientSize = new System.Drawing.Size(1630, 826);
             this.Controls.Add(this.dpNavigation);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonControl);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainView";
             this.Ribbon = this.ribbonControl;
             this.StatusBar = this.ribbonStatusBar;
@@ -304,6 +298,5 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgGeneral;
         private DevExpress.XtraBars.BarButtonItem bbiShowInfo;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager;
-        private DevExpress.XtraBars.BarButtonItem bbiReport;
     }
 }

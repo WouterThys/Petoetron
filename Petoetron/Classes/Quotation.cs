@@ -20,14 +20,24 @@ namespace Petoetron.Classes
         private DateTime paidDate;
         private bool paid;
         
-        private QuotationMaterialList materials;
-        private QuotationPriceList prices;
+        private QuotationMaterialList quotationMaterials;
+        private QuotationPriceList quotationPrices;
 
         public Quotation() : this("") { }
         public Quotation(string code) : base(code)
         {
             deliveryDate = DateTime.Now;
             dueDate = DateTime.Now;
+        }
+
+        public IEnumerable<QuotationMaterial> MaterialList
+        {
+            get { return Materials?.Values; }
+        }
+
+        public IEnumerable<QuotationPrice> PriceList
+        {
+            get { return Prices?.Values; }
         }
 
         #region Base overrides
@@ -342,15 +352,15 @@ namespace Petoetron.Classes
         {
             get
             {
-                if (materials == null)
+                if (quotationMaterials == null)
                 {
-                    materials = new QuotationMaterialList(Id);
+                    quotationMaterials = new QuotationMaterialList(Id);
                 }
-                return materials;
+                return quotationMaterials;
             }
             protected set
             {
-                materials = value;
+                quotationMaterials = value;
             }
         }
 
@@ -358,15 +368,15 @@ namespace Petoetron.Classes
         {
             get
             {
-                if (prices == null)
+                if (quotationPrices == null)
                 {
-                    prices = new QuotationPriceList(Id);
+                    quotationPrices = new QuotationPriceList(Id);
                 }
-                return prices;
+                return quotationPrices;
             }
             protected set
             {
-                prices = value;
+                quotationPrices = value;
             }
         }
 

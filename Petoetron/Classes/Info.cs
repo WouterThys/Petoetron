@@ -10,8 +10,10 @@ namespace Petoetron.Classes
         private readonly IniFile iniFile;
 
         private string companyName;
+        private string contactName;
         private string email;
         private string phone;
+        private string website;
         private double vat;
         private string vatNumber;
         private string logo;
@@ -28,8 +30,10 @@ namespace Petoetron.Classes
         public void Read()
         {
             companyName = iniFile.ReadString("Info", "CompanyName");
+            contactName = iniFile.ReadString("Info", "ContactName");
             email = iniFile.ReadString("Info", "Email");
             phone = iniFile.ReadString("Info", "Phone");
+            website = iniFile.ReadString("Info", "WebSite");
             vat = iniFile.ReadDouble("Info", "VAT");
             vatNumber = iniFile.ReadString("Info", "VATNumber");
             logo = iniFile.ReadString("Info", "Logo");
@@ -66,6 +70,12 @@ namespace Petoetron.Classes
             set { companyName = value; Write("CompanyName", value); }
         }
 
+        public string ContactName
+        {
+            get { return contactName; }
+            set { contactName = value; Write("ContactName", value); }
+        }
+
         public string Email
         {
             get { return email; }
@@ -76,6 +86,12 @@ namespace Petoetron.Classes
         {
             get { return phone; }
             set { phone = value; Write("Phone", value); }
+        }
+
+        public string WebSite
+        {
+            get { return website; }
+            set { website = value; Write("WebSite", value); }
         }
 
         public double VAT

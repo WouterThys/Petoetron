@@ -28,5 +28,19 @@ namespace Petoetron.Models.Quotations
         {
             return DataAccess.Dal.Quotations;
         }
+
+        public override void UpdateCommands()
+        {
+            base.UpdateCommands();
+            this.RaiseCanExecuteChanged(x => x.PrintInvoice());
+        }
+
+
+
+        public virtual bool CanPrintInvoice()
+        {
+            return !IsLoading && Selected != null && Selected.IsValid();
+        }
+        public virtual void PrintInvoice() { }
     }
 }

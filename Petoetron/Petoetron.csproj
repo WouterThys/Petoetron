@@ -255,11 +255,23 @@
     <Compile Include="Views\Quotations\QuotationListView.Designer.cs">
       <DependentUpon>QuotationListView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Reports\QuotationReport.cs">
+    <Compile Include="Views\Reports\InvoiceReport_withmaterials.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Views\Reports\QuotationReport.Designer.cs">
-      <DependentUpon>QuotationReport.cs</DependentUpon>
+    <Compile Include="Views\Reports\InvoiceReport_withmaterials.Designer.cs">
+      <DependentUpon>InvoiceReport_withmaterials.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\InvoiceReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Reports\InvoiceReport.Designer.cs">
+      <DependentUpon>InvoiceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\InvoiceReport_1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Reports\InvoiceReport_1.Designer.cs">
+      <DependentUpon>InvoiceReport_1.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
@@ -335,8 +347,14 @@
     <EmbeddedResource Include="Views\Quotations\QuotationListView.resx">
       <DependentUpon>QuotationListView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Reports\QuotationReport.resx">
-      <DependentUpon>QuotationReport.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Reports\InvoiceReport_withmaterials.resx">
+      <DependentUpon>InvoiceReport_withmaterials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reports\InvoiceReport.resx">
+      <DependentUpon>InvoiceReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reports\InvoiceReport_1.resx">
+      <DependentUpon>InvoiceReport_1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <Content Include="Config\logo.jpg">
