@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.bbiSave = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSaveAndDone = new DevExpress.XtraBars.BarButtonItem();
             this.bbiReset = new DevExpress.XtraBars.BarButtonItem();
@@ -36,10 +35,12 @@
             this.bbiCopy = new DevExpress.XtraBars.BarButtonItem();
             this.dataLayoutControl = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.bsObject = new System.Windows.Forms.BindingSource(this.components);
+            this.bsObject = new System.Windows.Forms.BindingSource();
             this.flyoutPanel = new DevExpress.Utils.FlyoutPanel();
             this.flyoutPanelControl = new DevExpress.Utils.FlyoutPanelControl();
             this.lcSaving = new DevExpress.XtraEditors.LabelControl();
+            this.rpgOther = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.bbiPause = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).BeginInit();
@@ -59,12 +60,16 @@
             this.bbiSaveAndDone,
             this.bbiReset,
             this.bbiDelete,
-            this.bbiCopy});
-            this.ribbonControl.MaxItemId = 6;
-            this.ribbonControl.Size = new System.Drawing.Size(592, 158);
+            this.bbiCopy,
+            this.bbiPause});
+            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.ribbonControl.MaxItemId = 7;
+            this.ribbonControl.Size = new System.Drawing.Size(691, 194);
             // 
             // ribbonPage1
             // 
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rpgOther});
             this.ribbonPage1.Text = "Tub 1";
             // 
             // ribbonPageGroup1
@@ -119,10 +124,11 @@
             // dataLayoutControl
             // 
             this.dataLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataLayoutControl.Location = new System.Drawing.Point(0, 158);
+            this.dataLayoutControl.Location = new System.Drawing.Point(0, 194);
+            this.dataLayoutControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataLayoutControl.Name = "dataLayoutControl";
             this.dataLayoutControl.Root = this.Root;
-            this.dataLayoutControl.Size = new System.Drawing.Size(592, 416);
+            this.dataLayoutControl.Size = new System.Drawing.Size(691, 512);
             this.dataLayoutControl.TabIndex = 1;
             this.dataLayoutControl.Text = "dataLayoutControl1";
             // 
@@ -131,7 +137,7 @@
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.Root.GroupBordersVisible = false;
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(592, 416);
+            this.Root.Size = new System.Drawing.Size(691, 512);
             this.Root.TextVisible = false;
             // 
             // flyoutPanel
@@ -139,11 +145,13 @@
             this.flyoutPanel.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.flyoutPanel.Appearance.Options.UseBackColor = true;
             this.flyoutPanel.Controls.Add(this.flyoutPanelControl);
-            this.flyoutPanel.Location = new System.Drawing.Point(164, 93);
+            this.flyoutPanel.Location = new System.Drawing.Point(241, 170);
+            this.flyoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flyoutPanel.Name = "flyoutPanel";
             this.flyoutPanel.OptionsBeakPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.flyoutPanel.OptionsButtonPanel.ButtonPanelHeight = 37;
             this.flyoutPanel.OwnerControl = this;
-            this.flyoutPanel.Size = new System.Drawing.Size(360, 38);
+            this.flyoutPanel.Size = new System.Drawing.Size(420, 47);
             this.flyoutPanel.TabIndex = 2;
             // 
             // flyoutPanelControl
@@ -152,8 +160,9 @@
             this.flyoutPanelControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flyoutPanelControl.FlyoutPanel = this.flyoutPanel;
             this.flyoutPanelControl.Location = new System.Drawing.Point(0, 0);
+            this.flyoutPanelControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flyoutPanelControl.Name = "flyoutPanelControl";
-            this.flyoutPanelControl.Size = new System.Drawing.Size(360, 38);
+            this.flyoutPanelControl.Size = new System.Drawing.Size(420, 47);
             this.flyoutPanelControl.TabIndex = 0;
             // 
             // lcSaving
@@ -171,19 +180,35 @@
             this.lcSaving.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lcSaving.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lcSaving.Location = new System.Drawing.Point(2, 2);
+            this.lcSaving.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lcSaving.Name = "lcSaving";
-            this.lcSaving.Size = new System.Drawing.Size(356, 34);
+            this.lcSaving.Size = new System.Drawing.Size(416, 43);
             this.lcSaving.TabIndex = 0;
             this.lcSaving.Text = "Upsluun...";
             // 
+            // rpgOther
+            // 
+            this.rpgOther.ItemLinks.Add(this.bbiPause);
+            this.rpgOther.Name = "rpgOther";
+            this.rpgOther.Text = "Undure";
+            // 
+            // bbiPause
+            // 
+            this.bbiPause.Caption = "Puze";
+            this.bbiPause.Id = 6;
+            this.bbiPause.ImageOptions.ImageIndex = 33;
+            this.bbiPause.ImageOptions.LargeImageIndex = 33;
+            this.bbiPause.Name = "bbiPause";
+            // 
             // BaseEditView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.flyoutPanel);
             this.Controls.Add(this.dataLayoutControl);
+            this.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.Name = "BaseEditView";
-            this.Size = new System.Drawing.Size(592, 574);
+            this.Size = new System.Drawing.Size(691, 706);
             this.Controls.SetChildIndex(this.ribbonControl, 0);
             this.Controls.SetChildIndex(this.dataLayoutControl, 0);
             this.Controls.SetChildIndex(this.flyoutPanel, 0);
@@ -214,5 +239,7 @@
         protected DevExpress.Utils.FlyoutPanel flyoutPanel;
         protected DevExpress.Utils.FlyoutPanelControl flyoutPanelControl;
         protected DevExpress.XtraEditors.LabelControl lcSaving;
+        private DevExpress.XtraBars.BarButtonItem bbiPause;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgOther;
     }
 }

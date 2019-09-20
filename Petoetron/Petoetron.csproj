@@ -123,9 +123,6 @@
     <Compile Include="Models\PriceTypes\PriceTypeListViewModel.cs" />
     <Compile Include="Models\QuotationMaterials\QuotationMaterialEditViewModel.cs" />
     <Compile Include="Models\QuotationPrices\QuotationPriceEditViewModel.cs" />
-    <Compile Include="Models\Quotations\Helpers\AbstractQuotationItem.cs" />
-    <Compile Include="Models\Quotations\Helpers\MaterialItemViewModel.cs" />
-    <Compile Include="Models\Quotations\Helpers\PriceTypeItemViewModel.cs" />
     <Compile Include="Models\Quotations\QuotationEditViewModel.cs" />
     <Compile Include="Models\Quotations\QuotationListViewModel.cs" />
     <Compile Include="ModuleTypes.cs" />

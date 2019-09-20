@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.bsEntities = new System.Windows.Forms.BindingSource(this.components);
+            this.bsEntities = new System.Windows.Forms.BindingSource();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.bbiAdd = new DevExpress.XtraBars.BarButtonItem();
@@ -38,13 +37,17 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bbiPrint = new DevExpress.XtraBars.BarButtonItem();
             this.bbiExport = new DevExpress.XtraBars.BarButtonItem();
-            this.behaviorManager = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.behaviorManager = new DevExpress.Utils.Behaviors.BehaviorManager();
+            this.rpgOther = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.bbiPause = new DevExpress.XtraBars.BarButtonItem();
+            this.PausePopupMenu = new DevExpress.XtraBars.PopupMenu();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsEntities)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PausePopupMenu)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -55,15 +58,17 @@
             this.bbiEdit,
             this.bbiDelete,
             this.bbiPrint,
-            this.bbiExport});
-            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.ribbonControl.MaxItemId = 6;
-            this.ribbonControl.Size = new System.Drawing.Size(830, 158);
+            this.bbiExport,
+            this.bbiPause});
+            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.ribbonControl.MaxItemId = 8;
+            this.ribbonControl.Size = new System.Drawing.Size(968, 194);
             // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup2});
+            this.ribbonPageGroup2,
+            this.rpgOther});
             this.ribbonPage1.Text = "Tub1";
             // 
             // ribbonPageGroup1
@@ -82,17 +87,20 @@
             this.behaviorManager.SetBehaviors(this.gridControl, new DevExpress.Utils.Behaviors.Behavior[] {
             ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.Behaviors.Common.PersistenceBehavior.Create(typeof(DevExpress.Utils.BehaviorSource.PersistenceBehaviorSourceForControl), null, DevExpress.Utils.Behaviors.Common.Storage.File, DevExpress.Utils.DefaultBoolean.True)))});
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl.Location = new System.Drawing.Point(0, 158);
+            this.gridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gridControl.Location = new System.Drawing.Point(0, 194);
             this.gridControl.MainView = this.gridView;
+            this.gridControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl.MenuManager = this.ribbonControl;
             this.gridControl.Name = "gridControl";
-            this.gridControl.Size = new System.Drawing.Size(830, 367);
+            this.gridControl.Size = new System.Drawing.Size(968, 452);
             this.gridControl.TabIndex = 1;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView});
             // 
             // gridView
             // 
+            this.gridView.DetailHeight = 431;
             this.gridView.GridControl = this.gridControl;
             this.gridView.Name = "gridView";
             // 
@@ -143,14 +151,34 @@
             this.bbiExport.ImageOptions.LargeImageIndex = 10;
             this.bbiExport.Name = "bbiExport";
             // 
+            // rpgOther
+            // 
+            this.rpgOther.ItemLinks.Add(this.bbiPause);
+            this.rpgOther.Name = "rpgOther";
+            this.rpgOther.Text = "Undure";
+            // 
+            // bbiPause
+            // 
+            this.bbiPause.Caption = "Puze";
+            this.bbiPause.DropDownControl = this.PausePopupMenu;
+            this.bbiPause.Id = 7;
+            this.bbiPause.ImageOptions.ImageIndex = 33;
+            this.bbiPause.ImageOptions.LargeImageIndex = 33;
+            this.bbiPause.Name = "bbiPause";
+            // 
+            // PausePopupMenu
+            // 
+            this.PausePopupMenu.Name = "PausePopupMenu";
+            this.PausePopupMenu.Ribbon = this.ribbonControl;
+            // 
             // BaseListView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gridControl);
-            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.Name = "BaseListView";
-            this.Size = new System.Drawing.Size(830, 525);
+            this.Size = new System.Drawing.Size(968, 646);
             this.Controls.SetChildIndex(this.ribbonControl, 0);
             this.Controls.SetChildIndex(this.gridControl, 0);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
@@ -159,6 +187,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PausePopupMenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,5 +205,8 @@
         protected DevExpress.XtraBars.BarButtonItem bbiExport;
         protected DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager;
+        private DevExpress.XtraBars.BarButtonItem bbiPause;
+        private DevExpress.XtraBars.PopupMenu PausePopupMenu;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgOther;
     }
 }

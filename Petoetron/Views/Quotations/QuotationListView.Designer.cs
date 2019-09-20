@@ -39,6 +39,9 @@
             this.colCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rpgReports = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bbiInvoice = new DevExpress.XtraBars.BarButtonItem();
+            this.colPaid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPaidDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCustomerCode = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bsEntities)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -66,7 +69,11 @@
             this.colEnabled,
             this.colLastModified,
             this.colId,
-            this.colCode});
+            this.colCode,
+            this.colPaid,
+            this.colPaidDate,
+            this.colCustomerCode});
+            this.gridView.DetailHeight = 431;
             // 
             // bbiAdd
             // 
@@ -109,64 +116,67 @@
             // colCustomerId
             // 
             this.colCustomerId.FieldName = "CustomerId";
+            this.colCustomerId.MinWidth = 23;
             this.colCustomerId.Name = "colCustomerId";
-            this.colCustomerId.Width = 64;
             // 
             // colDeliveryDate
             // 
             this.colDeliveryDate.FieldName = "DeliveryDate";
+            this.colDeliveryDate.MinWidth = 23;
             this.colDeliveryDate.Name = "colDeliveryDate";
             this.colDeliveryDate.Visible = true;
-            this.colDeliveryDate.VisibleIndex = 2;
-            this.colDeliveryDate.Width = 551;
+            this.colDeliveryDate.VisibleIndex = 3;
+            this.colDeliveryDate.Width = 456;
             // 
             // colDescription
             // 
             this.colDescription.FieldName = "Description";
+            this.colDescription.MinWidth = 23;
             this.colDescription.Name = "colDescription";
             this.colDescription.Visible = true;
             this.colDescription.VisibleIndex = 1;
-            this.colDescription.Width = 549;
+            this.colDescription.Width = 358;
             // 
             // colInfo
             // 
             this.colInfo.FieldName = "Info";
+            this.colInfo.MinWidth = 23;
             this.colInfo.Name = "colInfo";
-            this.colInfo.Width = 64;
             // 
             // colIconPath
             // 
             this.colIconPath.FieldName = "IconPath";
+            this.colIconPath.MinWidth = 23;
             this.colIconPath.Name = "colIconPath";
-            this.colIconPath.Width = 64;
             // 
             // colEnabled
             // 
             this.colEnabled.FieldName = "Enabled";
+            this.colEnabled.MinWidth = 23;
             this.colEnabled.Name = "colEnabled";
-            this.colEnabled.Width = 64;
             // 
             // colLastModified
             // 
             this.colLastModified.FieldName = "LastModified";
+            this.colLastModified.MinWidth = 23;
             this.colLastModified.Name = "colLastModified";
-            this.colLastModified.Width = 64;
             // 
             // colId
             // 
             this.colId.FieldName = "Id";
             this.colId.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.colId.MinWidth = 23;
             this.colId.Name = "colId";
-            this.colId.Width = 64;
             // 
             // colCode
             // 
             this.colCode.FieldName = "Code";
             this.colCode.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.colCode.MinWidth = 23;
             this.colCode.Name = "colCode";
             this.colCode.Visible = true;
             this.colCode.VisibleIndex = 0;
-            this.colCode.Width = 136;
+            this.colCode.Width = 159;
             // 
             // rpgReports
             // 
@@ -181,6 +191,30 @@
             this.bbiInvoice.ImageOptions.ImageIndex = 21;
             this.bbiInvoice.ImageOptions.LargeImageIndex = 21;
             this.bbiInvoice.Name = "bbiInvoice";
+            // 
+            // colPaid
+            // 
+            this.colPaid.FieldName = "Paid";
+            this.colPaid.MinWidth = 24;
+            this.colPaid.Name = "colPaid";
+            this.colPaid.Width = 108;
+            // 
+            // colPaidDate
+            // 
+            this.colPaidDate.FieldName = "PaidDate";
+            this.colPaidDate.MinWidth = 24;
+            this.colPaidDate.Name = "colPaidDate";
+            this.colPaidDate.Width = 108;
+            // 
+            // colCustomerCode
+            // 
+            this.colCustomerCode.Caption = "Klunt";
+            this.colCustomerCode.FieldName = "Customer.Code";
+            this.colCustomerCode.MinWidth = 24;
+            this.colCustomerCode.Name = "colCustomerCode";
+            this.colCustomerCode.Visible = true;
+            this.colCustomerCode.VisibleIndex = 2;
+            this.colCustomerCode.Width = 374;
             // 
             // QuotationListView
             // 
@@ -211,5 +245,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCode;
         private DevExpress.XtraBars.BarButtonItem bbiInvoice;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgReports;
+        private DevExpress.XtraGrid.Columns.GridColumn colPaid;
+        private DevExpress.XtraGrid.Columns.GridColumn colPaidDate;
+        private DevExpress.XtraGrid.Columns.GridColumn colCustomerCode;
     }
 }
