@@ -18,7 +18,8 @@ namespace Petoetron.Views.Base
         public override void InitializeLayouts()
         {
             base.InitializeLayouts();
-
+            dataLayoutControl.Images = images.Images24x24;
+            
             peObjectIcon.Properties.ShowZoomSubMenu = DevExpress.Utils.DefaultBoolean.False;
             peObjectIcon.PopupMenuShowing += ObjectImageEdit_PopupMenuShowing;
 

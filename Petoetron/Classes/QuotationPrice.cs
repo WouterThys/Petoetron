@@ -2,20 +2,17 @@
 using Petoetron.Classes.Helpers;
 using Petoetron.Dal;
 using System;
-using System.Collections.Generic;
 using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Petoetron.Classes
 {
     public class QuotationPrice : AbstractObject
     {
         public override string TableName { get { return "quotationprices"; } }
-        private static long insertId = -10000;
+        private static long insertId = -20000;
 
-        private double amount;
+        private int amount;
+        private double value;
         private DateTime date;
         private string info;
 
@@ -30,14 +27,11 @@ namespace Petoetron.Classes
         {
             Id = insertId--;
         }
-        public QuotationPrice(Quotation quotation, PriceType priceType) : this()
+        public QuotationPrice(Quotation quotation) : this()
         {
             this.quotation = quotation;
             quotationId = quotation != null ? quotation.Id : 0;
-
-            this.priceType = priceType;
-            priceTypeId = priceType != null ? priceType.Id : 0;
-
+            
             code = priceType?.Code;
             date = DateTime.Now;
             amount = 1;
@@ -58,6 +52,7 @@ namespace Petoetron.Classes
             {
                 base.CopyFrom(toCopy);
                 Amount = qp.Amount;
+                Value = qp.Value;
                 Date = qp.Date;
                 Info = qp.Info;
                 QuotationId = qp.QuotationId;
@@ -71,6 +66,7 @@ namespace Petoetron.Classes
             {
                 return base.PropertiesEqual(iObject) &&
                     Amount == qp.Amount &&
+                    Value == qp.Value &&
                     Date == qp.Date &&
                     Info == qp.Info &&
                     QuotationId == qp.QuotationId &&
@@ -87,6 +83,7 @@ namespace Petoetron.Classes
         {
             base.AddBaseSqlParameters(command);
             DatabaseAccess.AddDbValue(command, "amount", Amount);
+            DatabaseAccess.AddDbValue(command, "value", Value);
             DatabaseAccess.AddDbValue(command, "date", Date);
             DatabaseAccess.AddDbValue(command, "info", Amount);
             DatabaseAccess.AddDbValue(command, "quotationId", QuotationId);
@@ -96,7 +93,8 @@ namespace Petoetron.Classes
         public override void InitFromReader(DbDataReader reader)
         {
             base.InitBaseFromReader(reader);
-            Amount = DatabaseAccess.RGetDouble(reader, "amount");
+            Amount = DatabaseAccess.RGetInt(reader, "amount");
+            Value = DatabaseAccess.RGetDouble(reader, "value");
             Date = DatabaseAccess.RGetDateTime(reader, "date");
             Info = DatabaseAccess.RGetString(reader, "info");
             QuotationId = DatabaseAccess.RGetLong(reader, "quotationId");
@@ -123,13 +121,23 @@ namespace Petoetron.Classes
 
         #region Properties
 
-        public double Amount
+        public int Amount
         {
             get => amount;
             set
             {
                 amount = value;
                 OnPropertyChanged("Amount");
+            }
+        }
+
+        public double Value
+        {
+            get => value;
+            set
+            {
+                this.value = value;
+                OnPropertyChanged("Value");
             }
         }
 

@@ -94,13 +94,18 @@ namespace Petoetron.Models.Base
 
         public virtual void UpdateCommands()
         {
-            propertiesEqual = Editable != null && Original.PropertiesEqual(Editable);
+            propertiesEqual = ArePropertiesEqual();
 
             this.RaiseCanExecuteChanged(x => x.Save());
             this.RaiseCanExecuteChanged(x => x.SaveAndDone());
             this.RaiseCanExecuteChanged(x => x.Reset());
             this.RaiseCanExecuteChanged(x => x.Delete());
             this.RaiseCanExecuteChanged(x => x.Copy());
+        }
+
+        protected virtual bool ArePropertiesEqual()
+        {
+            return Editable != null && Original.PropertiesEqual(Editable);
         }
 
         public virtual string Code

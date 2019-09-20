@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Petoetron.Classes.Helpers
 {
@@ -34,9 +35,21 @@ namespace Petoetron.Classes.Helpers
             bool equal = obj is LinkList<T> list &&
                    ObjectId == list.ObjectId &&
                    Ids.SetEquals(list.Ids);
-            if (equal && Values != null)
+            if (equal && Values != null && obj is LinkList<T> l)
             {
-                equal = values.SetEquals(((LinkList<T>)obj).Values);
+                equal = values.SetEquals(l.Values);
+                if (equal)
+                {
+                    foreach(T t in values)
+                    {
+                        T found = l.values.FirstOrDefault(v => v.Id == t.Id);
+                        if (found == null) return false;
+                        if (!found.PropertiesEqual(t))
+                        {
+                            return false;
+                        }
+                    }
+                }
             }
             return equal;
         }

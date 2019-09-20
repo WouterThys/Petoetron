@@ -26,8 +26,16 @@ namespace Petoetron.Models.Quotations
 
 
         public virtual BindingList<Customer> Customers { get; protected set; }
+        public virtual BindingList<Material> Materials { get; protected set; }
+        public virtual BindingList<PriceType> PriceTypes { get; protected set; }
 
-        public virtual BindingList<AbstractQuotationViewModel> QuotationItems { get; set; }
+        private bool materialValuesChanged = false;
+        public virtual BindingList<QuotationMaterial> QuotationMaterials { get; set; }
+        public virtual List<QuotationMaterial> MaterialSelection { get; set; }
+
+        private bool priceValuesChanged = false;
+        public virtual BindingList<QuotationPrice> QuotationPrices { get; set; }
+        public virtual List<QuotationPrice> PriceSelection { get; set; }
 
         protected QuotationEditViewModel(Quotation original) : base(ModuleTypes.QuotationEditModule, original)
         {
@@ -38,31 +46,32 @@ namespace Petoetron.Models.Quotations
         }
 
         private List<Customer> tmpCustomers;
-        private List<AbstractQuotationViewModel> tmpItemViewModels;
+        private List<Material> tmpMaterials;
+        private List<PriceType> tmpPriceTypes;
+        private List<QuotationMaterial> tmpQMaterials;
+        private List<QuotationPrice> tmpQPrices;
         public override void OnLoading()
         {
             base.OnLoading();
-
+            materialValuesChanged = false;
+            priceValuesChanged = false;
             tmpCustomers = new List<Customer>(DataAccess.Dal.Customers);
+            tmpMaterials = new List<Material>(DataAccess.Dal.Materials);
+            tmpPriceTypes = new List<PriceType>(DataAccess.Dal.PriceTypes);
 
-            tmpItemViewModels = new List<AbstractQuotationViewModel>();
-            foreach (QuotationMaterial qm in Editable.Materials.Values)
-            {
-                var mModel = MaterialItemViewModel.Create(qm, () => RemoveQuotationMaterial(qm));
-                tmpItemViewModels.Add(mModel);
-            }
-            foreach (QuotationPrice qp in Editable.Prices.Values)
-            {
-                var qpModel = PriceTypeItemViewModel.Create(qp, () => RemoveQuotationPrice(qp));
-                tmpItemViewModels.Add(qpModel);
-            }
+            tmpQMaterials = new List<QuotationMaterial>(Editable.Materials.Values);
+            tmpQPrices = new List<QuotationPrice>(Editable.Prices.Values);
         }
 
         public override void OnLoaded()
         {
             Customers = new BindingList<Customer>(tmpCustomers);
-            QuotationItems = new BindingList<AbstractQuotationViewModel>(tmpItemViewModels);
-            
+            Materials = new BindingList<Material>(tmpMaterials);
+            PriceTypes = new BindingList<PriceType>(tmpPriceTypes);
+
+            QuotationMaterials = new BindingList<QuotationMaterial>(tmpQMaterials);
+            QuotationPrices = new BindingList<QuotationPrice>(tmpQPrices);
+
             base.OnLoaded();
         }
 
@@ -72,6 +81,17 @@ namespace Petoetron.Models.Quotations
 
             this.RaiseCanExecuteChanged(x => x.AddCustomer());
             this.RaiseCanExecuteChanged(x => x.EditCustomer());
+
+            this.RaiseCanExecuteChanged(x => x.AddMaterial());
+            this.RaiseCanExecuteChanged(x => x.DeleteMaterials());
+
+            this.RaiseCanExecuteChanged(x => x.AddPrice());
+            this.RaiseCanExecuteChanged(x => x.DeletePrices());
+        }
+
+        protected override bool ArePropertiesEqual()
+        {
+            return !materialValuesChanged && !priceValuesChanged && base.ArePropertiesEqual();
         }
 
         public override void OnClose(CancelEventArgs e)
@@ -88,6 +108,7 @@ namespace Petoetron.Models.Quotations
             entity.Save();
         }
 
+        #region Customer
 
         public virtual bool CanAddCustomer()
         {
@@ -108,71 +129,91 @@ namespace Petoetron.Models.Quotations
             ShowDocument(model);
         }
 
+        #endregion
+
+        #region Materials
+
+        public void MaterialValuesChanged()
+        {
+            materialValuesChanged = true;
+            UpdateCommands();
+        }
+
+        public void OnMaterialSelectionChanged()
+        {
+            this.RaiseCanExecuteChanged(x => x.DeleteMaterials());
+        }
+
+        public virtual bool CanAddMaterial()
+        {
+            return !IsLoading && Editable != null;
+        }
         public virtual void AddMaterial()
         {
             var qm = new QuotationMaterial(Editable);
 
-            QuotationMaterialEditViewModel model = QuotationMaterialEditViewModel.Create(qm);
-            var res = DialogService.ShowDialog(MessageButton.OKCancel, "Muturiuul", model);
-            if (res == MessageResult.OK && qm.MaterialId > AbstractObject.UNKNOWN_ID)
+            Editable.Materials.Add(qm);
+            QuotationMaterials.Add(qm);
+            UpdateCommands();
+        }
+
+        public virtual bool CanDeleteMaterials()
+        {
+            return !IsLoading && Editable != null && MaterialSelection != null && MaterialSelection.Count > 0;
+        }
+        public virtual void DeleteMaterials()
+        {
+            foreach (QuotationMaterial qm in MaterialSelection)
             {
-                var mModel = MaterialItemViewModel.Create(qm, () => RemoveQuotationMaterial(qm));
-                Editable.Materials.Add(qm);
-                QuotationItems.Add(mModel);
+                Editable.Materials.Remove(qm);
+                QuotationMaterials.Remove(qm);
                 UpdateCommands();
             }
         }
 
-        public virtual void RemoveQuotationMaterial(QuotationMaterial material)
+        #endregion
+
+        #region Prices
+
+        public void PriceValuesChanged()
         {
-            // TODO: remove from editable
-            foreach (AbstractQuotationViewModel model in QuotationItems)
-            {
-                if (model is MaterialItemViewModel qmModel)
-                {
-                    if (qmModel.Material.Equals(material))
-                    {
-                        QuotationItems.Remove(model);
-                        Editable.Materials.Remove(material);
-                        UpdateCommands();
-                        break;
-                    }
-                }
-            }
+            priceValuesChanged = true;
+            UpdateCommands();
         }
 
-        public virtual void AddPriceType(PriceType priceType)
+        public void OnPriceSelectionChanged()
         {
-            var qp = new QuotationPrice(Editable, priceType);
+            this.RaiseCanExecuteChanged(x => x.DeletePrices());
+        }
 
-            QuotationPriceEditViewModel model = QuotationPriceEditViewModel.Create(qp);
-            var res = DialogService.ShowDialog(MessageButton.OKCancel, priceType.Code, model);
-            if (res == MessageResult.OK)
+        public virtual bool CanAddPrice()
+        {
+            return !IsLoading && Editable != null;
+        }
+        public virtual void AddPrice()
+        {
+            var qp = new QuotationPrice(Editable);
+
+            Editable.Prices.Add(qp);
+            QuotationPrices.Add(qp);
+            UpdateCommands();
+        }
+
+        public virtual bool CanDeletePrices()
+        {
+            return !IsLoading && Editable != null && PriceSelection != null && PriceSelection.Count > 0;
+        }
+        public virtual void DeletePrices()
+        {
+            foreach (QuotationPrice qm in PriceSelection)
             {
-                var qpModel = PriceTypeItemViewModel.Create(qp, () => RemoveQuotationPrice(qp));
-                Editable.Prices.Add(qp);
-                QuotationItems.Add(qpModel);
+                Editable.Prices.Remove(qm);
+                QuotationPrices.Remove(qm);
                 UpdateCommands();
             }
         }
 
-        public virtual void RemoveQuotationPrice(QuotationPrice price)
-        {
-            // TODO: remove from editable
-            foreach (AbstractQuotationViewModel model in QuotationItems)
-            {
-                if (model is PriceTypeItemViewModel qpModel)
-                {
-                    if (qpModel.Price.Equals(price))
-                    {
-                        QuotationItems.Remove(model);
-                        Editable.Prices.Remove(price);
-                        UpdateCommands();
-                        break;
-                    }
-                }
-            }
-        }
+        #endregion
 
         #region IDataChanged listeners
         void IDataChanged<Customer>.OnInserted(Customer inserted)
@@ -196,7 +237,7 @@ namespace Petoetron.Models.Quotations
             }
         }
 
-       
+
         #endregion
     }
 }

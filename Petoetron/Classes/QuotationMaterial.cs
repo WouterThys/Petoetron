@@ -11,7 +11,8 @@ namespace Petoetron.Classes
         public override string TableName { get { return "quotationmaterials"; } }
         private static long insertId = -10000;
 
-        private double amount;
+        private int amount;
+        private double value;
         private DateTime date;
         private string info;
 
@@ -33,6 +34,7 @@ namespace Petoetron.Classes
 
             date = DateTime.Now;
             amount = 1;
+            value = 1;
         }
         
         #region Base overrides
@@ -50,6 +52,7 @@ namespace Petoetron.Classes
             {
                 base.CopyFrom(toCopy);
                 Amount = qm.Amount;
+                Value = qm.Value;
                 Date = qm.Date;
                 Info = qm.Info;
                 QuotationId = qm.QuotationId;
@@ -63,6 +66,7 @@ namespace Petoetron.Classes
             {
                 return base.PropertiesEqual(iObject) &&
                     Amount == qm.Amount &&
+                    Value == qm.Value &&
                     Date == qm.Date &&
                     Info == qm.Info &&
                     QuotationId == qm.QuotationId &&
@@ -79,6 +83,7 @@ namespace Petoetron.Classes
         {
             base.AddBaseSqlParameters(command);
             DatabaseAccess.AddDbValue(command, "amount", Amount);
+            DatabaseAccess.AddDbValue(command, "value", Value);
             DatabaseAccess.AddDbValue(command, "date", Date);
             DatabaseAccess.AddDbValue(command, "info", Info);
             DatabaseAccess.AddDbValue(command, "quotationId", QuotationId);
@@ -88,7 +93,8 @@ namespace Petoetron.Classes
         public override void InitFromReader(DbDataReader reader)
         {
             base.InitBaseFromReader(reader);
-            Amount = DatabaseAccess.RGetDouble(reader, "amount");
+            Amount = DatabaseAccess.RGetInt(reader, "amount");
+            Value = DatabaseAccess.RGetDouble(reader, "value");
             Date = DatabaseAccess.RGetDateTime(reader, "date");
             Info = DatabaseAccess.RGetString(reader, "info");
             QuotationId = DatabaseAccess.RGetLong(reader, "quotationId");
@@ -115,13 +121,23 @@ namespace Petoetron.Classes
 
         #region Properties
 
-        public double Amount
+        public int Amount
         {
             get => amount;
             set
             {
                 amount = value;
                 OnPropertyChanged("Amount");
+            }
+        }
+
+        public double Value
+        {
+            get => value;
+            set
+            {
+                this.value = value;
+                OnPropertyChanged("Value");
             }
         }
 
