@@ -1,6 +1,7 @@
 ﻿using DevExpress.Mvvm;
 using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.Mvvm.POCO;
+using Petoetron.Classes;
 using Petoetron.Classes.Helpers;
 using Petoetron.Dal;
 using Petoetron.Services;
@@ -106,9 +107,23 @@ namespace Petoetron.Models.Base
             return t;
         }
 
-        
+
 
         #region COMMANDS
+
+        public bool CanPause(Pause pause)
+        {
+            return !IsLoading;
+        }
+
+        public void Pause(Pause pause)
+        {
+            if (pause != null)
+            {
+                Toolbox.OpenBrowser(pause.Url);
+            }
+        }
+
         public virtual bool CanAdd()
         {
             return !IsLoading;
@@ -311,7 +326,6 @@ namespace Petoetron.Models.Base
         {
             DispatcherService.BeginInvoke(() => Deleted(deleted));
         }
-
 
         #endregion
 

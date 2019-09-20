@@ -59,11 +59,13 @@ namespace Petoetron
             aceMaterialTypes.Image = images.GetIcon(ModuleTypes.MaterialTypeListModule);
             aceMaterials.Image = images.GetIcon(ModuleTypes.MaterialListModule);
             acePriceTypes.Image = images.GetIcon(ModuleTypes.PriceTypeListModule);
+            acePauses.Image = images.GetIcon(ModuleTypes.PauseListModule);
 
             aceCustomers.Tag = ModuleTypes.CustomerListModule;
             aceMaterialTypes.Tag = ModuleTypes.MaterialTypeListModule;
             aceMaterials.Tag = ModuleTypes.MaterialListModule;
             acePriceTypes.Tag = ModuleTypes.PriceTypeListModule;
+            acePauses.Tag = ModuleTypes.PauseListModule;
         }
         
 

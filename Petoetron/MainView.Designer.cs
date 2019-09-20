@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.tabbedView = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+            this.tabbedView = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.skinRibbonGalleryBarItem = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.bbiDbState = new DevExpress.XtraBars.BarButtonItem();
@@ -38,9 +37,9 @@
             this.ribbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgGeneral = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.documentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
-            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
-            this.dockManager = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.documentManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
+            this.dockManager = new DevExpress.XtraBars.Docking.DockManager();
             this.dpNavigation = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.accordionControl = new DevExpress.XtraBars.Navigation.AccordionControl();
@@ -50,9 +49,10 @@
             this.aceMaterialTypes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceMaterials = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.acePriceTypes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.mvvmContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
-            this.images = new Petoetron.Resources.Images(this.components);
-            this.behaviorManager = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.mvvmContext = new DevExpress.Utils.MVVM.MVVMContext();
+            this.images = new Petoetron.Resources.Images();
+            this.behaviorManager = new DevExpress.Utils.Behaviors.BehaviorManager();
+            this.acePauses = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager)).BeginInit();
@@ -170,7 +170,7 @@
             this.dpNavigation.Name = "dpNavigation";
             this.dpNavigation.OriginalSize = new System.Drawing.Size(379, 200);
             this.dpNavigation.SavedSizeFactor = 0D;
-            this.dpNavigation.Size = new System.Drawing.Size(442, 596);
+            this.dpNavigation.Size = new System.Drawing.Size(379, 596);
             this.dpNavigation.Text = "Kuus Iets";
             // 
             // dockPanel1_Container
@@ -179,7 +179,7 @@
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 37);
             this.dockPanel1_Container.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(432, 555);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(369, 555);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // accordionControl
@@ -191,7 +191,7 @@
             this.accordionControl.Location = new System.Drawing.Point(0, 0);
             this.accordionControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.accordionControl.Name = "accordionControl";
-            this.accordionControl.Size = new System.Drawing.Size(432, 555);
+            this.accordionControl.Size = new System.Drawing.Size(369, 555);
             this.accordionControl.TabIndex = 0;
             // 
             // aceInvoices
@@ -206,7 +206,8 @@
             this.aceCustomers,
             this.aceMaterialTypes,
             this.aceMaterials,
-            this.acePriceTypes});
+            this.acePriceTypes,
+            this.acePauses});
             this.aceData.Expanded = true;
             this.aceData.Name = "aceData";
             this.aceData.Text = "Dutu";
@@ -243,6 +244,12 @@
             // images
             // 
             this.images.DefaultSize = Petoetron.Resources.ImageSize.i16x16;
+            // 
+            // acePauses
+            // 
+            this.acePauses.Name = "acePauses";
+            this.acePauses.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.acePauses.Text = "Puzes";
             // 
             // MainView
             // 
@@ -298,5 +305,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgGeneral;
         private DevExpress.XtraBars.BarButtonItem bbiShowInfo;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement acePauses;
     }
 }

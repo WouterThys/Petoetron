@@ -19,6 +19,7 @@ using DevExpress.Data;
 using DevExpress.Utils.Menu;
 using DevExpress.Utils.Behaviors.Common;
 using System.Diagnostics;
+using DevExpress.XtraBars;
 
 namespace Petoetron.Views.Base
 {
@@ -42,6 +43,9 @@ namespace Petoetron.Views.Base
             gridView.OptionsView.ShowDetailButtons = false;
             gridView.OptionsBehavior.AutoExpandAllGroups = true;
             gridView.RowCellStyle += GridView_RowCellStyle;
+            
+            bbiPause.DropDownEnabled = true;
+            bbiPause.ButtonStyle = BarButtonStyle.DropDown;
         }
 
         private void GridView_RowCellStyle(object sender, RowCellStyleEventArgs e)
@@ -112,9 +116,15 @@ namespace Petoetron.Views.Base
             fluent.BindCommand(bbiAdd, m => m.Add());
             fluent.BindCommand(bbiEdit, m => m.Edit(null), m => m.Selected);
             fluent.BindCommand(bbiDelete, m => m.Delete(null), m => m.Selection);
-
+            
             fluent.BindCommand(bbiPrint, m => m.PrintList());
             fluent.BindCommand(bbiExport, m => m.ExportList());
+
+            var menu = ViewHelpers.InitPauseDropDownButton(PausePopupMenu, (item) => 
+            {
+                fluent.WithEvent<ItemClickEventArgs>(item, "ItemClick").EventToCommand(m => m.Pause(null), (arg) => arg.Item.Tag);
+            });
+            bbiPause.DropDownControl = menu;
 
             return fluent;
         }
@@ -133,7 +143,8 @@ namespace Petoetron.Views.Base
         }
 
         #region POPUP MENU
-        protected virtual void CreateDefaultPopupMenu<T, TModel>(object sender, PopupMenuShowingEventArgs e) where TModel : BaseListViewModel<T> where T : AbstractBaseObject, new()
+        protected virtual void CreateDefaultPopupMenu<T, TModel>(object sender, PopupMenuShowingEventArgs e) 
+            where TModel : BaseListViewModel<T> where T : AbstractBaseObject, new()
         {
             var fluent = mvvmContext.OfType<TModel>();
             GridView view = sender as GridView;
@@ -141,26 +152,19 @@ namespace Petoetron.Views.Base
             if (rowHandle >= 0 && e.Menu != null)
             {
                 e.Menu.Items.Clear();
-
-                //DXMenuItem addItem = CreateMenuItemAdd(view, rowHandle);
+                
                 DXMenuItem editItem = CreateMenuItemEdit(view, rowHandle);
                 DXMenuItem deleteItem = CreateMenuItemDelete(view, rowHandle);
+                //DXMenuItem pauseItem = CreateMenuItemPause<T, TModel>(view, rowHandle, fluent);
+                var pause = ViewHelpers.InitPauseDropDownButton(new PopupMenu(), null);
 
-                //fluent.BindCommand(addItem, m => m.Add());
                 fluent.BindCommand(editItem, m => m.Edit(null), m => m.Selected);
                 fluent.BindCommand(deleteItem, m => m.Delete(null), m => m.Selection);
-
-                //e.Menu.Items.Add(addItem);
+                
                 e.Menu.Items.Add(editItem);
                 e.Menu.Items.Add(deleteItem);
+                //e.Menu.Items.Add(pause);
             }
-        }
-
-        protected virtual DXMenuItem CreateMenuItemAdd(GridView view, int rowHandle)
-        {
-            DXMenuItem menuItemAdd = new DXMenuItem("&Add");
-            menuItemAdd.ImageOptions.Image = images.Images16x16.Images[0];
-            return menuItemAdd;
         }
 
         protected virtual DXMenuItem CreateMenuItemEdit(GridView view, int rowHandle)
@@ -176,8 +180,20 @@ namespace Petoetron.Views.Base
             menuItemAdd.ImageOptions.Image = images.Images16x16.Images[2];
             return menuItemAdd;
         }
+
+        protected virtual DXMenuItem CreateMenuItemPause<T, TModel>(GridView view, int rowHandle, MVVMContextFluentAPI<TModel> fluent)
+            where TModel : BaseListViewModel<T> where T : AbstractBaseObject, new()
+        {
+            DXMenuItem menuItemAdd = new DXMenuItem("&Pause");
+            menuItemAdd.ImageOptions.Image = images.Images16x16.Images[33];
+
+            menuItemAdd.Items.Add
+
+            return menuItemAdd;
+        }
+
         #endregion
 
-        
+
     }
 }

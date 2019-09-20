@@ -1,4 +1,5 @@
 ﻿using DevExpress.Mvvm;
+using Petoetron.Classes;
 using Petoetron.Classes.Helpers;
 using Petoetron.Services;
 using System;
@@ -28,13 +29,10 @@ namespace Petoetron.Models
 
         bool IsLoading { get; set; }
         Task Load();
-        //void OnLoading();   // Happens on Task Thread
-        //void OnLoaded();    // Happens on UI Thread
-
+        
         IMessageBoxService MessageBoxService { get; }
         IDialogService DialogService { get; }
         IDispatcherService DispatcherService { get; }
-        //IErrorManagerService ErrorManagerService { get; }
         IDataChangedService DataChangedService { get; }
     }
 
@@ -56,6 +54,9 @@ namespace Petoetron.Models
         void UpdateCommands();
         IBaseViewModel GetEditViewModel(TEntity baseObject);
         IEnumerable<TEntity> DataSource();
+
+        bool CanPause(Pause pause);
+        void Pause(Pause pause);
 
         bool CanAdd();
         void Add();
@@ -87,6 +88,9 @@ namespace Petoetron.Models
         bool IsSaving { get; }
 
         void UpdateCommands();
+
+        bool CanPause(Pause pause);
+        void Pause(Pause pause);
 
         bool CanEditCode();
         bool CanClose();

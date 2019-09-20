@@ -6,6 +6,7 @@ using DevExpress.XtraEditors;
 using System.Windows.Forms;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.DXErrorProvider;
+using DevExpress.XtraBars;
 
 namespace Petoetron.Views.Base
 {
@@ -23,6 +24,9 @@ namespace Petoetron.Views.Base
 
             flyoutPanel.Options.AnchorType = PopupToolWindowAnchor.Bottom;
             flyoutPanel.Options.AnimationType = PopupToolWindowAnimation.Slide;
+
+            bbiPause.DropDownEnabled = true;
+            bbiPause.ButtonStyle = BarButtonStyle.DropDown;
         }
         
         #region BINDINGS
@@ -50,6 +54,12 @@ namespace Petoetron.Views.Base
             fluent.BindCommand(bbiReset, m => m.Reset());
             fluent.BindCommand(bbiDelete, m => m.Delete());
             fluent.BindCommand(bbiCopy, m => m.Copy());
+
+            var menu = ViewHelpers.InitPauseDropDownButton(PausePopupMenu, (item) =>
+            {
+                fluent.WithEvent<ItemClickEventArgs>(item, "ItemClick").EventToCommand(m => m.Pause(null), (arg) => arg.Item.Tag);
+            });
+            bbiPause.DropDownControl = menu;
 
             return fluent;
         }

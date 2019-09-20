@@ -27,7 +27,8 @@ namespace Petoetron
         public readonly static DataListModuleType PriceTypeListModule = new DataListModuleType(-500, 20, "PriceType");
         public readonly static AddEditDataModule PriceTypeEditModule = new AddEditDataModule(-501, 20, "PriceType");
 
-        
+        public readonly static DataListModuleType PauseListModule = new DataListModuleType(-600, 33, "Pause");
+        public readonly static AddEditDataModule PauseEditModule = new AddEditDataModule(-601, 33, "Pause");
 
         public readonly static AddEditDataModule ObjectDocumentEditModule = new AddEditDataModule(-1000, -1, "ObjectDocument");
         public readonly static SimpleModuleType ObjectLogModule = new SimpleModuleType(-1100, -1, "ObjectLog", "Wu us duur gebuurd?");

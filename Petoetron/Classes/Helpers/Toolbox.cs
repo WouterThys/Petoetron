@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -110,5 +111,59 @@ namespace Petoetron.Classes.Helpers
 
 
         #endregion
+
+        public static void OpenBrowser(string url)
+        {
+            if (string.IsNullOrEmpty(url)) return;
+
+            string BrowserName = "";
+            using (RegistryKey userChoiceKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\Shell\Associations\UrlAssociations\http\UserChoice"))
+            {
+                if (userChoiceKey == null)
+                {
+                    BrowserName = "UNKNOWN";
+                }
+
+                object progIdValue = userChoiceKey.GetValue("Progid");
+                if (progIdValue == null)
+                {
+                    BrowserName = "UNKNOWN";
+                }
+
+                string prog = progIdValue.ToString();
+                if (prog.Contains("IE.HTTP"))
+                {
+                    BrowserName = "INTERNETEXPLORER";
+                }
+                else if (prog.Contains("FirefoxURL"))
+                {
+                    BrowserName = "FIREFOX";
+                }
+                else if (prog.Contains("ChromeHTML"))
+                {
+                    BrowserName = "CHROME";
+                }
+                else 
+                {
+                    BrowserName = "UNKNOWN";
+                }
+
+                switch (BrowserName)
+                {
+                    case "INTERNETEXPLORER":
+                        System.Diagnostics.Process.Start("iexplore.exe", "-private " + url);
+                        break;
+                    case "FIREFOX":
+                        System.Diagnostics.Process.Start("firefox.exe", "-private-window " + url);
+                        break;
+                    case "CHROME":
+                        System.Diagnostics.Process.Start("chrome.exe", "-incognito " + url);
+                        break;
+                    case "UNKNOWN":
+                        System.Diagnostics.Process.Start("iexplore.exe", "-private " + url);
+                        break;
+                }
+            }
+        }
     }
 }

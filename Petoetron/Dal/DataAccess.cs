@@ -39,6 +39,7 @@ namespace Petoetron.Dal
                 { typeof(PriceType), new DataList<PriceType>(new PriceType().TableName) },
 
                 { typeof(ObjectDocument), new DataList<ObjectDocument>(new ObjectDocument().TableName) },
+                { typeof(Pause), new DataList<Pause>(new Pause().TableName) },
             };
         }
         
@@ -251,6 +252,7 @@ namespace Petoetron.Dal
         public DataList<PriceType> PriceTypes { get { return GetList(GetCachedList<PriceType>()); } }
 
         public DataList<ObjectDocument> ObjectDocuments { get { return GetList(GetCachedList<ObjectDocument>()); } }
+        public DataList<Pause> Pauses { get { return GetList(GetCachedList<Pause>()); } }
 
 
         public IEnumerable<ObjectDocument> GetObjectDocuments(string tableName, long id)

@@ -1,6 +1,7 @@
 ﻿using DevExpress.Mvvm;
 using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.Mvvm.POCO;
+using Petoetron.Classes;
 using Petoetron.Classes.Helpers;
 using Petoetron.Dal;
 using System;
@@ -113,7 +114,19 @@ namespace Petoetron.Models.Base
             get { return Editable?.Code; }
             set { Editable.Code = value; }
         }
-        
+
+        public bool CanPause(Pause pause)
+        {
+            return !IsLoading;
+        }
+
+        public void Pause(Pause pause)
+        {
+            if (pause != null)
+            {
+                Toolbox.OpenBrowser(pause.Url);
+            }
+        }
 
         public bool CanEditCode()
         {

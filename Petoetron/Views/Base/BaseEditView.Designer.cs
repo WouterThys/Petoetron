@@ -41,6 +41,7 @@
             this.lcSaving = new DevExpress.XtraEditors.LabelControl();
             this.rpgOther = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bbiPause = new DevExpress.XtraBars.BarButtonItem();
+            this.PausePopupMenu = new DevExpress.XtraBars.PopupMenu();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).BeginInit();
@@ -50,6 +51,7 @@
             this.flyoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl)).BeginInit();
             this.flyoutPanelControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PausePopupMenu)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -200,6 +202,11 @@
             this.bbiPause.ImageOptions.LargeImageIndex = 33;
             this.bbiPause.Name = "bbiPause";
             // 
+            // PausePopupMenu
+            // 
+            this.PausePopupMenu.Name = "PausePopupMenu";
+            this.PausePopupMenu.Ribbon = this.ribbonControl;
+            // 
             // BaseEditView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -221,6 +228,7 @@
             this.flyoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl)).EndInit();
             this.flyoutPanelControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PausePopupMenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,5 +249,6 @@
         protected DevExpress.XtraEditors.LabelControl lcSaving;
         private DevExpress.XtraBars.BarButtonItem bbiPause;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgOther;
+        private DevExpress.XtraBars.PopupMenu PausePopupMenu;
     }
 }
