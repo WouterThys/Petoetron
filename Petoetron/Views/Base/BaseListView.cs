@@ -187,7 +187,7 @@ namespace Petoetron.Views.Base
             DXMenuItem menuItemAdd = new DXMenuItem("&Pause");
             menuItemAdd.ImageOptions.Image = images.Images16x16.Images[33];
 
-            menuItemAdd.Items.Add
+            //menuItemAdd.Items.Add
 
             return menuItemAdd;
         }

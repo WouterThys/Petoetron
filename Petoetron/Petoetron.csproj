@@ -249,6 +249,12 @@
     <Compile Include="Views\QuotationPrices\QuotationPriceEditView.Designer.cs">
       <DependentUpon>QuotationPriceEditView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Quotations\Helpers\QuotationMaterialsEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Quotations\Helpers\QuotationMaterialsEditView.Designer.cs">
+      <DependentUpon>QuotationMaterialsEditView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Quotations\QuotationEditView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -338,6 +344,9 @@
     <EmbeddedResource Include="Views\QuotationPrices\QuotationPriceEditView.resx">
       <DependentUpon>QuotationPriceEditView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Quotations\Helpers\QuotationMaterialsEditView.resx">
+      <DependentUpon>QuotationMaterialsEditView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Quotations\QuotationEditView.resx">
       <DependentUpon>QuotationEditView.cs</DependentUpon>
     </EmbeddedResource>
@@ -380,9 +389,7 @@
       <Name>Database</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Quotations\Helpers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

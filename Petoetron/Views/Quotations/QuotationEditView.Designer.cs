@@ -78,11 +78,11 @@
             this.colMaterialUnit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMaterialValue = new DevExpress.XtraGrid.Columns.GridColumn();
             this.riItemSpinEditMaterialValue = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForMaterials = new DevExpress.XtraLayout.LayoutControlItem();
             this.sbAddMaterial = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForAddMaterial = new DevExpress.XtraLayout.LayoutControlItem();
             this.sbDeleteMaterial = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForDeleteMaterial = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.bsPriceTypes = new System.Windows.Forms.BindingSource(this.components);
             this.lcgQMaterials = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -169,9 +169,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riSpinEditMaterialAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riItemSpinEditMaterialValue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForMaterials)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForAddMaterial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForDeleteMaterial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPriceTypes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgQMaterials)).BeginInit();
@@ -198,9 +198,9 @@
             this.dataLayoutControl1.Controls.Add(this.DueDateDateEdit);
             this.dataLayoutControl1.Controls.Add(this.PaidDateDateEdit);
             this.dataLayoutControl1.Controls.Add(this.PaidCheckEdit);
-            this.dataLayoutControl1.Location = new System.Drawing.Point(14, 126);
+            this.dataLayoutControl1.Location = new System.Drawing.Point(8, 100);
             this.dataLayoutControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.dataLayoutControl1.Size = new System.Drawing.Size(485, 577);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(420, 474);
             this.dataLayoutControl1.Controls.SetChildIndex(this.PaidCheckEdit, 0);
             this.dataLayoutControl1.Controls.SetChildIndex(this.PaidDateDateEdit, 0);
             this.dataLayoutControl1.Controls.SetChildIndex(this.DueDateDateEdit, 0);
@@ -210,33 +210,32 @@
             // 
             // InfoMemoEdit
             // 
-            this.InfoMemoEdit.Location = new System.Drawing.Point(14, 171);
-            this.InfoMemoEdit.Size = new System.Drawing.Size(457, 392);
+            this.InfoMemoEdit.Location = new System.Drawing.Point(14, 153);
+            this.InfoMemoEdit.Size = new System.Drawing.Size(392, 307);
             // 
             // layoutControlGroup2
             // 
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(485, 577);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(420, 474);
             // 
             // layoutControlGroup3
             // 
-            this.layoutControlGroup3.Size = new System.Drawing.Size(485, 577);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(420, 474);
             // 
             // peObjectIcon
             // 
-            this.peObjectIcon.Size = new System.Drawing.Size(132, 108);
+            this.peObjectIcon.Location = new System.Drawing.Point(8, 8);
+            this.peObjectIcon.Size = new System.Drawing.Size(115, 90);
             // 
             // DescriptionMemoEdit
             // 
-            this.DescriptionMemoEdit.Location = new System.Drawing.Point(150, 40);
-            this.DescriptionMemoEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.DescriptionMemoEdit.Size = new System.Drawing.Size(349, 82);
+            this.DescriptionMemoEdit.Location = new System.Drawing.Point(125, 30);
+            this.DescriptionMemoEdit.Size = new System.Drawing.Size(303, 68);
             // 
             // CodeTextEdit
             // 
-            this.CodeTextEdit.Location = new System.Drawing.Point(150, 14);
-            this.CodeTextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.CodeTextEdit.Size = new System.Drawing.Size(349, 22);
+            this.CodeTextEdit.Location = new System.Drawing.Point(125, 8);
+            this.CodeTextEdit.Size = new System.Drawing.Size(303, 20);
             // 
             // layoutControlGroup1
             // 
@@ -244,30 +243,30 @@
             this.splitterItem1,
             this.lcgQMaterials,
             this.lcgQPrices});
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1081, 693);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(933, 568);
             // 
             // ItemForDescription
             // 
-            this.ItemForDescription.Location = new System.Drawing.Point(136, 26);
-            this.ItemForDescription.Size = new System.Drawing.Size(353, 86);
+            this.ItemForDescription.Location = new System.Drawing.Point(117, 22);
+            this.ItemForDescription.Size = new System.Drawing.Size(305, 70);
             // 
             // ItemForCode
             // 
-            this.ItemForCode.Location = new System.Drawing.Point(136, 0);
-            this.ItemForCode.Size = new System.Drawing.Size(353, 26);
+            this.ItemForCode.Location = new System.Drawing.Point(117, 0);
+            this.ItemForCode.Size = new System.Drawing.Size(305, 22);
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Size = new System.Drawing.Size(136, 112);
+            this.layoutControlItem1.Size = new System.Drawing.Size(117, 92);
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 112);
-            this.layoutControlItem2.Size = new System.Drawing.Size(489, 581);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 92);
+            this.layoutControlItem2.Size = new System.Drawing.Size(422, 476);
             // 
             // tabbedControlGroup
             // 
-            this.tabbedControlGroup.Size = new System.Drawing.Size(485, 577);
+            this.tabbedControlGroup.Size = new System.Drawing.Size(420, 474);
             // 
             // lcgData
             // 
@@ -277,21 +276,21 @@
             this.ItemForCustomerId,
             this.ItemForPaid,
             this.ItemForPaidDate});
-            this.lcgData.Size = new System.Drawing.Size(461, 521);
+            this.lcgData.Size = new System.Drawing.Size(396, 423);
             // 
             // ItemForInfo
             // 
-            this.ItemForInfo.Location = new System.Drawing.Point(0, 106);
-            this.ItemForInfo.Size = new System.Drawing.Size(461, 415);
-            this.ItemForInfo.TextSize = new System.Drawing.Size(76, 16);
+            this.ItemForInfo.Location = new System.Drawing.Point(0, 96);
+            this.ItemForInfo.Size = new System.Drawing.Size(396, 327);
+            this.ItemForInfo.TextSize = new System.Drawing.Size(63, 13);
             // 
             // lcgDocuments
             // 
-            this.lcgDocuments.Size = new System.Drawing.Size(461, 521);
+            this.lcgDocuments.Size = new System.Drawing.Size(396, 423);
             // 
             // lcgLogs
             // 
-            this.lcgLogs.Size = new System.Drawing.Size(461, 521);
+            this.lcgLogs.Size = new System.Drawing.Size(396, 423);
             // 
             // bbiSave
             // 
@@ -326,9 +325,9 @@
             this.dataLayoutControl.Controls.Add(this.sbDeleteMaterial);
             this.dataLayoutControl.Controls.Add(this.sbAddPrice);
             this.dataLayoutControl.Controls.Add(this.sbDeletePrice);
-            this.dataLayoutControl.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.dataLayoutControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(660, 243, 650, 400);
-            this.dataLayoutControl.Size = new System.Drawing.Size(1105, 717);
+            this.dataLayoutControl.Size = new System.Drawing.Size(947, 582);
             this.dataLayoutControl.Controls.SetChildIndex(this.sbDeletePrice, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.sbAddPrice, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.sbDeleteMaterial, 0);
@@ -342,7 +341,7 @@
             // 
             // Root
             // 
-            this.Root.Size = new System.Drawing.Size(1105, 717);
+            this.Root.Size = new System.Drawing.Size(947, 582);
             // 
             // bsObject
             // 
@@ -352,16 +351,16 @@
             // 
             this.flyoutPanel.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.flyoutPanel.Appearance.Options.UseBackColor = true;
-            this.flyoutPanel.Location = new System.Drawing.Point(78, 144);
-            this.flyoutPanel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.flyoutPanel.Location = new System.Drawing.Point(67, 117);
+            this.flyoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flyoutPanel.OptionsBeakPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.flyoutPanel.OptionsButtonPanel.ButtonPanelHeight = 46;
-            this.flyoutPanel.Size = new System.Drawing.Size(318, 46);
+            this.flyoutPanel.OptionsButtonPanel.ButtonPanelHeight = 37;
+            this.flyoutPanel.Size = new System.Drawing.Size(273, 37);
             // 
             // flyoutPanelControl
             // 
-            this.flyoutPanelControl.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.flyoutPanelControl.Size = new System.Drawing.Size(318, 46);
+            this.flyoutPanelControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.flyoutPanelControl.Size = new System.Drawing.Size(273, 37);
             // 
             // lcSaving
             // 
@@ -375,8 +374,8 @@
             this.lcSaving.Appearance.Options.UseTextOptions = true;
             this.lcSaving.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.lcSaving.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.lcSaving.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.lcSaving.Size = new System.Drawing.Size(314, 42);
+            this.lcSaving.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lcSaving.Size = new System.Drawing.Size(269, 33);
             // 
             // ribbonControl
             // 
@@ -390,9 +389,9 @@
             this.bbiDeleteMaterial,
             this.bbiEditPrice,
             this.bbiDeletePrice});
-            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.ribbonControl.MaxItemId = 16;
-            this.ribbonControl.Size = new System.Drawing.Size(1105, 194);
+            this.ribbonControl.Size = new System.Drawing.Size(947, 158);
             // 
             // ribbonPage1
             // 
@@ -402,7 +401,7 @@
             // CustomerIdLookUpEdit
             // 
             this.CustomerIdLookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsObject, "CustomerId", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.CustomerIdLookUpEdit.Location = new System.Drawing.Point(102, 46);
+            this.CustomerIdLookUpEdit.Location = new System.Drawing.Point(89, 41);
             this.CustomerIdLookUpEdit.MenuManager = this.ribbonControl;
             this.CustomerIdLookUpEdit.Name = "CustomerIdLookUpEdit";
             this.CustomerIdLookUpEdit.Properties.Appearance.Options.UseTextOptions = true;
@@ -413,7 +412,7 @@
             this.CustomerIdLookUpEdit.Properties.DisplayMember = "ContactName";
             this.CustomerIdLookUpEdit.Properties.NullText = "";
             this.CustomerIdLookUpEdit.Properties.ValueMember = "Id";
-            this.CustomerIdLookUpEdit.Size = new System.Drawing.Size(369, 22);
+            this.CustomerIdLookUpEdit.Size = new System.Drawing.Size(317, 20);
             this.CustomerIdLookUpEdit.StyleController = this.dataLayoutControl1;
             this.CustomerIdLookUpEdit.TabIndex = 5;
             // 
@@ -426,33 +425,33 @@
             this.ItemForCustomerId.Control = this.CustomerIdLookUpEdit;
             this.ItemForCustomerId.Location = new System.Drawing.Point(0, 0);
             this.ItemForCustomerId.Name = "ItemForCustomerId";
-            this.ItemForCustomerId.Size = new System.Drawing.Size(461, 26);
+            this.ItemForCustomerId.Size = new System.Drawing.Size(396, 24);
             this.ItemForCustomerId.Text = "Klunt";
-            this.ItemForCustomerId.TextSize = new System.Drawing.Size(76, 16);
+            this.ItemForCustomerId.TextSize = new System.Drawing.Size(63, 13);
             // 
             // DeliveryDateDateEdit
             // 
             this.DeliveryDateDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsObject, "DeliveryDate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.DeliveryDateDateEdit.EditValue = null;
-            this.DeliveryDateDateEdit.Location = new System.Drawing.Point(102, 72);
+            this.DeliveryDateDateEdit.Location = new System.Drawing.Point(89, 65);
             this.DeliveryDateDateEdit.MenuManager = this.ribbonControl;
             this.DeliveryDateDateEdit.Name = "DeliveryDateDateEdit";
             this.DeliveryDateDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DeliveryDateDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DeliveryDateDateEdit.Size = new System.Drawing.Size(369, 22);
+            this.DeliveryDateDateEdit.Size = new System.Drawing.Size(317, 20);
             this.DeliveryDateDateEdit.StyleController = this.dataLayoutControl1;
             this.DeliveryDateDateEdit.TabIndex = 6;
             // 
             // ItemForDeliveryDate
             // 
             this.ItemForDeliveryDate.Control = this.DeliveryDateDateEdit;
-            this.ItemForDeliveryDate.Location = new System.Drawing.Point(0, 26);
+            this.ItemForDeliveryDate.Location = new System.Drawing.Point(0, 24);
             this.ItemForDeliveryDate.Name = "ItemForDeliveryDate";
-            this.ItemForDeliveryDate.Size = new System.Drawing.Size(461, 26);
+            this.ItemForDeliveryDate.Size = new System.Drawing.Size(396, 24);
             this.ItemForDeliveryDate.Text = "Luvur dutum";
-            this.ItemForDeliveryDate.TextSize = new System.Drawing.Size(76, 16);
+            this.ItemForDeliveryDate.TextSize = new System.Drawing.Size(63, 13);
             // 
             // bbiAddCustomer
             // 
@@ -528,83 +527,83 @@
             // splitterItem1
             // 
             this.splitterItem1.AllowHotTrack = true;
-            this.splitterItem1.Location = new System.Drawing.Point(489, 0);
+            this.splitterItem1.Location = new System.Drawing.Point(422, 0);
             this.splitterItem1.Name = "splitterItem1";
-            this.splitterItem1.Size = new System.Drawing.Size(12, 693);
+            this.splitterItem1.Size = new System.Drawing.Size(10, 568);
             // 
             // DueDateDateEdit
             // 
             this.DueDateDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsObject, "DueDate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.DueDateDateEdit.EditValue = null;
-            this.DueDateDateEdit.Location = new System.Drawing.Point(102, 98);
+            this.DueDateDateEdit.Location = new System.Drawing.Point(89, 89);
             this.DueDateDateEdit.MenuManager = this.ribbonControl;
             this.DueDateDateEdit.Name = "DueDateDateEdit";
             this.DueDateDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DueDateDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DueDateDateEdit.Size = new System.Drawing.Size(369, 22);
+            this.DueDateDateEdit.Size = new System.Drawing.Size(317, 20);
             this.DueDateDateEdit.StyleController = this.dataLayoutControl1;
             this.DueDateDateEdit.TabIndex = 7;
             // 
             // ItemForDueDate
             // 
             this.ItemForDueDate.Control = this.DueDateDateEdit;
-            this.ItemForDueDate.Location = new System.Drawing.Point(0, 52);
+            this.ItemForDueDate.Location = new System.Drawing.Point(0, 48);
             this.ItemForDueDate.Name = "ItemForDueDate";
-            this.ItemForDueDate.Size = new System.Drawing.Size(461, 26);
+            this.ItemForDueDate.Size = new System.Drawing.Size(396, 24);
             this.ItemForDueDate.Text = "Vurvul dutum";
-            this.ItemForDueDate.TextSize = new System.Drawing.Size(76, 16);
+            this.ItemForDueDate.TextSize = new System.Drawing.Size(63, 13);
             // 
             // PaidDateDateEdit
             // 
             this.PaidDateDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsObject, "PaidDate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.PaidDateDateEdit.EditValue = null;
-            this.PaidDateDateEdit.Location = new System.Drawing.Point(297, 124);
+            this.PaidDateDateEdit.Location = new System.Drawing.Point(256, 113);
             this.PaidDateDateEdit.MenuManager = this.ribbonControl;
             this.PaidDateDateEdit.Name = "PaidDateDateEdit";
             this.PaidDateDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.PaidDateDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.PaidDateDateEdit.Size = new System.Drawing.Size(174, 22);
+            this.PaidDateDateEdit.Size = new System.Drawing.Size(150, 20);
             this.PaidDateDateEdit.StyleController = this.dataLayoutControl1;
             this.PaidDateDateEdit.TabIndex = 8;
             // 
             // ItemForPaidDate
             // 
             this.ItemForPaidDate.Control = this.PaidDateDateEdit;
-            this.ItemForPaidDate.Location = new System.Drawing.Point(195, 78);
+            this.ItemForPaidDate.Location = new System.Drawing.Point(167, 72);
             this.ItemForPaidDate.Name = "ItemForPaidDate";
-            this.ItemForPaidDate.Size = new System.Drawing.Size(266, 28);
+            this.ItemForPaidDate.Size = new System.Drawing.Size(229, 24);
             this.ItemForPaidDate.Text = "Dutum";
-            this.ItemForPaidDate.TextSize = new System.Drawing.Size(76, 16);
+            this.ItemForPaidDate.TextSize = new System.Drawing.Size(63, 13);
             // 
             // PaidCheckEdit
             // 
             this.PaidCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsObject, "Paid", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.PaidCheckEdit.Location = new System.Drawing.Point(102, 124);
+            this.PaidCheckEdit.Location = new System.Drawing.Point(89, 113);
             this.PaidCheckEdit.MenuManager = this.ribbonControl;
             this.PaidCheckEdit.Name = "PaidCheckEdit";
             this.PaidCheckEdit.Properties.Caption = "";
             this.PaidCheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.PaidCheckEdit.Size = new System.Drawing.Size(103, 24);
+            this.PaidCheckEdit.Size = new System.Drawing.Size(88, 20);
             this.PaidCheckEdit.StyleController = this.dataLayoutControl1;
             this.PaidCheckEdit.TabIndex = 9;
             // 
             // ItemForPaid
             // 
             this.ItemForPaid.Control = this.PaidCheckEdit;
-            this.ItemForPaid.Location = new System.Drawing.Point(0, 78);
+            this.ItemForPaid.Location = new System.Drawing.Point(0, 72);
             this.ItemForPaid.Name = "ItemForPaid";
-            this.ItemForPaid.Size = new System.Drawing.Size(195, 28);
+            this.ItemForPaid.Size = new System.Drawing.Size(167, 24);
             this.ItemForPaid.Text = "Butuuld";
-            this.ItemForPaid.TextSize = new System.Drawing.Size(76, 16);
+            this.ItemForPaid.TextSize = new System.Drawing.Size(63, 13);
             // 
             // gcMaterials
             // 
             this.gcMaterials.DataSource = this.bsQuotationMaterials;
-            this.gcMaterials.Location = new System.Drawing.Point(528, 90);
+            this.gcMaterials.Location = new System.Drawing.Point(449, 65);
             this.gcMaterials.MainView = this.gvMaterials;
             this.gcMaterials.MenuManager = this.ribbonControl;
             this.gcMaterials.Name = "gcMaterials";
@@ -612,7 +611,7 @@
             this.riSpinEditMaterialAmount,
             this.riSearchLookUpEditMaterial,
             this.riItemSpinEditMaterialValue});
-            this.gcMaterials.Size = new System.Drawing.Size(550, 255);
+            this.gcMaterials.Size = new System.Drawing.Size(481, 219);
             this.gcMaterials.TabIndex = 8;
             this.gcMaterials.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMaterials});
@@ -874,57 +873,59 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.riItemSpinEditMaterialValue.Name = "riItemSpinEditMaterialValue";
             // 
-            // layoutControlItem3
+            // ItemForMaterials
             // 
-            this.layoutControlItem3.Control = this.gcMaterials;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 31);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(554, 259);
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
+            this.ItemForMaterials.Control = this.gcMaterials;
+            this.ItemForMaterials.Location = new System.Drawing.Point(0, 24);
+            this.ItemForMaterials.Name = "ItemForMaterials";
+            this.ItemForMaterials.Size = new System.Drawing.Size(483, 221);
+            this.ItemForMaterials.TextSize = new System.Drawing.Size(0, 0);
+            this.ItemForMaterials.TextVisible = false;
             // 
             // sbAddMaterial
             // 
-            this.sbAddMaterial.Location = new System.Drawing.Point(528, 59);
+            this.sbAddMaterial.Location = new System.Drawing.Point(449, 41);
+            this.sbAddMaterial.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sbAddMaterial.Name = "sbAddMaterial";
-            this.sbAddMaterial.Size = new System.Drawing.Size(177, 27);
+            this.sbAddMaterial.Size = new System.Drawing.Size(156, 22);
             this.sbAddMaterial.StyleController = this.dataLayoutControl;
             this.sbAddMaterial.TabIndex = 9;
             this.sbAddMaterial.Text = "Tuvugen";
             // 
-            // layoutControlItem4
+            // ItemForAddMaterial
             // 
-            this.layoutControlItem4.Control = this.sbAddMaterial;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(181, 31);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
+            this.ItemForAddMaterial.Control = this.sbAddMaterial;
+            this.ItemForAddMaterial.Location = new System.Drawing.Point(0, 0);
+            this.ItemForAddMaterial.Name = "ItemForAddMaterial";
+            this.ItemForAddMaterial.Size = new System.Drawing.Size(158, 24);
+            this.ItemForAddMaterial.TextSize = new System.Drawing.Size(0, 0);
+            this.ItemForAddMaterial.TextVisible = false;
             // 
             // sbDeleteMaterial
             // 
-            this.sbDeleteMaterial.Location = new System.Drawing.Point(709, 59);
+            this.sbDeleteMaterial.Location = new System.Drawing.Point(607, 41);
+            this.sbDeleteMaterial.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sbDeleteMaterial.Name = "sbDeleteMaterial";
-            this.sbDeleteMaterial.Size = new System.Drawing.Size(162, 27);
+            this.sbDeleteMaterial.Size = new System.Drawing.Size(143, 22);
             this.sbDeleteMaterial.StyleController = this.dataLayoutControl;
             this.sbDeleteMaterial.TabIndex = 10;
             this.sbDeleteMaterial.Text = "Wug";
             // 
-            // layoutControlItem5
+            // ItemForDeleteMaterial
             // 
-            this.layoutControlItem5.Control = this.sbDeleteMaterial;
-            this.layoutControlItem5.Location = new System.Drawing.Point(181, 0);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(166, 31);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
+            this.ItemForDeleteMaterial.Control = this.sbDeleteMaterial;
+            this.ItemForDeleteMaterial.Location = new System.Drawing.Point(158, 0);
+            this.ItemForDeleteMaterial.Name = "ItemForDeleteMaterial";
+            this.ItemForDeleteMaterial.Size = new System.Drawing.Size(145, 24);
+            this.ItemForDeleteMaterial.TextSize = new System.Drawing.Size(0, 0);
+            this.ItemForDeleteMaterial.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(347, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(303, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(207, 31);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(180, 24);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // bsPriceTypes
@@ -936,18 +937,18 @@
             this.lcgQMaterials.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.lcgQMaterials.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.emptySpaceItem1,
-            this.layoutControlItem4,
-            this.layoutControlItem3,
-            this.layoutControlItem5});
-            this.lcgQMaterials.Location = new System.Drawing.Point(501, 0);
+            this.ItemForAddMaterial,
+            this.ItemForMaterials,
+            this.ItemForDeleteMaterial});
+            this.lcgQMaterials.Location = new System.Drawing.Point(432, 0);
             this.lcgQMaterials.Name = "lcgQMaterials";
-            this.lcgQMaterials.Size = new System.Drawing.Size(580, 349);
+            this.lcgQMaterials.Size = new System.Drawing.Size(501, 286);
             this.lcgQMaterials.Text = "Muturiulen";
             // 
             // gcPrices
             // 
             this.gcPrices.DataSource = this.bsQuotationPrices;
-            this.gcPrices.Location = new System.Drawing.Point(528, 439);
+            this.gcPrices.Location = new System.Drawing.Point(449, 351);
             this.gcPrices.MainView = this.gvPrices;
             this.gcPrices.MenuManager = this.ribbonControl;
             this.gcPrices.Name = "gcPrices";
@@ -956,7 +957,7 @@
             this.riDateEditDate,
             this.riSearchLookUpEditPriceType,
             this.riSpinEditValue});
-            this.gcPrices.Size = new System.Drawing.Size(550, 250);
+            this.gcPrices.Size = new System.Drawing.Size(481, 215);
             this.gcPrices.TabIndex = 11;
             this.gcPrices.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvPrices});
@@ -1179,17 +1180,18 @@
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.gcPrices;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 31);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(554, 254);
+            this.layoutControlItem6.Size = new System.Drawing.Size(483, 217);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
             // sbAddPrice
             // 
-            this.sbAddPrice.Location = new System.Drawing.Point(528, 408);
+            this.sbAddPrice.Location = new System.Drawing.Point(449, 327);
+            this.sbAddPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sbAddPrice.Name = "sbAddPrice";
-            this.sbAddPrice.Size = new System.Drawing.Size(186, 27);
+            this.sbAddPrice.Size = new System.Drawing.Size(164, 22);
             this.sbAddPrice.StyleController = this.dataLayoutControl;
             this.sbAddPrice.TabIndex = 12;
             this.sbAddPrice.Text = "Tuvugen";
@@ -1199,15 +1201,16 @@
             this.layoutControlItem7.Control = this.sbAddPrice;
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(190, 31);
+            this.layoutControlItem7.Size = new System.Drawing.Size(166, 24);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
             // sbDeletePrice
             // 
-            this.sbDeletePrice.Location = new System.Drawing.Point(718, 408);
+            this.sbDeletePrice.Location = new System.Drawing.Point(615, 327);
+            this.sbDeletePrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sbDeletePrice.Name = "sbDeletePrice";
-            this.sbDeletePrice.Size = new System.Drawing.Size(159, 27);
+            this.sbDeletePrice.Size = new System.Drawing.Size(140, 22);
             this.sbDeletePrice.StyleController = this.dataLayoutControl;
             this.sbDeletePrice.TabIndex = 13;
             this.sbDeletePrice.Text = "Wug";
@@ -1215,18 +1218,18 @@
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.sbDeletePrice;
-            this.layoutControlItem8.Location = new System.Drawing.Point(190, 0);
+            this.layoutControlItem8.Location = new System.Drawing.Point(166, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(163, 31);
+            this.layoutControlItem8.Size = new System.Drawing.Size(142, 24);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(353, 0);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(308, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(201, 31);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(175, 24);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lcgQPrices
@@ -1237,18 +1240,18 @@
             this.layoutControlItem7,
             this.layoutControlItem6,
             this.emptySpaceItem2});
-            this.lcgQPrices.Location = new System.Drawing.Point(501, 349);
+            this.lcgQPrices.Location = new System.Drawing.Point(432, 286);
             this.lcgQPrices.Name = "lcgQPrices";
-            this.lcgQPrices.Size = new System.Drawing.Size(580, 344);
+            this.lcgQPrices.Size = new System.Drawing.Size(501, 282);
             this.lcgQPrices.Text = "Pruzen";
             // 
             // QuotationEditView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.Name = "QuotationEditView";
-            this.Size = new System.Drawing.Size(1105, 911);
+            this.Size = new System.Drawing.Size(947, 740);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.InfoMemoEdit.Properties)).EndInit();
@@ -1301,9 +1304,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riSpinEditMaterialAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riItemSpinEditMaterialValue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForMaterials)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForAddMaterial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForDeleteMaterial)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPriceTypes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgQMaterials)).EndInit();
@@ -1349,13 +1352,13 @@
         private DevExpress.XtraEditors.CheckEdit PaidCheckEdit;
         private DevExpress.XtraLayout.LayoutControlItem ItemForPaid;
         private DevExpress.XtraLayout.LayoutControlItem ItemForPaidDate;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForMaterials;
         private DevExpress.XtraGrid.GridControl gcMaterials;
         private DevExpress.XtraGrid.Views.Grid.GridView gvMaterials;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForAddMaterial;
         private DevExpress.XtraEditors.SimpleButton sbAddMaterial;
         private DevExpress.XtraEditors.SimpleButton sbDeleteMaterial;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForDeleteMaterial;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private System.Windows.Forms.BindingSource bsQuotationMaterials;
         private DevExpress.XtraGrid.Columns.GridColumn colAmount;
