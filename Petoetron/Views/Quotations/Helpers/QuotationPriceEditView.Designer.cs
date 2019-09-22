@@ -1,6 +1,6 @@
 ﻿namespace Petoetron.Views.Quotations.Helpers
 {
-    partial class QuotationMaterialsEditView
+    partial class QuotationPriceEditView
     {
         /// <summary> 
         /// Required designer variable.
@@ -31,34 +31,33 @@
             this.components = new System.ComponentModel.Container();
             this.barManager = new DevExpress.XtraBars.BarManager(this.components);
             this.MenuBar = new DevExpress.XtraBars.Bar();
-            this.bbiAddMaterial = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAddPrice = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiDeletePrice = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiZoom = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.bbiDeleteMaterial = new DevExpress.XtraBars.BarButtonItem();
-            this.bsQuoationMaterials = new System.Windows.Forms.BindingSource(this.components);
-            this.bsMaterials = new System.Windows.Forms.BindingSource(this.components);
-            this.gcMaterials = new DevExpress.XtraGrid.GridControl();
-            this.gvMaterials = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.bsQuotationPrices = new System.Windows.Forms.BindingSource(this.components);
+            this.bsPrices = new System.Windows.Forms.BindingSource(this.components);
+            this.gcPrices = new DevExpress.XtraGrid.GridControl();
+            this.gvPrices = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colPriceUnit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAmount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.riSpinEditAmount = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.colValue = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.riSpinEditValue = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.colDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.riDateEditDate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colQuotationId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMaterialId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPriceId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.riSearchLookUpEditPrice = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+            this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.riSpinEditAmount = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
-            this.riSpinEditValue = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
-            this.riDateEditDate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
-            this.riSearchLookUpEditMaterial = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
-            this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colPriceTypeUnit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUnitPrice = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colUnit = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colWeight = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTypeId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInfo1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIconPath = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -66,24 +65,25 @@
             this.colLastModified = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colId1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCode1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMaterialUnit = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMaterialType = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsQuoationMaterials)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsMaterials)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcMaterials)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvMaterials)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsQuotationPrices)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPrices)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcPrices)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvPrices)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riSpinEditAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riSpinEditValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riDateEditDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riDateEditDate.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.riSearchLookUpEditMaterial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riSearchLookUpEditPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager
             // 
+            this.barManager.AllowMoveBarOnToolbar = false;
+            this.barManager.AllowQuickCustomization = false;
+            this.barManager.AllowShowToolbarsPopup = false;
             this.barManager.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
             this.MenuBar});
             this.barManager.DockControls.Add(this.barDockControlTop);
@@ -92,29 +92,45 @@
             this.barManager.DockControls.Add(this.barDockControlRight);
             this.barManager.Form = this;
             this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.bbiAddMaterial,
-            this.bbiDeleteMaterial});
+            this.bbiAddPrice,
+            this.bbiDeletePrice,
+            this.bbiZoom});
             this.barManager.MainMenu = this.MenuBar;
-            this.barManager.MaxItemId = 2;
+            this.barManager.MaxItemId = 3;
             // 
             // MenuBar
             // 
             this.MenuBar.BarName = "Main menu";
+            this.MenuBar.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Top;
             this.MenuBar.DockCol = 0;
             this.MenuBar.DockRow = 0;
             this.MenuBar.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.MenuBar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiAddMaterial),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiDeleteMaterial)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiAddPrice),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiDeletePrice),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiZoom)});
+            this.MenuBar.OptionsBar.DrawDragBorder = false;
             this.MenuBar.OptionsBar.MultiLine = true;
             this.MenuBar.OptionsBar.UseWholeRow = true;
             this.MenuBar.Text = "Main menu";
             // 
-            // bbiAddMaterial
+            // bbiAddPrice
             // 
-            this.bbiAddMaterial.Caption = "Tuvugen";
-            this.bbiAddMaterial.Id = 0;
-            this.bbiAddMaterial.Name = "bbiAddMaterial";
+            this.bbiAddPrice.Caption = "Tuvugen";
+            this.bbiAddPrice.Id = 0;
+            this.bbiAddPrice.Name = "bbiAddPrice";
+            // 
+            // bbiDeletePrice
+            // 
+            this.bbiDeletePrice.Caption = "Wug";
+            this.bbiDeletePrice.Id = 1;
+            this.bbiDeletePrice.Name = "bbiDeletePrice";
+            // 
+            // bbiZoom
+            // 
+            this.bbiZoom.Caption = "Upen";
+            this.bbiZoom.Id = 2;
+            this.bbiZoom.Name = "bbiZoom";
             // 
             // barDockControlTop
             // 
@@ -148,53 +164,61 @@
             this.barDockControlRight.Manager = this.barManager;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 409);
             // 
-            // bbiDeleteMaterial
+            // bsQuotationPrices
             // 
-            this.bbiDeleteMaterial.Caption = "Wug";
-            this.bbiDeleteMaterial.Id = 1;
-            this.bbiDeleteMaterial.Name = "bbiDeleteMaterial";
+            this.bsQuotationPrices.DataSource = typeof(Petoetron.Classes.QuotationPrice);
             // 
-            // bsQuoationMaterials
+            // bsPrices
             // 
-            this.bsQuoationMaterials.DataSource = typeof(Petoetron.Classes.QuotationMaterial);
+            this.bsPrices.DataSource = typeof(Petoetron.Classes.PriceType);
             // 
-            // bsMaterials
+            // gcPrices
             // 
-            this.bsMaterials.DataSource = typeof(Petoetron.Classes.Material);
-            // 
-            // gcMaterials
-            // 
-            this.gcMaterials.DataSource = this.bsQuoationMaterials;
-            this.gcMaterials.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcMaterials.Location = new System.Drawing.Point(0, 26);
-            this.gcMaterials.MainView = this.gvMaterials;
-            this.gcMaterials.MenuManager = this.barManager;
-            this.gcMaterials.Name = "gcMaterials";
-            this.gcMaterials.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.gcPrices.DataSource = this.bsQuotationPrices;
+            this.gcPrices.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcPrices.Location = new System.Drawing.Point(0, 26);
+            this.gcPrices.MainView = this.gvPrices;
+            this.gcPrices.MenuManager = this.barManager;
+            this.gcPrices.Name = "gcPrices";
+            this.gcPrices.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.riSpinEditAmount,
             this.riSpinEditValue,
             this.riDateEditDate,
-            this.riSearchLookUpEditMaterial});
-            this.gcMaterials.Size = new System.Drawing.Size(476, 409);
-            this.gcMaterials.TabIndex = 4;
-            this.gcMaterials.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvMaterials});
+            this.riSearchLookUpEditPrice});
+            this.gcPrices.Size = new System.Drawing.Size(476, 409);
+            this.gcPrices.TabIndex = 4;
+            this.gcPrices.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvPrices});
             // 
-            // gvMaterials
+            // gvPrices
             // 
-            this.gvMaterials.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMaterialType,
-            this.colMaterialUnit,
+            this.gvPrices.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colPriceUnit,
             this.colAmount,
             this.colValue,
             this.colDate,
             this.colInfo,
             this.colQuotationId,
-            this.colMaterialId,
+            this.colPriceId,
             this.colId,
             this.colCode});
-            this.gvMaterials.GridControl = this.gcMaterials;
-            this.gvMaterials.Name = "gvMaterials";
+            this.gvPrices.GridControl = this.gcPrices;
+            this.gvPrices.Name = "gvPrices";
+            this.gvPrices.OptionsView.ShowGroupPanel = false;
+            // 
+            // colPriceUnit
+            // 
+            this.colPriceUnit.AppearanceCell.FontStyleDelta = System.Drawing.FontStyle.Italic;
+            this.colPriceUnit.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.colPriceUnit.AppearanceCell.Options.UseFont = true;
+            this.colPriceUnit.AppearanceCell.Options.UseForeColor = true;
+            this.colPriceUnit.Caption = "Unit";
+            this.colPriceUnit.FieldName = "PriceType.PriceTypeUnit";
+            this.colPriceUnit.Name = "colPriceUnit";
+            this.colPriceUnit.OptionsColumn.AllowEdit = false;
+            this.colPriceUnit.OptionsColumn.ReadOnly = true;
+            this.colPriceUnit.Visible = true;
+            this.colPriceUnit.VisibleIndex = 3;
             // 
             // colAmount
             // 
@@ -208,14 +232,30 @@
             this.colAmount.VisibleIndex = 0;
             this.colAmount.Width = 50;
             // 
+            // riSpinEditAmount
+            // 
+            this.riSpinEditAmount.AutoHeight = false;
+            this.riSpinEditAmount.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.riSpinEditAmount.IsFloatValue = false;
+            this.riSpinEditAmount.Mask.EditMask = "N00";
+            this.riSpinEditAmount.Name = "riSpinEditAmount";
+            // 
             // colValue
             // 
             this.colValue.ColumnEdit = this.riSpinEditValue;
             this.colValue.FieldName = "Value";
             this.colValue.Name = "colValue";
             this.colValue.Visible = true;
-            this.colValue.VisibleIndex = 3;
+            this.colValue.VisibleIndex = 2;
             this.colValue.Width = 167;
+            // 
+            // riSpinEditValue
+            // 
+            this.riSpinEditValue.AutoHeight = false;
+            this.riSpinEditValue.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.riSpinEditValue.Name = "riSpinEditValue";
             // 
             // colDate
             // 
@@ -223,6 +263,15 @@
             this.colDate.FieldName = "Date";
             this.colDate.Name = "colDate";
             this.colDate.Width = 167;
+            // 
+            // riDateEditDate
+            // 
+            this.riDateEditDate.AutoHeight = false;
+            this.riDateEditDate.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.riDateEditDate.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.riDateEditDate.Name = "riDateEditDate";
             // 
             // colInfo
             // 
@@ -248,15 +297,43 @@
             this.colQuotationId.OptionsColumn.ReadOnly = true;
             this.colQuotationId.Width = 167;
             // 
-            // colMaterialId
+            // colPriceId
             // 
-            this.colMaterialId.Caption = "Muturiuul";
-            this.colMaterialId.ColumnEdit = this.riSearchLookUpEditMaterial;
-            this.colMaterialId.FieldName = "MaterialId";
-            this.colMaterialId.Name = "colMaterialId";
-            this.colMaterialId.Visible = true;
-            this.colMaterialId.VisibleIndex = 1;
-            this.colMaterialId.Width = 167;
+            this.colPriceId.Caption = "Pruus";
+            this.colPriceId.ColumnEdit = this.riSearchLookUpEditPrice;
+            this.colPriceId.FieldName = "PriceTypeId";
+            this.colPriceId.Name = "colPriceId";
+            this.colPriceId.Visible = true;
+            this.colPriceId.VisibleIndex = 1;
+            this.colPriceId.Width = 167;
+            // 
+            // riSearchLookUpEditPrice
+            // 
+            this.riSearchLookUpEditPrice.AutoHeight = false;
+            this.riSearchLookUpEditPrice.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.riSearchLookUpEditPrice.DataSource = this.bsPrices;
+            this.riSearchLookUpEditPrice.DisplayMember = "Code";
+            this.riSearchLookUpEditPrice.Name = "riSearchLookUpEditPrice";
+            this.riSearchLookUpEditPrice.PopupView = this.repositoryItemSearchLookUpEdit1View;
+            this.riSearchLookUpEditPrice.ValueMember = "Id";
+            // 
+            // repositoryItemSearchLookUpEdit1View
+            // 
+            this.repositoryItemSearchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colPriceTypeUnit,
+            this.colUnitPrice,
+            this.colDescription,
+            this.colInfo1,
+            this.colIconPath,
+            this.colEnabled,
+            this.colLastModified,
+            this.colId1,
+            this.colCode1});
+            this.repositoryItemSearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repositoryItemSearchLookUpEdit1View.Name = "repositoryItemSearchLookUpEdit1View";
+            this.repositoryItemSearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
             // colId
             // 
@@ -282,64 +359,12 @@
             this.colCode.OptionsColumn.ReadOnly = true;
             this.colCode.Width = 178;
             // 
-            // riSpinEditAmount
+            // colPriceTypeUnit
             // 
-            this.riSpinEditAmount.AutoHeight = false;
-            this.riSpinEditAmount.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.riSpinEditAmount.IsFloatValue = false;
-            this.riSpinEditAmount.Mask.EditMask = "N00";
-            this.riSpinEditAmount.Name = "riSpinEditAmount";
-            // 
-            // riSpinEditValue
-            // 
-            this.riSpinEditValue.AutoHeight = false;
-            this.riSpinEditValue.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.riSpinEditValue.Name = "riSpinEditValue";
-            // 
-            // riDateEditDate
-            // 
-            this.riDateEditDate.AutoHeight = false;
-            this.riDateEditDate.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.riDateEditDate.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.riDateEditDate.Name = "riDateEditDate";
-            // 
-            // riSearchLookUpEditMaterial
-            // 
-            this.riSearchLookUpEditMaterial.AutoHeight = false;
-            this.riSearchLookUpEditMaterial.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.riSearchLookUpEditMaterial.DataSource = this.bsMaterials;
-            this.riSearchLookUpEditMaterial.DisplayMember = "Code";
-            this.riSearchLookUpEditMaterial.Name = "riSearchLookUpEditMaterial";
-            this.riSearchLookUpEditMaterial.PopupView = this.repositoryItemSearchLookUpEdit1View;
-            this.riSearchLookUpEditMaterial.ValueMember = "Id";
-            // 
-            // repositoryItemSearchLookUpEdit1View
-            // 
-            this.repositoryItemSearchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colUnitPrice,
-            this.colUnit,
-            this.colWeight,
-            this.colTypeId,
-            this.colType,
-            this.colDescription,
-            this.colInfo1,
-            this.colIconPath,
-            this.colEnabled,
-            this.colLastModified,
-            this.colId1,
-            this.colCode1});
-            this.repositoryItemSearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.repositoryItemSearchLookUpEdit1View.GroupCount = 1;
-            this.repositoryItemSearchLookUpEdit1View.Name = "repositoryItemSearchLookUpEdit1View";
-            this.repositoryItemSearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            this.repositoryItemSearchLookUpEdit1View.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colType, DevExpress.Data.ColumnSortOrder.Ascending)});
+            this.colPriceTypeUnit.FieldName = "PriceTypeUnit";
+            this.colPriceTypeUnit.Name = "colPriceTypeUnit";
+            this.colPriceTypeUnit.Visible = true;
+            this.colPriceTypeUnit.VisibleIndex = 3;
             // 
             // colUnitPrice
             // 
@@ -347,32 +372,6 @@
             this.colUnitPrice.Name = "colUnitPrice";
             this.colUnitPrice.Visible = true;
             this.colUnitPrice.VisibleIndex = 2;
-            // 
-            // colUnit
-            // 
-            this.colUnit.FieldName = "Unit";
-            this.colUnit.Name = "colUnit";
-            this.colUnit.Visible = true;
-            this.colUnit.VisibleIndex = 3;
-            // 
-            // colWeight
-            // 
-            this.colWeight.FieldName = "Weight";
-            this.colWeight.Name = "colWeight";
-            // 
-            // colTypeId
-            // 
-            this.colTypeId.FieldName = "TypeId";
-            this.colTypeId.Name = "colTypeId";
-            // 
-            // colType
-            // 
-            this.colType.Caption = "Type";
-            this.colType.FieldName = "Type.Code";
-            this.colType.Name = "colType";
-            this.colType.OptionsColumn.ReadOnly = true;
-            this.colType.Visible = true;
-            this.colType.VisibleIndex = 1;
             // 
             // colDescription
             // 
@@ -413,56 +412,28 @@
             this.colCode1.Visible = true;
             this.colCode1.VisibleIndex = 0;
             // 
-            // colMaterialUnit
-            // 
-            this.colMaterialUnit.AppearanceCell.FontStyleDelta = System.Drawing.FontStyle.Italic;
-            this.colMaterialUnit.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.colMaterialUnit.AppearanceCell.Options.UseFont = true;
-            this.colMaterialUnit.AppearanceCell.Options.UseForeColor = true;
-            this.colMaterialUnit.Caption = "Unit";
-            this.colMaterialUnit.FieldName = "Material.Unit";
-            this.colMaterialUnit.Name = "colMaterialUnit";
-            this.colMaterialUnit.OptionsColumn.AllowEdit = false;
-            this.colMaterialUnit.OptionsColumn.ReadOnly = true;
-            this.colMaterialUnit.Visible = true;
-            this.colMaterialUnit.VisibleIndex = 4;
-            // 
-            // colMaterialType
-            // 
-            this.colMaterialType.AppearanceCell.FontStyleDelta = System.Drawing.FontStyle.Italic;
-            this.colMaterialType.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.colMaterialType.AppearanceCell.Options.UseFont = true;
-            this.colMaterialType.AppearanceCell.Options.UseForeColor = true;
-            this.colMaterialType.Caption = "Type";
-            this.colMaterialType.FieldName = "Material.Type.Code";
-            this.colMaterialType.Name = "colMaterialType";
-            this.colMaterialType.OptionsColumn.AllowEdit = false;
-            this.colMaterialType.OptionsColumn.ReadOnly = true;
-            this.colMaterialType.Visible = true;
-            this.colMaterialType.VisibleIndex = 2;
-            // 
-            // QuotationMaterialsEditView
+            // QuotationPriceEditView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.gcMaterials);
+            this.Controls.Add(this.gcPrices);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Name = "QuotationMaterialsEditView";
+            this.Name = "QuotationPriceEditView";
             this.Size = new System.Drawing.Size(476, 435);
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsQuoationMaterials)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsMaterials)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcMaterials)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvMaterials)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsQuotationPrices)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPrices)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcPrices)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvPrices)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riSpinEditAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riSpinEditValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riDateEditDate.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riDateEditDate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.riSearchLookUpEditMaterial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riSearchLookUpEditPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -477,32 +448,29 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraBars.BarButtonItem bbiAddMaterial;
-        private DevExpress.XtraBars.BarButtonItem bbiDeleteMaterial;
-        private System.Windows.Forms.BindingSource bsQuoationMaterials;
-        private System.Windows.Forms.BindingSource bsMaterials;
-        private DevExpress.XtraGrid.GridControl gcMaterials;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvMaterials;
+        private DevExpress.XtraBars.BarButtonItem bbiAddPrice;
+        private DevExpress.XtraBars.BarButtonItem bbiDeletePrice;
+        private System.Windows.Forms.BindingSource bsQuotationPrices;
+        private System.Windows.Forms.BindingSource bsPrices;
+        private DevExpress.XtraGrid.GridControl gcPrices;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvPrices;
         private DevExpress.XtraGrid.Columns.GridColumn colAmount;
         private DevExpress.XtraGrid.Columns.GridColumn colValue;
         private DevExpress.XtraGrid.Columns.GridColumn colDate;
         private DevExpress.XtraGrid.Columns.GridColumn colInfo;
         private DevExpress.XtraGrid.Columns.GridColumn colQuotationId;
-        private DevExpress.XtraGrid.Columns.GridColumn colMaterialId;
+        private DevExpress.XtraGrid.Columns.GridColumn colPriceId;
         private DevExpress.XtraGrid.Columns.GridColumn colId;
         private DevExpress.XtraGrid.Columns.GridColumn colCode;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit riSpinEditAmount;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit riSpinEditValue;
-        private DevExpress.XtraGrid.Columns.GridColumn colMaterialType;
-        private DevExpress.XtraGrid.Columns.GridColumn colMaterialUnit;
+        private DevExpress.XtraGrid.Columns.GridColumn colPriceUnit;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit riDateEditDate;
-        private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit riSearchLookUpEditMaterial;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit riSearchLookUpEditPrice;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit1View;
+        private DevExpress.XtraBars.BarButtonItem bbiZoom;
+        private DevExpress.XtraGrid.Columns.GridColumn colPriceTypeUnit;
         private DevExpress.XtraGrid.Columns.GridColumn colUnitPrice;
-        private DevExpress.XtraGrid.Columns.GridColumn colUnit;
-        private DevExpress.XtraGrid.Columns.GridColumn colWeight;
-        private DevExpress.XtraGrid.Columns.GridColumn colTypeId;
-        private DevExpress.XtraGrid.Columns.GridColumn colType;
         private DevExpress.XtraGrid.Columns.GridColumn colDescription;
         private DevExpress.XtraGrid.Columns.GridColumn colInfo1;
         private DevExpress.XtraGrid.Columns.GridColumn colIconPath;

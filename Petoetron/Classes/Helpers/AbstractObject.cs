@@ -33,6 +33,11 @@ namespace Petoetron.Classes.Helpers
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
+        public override string ToString()
+        {
+            return code;
+        }
+
         public override bool Equals(object obj)
         {
             return Equals(obj as AbstractObject);

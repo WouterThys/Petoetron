@@ -6,36 +6,16 @@ using System.Data.Common;
 
 namespace Petoetron.Classes
 {
-    public class QuotationMaterial : AbstractObject
+    public class QuotationMaterial : AbstractQuoationItem
     {
         public override string TableName { get { return "quotationmaterials"; } }
-        private static long insertId = -10000;
-
-        private int amount;
-        private double value;
-        private DateTime date;
-        private string info;
-
-        private long quotationId;
-        private Quotation quotation;
 
         private long materialId;
         private Material material;
 
-        public QuotationMaterial() : this("") { }
-        public QuotationMaterial(string code) : base(code)
-        {
-            Id = insertId--;
-        }
-        public QuotationMaterial(Quotation quotation) : this("")
-        {
-            this.quotation = quotation;
-            quotationId = quotation != null ? quotation.Id : 0;
-
-            date = DateTime.Now;
-            amount = 1;
-            value = 1;
-        }
+        public QuotationMaterial() : base() { }
+        public QuotationMaterial(string code) : base(code) { }
+        public QuotationMaterial(Quotation quotation) : base(quotation) { }
         
         #region Base overrides
 
@@ -51,11 +31,6 @@ namespace Petoetron.Classes
             if (toCopy is QuotationMaterial qm)
             {
                 base.CopyFrom(toCopy);
-                Amount = qm.Amount;
-                Value = qm.Value;
-                Date = qm.Date;
-                Info = qm.Info;
-                QuotationId = qm.QuotationId;
                 MaterialId = qm.MaterialId;
             }
         }
@@ -64,13 +39,9 @@ namespace Petoetron.Classes
         {
             if (iObject is QuotationMaterial qm)
             {
-                return base.PropertiesEqual(iObject) &&
-                    Amount == qm.Amount &&
-                    Value == qm.Value &&
-                    Date == qm.Date &&
-                    Info == qm.Info &&
-                    QuotationId == qm.QuotationId &&
-                    MaterialId == qm.MaterialId;
+                return
+                     MaterialId == qm.MaterialId &&
+                     base.PropertiesEqual(iObject);
             }
             return false;
         }
@@ -81,23 +52,13 @@ namespace Petoetron.Classes
 
         public override void AddSqlParameters(DbCommand command)
         {
-            base.AddBaseSqlParameters(command);
-            DatabaseAccess.AddDbValue(command, "amount", Amount);
-            DatabaseAccess.AddDbValue(command, "value", Value);
-            DatabaseAccess.AddDbValue(command, "date", Date);
-            DatabaseAccess.AddDbValue(command, "info", Info);
-            DatabaseAccess.AddDbValue(command, "quotationId", QuotationId);
+            base.AddSqlParameters(command);
             DatabaseAccess.AddDbValue(command, "materialId", MaterialId);
         }
 
         public override void InitFromReader(DbDataReader reader)
         {
-            base.InitBaseFromReader(reader);
-            Amount = DatabaseAccess.RGetInt(reader, "amount");
-            Value = DatabaseAccess.RGetDouble(reader, "value");
-            Date = DatabaseAccess.RGetDateTime(reader, "date");
-            Info = DatabaseAccess.RGetString(reader, "info");
-            QuotationId = DatabaseAccess.RGetLong(reader, "quotationId");
+            base.InitFromReader(reader);
             MaterialId = DatabaseAccess.RGetLong(reader, "materialId");
         }
 
@@ -120,68 +81,7 @@ namespace Petoetron.Classes
         #endregion
 
         #region Properties
-
-        public int Amount
-        {
-            get => amount;
-            set
-            {
-                amount = value;
-                OnPropertyChanged("Amount");
-            }
-        }
-
-        public double Value
-        {
-            get => value;
-            set
-            {
-                this.value = value;
-                OnPropertyChanged("Value");
-            }
-        }
-
-        public DateTime Date
-        {
-            get => date;
-            set
-            {
-                date = value;
-                OnPropertyChanged("Date");
-            }
-        }
-
-        public string Info
-        {
-            get => info;
-            set
-            {
-                info = value;
-                OnPropertyChanged("Info");
-            }
-        }
-
-        public long QuotationId
-        {
-            get
-            {
-                if (quotationId < UNKNOWN_ID)
-                {
-                    quotationId = UNKNOWN_ID;
-                }
-                return quotationId;
-            }
-            set
-            {
-                if (quotation != null && quotation.Id != value)
-                {
-                    quotation = null;
-                }
-                quotationId = value;
-                OnPropertyChanged("QuotationId");
-            }
-        }
-
+        
         public long MaterialId
         {
             get
@@ -206,19 +106,7 @@ namespace Petoetron.Classes
                 OnPropertyChanged("MaterialId");
             }
         }
-
-        public Quotation Quotation
-        {
-            get
-            {
-                if (quotation == null && QuotationId > UNKNOWN_ID)
-                {
-                    quotation = DataAccess.Dal.Quotations.ById(QuotationId);
-                }
-                return quotation;
-            }
-        }
-
+        
         public Material Material
         {
             get

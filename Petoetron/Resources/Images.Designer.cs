@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Images));
-            this.imageCollection16x16 = new DevExpress.Utils.ImageCollection();
-            this.imageCollection24x24 = new DevExpress.Utils.ImageCollection();
-            this.imageCollection48x48 = new DevExpress.Utils.ImageCollection();
+            this.imageCollection16x16 = new DevExpress.Utils.ImageCollection(this.components);
+            this.imageCollection24x24 = new DevExpress.Utils.ImageCollection(this.components);
+            this.imageCollection48x48 = new DevExpress.Utils.ImageCollection(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection16x16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection24x24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection48x48)).BeginInit();
@@ -73,6 +74,9 @@
             this.imageCollection16x16.Images.SetKeyName(31, "garbage2.png");
             this.imageCollection16x16.Images.SetKeyName(32, "document_information.png");
             this.imageCollection16x16.Images.SetKeyName(33, "media_pause.png");
+            this.imageCollection16x16.Images.SetKeyName(34, "document_zoom_in.png");
+            this.imageCollection16x16.Images.SetKeyName(35, "folder_document.png");
+            this.imageCollection16x16.Images.SetKeyName(36, "webcam.png");
             // 
             // imageCollection24x24
             // 
@@ -112,6 +116,9 @@
             this.imageCollection24x24.Images.SetKeyName(31, "garbage2.png");
             this.imageCollection24x24.Images.SetKeyName(32, "document_information.png");
             this.imageCollection24x24.Images.SetKeyName(33, "media_pause.png");
+            this.imageCollection24x24.Images.SetKeyName(34, "document_zoom_in.png");
+            this.imageCollection24x24.Images.SetKeyName(35, "folder_document.png");
+            this.imageCollection24x24.Images.SetKeyName(36, "webcam.png");
             // 
             // imageCollection48x48
             // 
@@ -151,6 +158,9 @@
             this.imageCollection48x48.Images.SetKeyName(31, "garbage2.png");
             this.imageCollection48x48.Images.SetKeyName(32, "document_information.png");
             this.imageCollection48x48.Images.SetKeyName(33, "media_pause.png");
+            this.imageCollection48x48.Images.SetKeyName(34, "document_zoom_in.png");
+            this.imageCollection48x48.Images.SetKeyName(35, "folder_document.png");
+            this.imageCollection48x48.Images.SetKeyName(36, "webcam.png");
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection16x16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection24x24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection48x48)).EndInit();

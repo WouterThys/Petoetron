@@ -34,17 +34,7 @@ namespace Petoetron.Views.Quotations
 
             lcgQMaterials.ExpandButtonVisible = true;
             lcgQPrices.ExpandButtonVisible = true;
-
-            sbAddMaterial.ImageOptions.Image = images.Images24x24.Images[0];
-            sbDeleteMaterial.ImageOptions.Image = images.Images24x24.Images[2];
-            sbAddPrice.ImageOptions.Image = images.Images24x24.Images[0];
-            sbDeletePrice.ImageOptions.Image = images.Images24x24.Images[2];
-
-            gvMaterials.OptionsSelection.MultiSelect = true;
-            gvMaterials.OptionsBehavior.AutoExpandAllGroups = true;
-            gvPrices.OptionsSelection.MultiSelect = true;
-            gvPrices.OptionsBehavior.AutoExpandAllGroups = true;
-
+            
             ItemForCode.Enabled = false;
         }
 
@@ -58,35 +48,14 @@ namespace Petoetron.Views.Quotations
                 fluent = InitObjectBindings<Quotation, QuotationEditViewModel>();
 
                 fluent.SetObjectDataSourceBinding(bsCustomers, m => m.Customers);
-                fluent.SetObjectDataSourceBinding(bsMaterials, m => m.Materials);
-                fluent.SetObjectDataSourceBinding(bsPriceTypes, m => m.PriceTypes);
                 
                 // Ribbon
                 fluent.BindCommand(bbiAddCustomer, m => m.AddCustomer());
                 fluent.BindCommand(bbiEditCustomer, m => m.EditCustomer());
 
-                // Materials
-                fluent.SetBinding(gvMaterials, gv => gv.LoadingPanelVisible, m => m.IsLoading);
-                fluent.SetObjectDataSourceBinding(bsQuotationMaterials, m => m.QuotationMaterials, m => m.MaterialValuesChanged());                
-                // GridView - Multiple selected
-                fluent.WithEvent<SelectionChangedEventArgs>(gvMaterials, "SelectionChanged").SetBinding(
-                    m => m.MaterialSelection,
-                    g => new List<QuotationMaterial>(gvMaterials.GetSelectedRows().Select(r => gvMaterials.GetRow(r) as QuotationMaterial)));
-
-                // Prices
-                fluent.SetBinding(gvPrices, gv => gv.LoadingPanelVisible, m => m.IsLoading);
-                fluent.SetObjectDataSourceBinding(bsQuotationPrices, m => m.QuotationPrices, m => m.PriceValuesChanged());
-                // GridView - Multiple selected
-                fluent.WithEvent<SelectionChangedEventArgs>(gvPrices, "SelectionChanged").SetBinding(
-                    m => m.PriceSelection,
-                    g => new List<QuotationPrice>(gvPrices.GetSelectedRows().Select(r => gvPrices.GetRow(r) as QuotationPrice)));
-
-
-                // Commands
-                fluent.BindCommand(sbAddMaterial, m => m.AddMaterial());
-                fluent.BindCommand(sbDeleteMaterial, m => m.DeleteMaterials());
-                fluent.BindCommand(sbAddPrice, m => m.AddPrice());
-                fluent.BindCommand(sbDeletePrice, m => m.DeletePrices());
+                // 
+                QMaterialsEditView.InitializeBinding(fluent.ViewModel.QMaterialModel);
+                QPriceEditView.InitializeBinding(fluent.ViewModel.QPriceModel);
 
                 // Data
                 fluent.SetBinding(ItemForPaidDate, itm => itm.Enabled, m => m.Editable.Paid);

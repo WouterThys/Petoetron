@@ -156,7 +156,7 @@ namespace Petoetron.Views.Base
                 DXMenuItem editItem = CreateMenuItemEdit(view, rowHandle);
                 DXMenuItem deleteItem = CreateMenuItemDelete(view, rowHandle);
                 //DXMenuItem pauseItem = CreateMenuItemPause<T, TModel>(view, rowHandle, fluent);
-                var pause = ViewHelpers.InitPauseDropDownButton(new PopupMenu(), null);
+                //var pause = ViewHelpers.InitPauseDropDownButton(new PopupMenu(), null);
 
                 fluent.BindCommand(editItem, m => m.Edit(null), m => m.Selected);
                 fluent.BindCommand(deleteItem, m => m.Delete(null), m => m.Selection);

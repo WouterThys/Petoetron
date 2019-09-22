@@ -41,22 +41,22 @@ namespace Petoetron.Views.Base
                 switch ((StringId)menuItem.Tag)
                 {
                     case StringId.PictureEditMenuCut:
-                        menuItem.ImageOptions.Image = images.Images16x16.Images[43];
+                        menuItem.ImageOptions.Image = images.Images16x16.Images[6];
                         break;
                     case StringId.PictureEditMenuCopy:
-                        menuItem.ImageOptions.Image = images.Images16x16.Images[44];
+                        menuItem.ImageOptions.Image = images.Images16x16.Images[5];
                         break;
                     case StringId.PictureEditMenuPaste:
-                        menuItem.ImageOptions.Image = images.Images16x16.Images[45];
+                        menuItem.ImageOptions.Image = images.Images16x16.Images[7];
                         break;
                     case StringId.PictureEditMenuDelete:
                         menuItem.ImageOptions.Image = images.Images16x16.Images[2];
                         break;
                     case StringId.PictureEditMenuLoad:
-                        menuItem.ImageOptions.Image = images.Images16x16.Images[46];
+                        menuItem.ImageOptions.Image = images.Images16x16.Images[35];
                         break;
                     case StringId.TakePictureMenuItem:
-                        menuItem.ImageOptions.Image = images.Images16x16.Images[47];
+                        menuItem.ImageOptions.Image = images.Images16x16.Images[36];
                         break;
                     case StringId.PictureEditMenuSave:
                         menuItem.Visible = false;
