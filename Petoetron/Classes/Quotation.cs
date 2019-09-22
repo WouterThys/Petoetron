@@ -159,6 +159,7 @@ namespace Petoetron.Classes
             {
                 oldQuotation.Materials.Ids = null;
             }
+            Materials.ObjectId = Id;
             Materials.Ids = null;
         }
 
@@ -208,6 +209,7 @@ namespace Petoetron.Classes
             {
                 oldQuotation.Prices.Ids = null;
             }
+            Prices.ObjectId = Id;
             Prices.Ids = null;
         }
 
@@ -251,6 +253,28 @@ namespace Petoetron.Classes
         {
             get { return ClientContext.Context.Info; }
         }
+
+        //public override long Id
+        //{
+        //    get
+        //    {
+        //        return base.Id;
+        //    }
+        //    set
+        //    {
+        //        base.Id = value;
+        //        if (quotationMaterials != null)
+        //        {
+        //            quotationMaterials.ObjectId = value;
+        //            quotationMaterials.Ids = null;
+        //        }
+        //        if (quotationPrices != null)
+        //        {
+        //            quotationPrices.ObjectId = value;
+        //            quotationPrices.Ids = null;
+        //        }
+        //    }
+        //}
 
         public override string Code
         {
@@ -358,7 +382,7 @@ namespace Petoetron.Classes
                 }
                 return quotationMaterials;
             }
-            protected set
+            set
             {
                 quotationMaterials = value;
             }
@@ -374,7 +398,7 @@ namespace Petoetron.Classes
                 }
                 return quotationPrices;
             }
-            protected set
+            set
             {
                 quotationPrices = value;
             }

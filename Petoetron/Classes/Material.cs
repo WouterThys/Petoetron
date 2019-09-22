@@ -138,7 +138,14 @@ namespace Petoetron.Classes
 
         public long TypeId
         {
-            get => typeId;
+            get
+            {
+                if (typeId < UNKNOWN_ID)
+                {
+                    typeId = UNKNOWN_ID;
+                }
+                return typeId;
+            }
             set
             {
                 if (type != null && type.Id != value)

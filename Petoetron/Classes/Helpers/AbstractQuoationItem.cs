@@ -142,7 +142,7 @@ namespace Petoetron.Classes.Helpers
                     quotation = null;
                 }
                 quotationId = value;
-                OnPropertyChanged("QuotationId");
+                //OnPropertyChanged("QuotationId");
             }
         }
         

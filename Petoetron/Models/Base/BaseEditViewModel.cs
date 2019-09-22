@@ -180,7 +180,7 @@ namespace Petoetron.Models.Base
         public virtual bool CanSave()
         {
             if (IsSaving || IsLoading) return false;
-            
+
             return !propertiesEqual && Editable != null && Editable.Code.Length >= ClientContext.MIN_OBJECT_CODE_LENGTH;
         }
 
@@ -232,7 +232,7 @@ namespace Petoetron.Models.Base
 
         protected virtual void BeforeSave(TEntity editable)
         {
-           
+
         }
 
         public virtual bool CanReset()
@@ -349,12 +349,12 @@ namespace Petoetron.Models.Base
 
         protected virtual bool Inserted(TEntity inserted)
         {
-            if (Editable.Code == inserted.Code)
-            {
-                Original = inserted;
-                IsSaving = false;
-                Load();
-            }
+            //if (Editable.Code == inserted.Code)
+            //{
+            Original = inserted;
+            IsSaving = false;
+            Load();
+            //}
             return true;
         }
 
@@ -362,7 +362,7 @@ namespace Petoetron.Models.Base
         {
             if (Editable.Id == updated.Id)
             {
-                Original = updated;
+                //Original = updated;
                 IsSaving = false;
                 Load();
             }

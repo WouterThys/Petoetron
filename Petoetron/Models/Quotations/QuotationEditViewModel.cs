@@ -44,16 +44,18 @@ namespace Petoetron.Models.Quotations
             tmpCustomers = new List<Customer>(DataAccess.Dal.Customers);
 
             QMaterialModel.Quotation = Editable;
-            QMaterialModel.Load();
+            QMaterialModel.Loading();
 
             QPriceModel.Quotation = Editable;
-            QPriceModel.Load();
+            QPriceModel.Loading();
         }
 
         public override void OnLoaded()
         {
             Customers = new BindingList<Customer>(tmpCustomers);
-            
+            QMaterialModel.Loaded();
+            QPriceModel.Loaded();
+
             base.OnLoaded();
         }
 
@@ -83,7 +85,10 @@ namespace Petoetron.Models.Quotations
 
         protected override void DoSave(Quotation entity)
         {
-            entity.Save();
+            Quotation toSave = (Quotation)entity.CreateCopy();
+            toSave.Materials = entity.Materials;
+            toSave.Prices = entity.Prices;
+            toSave.Save();
         }
 
         #region Customer

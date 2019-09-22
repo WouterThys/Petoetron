@@ -39,24 +39,25 @@ namespace Petoetron.Models.Quotations.Helpers
 
         public override Task Load()
         {
+            return null;
+        }
+
+        private List<T> ts = null;
+        List<QT> qTs = null;
+        public void Loading()
+        {
             IsLoading = true;
-            return Task.Factory.StartNew((dispatcher) =>
-            {
-                ValuesChanged = false;
-                List<T> ts = new List<T>(_getData());
-                ts.RemoveAll(t => !t.IsValid());
+            ValuesChanged = false;
+            ts = new List<T>(_getData());
+            ts.RemoveAll(t => !t.IsValid());
+            qTs = new List<QT>(_getQData(Quotation).Values);
+        }
 
-                List<QT> qTs = new List<QT>(_getQData(Quotation).Values);
-
-                ((IDispatcherService)dispatcher).BeginInvoke(() =>
-                {
-                    Data = new BindingList<T>(ts);
-                    QData = new BindingList<QT>(qTs);
-                    IsLoading = false;
-                    UpdateCommands();
-                });
-
-            }, DispatcherService);
+        public void Loaded()
+        {
+            Data = new BindingList<T>(ts);
+            QData = new BindingList<QT>(qTs);
+            IsLoading = false;
         }
 
         public void UpdateCommands()

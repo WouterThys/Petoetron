@@ -5,6 +5,8 @@ namespace Petoetron.Classes.Helpers
 {
     public abstract class LinkList<T> where T : IObject
     {
+        private static int listCnt = 0;
+        private int ListId { get; set; }
         public long ObjectId { get; set; }
 
         protected HashSet<long> ids;
@@ -12,6 +14,7 @@ namespace Petoetron.Classes.Helpers
 
         public LinkList(long objectId)
         {
+            ListId = ++listCnt;
             ObjectId = objectId;
         }
 
@@ -27,7 +30,7 @@ namespace Petoetron.Classes.Helpers
 
         public override string ToString()
         {
-            return "Linked list " + typeof(T) + "ids=" + ids;
+            return "Linked list " + ListId + " ids=" + string.Join(",", ids);
         }
 
         public override bool Equals(object obj)
