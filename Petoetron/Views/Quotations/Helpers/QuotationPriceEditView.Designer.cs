@@ -54,8 +54,6 @@
             this.colPriceId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.riSearchLookUpEditPrice = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
             this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPriceTypeUnit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUnitPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -65,6 +63,10 @@
             this.colLastModified = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colId1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCode1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.behaviorManager = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.dragDropEvents = new DevExpress.Utils.DragDrop.DragDropEvents(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsQuotationPrices)).BeginInit();
@@ -77,6 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.riDateEditDate.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riSearchLookUpEditPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager
@@ -138,31 +141,35 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager;
-            this.barDockControlTop.Size = new System.Drawing.Size(476, 26);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlTop.Size = new System.Drawing.Size(555, 33);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 435);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 535);
             this.barDockControlBottom.Manager = this.barManager;
-            this.barDockControlBottom.Size = new System.Drawing.Size(476, 0);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlBottom.Size = new System.Drawing.Size(555, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 26);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 33);
             this.barDockControlLeft.Manager = this.barManager;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 409);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 502);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(476, 26);
+            this.barDockControlRight.Location = new System.Drawing.Point(555, 33);
             this.barDockControlRight.Manager = this.barManager;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 409);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 502);
             // 
             // bsQuotationPrices
             // 
@@ -176,8 +183,10 @@
             // 
             this.gcPrices.DataSource = this.bsQuotationPrices;
             this.gcPrices.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcPrices.Location = new System.Drawing.Point(0, 26);
+            this.gcPrices.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gcPrices.Location = new System.Drawing.Point(0, 33);
             this.gcPrices.MainView = this.gvPrices;
+            this.gcPrices.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gcPrices.MenuManager = this.barManager;
             this.gcPrices.Name = "gcPrices";
             this.gcPrices.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -185,13 +194,15 @@
             this.riSpinEditValue,
             this.riDateEditDate,
             this.riSearchLookUpEditPrice});
-            this.gcPrices.Size = new System.Drawing.Size(476, 409);
+            this.gcPrices.Size = new System.Drawing.Size(555, 502);
             this.gcPrices.TabIndex = 4;
             this.gcPrices.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvPrices});
             // 
             // gvPrices
             // 
+            this.behaviorManager.SetBehaviors(this.gvPrices, new DevExpress.Utils.Behaviors.Behavior[] {
+            ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.DragDrop.DragDropBehavior.Create(typeof(DevExpress.XtraGrid.Extensions.ColumnViewDragDropSource), true, true, true, this.dragDropEvents)))});
             this.gvPrices.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colPriceUnit,
             this.colAmount,
@@ -202,6 +213,7 @@
             this.colPriceId,
             this.colId,
             this.colCode});
+            this.gvPrices.DetailHeight = 431;
             this.gvPrices.GridControl = this.gcPrices;
             this.gvPrices.Name = "gvPrices";
             this.gvPrices.OptionsView.ShowGroupPanel = false;
@@ -214,11 +226,13 @@
             this.colPriceUnit.AppearanceCell.Options.UseForeColor = true;
             this.colPriceUnit.Caption = "Unit";
             this.colPriceUnit.FieldName = "PriceType.PriceTypeUnit";
+            this.colPriceUnit.MinWidth = 23;
             this.colPriceUnit.Name = "colPriceUnit";
             this.colPriceUnit.OptionsColumn.AllowEdit = false;
             this.colPriceUnit.OptionsColumn.ReadOnly = true;
             this.colPriceUnit.Visible = true;
             this.colPriceUnit.VisibleIndex = 3;
+            this.colPriceUnit.Width = 87;
             // 
             // colAmount
             // 
@@ -226,11 +240,12 @@
             this.colAmount.ColumnEdit = this.riSpinEditAmount;
             this.colAmount.FieldName = "Amount";
             this.colAmount.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-            this.colAmount.MaxWidth = 50;
+            this.colAmount.MaxWidth = 58;
+            this.colAmount.MinWidth = 23;
             this.colAmount.Name = "colAmount";
             this.colAmount.Visible = true;
             this.colAmount.VisibleIndex = 0;
-            this.colAmount.Width = 50;
+            this.colAmount.Width = 58;
             // 
             // riSpinEditAmount
             // 
@@ -245,10 +260,11 @@
             // 
             this.colValue.ColumnEdit = this.riSpinEditValue;
             this.colValue.FieldName = "Value";
+            this.colValue.MinWidth = 23;
             this.colValue.Name = "colValue";
             this.colValue.Visible = true;
             this.colValue.VisibleIndex = 2;
-            this.colValue.Width = 167;
+            this.colValue.Width = 195;
             // 
             // riSpinEditValue
             // 
@@ -261,8 +277,9 @@
             // 
             this.colDate.ColumnEdit = this.riDateEditDate;
             this.colDate.FieldName = "Date";
+            this.colDate.MinWidth = 23;
             this.colDate.Name = "colDate";
-            this.colDate.Width = 167;
+            this.colDate.Width = 195;
             // 
             // riDateEditDate
             // 
@@ -280,10 +297,11 @@
             this.colInfo.AppearanceCell.Options.UseFont = true;
             this.colInfo.AppearanceCell.Options.UseForeColor = true;
             this.colInfo.FieldName = "Info";
+            this.colInfo.MinWidth = 23;
             this.colInfo.Name = "colInfo";
             this.colInfo.OptionsColumn.AllowEdit = false;
             this.colInfo.OptionsColumn.ReadOnly = true;
-            this.colInfo.Width = 167;
+            this.colInfo.Width = 195;
             // 
             // colQuotationId
             // 
@@ -292,20 +310,22 @@
             this.colQuotationId.AppearanceCell.Options.UseFont = true;
             this.colQuotationId.AppearanceCell.Options.UseForeColor = true;
             this.colQuotationId.FieldName = "QuotationId";
+            this.colQuotationId.MinWidth = 23;
             this.colQuotationId.Name = "colQuotationId";
             this.colQuotationId.OptionsColumn.AllowEdit = false;
             this.colQuotationId.OptionsColumn.ReadOnly = true;
-            this.colQuotationId.Width = 167;
+            this.colQuotationId.Width = 195;
             // 
             // colPriceId
             // 
             this.colPriceId.Caption = "Pruus";
             this.colPriceId.ColumnEdit = this.riSearchLookUpEditPrice;
             this.colPriceId.FieldName = "PriceTypeId";
+            this.colPriceId.MinWidth = 23;
             this.colPriceId.Name = "colPriceId";
             this.colPriceId.Visible = true;
             this.colPriceId.VisibleIndex = 1;
-            this.colPriceId.Width = 167;
+            this.colPriceId.Width = 195;
             // 
             // riSearchLookUpEditPrice
             // 
@@ -334,30 +354,6 @@
             this.repositoryItemSearchLookUpEdit1View.Name = "repositoryItemSearchLookUpEdit1View";
             this.repositoryItemSearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
-            // colId
-            // 
-            this.colId.AppearanceCell.FontStyleDelta = System.Drawing.FontStyle.Italic;
-            this.colId.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.colId.AppearanceCell.Options.UseFont = true;
-            this.colId.AppearanceCell.Options.UseForeColor = true;
-            this.colId.FieldName = "Id";
-            this.colId.Name = "colId";
-            this.colId.OptionsColumn.AllowEdit = false;
-            this.colId.OptionsColumn.ReadOnly = true;
-            this.colId.Width = 167;
-            // 
-            // colCode
-            // 
-            this.colCode.AppearanceCell.FontStyleDelta = System.Drawing.FontStyle.Italic;
-            this.colCode.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.colCode.AppearanceCell.Options.UseFont = true;
-            this.colCode.AppearanceCell.Options.UseForeColor = true;
-            this.colCode.FieldName = "Code";
-            this.colCode.Name = "colCode";
-            this.colCode.OptionsColumn.AllowEdit = false;
-            this.colCode.OptionsColumn.ReadOnly = true;
-            this.colCode.Width = 178;
             // 
             // colPriceTypeUnit
             // 
@@ -412,17 +408,44 @@
             this.colCode1.Visible = true;
             this.colCode1.VisibleIndex = 0;
             // 
+            // colId
+            // 
+            this.colId.AppearanceCell.FontStyleDelta = System.Drawing.FontStyle.Italic;
+            this.colId.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.colId.AppearanceCell.Options.UseFont = true;
+            this.colId.AppearanceCell.Options.UseForeColor = true;
+            this.colId.FieldName = "Id";
+            this.colId.MinWidth = 23;
+            this.colId.Name = "colId";
+            this.colId.OptionsColumn.AllowEdit = false;
+            this.colId.OptionsColumn.ReadOnly = true;
+            this.colId.Width = 195;
+            // 
+            // colCode
+            // 
+            this.colCode.AppearanceCell.FontStyleDelta = System.Drawing.FontStyle.Italic;
+            this.colCode.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.colCode.AppearanceCell.Options.UseFont = true;
+            this.colCode.AppearanceCell.Options.UseForeColor = true;
+            this.colCode.FieldName = "Code";
+            this.colCode.MinWidth = 23;
+            this.colCode.Name = "colCode";
+            this.colCode.OptionsColumn.AllowEdit = false;
+            this.colCode.OptionsColumn.ReadOnly = true;
+            this.colCode.Width = 208;
+            // 
             // QuotationPriceEditView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gcPrices);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "QuotationPriceEditView";
-            this.Size = new System.Drawing.Size(476, 435);
+            this.Size = new System.Drawing.Size(555, 535);
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsQuotationPrices)).EndInit();
@@ -435,6 +458,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.riDateEditDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riSearchLookUpEditPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -478,5 +502,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colLastModified;
         private DevExpress.XtraGrid.Columns.GridColumn colId1;
         private DevExpress.XtraGrid.Columns.GridColumn colCode1;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager;
+        private DevExpress.Utils.DragDrop.DragDropEvents dragDropEvents;
     }
 }

@@ -17,6 +17,19 @@ namespace Petoetron.Classes
         public QuotationPrice(string code) : base(code) { }
         public QuotationPrice(Quotation quotation) : base(quotation) { }
 
+        public void SetPrice(PriceType t)
+        {
+            if (t != null)
+            {
+                PriceTypeId = t.Id;
+                priceType = priceType;
+            }
+            else
+            {
+                PriceTypeId = 0;
+            }
+        }
+
         #region Base overrides
 
         public override IObject CreateCopy()

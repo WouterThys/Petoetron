@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.colPriceTypeUnit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUnitPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -37,9 +38,12 @@
             this.colLastModified = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dragDropEvents = new DevExpress.Utils.DragDrop.DragDropEvents(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bsEntities)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PausePopupMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             this.SuspendLayout();
@@ -50,11 +54,15 @@
             // 
             // gridControl
             // 
+            this.behaviorManager.SetBehaviors(this.gridControl, new DevExpress.Utils.Behaviors.Behavior[] {
+            ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.Behaviors.Common.PersistenceBehavior.Create(typeof(DevExpress.Utils.BehaviorSource.PersistenceBehaviorSourceForControl), null, DevExpress.Utils.Behaviors.Common.Storage.File, DevExpress.Utils.DefaultBoolean.True)))});
             this.gridControl.DataSource = this.bsEntities;
             this.gridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             // 
             // gridView
             // 
+            this.behaviorManager.SetBehaviors(this.gridView, new DevExpress.Utils.Behaviors.Behavior[] {
+            ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.DragDrop.DragDropBehavior.Create(typeof(DevExpress.XtraGrid.Extensions.ColumnViewDragDropSource), true, true, false, this.dragDropEvents)))});
             this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colPriceTypeUnit,
             this.colUnitPrice,
@@ -90,6 +98,11 @@
             // 
             this.bbiExport.ImageOptions.ImageIndex = 10;
             this.bbiExport.ImageOptions.LargeImageIndex = 10;
+            // 
+            // bbiPause
+            // 
+            this.bbiPause.ImageOptions.ImageIndex = 33;
+            this.bbiPause.ImageOptions.LargeImageIndex = 33;
             // 
             // ribbonControl
             // 
@@ -176,6 +189,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsEntities)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PausePopupMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).EndInit();
             this.ResumeLayout(false);
@@ -194,5 +209,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colLastModified;
         private DevExpress.XtraGrid.Columns.GridColumn colId;
         private DevExpress.XtraGrid.Columns.GridColumn colCode;
+        private DevExpress.Utils.DragDrop.DragDropEvents dragDropEvents;
     }
 }

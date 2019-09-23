@@ -16,6 +16,19 @@ namespace Petoetron.Classes
         public QuotationMaterial() : base() { }
         public QuotationMaterial(string code) : base(code) { }
         public QuotationMaterial(Quotation quotation) : base(quotation) { }
+
+        public void SetMaterial(Material material)
+        {
+            if (material != null)
+            {
+                MaterialId = material.Id;
+                this.material = material;
+            }
+            else
+            {
+                MaterialId = 0;
+            }
+        }
         
         #region Base overrides
 

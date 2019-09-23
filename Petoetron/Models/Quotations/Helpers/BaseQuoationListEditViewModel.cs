@@ -78,13 +78,9 @@ namespace Petoetron.Models.Quotations.Helpers
             UpdateCommands();
         }
 
-        public virtual bool CanAdd()
+        protected virtual QT CreateQuotationItem(T t)
         {
-            return !IsLoading && Quotation != null;
-        }
-        public virtual void Add()
-        {
-            var qt = new QT
+            return new QT
             {
                 Quotation = Quotation,
                 QuotationId = Quotation.Id,
@@ -92,9 +88,35 @@ namespace Petoetron.Models.Quotations.Helpers
                 Amount = 1,
                 Value = 1
             };
+        }
+
+        public virtual bool CanAdd()
+        {
+            return !IsLoading && Quotation != null;
+        }
+        public virtual void Add()
+        {
+            var qt = CreateQuotationItem(default(T));
 
             _getQData(Quotation).Add(qt);
             QData.Add(qt);
+            UpdateCommands();
+            DataChanged?.Invoke();
+        }
+        public virtual void AddItems(IEnumerable<T> ts)
+        {
+            if (ts != null)
+            {
+                foreach (T t in ts)
+                {
+                    if (t == null) continue;
+
+                    var qt = CreateQuotationItem(t);
+
+                    _getQData(Quotation).Add(qt);
+                    QData.Add(qt);
+                }
+            }
             UpdateCommands();
             DataChanged?.Invoke();
         }

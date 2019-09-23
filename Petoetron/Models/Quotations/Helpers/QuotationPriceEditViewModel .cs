@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Threading.Tasks;
-using DevExpress.Mvvm;
+﻿using DevExpress.Mvvm;
 using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.Mvvm.POCO;
 using Petoetron.Classes;
 using Petoetron.Dal;
-using Petoetron.Models.Base;
 
 namespace Petoetron.Models.Quotations.Helpers
 {
@@ -26,7 +21,17 @@ namespace Petoetron.Models.Quotations.Helpers
         {
             
         }
-        
+
+        protected override QuotationPrice CreateQuotationItem(PriceType t)
+        {
+            QuotationPrice qm = base.CreateQuotationItem(t);
+            if (t != null)
+            {
+                qm.SetPrice(t);
+            }
+            return qm;
+        }
+
         public override void Zoom()
         {
             DialogService.ShowDialog(MessageButton.OK, "Pruzen", this);

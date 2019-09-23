@@ -10,11 +10,15 @@ using DevExpress.Utils.MVVM;
 using DevExpress.Data;
 using Petoetron.Classes;
 using Petoetron.Models.Quotations.Helpers;
+using DevExpress.Utils.DragDrop;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace Petoetron.Views.Quotations.Helpers
 {
     public partial class QuotationPriceEditView : BaseUserControl
     {
+        private MVVMContextFluentAPI<QuotationPriceEditViewModel> fluent;
+
         public bool Embedded { get; set; }
         public BindingSource PriceSource { get => bsPrices; }
         public BindingSource QPriceSource { get => bsQuotationPrices; }
@@ -46,6 +50,8 @@ namespace Petoetron.Views.Quotations.Helpers
 
             gvPrices.OptionsSelection.MultiSelect = true;
             gvPrices.OptionsBehavior.AutoExpandAllGroups = true;
+
+            dragDropEvents.DragDrop += DragDropEvents_DragDrop;
         }
 
         protected override void OnLoad(EventArgs e)
@@ -54,7 +60,7 @@ namespace Petoetron.Views.Quotations.Helpers
             if (!DesignMode && !Embedded)
             {
                 InitializeModel(typeof(QuotationPriceEditViewModel));
-                var fluent = mvvmContext.OfType<QuotationPriceEditViewModel>();
+                fluent = mvvmContext.OfType<QuotationPriceEditViewModel>();
                 InitBinding(fluent);
             }
         }
@@ -62,7 +68,7 @@ namespace Petoetron.Views.Quotations.Helpers
         public void InitializeBinding(QuotationPriceEditViewModel model)
         {
             InitializeModel(typeof(QuotationPriceEditViewModel), model);
-            var fluent = mvvmContext.OfType<QuotationPriceEditViewModel>();
+            fluent = mvvmContext.OfType<QuotationPriceEditViewModel>();
             InitBinding(fluent);
         }
 
@@ -85,5 +91,26 @@ namespace Petoetron.Views.Quotations.Helpers
 
             bbiZoom.Visibility = BarItemVisibility.Never; //Embedded ? BarItemVisibility.Always : BarItemVisibility.Never;
         }
+
+        #region Drag & Drop
+
+        private void DragDropEvents_DragDrop(object sender, DragDropEventArgs e)
+        {
+            if (fluent != null && e.Source is GridView source)
+            {
+                try
+                {
+                    IEnumerable<PriceType> prices = source.GetSelectedRows().Select(r => source.GetRow(r) as PriceType);
+                    fluent.ViewModel.AddItems(prices);
+                    e.Handled = true;
+                }
+                catch
+                {
+
+                }
+            }
+        }
+
+        #endregion
     }
 }

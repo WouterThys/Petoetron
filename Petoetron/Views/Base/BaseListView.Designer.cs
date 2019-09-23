@@ -204,9 +204,9 @@
         protected DevExpress.XtraBars.BarButtonItem bbiPrint;
         protected DevExpress.XtraBars.BarButtonItem bbiExport;
         protected DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
-        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager;
-        private DevExpress.XtraBars.BarButtonItem bbiPause;
-        private DevExpress.XtraBars.PopupMenu PausePopupMenu;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgOther;
+        protected DevExpress.Utils.Behaviors.BehaviorManager behaviorManager;
+        protected DevExpress.XtraBars.BarButtonItem bbiPause;
+        protected DevExpress.XtraBars.PopupMenu PausePopupMenu;
+        protected DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgOther;
     }
 }

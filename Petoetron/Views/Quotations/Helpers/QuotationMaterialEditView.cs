@@ -4,17 +4,21 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using Petoetron.Views.Base;
-using Petoetron.Models.Quotations;
 using DevExpress.XtraBars;
 using DevExpress.Utils.MVVM;
 using DevExpress.Data;
 using Petoetron.Classes;
 using Petoetron.Models.Quotations.Helpers;
+using System.Diagnostics;
+using DevExpress.Utils.DragDrop;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace Petoetron.Views.Quotations.Helpers
 {
     public partial class QuotationMaterialEditView : BaseUserControl
     {
+        private MVVMContextFluentAPI<QuotationMaterialEditViewModel> fluent;
+
         public bool Embedded { get; set; }
         public BindingSource MaterialSource { get => bsMaterials; }
         public BindingSource QMaterialSource { get => bsQuotationMaterials; }
@@ -46,6 +50,8 @@ namespace Petoetron.Views.Quotations.Helpers
 
             gvMaterials.OptionsSelection.MultiSelect = true;
             gvMaterials.OptionsBehavior.AutoExpandAllGroups = true;
+            
+            dragDropEvents.DragDrop += DragDropEvents_DragDrop;
         }
 
         protected override void OnLoad(EventArgs e)
@@ -54,7 +60,7 @@ namespace Petoetron.Views.Quotations.Helpers
             if (!DesignMode && !Embedded)
             {
                 InitializeModel(typeof(QuotationMaterialEditViewModel));
-                var fluent = mvvmContext.OfType<QuotationMaterialEditViewModel>();
+                fluent = mvvmContext.OfType<QuotationMaterialEditViewModel>();
                 InitBinding(fluent);
             }
         }
@@ -62,7 +68,7 @@ namespace Petoetron.Views.Quotations.Helpers
         public void InitializeBinding(QuotationMaterialEditViewModel model)
         {
             InitializeModel(typeof(QuotationMaterialEditViewModel), model);
-            var fluent = mvvmContext.OfType<QuotationMaterialEditViewModel>();
+            fluent = mvvmContext.OfType<QuotationMaterialEditViewModel>();
             InitBinding(fluent);
         }
 
@@ -85,5 +91,26 @@ namespace Petoetron.Views.Quotations.Helpers
 
             bbiZoom.Visibility = BarItemVisibility.Never; //Embedded ? BarItemVisibility.Always : BarItemVisibility.Never;
         }
+
+        #region Drag & Drop
+        
+        private void DragDropEvents_DragDrop(object sender, DragDropEventArgs e)
+        {
+            if (fluent != null  && e.Source is GridView source)
+            {
+                try
+                {
+                    IEnumerable<Material> materials = source.GetSelectedRows().Select(r => source.GetRow(r) as Material);
+                    fluent.ViewModel.AddItems(materials);
+                    e.Handled = true;
+                }
+                catch
+                {
+                    
+                }
+            }
+        }
+
+        #endregion
     }
 }

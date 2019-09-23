@@ -26,7 +26,17 @@ namespace Petoetron.Models.Quotations.Helpers
         {
             
         }
-        
+
+        protected override QuotationMaterial CreateQuotationItem(Material t)
+        {
+            QuotationMaterial qm = base.CreateQuotationItem(t);
+            if (t != null)
+            {
+                qm.SetMaterial(t);
+            }
+            return qm;
+        }
+
         public override void Zoom()
         {
             DialogService.ShowDialog(MessageButton.OK, "Muturiuul", this);

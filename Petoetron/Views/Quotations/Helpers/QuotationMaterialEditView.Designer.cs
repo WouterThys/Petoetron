@@ -69,6 +69,8 @@
             this.colCode1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.behaviorManager = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.dragDropEvents = new DevExpress.Utils.DragDrop.DragDropEvents(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsQuotationMaterials)).BeginInit();
@@ -81,6 +83,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.riDateEditDate.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riSearchLookUpEditMaterial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager
@@ -142,31 +145,35 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager;
-            this.barDockControlTop.Size = new System.Drawing.Size(476, 26);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlTop.Size = new System.Drawing.Size(555, 33);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 435);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 535);
             this.barDockControlBottom.Manager = this.barManager;
-            this.barDockControlBottom.Size = new System.Drawing.Size(476, 0);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlBottom.Size = new System.Drawing.Size(555, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 26);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 33);
             this.barDockControlLeft.Manager = this.barManager;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 409);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 502);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(476, 26);
+            this.barDockControlRight.Location = new System.Drawing.Point(555, 33);
             this.barDockControlRight.Manager = this.barManager;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 409);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 502);
             // 
             // bsQuotationMaterials
             // 
@@ -180,8 +187,10 @@
             // 
             this.gcMaterials.DataSource = this.bsQuotationMaterials;
             this.gcMaterials.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcMaterials.Location = new System.Drawing.Point(0, 26);
+            this.gcMaterials.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gcMaterials.Location = new System.Drawing.Point(0, 33);
             this.gcMaterials.MainView = this.gvMaterials;
+            this.gcMaterials.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gcMaterials.MenuManager = this.barManager;
             this.gcMaterials.Name = "gcMaterials";
             this.gcMaterials.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -189,13 +198,15 @@
             this.riSpinEditValue,
             this.riDateEditDate,
             this.riSearchLookUpEditMaterial});
-            this.gcMaterials.Size = new System.Drawing.Size(476, 409);
+            this.gcMaterials.Size = new System.Drawing.Size(555, 502);
             this.gcMaterials.TabIndex = 4;
             this.gcMaterials.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMaterials});
             // 
             // gvMaterials
             // 
+            this.behaviorManager.SetBehaviors(this.gvMaterials, new DevExpress.Utils.Behaviors.Behavior[] {
+            ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.DragDrop.DragDropBehavior.Create(typeof(DevExpress.XtraGrid.Extensions.ColumnViewDragDropSource), true, true, true, this.dragDropEvents)))});
             this.gvMaterials.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMaterialType,
             this.colMaterialUnit,
@@ -207,6 +218,7 @@
             this.colMaterialId,
             this.colId,
             this.colCode});
+            this.gvMaterials.DetailHeight = 431;
             this.gvMaterials.GridControl = this.gcMaterials;
             this.gvMaterials.Name = "gvMaterials";
             this.gvMaterials.OptionsView.ShowGroupPanel = false;
@@ -219,11 +231,13 @@
             this.colMaterialType.AppearanceCell.Options.UseForeColor = true;
             this.colMaterialType.Caption = "Type";
             this.colMaterialType.FieldName = "Material.Type.Code";
+            this.colMaterialType.MinWidth = 23;
             this.colMaterialType.Name = "colMaterialType";
             this.colMaterialType.OptionsColumn.AllowEdit = false;
             this.colMaterialType.OptionsColumn.ReadOnly = true;
             this.colMaterialType.Visible = true;
             this.colMaterialType.VisibleIndex = 2;
+            this.colMaterialType.Width = 87;
             // 
             // colMaterialUnit
             // 
@@ -233,11 +247,13 @@
             this.colMaterialUnit.AppearanceCell.Options.UseForeColor = true;
             this.colMaterialUnit.Caption = "Unit";
             this.colMaterialUnit.FieldName = "Material.Unit";
+            this.colMaterialUnit.MinWidth = 23;
             this.colMaterialUnit.Name = "colMaterialUnit";
             this.colMaterialUnit.OptionsColumn.AllowEdit = false;
             this.colMaterialUnit.OptionsColumn.ReadOnly = true;
             this.colMaterialUnit.Visible = true;
             this.colMaterialUnit.VisibleIndex = 4;
+            this.colMaterialUnit.Width = 87;
             // 
             // colAmount
             // 
@@ -245,11 +261,12 @@
             this.colAmount.ColumnEdit = this.riSpinEditAmount;
             this.colAmount.FieldName = "Amount";
             this.colAmount.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-            this.colAmount.MaxWidth = 50;
+            this.colAmount.MaxWidth = 58;
+            this.colAmount.MinWidth = 23;
             this.colAmount.Name = "colAmount";
             this.colAmount.Visible = true;
             this.colAmount.VisibleIndex = 0;
-            this.colAmount.Width = 50;
+            this.colAmount.Width = 58;
             // 
             // riSpinEditAmount
             // 
@@ -264,10 +281,11 @@
             // 
             this.colValue.ColumnEdit = this.riSpinEditValue;
             this.colValue.FieldName = "Value";
+            this.colValue.MinWidth = 23;
             this.colValue.Name = "colValue";
             this.colValue.Visible = true;
             this.colValue.VisibleIndex = 3;
-            this.colValue.Width = 167;
+            this.colValue.Width = 195;
             // 
             // riSpinEditValue
             // 
@@ -280,8 +298,9 @@
             // 
             this.colDate.ColumnEdit = this.riDateEditDate;
             this.colDate.FieldName = "Date";
+            this.colDate.MinWidth = 23;
             this.colDate.Name = "colDate";
-            this.colDate.Width = 167;
+            this.colDate.Width = 195;
             // 
             // riDateEditDate
             // 
@@ -299,10 +318,11 @@
             this.colInfo.AppearanceCell.Options.UseFont = true;
             this.colInfo.AppearanceCell.Options.UseForeColor = true;
             this.colInfo.FieldName = "Info";
+            this.colInfo.MinWidth = 23;
             this.colInfo.Name = "colInfo";
             this.colInfo.OptionsColumn.AllowEdit = false;
             this.colInfo.OptionsColumn.ReadOnly = true;
-            this.colInfo.Width = 167;
+            this.colInfo.Width = 195;
             // 
             // colQuotationId
             // 
@@ -311,20 +331,22 @@
             this.colQuotationId.AppearanceCell.Options.UseFont = true;
             this.colQuotationId.AppearanceCell.Options.UseForeColor = true;
             this.colQuotationId.FieldName = "QuotationId";
+            this.colQuotationId.MinWidth = 23;
             this.colQuotationId.Name = "colQuotationId";
             this.colQuotationId.OptionsColumn.AllowEdit = false;
             this.colQuotationId.OptionsColumn.ReadOnly = true;
-            this.colQuotationId.Width = 167;
+            this.colQuotationId.Width = 195;
             // 
             // colMaterialId
             // 
             this.colMaterialId.Caption = "Muturiuul";
             this.colMaterialId.ColumnEdit = this.riSearchLookUpEditMaterial;
             this.colMaterialId.FieldName = "MaterialId";
+            this.colMaterialId.MinWidth = 23;
             this.colMaterialId.Name = "colMaterialId";
             this.colMaterialId.Visible = true;
             this.colMaterialId.VisibleIndex = 1;
-            this.colMaterialId.Width = 167;
+            this.colMaterialId.Width = 195;
             // 
             // riSearchLookUpEditMaterial
             // 
@@ -436,10 +458,11 @@
             this.colId.AppearanceCell.Options.UseFont = true;
             this.colId.AppearanceCell.Options.UseForeColor = true;
             this.colId.FieldName = "Id";
+            this.colId.MinWidth = 23;
             this.colId.Name = "colId";
             this.colId.OptionsColumn.AllowEdit = false;
             this.colId.OptionsColumn.ReadOnly = true;
-            this.colId.Width = 167;
+            this.colId.Width = 195;
             // 
             // colCode
             // 
@@ -448,22 +471,24 @@
             this.colCode.AppearanceCell.Options.UseFont = true;
             this.colCode.AppearanceCell.Options.UseForeColor = true;
             this.colCode.FieldName = "Code";
+            this.colCode.MinWidth = 23;
             this.colCode.Name = "colCode";
             this.colCode.OptionsColumn.AllowEdit = false;
             this.colCode.OptionsColumn.ReadOnly = true;
-            this.colCode.Width = 178;
+            this.colCode.Width = 208;
             // 
             // QuotationMaterialEditView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gcMaterials);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "QuotationMaterialEditView";
-            this.Size = new System.Drawing.Size(476, 435);
+            this.Size = new System.Drawing.Size(555, 535);
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsQuotationMaterials)).EndInit();
@@ -476,6 +501,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.riDateEditDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riSearchLookUpEditMaterial)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -523,5 +549,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colId1;
         private DevExpress.XtraGrid.Columns.GridColumn colCode1;
         private DevExpress.XtraBars.BarButtonItem bbiZoom;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager;
+        private DevExpress.Utils.DragDrop.DragDropEvents dragDropEvents;
     }
 }
