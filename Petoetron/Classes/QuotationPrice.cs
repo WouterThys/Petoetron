@@ -12,6 +12,7 @@ namespace Petoetron.Classes
 
         private long priceTypeId;
         private PriceType priceType;
+        private decimal totalPrice;
 
         public QuotationPrice() : base() { }
         public QuotationPrice(string code) : base(code) { }
@@ -27,6 +28,26 @@ namespace Petoetron.Classes
             else
             {
                 PriceTypeId = 0;
+            }
+        }
+
+        public void UpdatePrice()
+        {
+            if (PriceType != null)
+            {
+                if (PriceType.MaterialDependant)
+                {
+                    double weigth = 0.0;
+                    foreach (QuotationMaterial qm in Quotation.MaterialList)
+                    {
+                        weigth += qm.TotalWeight;
+                    }
+                    TotalPrice = Amount * (decimal)weigth * 1;
+                }
+                else
+                {
+                    TotalPrice = Amount * (decimal)Value * PriceType.UnitPrice * (decimal)PriceType.Factor;
+                }
             }
         }
 
@@ -125,6 +146,16 @@ namespace Petoetron.Classes
                     priceType = DataAccess.Dal.PriceTypes.ById(PriceTypeId);
                 }
                 return priceType;
+            }
+        }
+        
+        public decimal TotalPrice
+        {
+            get => totalPrice;
+            set
+            {
+                totalPrice = value;
+                OnPropertyChanged("TotalPrice");
             }
         }
 
