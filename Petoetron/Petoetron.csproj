@@ -85,7 +85,6 @@
     <Compile Include="Classes\Info.cs" />
     <Compile Include="Classes\Material.cs" />
     <Compile Include="Classes\MaterialType.cs" />
-    <Compile Include="Classes\ObjectDocument.cs" />
     <Compile Include="Classes\ObjectLinkLists.cs" />
     <Compile Include="Classes\ObjectLog.cs" />
     <Compile Include="Classes\Pause.cs" />
@@ -118,7 +117,6 @@
     <Compile Include="Models\Materials\MaterialListViewModel.cs" />
     <Compile Include="Models\MaterialTypes\MaterialTypeEditViewModel.cs" />
     <Compile Include="Models\MaterialTypes\MaterialTypeListViewModel.cs" />
-    <Compile Include="Models\ObjectDocumentEditViewModel.cs" />
     <Compile Include="Models\ObjectFilesModel.cs" />
     <Compile Include="Models\ObjectLogModel.cs" />
     <Compile Include="Models\Pauses\PauseEditViewModel.cs" />

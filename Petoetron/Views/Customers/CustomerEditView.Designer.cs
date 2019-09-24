@@ -65,7 +65,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForInfo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgDocuments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgLogs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel)).BeginInit();
             this.flyoutPanel.SuspendLayout();
@@ -217,10 +216,6 @@
             this.ItemForInfo.Location = new System.Drawing.Point(0, 208);
             this.ItemForInfo.Size = new System.Drawing.Size(595, 134);
             this.ItemForInfo.TextSize = new System.Drawing.Size(80, 16);
-            // 
-            // lcgDocuments
-            // 
-            this.lcgDocuments.Size = new System.Drawing.Size(595, 342);
             // 
             // lcgLogs
             // 
@@ -424,7 +419,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForInfo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgDocuments)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgLogs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel)).EndInit();
             this.flyoutPanel.ResumeLayout(false);

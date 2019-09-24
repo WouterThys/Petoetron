@@ -12,6 +12,7 @@ namespace Petoetron.Classes
 
         private long materialId;
         private Material material;
+        private string groupCode;
 
         public QuotationMaterial() : base() { }
         public QuotationMaterial(string code) : base(code) { }
@@ -27,6 +28,22 @@ namespace Petoetron.Classes
             else
             {
                 MaterialId = 0;
+            }
+        }
+
+        public double TotalLength
+        {
+            get
+            {
+                return Value * Amount;
+            }
+        }
+
+        public double TotalWeight
+        {
+            get
+            {
+                return (Material != null ? Material.Weight : 0.0) * TotalLength;
             }
         }
         
@@ -45,6 +62,7 @@ namespace Petoetron.Classes
             {
                 base.CopyFrom(toCopy);
                 MaterialId = qm.MaterialId;
+                GroupCode = qm.GroupCode;
             }
         }
 
@@ -54,6 +72,7 @@ namespace Petoetron.Classes
             {
                 return
                      MaterialId == qm.MaterialId &&
+                     GroupCode == qm.GroupCode &&
                      base.PropertiesEqual(iObject);
             }
             return false;
@@ -67,12 +86,14 @@ namespace Petoetron.Classes
         {
             base.AddSqlParameters(command);
             DatabaseAccess.AddDbValue(command, "materialId", MaterialId);
+            DatabaseAccess.AddDbValue(command, "groupCode", GroupCode);
         }
 
         public override void InitFromReader(DbDataReader reader)
         {
             base.InitFromReader(reader);
             MaterialId = DatabaseAccess.RGetLong(reader, "materialId");
+            GroupCode = DatabaseAccess.RGetString(reader, "groupCode");
         }
 
         public override void OnChanged(ActionType queryType)
@@ -129,6 +150,16 @@ namespace Petoetron.Classes
                     material = DataAccess.Dal.Materials.ById(MaterialId);
                 }
                 return material;
+            }
+        }
+
+        public string GroupCode
+        {
+            get { return groupCode ?? ""; }
+            set
+            {
+                groupCode = value;
+                OnPropertyChanged("GroupCode");
             }
         }
 

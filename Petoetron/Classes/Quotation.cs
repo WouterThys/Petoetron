@@ -40,6 +40,26 @@ namespace Petoetron.Classes
             get { return Prices?.Values; }
         }
 
+        public IEnumerable<string> MaterialGroupCodes
+        {
+            get
+            {
+                List<string> codes = new List<string>();
+                if (Materials != null)
+                {
+                    foreach (QuotationMaterial qm in Materials.Values)
+                    {
+                        string code = qm.GroupCode;
+                        if (!string.IsNullOrEmpty(code) && !codes.Contains(code))
+                        {
+                            codes.Add(code);
+                        }
+                    }
+                }
+                return codes;
+            }
+        }
+
         #region Base overrides
 
         public override IObject CreateCopy()
@@ -254,28 +274,7 @@ namespace Petoetron.Classes
             get { return ClientContext.Context.Info; }
         }
 
-        //public override long Id
-        //{
-        //    get
-        //    {
-        //        return base.Id;
-        //    }
-        //    set
-        //    {
-        //        base.Id = value;
-        //        if (quotationMaterials != null)
-        //        {
-        //            quotationMaterials.ObjectId = value;
-        //            quotationMaterials.Ids = null;
-        //        }
-        //        if (quotationPrices != null)
-        //        {
-        //            quotationPrices.ObjectId = value;
-        //            quotationPrices.Ids = null;
-        //        }
-        //    }
-        //}
-
+       
         public override string Code
         {
             get

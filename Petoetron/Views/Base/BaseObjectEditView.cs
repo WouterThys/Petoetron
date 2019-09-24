@@ -24,7 +24,6 @@ namespace Petoetron.Views.Base
             peObjectIcon.PopupMenuShowing += ObjectImageEdit_PopupMenuShowing;
 
             lcgLogs.CaptionImageOptions.ImageIndex = ModuleTypes.ObjectLogModule.ImageId;
-            lcgDocuments.CaptionImageOptions.ImageIndex = ModuleTypes.ObjectDocumentEditModule.ImageId;
 
             InitializeCodeEdit(CodeTextEdit, validationProvider);
             InitializeDescEdit(DescriptionMemoEdit);
@@ -87,9 +86,6 @@ namespace Petoetron.Views.Base
                 }
             });
 
-            //// Object documents
-            //DocumentsView.InitializeBindings<T, TModel>(fluent);
-
             //// Logs
             //var objectLogModel = fluent.ViewModel.ObjectLogModel;
             //if (objectLogModel != null)
@@ -101,7 +97,6 @@ namespace Petoetron.Views.Base
             // Move tabs
             int numPages = tabbedControlGroup.TabPages.Count;
             lcgLogs.Move(tabbedControlGroup.TabPages[numPages - 1], InsertType.Right);
-            lcgDocuments.Move(tabbedControlGroup.TabPages[numPages - 2], InsertType.Right);
 
             // Select tab
             tabbedControlGroup.SelectedTabPage = lcgData;

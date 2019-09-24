@@ -9,7 +9,6 @@ using DevExpress.Utils.MVVM;
 using DevExpress.Data;
 using Petoetron.Classes;
 using Petoetron.Models.Quotations.Helpers;
-using System.Diagnostics;
 using DevExpress.Utils.DragDrop;
 using DevExpress.XtraGrid.Views.Grid;
 

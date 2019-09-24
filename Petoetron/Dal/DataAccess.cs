@@ -37,8 +37,7 @@ namespace Petoetron.Dal
                 { typeof(Material), new DataList<Material>(new Material().TableName) },
                 { typeof(MaterialType), new DataList<MaterialType>(new MaterialType().TableName) },
                 { typeof(PriceType), new DataList<PriceType>(new PriceType().TableName) },
-
-                { typeof(ObjectDocument), new DataList<ObjectDocument>(new ObjectDocument().TableName) },
+                
                 { typeof(Pause), new DataList<Pause>(new Pause().TableName) },
             };
         }
@@ -250,15 +249,9 @@ namespace Petoetron.Dal
         public DataList<Material> Materials { get { return GetList(GetCachedList<Material>()); } }
         public DataList<MaterialType> MaterialTypes { get { return GetList(GetCachedList<MaterialType>()); } }
         public DataList<PriceType> PriceTypes { get { return GetList(GetCachedList<PriceType>()); } }
-
-        public DataList<ObjectDocument> ObjectDocuments { get { return GetList(GetCachedList<ObjectDocument>()); } }
+        
         public DataList<Pause> Pauses { get { return GetList(GetCachedList<Pause>()); } }
 
-
-        public IEnumerable<ObjectDocument> GetObjectDocuments(string tableName, long id)
-        {
-            return ObjectDocuments.Where(od => od.ObjectName == tableName && od.ObjectId == id);
-        }
 
         public IEnumerable<ObjectLog> GetObjectLogs<T>(Filter filter) where T : class, IBaseObject, new()
         {

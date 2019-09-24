@@ -19,7 +19,7 @@ namespace Petoetron.Models.Base
             ObjectLogModel = ObjectLogModel.Create(moduleType, (f) => DataAccess.Dal.GetObjectLogs<TEntity>(f), original != null ? original.Id : 0);
             ObjectLogModel.SetParentViewModel(this);
 
-            ObjectFilesModel = ObjectFilesModel.Create(moduleType, (newDocs) => Original.CopyDocuments(newDocs));
+            ObjectFilesModel = ObjectFilesModel.Create(moduleType);
             ObjectFilesModel.SetParentViewModel(this);
         }
 

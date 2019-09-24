@@ -119,18 +119,21 @@
             // 
             // bbiAddPrice
             // 
+            this.bbiAddPrice.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.bbiAddPrice.Caption = "Tuvugen";
             this.bbiAddPrice.Id = 0;
             this.bbiAddPrice.Name = "bbiAddPrice";
             // 
             // bbiDeletePrice
             // 
+            this.bbiDeletePrice.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.bbiDeletePrice.Caption = "Wug";
             this.bbiDeletePrice.Id = 1;
             this.bbiDeletePrice.Name = "bbiDeletePrice";
             // 
             // bbiZoom
             // 
+            this.bbiZoom.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.bbiZoom.Caption = "Upen";
             this.bbiZoom.Id = 2;
             this.bbiZoom.Name = "bbiZoom";

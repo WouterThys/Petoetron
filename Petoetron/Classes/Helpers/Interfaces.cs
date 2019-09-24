@@ -50,10 +50,5 @@ namespace Petoetron.Classes.Helpers
         // Methods
         bool IsUnknown();
         bool IsValid();
-
-        // Documents
-        IEnumerable<ObjectDocument> ObjectDocuments { get; set; }
-        void CopyDocuments(IEnumerable<ObjectDocument> newDocs);
-        void UpdateDocuments();
     }
 }

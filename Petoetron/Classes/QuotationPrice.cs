@@ -22,7 +22,7 @@ namespace Petoetron.Classes
             if (t != null)
             {
                 PriceTypeId = t.Id;
-                priceType = priceType;
+                priceType = t;
             }
             else
             {

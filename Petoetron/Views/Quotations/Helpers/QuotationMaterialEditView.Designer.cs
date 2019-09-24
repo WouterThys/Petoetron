@@ -123,18 +123,21 @@
             // 
             // bbiAddMaterial
             // 
+            this.bbiAddMaterial.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.bbiAddMaterial.Caption = "Tuvugen";
             this.bbiAddMaterial.Id = 0;
             this.bbiAddMaterial.Name = "bbiAddMaterial";
             // 
             // bbiDeleteMaterial
             // 
+            this.bbiDeleteMaterial.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.bbiDeleteMaterial.Caption = "Wug";
             this.bbiDeleteMaterial.Id = 1;
             this.bbiDeleteMaterial.Name = "bbiDeleteMaterial";
             // 
             // bbiZoom
             // 
+            this.bbiZoom.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.bbiZoom.Caption = "Upen";
             this.bbiZoom.Id = 2;
             this.bbiZoom.Name = "bbiZoom";

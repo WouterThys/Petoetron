@@ -9,7 +9,8 @@ namespace Petoetron.Classes.Helpers
     public enum MaterialUnit
     {
         lm = 0,
-        kg
+        kg = 1,
+        st = 2
     }
 
     public enum DocumentType

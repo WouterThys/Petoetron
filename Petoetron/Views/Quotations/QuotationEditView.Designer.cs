@@ -72,7 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForInfo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgDocuments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgLogs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.validationProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).BeginInit();
@@ -197,10 +196,6 @@
             this.ItemForInfo.Location = new System.Drawing.Point(0, 96);
             this.ItemForInfo.Size = new System.Drawing.Size(393, 323);
             this.ItemForInfo.TextSize = new System.Drawing.Size(63, 13);
-            // 
-            // lcgDocuments
-            // 
-            this.lcgDocuments.Size = new System.Drawing.Size(393, 419);
             // 
             // lcgLogs
             // 
@@ -585,7 +580,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForInfo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgDocuments)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgLogs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.validationProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).EndInit();

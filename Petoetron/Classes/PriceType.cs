@@ -14,7 +14,7 @@ namespace Petoetron.Classes
 
         public PriceType() : this("") { }
         public PriceType(string code) : base(code) { }
-
+        
 
         #region Base overrides
         public override IObject CreateCopy()

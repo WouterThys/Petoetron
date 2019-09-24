@@ -59,7 +59,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForInfo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgDocuments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgLogs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel)).BeginInit();
             this.flyoutPanel.SuspendLayout();
@@ -204,7 +203,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.UnitImageComboBoxEdit.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
             new DevExpress.XtraEditors.Controls.ImageComboBoxItem("lm", Petoetron.Classes.Helpers.MaterialUnit.lm, 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("kg", Petoetron.Classes.Helpers.MaterialUnit.kg, 1)});
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("kg", Petoetron.Classes.Helpers.MaterialUnit.kg, 1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("st", Petoetron.Classes.Helpers.MaterialUnit.st, 2)});
             this.UnitImageComboBoxEdit.Properties.UseCtrlScroll = true;
             this.UnitImageComboBoxEdit.Size = new System.Drawing.Size(110, 22);
             this.UnitImageComboBoxEdit.StyleController = this.dataLayoutControl1;
@@ -301,7 +301,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForInfo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgDocuments)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgLogs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel)).EndInit();
             this.flyoutPanel.ResumeLayout(false);
