@@ -66,7 +66,7 @@ namespace Petoetron.Classes
             {
                 foreach (QuotationPrice qp in Prices.Values)
                 {
-                    qp.UpdatePrice()
+                    qp.UpdatePrice();
                 }
             }
         }

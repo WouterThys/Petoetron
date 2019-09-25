@@ -45,13 +45,14 @@
             this.dpNavigation = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.accordionControl = new DevExpress.XtraBars.Navigation.AccordionControl();
-            this.aceInvoices = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceData = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceCustomers = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceMaterialTypes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceMaterials = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.acePriceTypes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.acePauses = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aceQuotation = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aceQuotations = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mvvmContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             this.images = new Petoetron.Resources.Images(this.components);
             this.behaviorManager = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
@@ -76,6 +77,7 @@
             this.bbiDbState,
             this.bbiShowInfo});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonControl.MaxItemId = 49;
             this.ribbonControl.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl.Name = "ribbonControl";
@@ -83,7 +85,7 @@
             this.ribbonPage});
             this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.ribbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl.Size = new System.Drawing.Size(1397, 162);
+            this.ribbonControl.Size = new System.Drawing.Size(1630, 198);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             this.ribbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
@@ -129,10 +131,11 @@
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.bbiDbState);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 645);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 794);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1397, 26);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1630, 32);
             // 
             // documentManager
             // 
@@ -165,40 +168,34 @@
             this.dpNavigation.Controls.Add(this.dockPanel1_Container);
             this.dpNavigation.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dpNavigation.ID = new System.Guid("0c0b11d5-6b38-4575-8be9-7a7a08070e26");
-            this.dpNavigation.Location = new System.Drawing.Point(0, 162);
+            this.dpNavigation.Location = new System.Drawing.Point(0, 198);
             this.dpNavigation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dpNavigation.Name = "dpNavigation";
             this.dpNavigation.OriginalSize = new System.Drawing.Size(379, 200);
             this.dpNavigation.SavedSizeFactor = 0D;
-            this.dpNavigation.Size = new System.Drawing.Size(325, 483);
+            this.dpNavigation.Size = new System.Drawing.Size(379, 596);
             this.dpNavigation.Text = "Kuus Iets";
             // 
             // dockPanel1_Container
             // 
             this.dockPanel1_Container.Controls.Add(this.accordionControl);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(3, 30);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 37);
             this.dockPanel1_Container.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(318, 450);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(369, 555);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // accordionControl
             // 
             this.accordionControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.accordionControl.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.aceInvoices,
+            this.aceQuotation,
             this.aceData});
             this.accordionControl.Location = new System.Drawing.Point(0, 0);
             this.accordionControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.accordionControl.Name = "accordionControl";
-            this.accordionControl.Size = new System.Drawing.Size(318, 450);
+            this.accordionControl.Size = new System.Drawing.Size(369, 555);
             this.accordionControl.TabIndex = 0;
-            // 
-            // aceInvoices
-            // 
-            this.aceInvoices.Expanded = true;
-            this.aceInvoices.Name = "aceInvoices";
-            this.aceInvoices.Text = "Fuctuur";
             // 
             // aceData
             // 
@@ -242,6 +239,20 @@
             this.acePauses.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.acePauses.Text = "Puzes";
             // 
+            // aceQuotation
+            // 
+            this.aceQuotation.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.aceQuotations});
+            this.aceQuotation.Expanded = true;
+            this.aceQuotation.Name = "aceQuotation";
+            this.aceQuotation.Text = "Fucturen";
+            // 
+            // aceQuotations
+            // 
+            this.aceQuotations.Name = "aceQuotations";
+            this.aceQuotations.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.aceQuotations.Text = "Fucturen";
+            // 
             // mvvmContext
             // 
             this.mvvmContext.ContainerControl = this;
@@ -253,15 +264,16 @@
             // 
             // MainView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.behaviorManager.SetBehaviors(this, new DevExpress.Utils.Behaviors.Behavior[] {
             ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.Behaviors.Common.PersistenceBehavior.Create(typeof(DevExpress.Utils.BehaviorSource.PersistenceBehaviorSourceForForm), null, DevExpress.Utils.Behaviors.Common.Storage.File, DevExpress.Utils.DefaultBoolean.True)))});
-            this.ClientSize = new System.Drawing.Size(1397, 671);
+            this.ClientSize = new System.Drawing.Size(1630, 826);
             this.Controls.Add(this.dpNavigation);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonControl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainView";
             this.Ribbon = this.ribbonControl;
             this.StatusBar = this.ribbonStatusBar;
@@ -291,7 +303,6 @@
         private DevExpress.XtraBars.Docking.DockPanel dpNavigation;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraBars.Navigation.AccordionControl accordionControl;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement aceInvoices;
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
         private DevExpress.XtraBars.Docking.DockManager dockManager;
         private DevExpress.Utils.MVVM.MVVMContext mvvmContext;
@@ -306,5 +317,7 @@
         private DevExpress.XtraBars.BarButtonItem bbiShowInfo;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager;
         private DevExpress.XtraBars.Navigation.AccordionControlElement acePauses;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aceQuotation;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aceQuotations;
     }
 }

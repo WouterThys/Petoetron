@@ -71,6 +71,7 @@
             this.colCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.behaviorManager = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.dragDropEvents = new DevExpress.Utils.DragDrop.DragDropEvents(this.components);
+            this.colGroupCode = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsQuotationMaterials)).BeginInit();
@@ -220,11 +221,15 @@
             this.colQuotationId,
             this.colMaterialId,
             this.colId,
-            this.colCode});
+            this.colCode,
+            this.colGroupCode});
             this.gvMaterials.DetailHeight = 431;
             this.gvMaterials.GridControl = this.gcMaterials;
+            this.gvMaterials.GroupCount = 1;
             this.gvMaterials.Name = "gvMaterials";
             this.gvMaterials.OptionsView.ShowGroupPanel = false;
+            this.gvMaterials.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colGroupCode, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colMaterialType
             // 
@@ -283,6 +288,8 @@
             // colValue
             // 
             this.colValue.ColumnEdit = this.riSpinEditValue;
+            this.colValue.DisplayFormat.FormatString = "N";
+            this.colValue.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colValue.FieldName = "Value";
             this.colValue.MinWidth = 23;
             this.colValue.Name = "colValue";
@@ -295,6 +302,7 @@
             this.riSpinEditValue.AutoHeight = false;
             this.riSpinEditValue.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.riSpinEditValue.Mask.EditMask = "N";
             this.riSpinEditValue.Name = "riSpinEditValue";
             // 
             // colDate
@@ -480,7 +488,17 @@
             this.colCode.OptionsColumn.ReadOnly = true;
             this.colCode.Width = 208;
             // 
-            // QuotationMaterialEditView
+            // colGroupCode
+            // 
+            this.colGroupCode.Caption = "Grup";
+            this.colGroupCode.FieldName = "GroupCode";
+            this.colGroupCode.MinWidth = 25;
+            this.colGroupCode.Name = "colGroupCode";
+            this.colGroupCode.Visible = true;
+            this.colGroupCode.VisibleIndex = 5;
+            this.colGroupCode.Width = 94;
+            // 
+            // QuotationMaterialListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -490,7 +508,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.Name = "QuotationMaterialEditView";
+            this.Name = "QuotationMaterialListView";
             this.Size = new System.Drawing.Size(555, 535);
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
@@ -554,5 +572,6 @@
         private DevExpress.XtraBars.BarButtonItem bbiZoom;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager;
         private DevExpress.Utils.DragDrop.DragDropEvents dragDropEvents;
+        private DevExpress.XtraGrid.Columns.GridColumn colGroupCode;
     }
 }

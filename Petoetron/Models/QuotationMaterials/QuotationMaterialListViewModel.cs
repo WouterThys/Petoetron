@@ -39,10 +39,13 @@ namespace Petoetron.Models.QuotationMaterials
         }
 
         private bool zoomed = false;
+        private bool change = false;
         public override void Zoom()
         {
-            DialogService.ShowDialog(MessageButton.OK, "Muturiuul", QuotationMaterialEditViewModel.Create(Quotation));
+            var model = QuotationMaterialEditViewModel.Create(Quotation);
+            DialogService.ShowDialog(MessageButton.OK, "Muturiuul", model);
             zoomed = true;
+            change = ValuesChanged;
             Load();
         }
 
@@ -52,8 +55,10 @@ namespace Petoetron.Models.QuotationMaterials
             if (zoomed)
             {
                 zoomed = false;
+                ValuesChanged = change;
                 UpdateCommands();
                 DataChanged?.Invoke();
+                change = false;
             }
         }
 

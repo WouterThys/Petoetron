@@ -33,6 +33,8 @@
             this.bsMaterials = new System.Windows.Forms.BindingSource(this.components);
             this.gcQMaterials = new DevExpress.XtraGrid.GridControl();
             this.gvQMaterials = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colTotalLength = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTotalWeight = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMaterialType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMaterialUnit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAmount = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -77,14 +79,31 @@
             this.colCode2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcMaterials = new DevExpress.XtraGrid.GridControl();
             this.dragDropEvents1 = new DevExpress.Utils.DragDrop.DragDropEvents(this.components);
+            this.gvPrices = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colPriceTypeUnit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUnitPrice2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMaterialDependant = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFactor = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDescription2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInfo3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLastModified2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colId3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCode3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcPrices = new DevExpress.XtraGrid.GridControl();
+            this.bsPrices = new System.Windows.Forms.BindingSource(this.components);
+            this.dragDropEvents2 = new DevExpress.Utils.DragDrop.DragDropEvents(this.components);
             this.bbiAdd = new DevExpress.XtraBars.BarButtonItem();
             this.bbiDelete = new DevExpress.XtraBars.BarButtonItem();
             this.rpgGroups = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bbiGroup = new DevExpress.XtraBars.BarButtonItem();
             this.bbiUnGroup = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiCopy = new DevExpress.XtraBars.BarButtonItem();
             this.dockManager = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.panelContainer1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.MaterialsDockPanel = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.PricesDockPanel = new DevExpress.XtraBars.Docking.DockPanel();
+            this.controlContainer1 = new DevExpress.XtraBars.Docking.ControlContainer();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsQuotationMaterials)).BeginInit();
@@ -100,9 +119,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMaterials)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMaterials)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvPrices)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcPrices)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPrices)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager)).BeginInit();
+            this.panelContainer1.SuspendLayout();
             this.MaterialsDockPanel.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            this.PricesDockPanel.SuspendLayout();
+            this.controlContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -112,9 +137,18 @@
             this.bbiAdd,
             this.bbiDelete,
             this.bbiGroup,
-            this.bbiUnGroup});
-            this.ribbonControl.MaxItemId = 5;
-            this.ribbonControl.Size = new System.Drawing.Size(2054, 194);
+            this.bbiUnGroup,
+            this.bbiCopy});
+            this.ribbonControl.MaxItemId = 6;
+            this.ribbonControl.ShowCategoryInCaption = false;
+            this.ribbonControl.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.ShowOnMultiplePages;
+            this.ribbonControl.ShowQatLocationSelector = false;
+            this.ribbonControl.ShowToolbarCustomizeItem = false;
+            this.ribbonControl.Size = new System.Drawing.Size(2054, 157);
+            this.ribbonControl.Toolbar.ShowCustomizeItem = false;
             // 
             // ribbonPage1
             // 
@@ -141,7 +175,7 @@
             this.gcQMaterials.DataSource = this.bsQuotationMaterials;
             this.gcQMaterials.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcQMaterials.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gcQMaterials.Location = new System.Drawing.Point(484, 194);
+            this.gcQMaterials.Location = new System.Drawing.Point(484, 157);
             this.gcQMaterials.MainView = this.gvQMaterials;
             this.gcQMaterials.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gcQMaterials.Name = "gcQMaterials";
@@ -150,7 +184,7 @@
             this.riSpinEditValue,
             this.riDateEditDate,
             this.riSearchLookUpEditMaterial});
-            this.gcQMaterials.Size = new System.Drawing.Size(1570, 847);
+            this.gcQMaterials.Size = new System.Drawing.Size(1570, 884);
             this.gcQMaterials.TabIndex = 4;
             this.gcQMaterials.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvQMaterials});
@@ -160,6 +194,8 @@
             this.behaviorManager.SetBehaviors(this.gvQMaterials, new DevExpress.Utils.Behaviors.Behavior[] {
             ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.DragDrop.DragDropBehavior.Create(typeof(DevExpress.XtraGrid.Extensions.ColumnViewDragDropSource), true, true, true, this.dragDropEvents)))});
             this.gvQMaterials.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colTotalLength,
+            this.colTotalWeight,
             this.colMaterialType,
             this.colMaterialUnit,
             this.colAmount,
@@ -173,8 +209,43 @@
             this.colGroupCode});
             this.gvQMaterials.DetailHeight = 431;
             this.gvQMaterials.GridControl = this.gcQMaterials;
+            this.gvQMaterials.GroupCount = 1;
             this.gvQMaterials.Name = "gvQMaterials";
             this.gvQMaterials.OptionsView.ShowGroupPanel = false;
+            this.gvQMaterials.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colGroupCode, DevExpress.Data.ColumnSortOrder.Ascending)});
+            // 
+            // colTotalLength
+            // 
+            this.colTotalLength.AppearanceCell.FontStyleDelta = System.Drawing.FontStyle.Italic;
+            this.colTotalLength.AppearanceCell.Options.UseFont = true;
+            this.colTotalLength.Caption = "Total Length";
+            this.colTotalLength.DisplayFormat.FormatString = " {0:N2} m";
+            this.colTotalLength.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colTotalLength.FieldName = "TotalLength";
+            this.colTotalLength.MinWidth = 25;
+            this.colTotalLength.Name = "colTotalLength";
+            this.colTotalLength.OptionsColumn.AllowEdit = false;
+            this.colTotalLength.OptionsColumn.ReadOnly = true;
+            this.colTotalLength.Visible = true;
+            this.colTotalLength.VisibleIndex = 4;
+            this.colTotalLength.Width = 144;
+            // 
+            // colTotalWeight
+            // 
+            this.colTotalWeight.AppearanceCell.FontStyleDelta = System.Drawing.FontStyle.Italic;
+            this.colTotalWeight.AppearanceCell.Options.UseFont = true;
+            this.colTotalWeight.Caption = "Total Weight";
+            this.colTotalWeight.DisplayFormat.FormatString = " {0:N2} kg";
+            this.colTotalWeight.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colTotalWeight.FieldName = "TotalWeight";
+            this.colTotalWeight.MinWidth = 25;
+            this.colTotalWeight.Name = "colTotalWeight";
+            this.colTotalWeight.OptionsColumn.AllowEdit = false;
+            this.colTotalWeight.OptionsColumn.ReadOnly = true;
+            this.colTotalWeight.Visible = true;
+            this.colTotalWeight.VisibleIndex = 5;
+            this.colTotalWeight.Width = 162;
             // 
             // colMaterialType
             // 
@@ -189,7 +260,7 @@
             this.colMaterialType.OptionsColumn.ReadOnly = true;
             this.colMaterialType.Visible = true;
             this.colMaterialType.VisibleIndex = 2;
-            this.colMaterialType.Width = 341;
+            this.colMaterialType.Width = 236;
             // 
             // colMaterialUnit
             // 
@@ -202,9 +273,7 @@
             this.colMaterialUnit.Name = "colMaterialUnit";
             this.colMaterialUnit.OptionsColumn.AllowEdit = false;
             this.colMaterialUnit.OptionsColumn.ReadOnly = true;
-            this.colMaterialUnit.Visible = true;
-            this.colMaterialUnit.VisibleIndex = 5;
-            this.colMaterialUnit.Width = 347;
+            this.colMaterialUnit.Width = 275;
             // 
             // colAmount
             // 
@@ -231,18 +300,21 @@
             // colValue
             // 
             this.colValue.ColumnEdit = this.riSpinEditValue;
+            this.colValue.DisplayFormat.FormatString = "N";
+            this.colValue.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colValue.FieldName = "Value";
             this.colValue.MinWidth = 23;
             this.colValue.Name = "colValue";
             this.colValue.Visible = true;
-            this.colValue.VisibleIndex = 4;
-            this.colValue.Width = 766;
+            this.colValue.VisibleIndex = 3;
+            this.colValue.Width = 325;
             // 
             // riSpinEditValue
             // 
             this.riSpinEditValue.AutoHeight = false;
             this.riSpinEditValue.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.riSpinEditValue.Mask.EditMask = "N";
             this.riSpinEditValue.Name = "riSpinEditValue";
             // 
             // colDate
@@ -295,7 +367,7 @@
             this.colMaterialId.Name = "colMaterialId";
             this.colMaterialId.Visible = true;
             this.colMaterialId.VisibleIndex = 1;
-            this.colMaterialId.Width = 766;
+            this.colMaterialId.Width = 335;
             // 
             // riSearchLookUpEditMaterial
             // 
@@ -559,10 +631,122 @@
             this.gcMaterials.MainView = this.gvMaterials;
             this.gcMaterials.MenuManager = this.ribbonControl;
             this.gcMaterials.Name = "gcMaterials";
-            this.gcMaterials.Size = new System.Drawing.Size(474, 806);
+            this.gcMaterials.Size = new System.Drawing.Size(474, 511);
             this.gcMaterials.TabIndex = 0;
             this.gcMaterials.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMaterials});
+            // 
+            // gvPrices
+            // 
+            this.behaviorManager.SetBehaviors(this.gvPrices, new DevExpress.Utils.Behaviors.Behavior[] {
+            ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.DragDrop.DragDropBehavior.Create(typeof(DevExpress.XtraGrid.Extensions.ColumnViewDragDropSource), true, true, false, this.dragDropEvents2)))});
+            this.gvPrices.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colPriceTypeUnit,
+            this.colUnitPrice2,
+            this.colMaterialDependant,
+            this.colFactor,
+            this.colDescription2,
+            this.colInfo3,
+            this.colLastModified2,
+            this.colId3,
+            this.colCode3});
+            this.gvPrices.GridControl = this.gcPrices;
+            this.gvPrices.Name = "gvPrices";
+            this.gvPrices.OptionsView.ShowGroupPanel = false;
+            // 
+            // colPriceTypeUnit
+            // 
+            this.colPriceTypeUnit.FieldName = "PriceTypeUnit";
+            this.colPriceTypeUnit.MinWidth = 25;
+            this.colPriceTypeUnit.Name = "colPriceTypeUnit";
+            this.colPriceTypeUnit.Visible = true;
+            this.colPriceTypeUnit.VisibleIndex = 3;
+            this.colPriceTypeUnit.Width = 412;
+            // 
+            // colUnitPrice2
+            // 
+            this.colUnitPrice2.DisplayFormat.FormatString = "C";
+            this.colUnitPrice2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colUnitPrice2.FieldName = "UnitPrice";
+            this.colUnitPrice2.MinWidth = 25;
+            this.colUnitPrice2.Name = "colUnitPrice2";
+            this.colUnitPrice2.Visible = true;
+            this.colUnitPrice2.VisibleIndex = 2;
+            this.colUnitPrice2.Width = 820;
+            // 
+            // colMaterialDependant
+            // 
+            this.colMaterialDependant.FieldName = "MaterialDependant";
+            this.colMaterialDependant.MinWidth = 25;
+            this.colMaterialDependant.Name = "colMaterialDependant";
+            this.colMaterialDependant.Width = 94;
+            // 
+            // colFactor
+            // 
+            this.colFactor.DisplayFormat.FormatString = "N";
+            this.colFactor.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colFactor.FieldName = "Factor";
+            this.colFactor.MinWidth = 25;
+            this.colFactor.Name = "colFactor";
+            this.colFactor.Visible = true;
+            this.colFactor.VisibleIndex = 4;
+            this.colFactor.Width = 416;
+            // 
+            // colDescription2
+            // 
+            this.colDescription2.FieldName = "Description";
+            this.colDescription2.MinWidth = 25;
+            this.colDescription2.Name = "colDescription2";
+            this.colDescription2.Visible = true;
+            this.colDescription2.VisibleIndex = 1;
+            this.colDescription2.Width = 548;
+            // 
+            // colInfo3
+            // 
+            this.colInfo3.FieldName = "Info";
+            this.colInfo3.MinWidth = 25;
+            this.colInfo3.Name = "colInfo3";
+            this.colInfo3.Width = 94;
+            // 
+            // colLastModified2
+            // 
+            this.colLastModified2.FieldName = "LastModified";
+            this.colLastModified2.MinWidth = 25;
+            this.colLastModified2.Name = "colLastModified2";
+            this.colLastModified2.Width = 94;
+            // 
+            // colId3
+            // 
+            this.colId3.FieldName = "Id";
+            this.colId3.MinWidth = 25;
+            this.colId3.Name = "colId3";
+            this.colId3.Width = 94;
+            // 
+            // colCode3
+            // 
+            this.colCode3.FieldName = "Code";
+            this.colCode3.MinWidth = 25;
+            this.colCode3.Name = "colCode3";
+            this.colCode3.Visible = true;
+            this.colCode3.VisibleIndex = 0;
+            this.colCode3.Width = 266;
+            // 
+            // gcPrices
+            // 
+            this.gcPrices.DataSource = this.bsPrices;
+            this.gcPrices.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcPrices.Location = new System.Drawing.Point(0, 0);
+            this.gcPrices.MainView = this.gvPrices;
+            this.gcPrices.MenuManager = this.ribbonControl;
+            this.gcPrices.Name = "gcPrices";
+            this.gcPrices.Size = new System.Drawing.Size(474, 289);
+            this.gcPrices.TabIndex = 0;
+            this.gcPrices.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvPrices});
+            // 
+            // bsPrices
+            // 
+            this.bsPrices.DataSource = typeof(Petoetron.Classes.PriceType);
             // 
             // bbiAdd
             // 
@@ -584,6 +768,7 @@
             // 
             this.rpgGroups.ItemLinks.Add(this.bbiGroup);
             this.rpgGroups.ItemLinks.Add(this.bbiUnGroup);
+            this.rpgGroups.ItemLinks.Add(this.bbiCopy);
             this.rpgGroups.Name = "rpgGroups";
             this.rpgGroups.Text = "Units";
             // 
@@ -603,11 +788,20 @@
             this.bbiUnGroup.ImageOptions.LargeImageIndex = 37;
             this.bbiUnGroup.Name = "bbiUnGroup";
             // 
+            // bbiCopy
+            // 
+            this.bbiCopy.Caption = "Cupy";
+            this.bbiCopy.Id = 5;
+            this.bbiCopy.ImageOptions.ImageIndex = 5;
+            this.bbiCopy.ImageOptions.LargeImageIndex = 5;
+            this.bbiCopy.Name = "bbiCopy";
+            // 
             // dockManager
             // 
+            this.dockManager.DockingOptions.HideImmediatelyOnAutoHide = true;
             this.dockManager.Form = this;
             this.dockManager.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
-            this.MaterialsDockPanel});
+            this.panelContainer1});
             this.dockManager.TopZIndexControls.AddRange(new string[] {
             "DevExpress.XtraBars.BarDockControl",
             "DevExpress.XtraBars.StandaloneBarDockControl",
@@ -621,17 +815,30 @@
             "DevExpress.XtraBars.TabFormControl",
             "DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl"});
             // 
+            // panelContainer1
+            // 
+            this.panelContainer1.Controls.Add(this.MaterialsDockPanel);
+            this.panelContainer1.Controls.Add(this.PricesDockPanel);
+            this.panelContainer1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
+            this.panelContainer1.ID = new System.Guid("ce138545-b6d9-4d2b-9033-d4fb8578a4a0");
+            this.panelContainer1.Location = new System.Drawing.Point(0, 157);
+            this.panelContainer1.Name = "panelContainer1";
+            this.panelContainer1.OriginalSize = new System.Drawing.Size(484, 200);
+            this.panelContainer1.SavedSizeFactor = 0D;
+            this.panelContainer1.Size = new System.Drawing.Size(484, 884);
+            this.panelContainer1.Text = "panelContainer1";
+            // 
             // MaterialsDockPanel
             // 
             this.MaterialsDockPanel.Controls.Add(this.dockPanel1_Container);
-            this.MaterialsDockPanel.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
+            this.MaterialsDockPanel.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.MaterialsDockPanel.ID = new System.Guid("34e2a989-09b5-42e5-ae12-0cac8f339924");
-            this.MaterialsDockPanel.Location = new System.Drawing.Point(0, 194);
+            this.MaterialsDockPanel.Location = new System.Drawing.Point(0, 0);
             this.MaterialsDockPanel.Name = "MaterialsDockPanel";
             this.MaterialsDockPanel.Options.ShowCloseButton = false;
-            this.MaterialsDockPanel.OriginalSize = new System.Drawing.Size(484, 200);
+            this.MaterialsDockPanel.OriginalSize = new System.Drawing.Size(484, 531);
             this.MaterialsDockPanel.SavedSizeFactor = 0D;
-            this.MaterialsDockPanel.Size = new System.Drawing.Size(484, 847);
+            this.MaterialsDockPanel.Size = new System.Drawing.Size(484, 554);
             this.MaterialsDockPanel.Text = "Muturiulen";
             // 
             // dockPanel1_Container
@@ -639,19 +846,40 @@
             this.dockPanel1_Container.Controls.Add(this.gcMaterials);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 37);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(474, 806);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(474, 511);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // PricesDockPanel
+            // 
+            this.PricesDockPanel.Controls.Add(this.controlContainer1);
+            this.PricesDockPanel.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+            this.PricesDockPanel.ID = new System.Guid("a12808fc-5023-4dd5-b5d2-aac756a08284");
+            this.PricesDockPanel.Location = new System.Drawing.Point(0, 554);
+            this.PricesDockPanel.Name = "PricesDockPanel";
+            this.PricesDockPanel.Options.ShowCloseButton = false;
+            this.PricesDockPanel.OriginalSize = new System.Drawing.Size(484, 316);
+            this.PricesDockPanel.SavedSizeFactor = 0D;
+            this.PricesDockPanel.Size = new System.Drawing.Size(484, 330);
+            this.PricesDockPanel.Text = "Pruzen";
+            // 
+            // controlContainer1
+            // 
+            this.controlContainer1.Controls.Add(this.gcPrices);
+            this.controlContainer1.Location = new System.Drawing.Point(4, 37);
+            this.controlContainer1.Name = "controlContainer1";
+            this.controlContainer1.Size = new System.Drawing.Size(474, 289);
+            this.controlContainer1.TabIndex = 0;
             // 
             // QuotationMaterialEditView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gcQMaterials);
-            this.Controls.Add(this.MaterialsDockPanel);
+            this.Controls.Add(this.panelContainer1);
             this.Name = "QuotationMaterialEditView";
             this.Size = new System.Drawing.Size(2054, 1041);
             this.Controls.SetChildIndex(this.ribbonControl, 0);
-            this.Controls.SetChildIndex(this.MaterialsDockPanel, 0);
+            this.Controls.SetChildIndex(this.panelContainer1, 0);
             this.Controls.SetChildIndex(this.gcQMaterials, 0);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).EndInit();
@@ -668,9 +896,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMaterials)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMaterials)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvPrices)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcPrices)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPrices)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager)).EndInit();
+            this.panelContainer1.ResumeLayout(false);
             this.MaterialsDockPanel.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
+            this.PricesDockPanel.ResumeLayout(false);
+            this.controlContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -733,5 +967,24 @@
         private DevExpress.XtraGrid.Columns.GridColumn colLastModified1;
         private DevExpress.XtraGrid.Columns.GridColumn colId2;
         private DevExpress.XtraGrid.Columns.GridColumn colCode2;
+        private DevExpress.XtraGrid.Columns.GridColumn colTotalLength;
+        private DevExpress.XtraGrid.Columns.GridColumn colTotalWeight;
+        private DevExpress.XtraBars.BarButtonItem bbiCopy;
+        private System.Windows.Forms.BindingSource bsPrices;
+        private DevExpress.XtraBars.Docking.DockPanel panelContainer1;
+        private DevExpress.XtraBars.Docking.DockPanel PricesDockPanel;
+        private DevExpress.XtraBars.Docking.ControlContainer controlContainer1;
+        private DevExpress.XtraGrid.GridControl gcPrices;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvPrices;
+        private DevExpress.XtraGrid.Columns.GridColumn colPriceTypeUnit;
+        private DevExpress.XtraGrid.Columns.GridColumn colUnitPrice2;
+        private DevExpress.XtraGrid.Columns.GridColumn colMaterialDependant;
+        private DevExpress.XtraGrid.Columns.GridColumn colFactor;
+        private DevExpress.XtraGrid.Columns.GridColumn colDescription2;
+        private DevExpress.XtraGrid.Columns.GridColumn colInfo3;
+        private DevExpress.XtraGrid.Columns.GridColumn colLastModified2;
+        private DevExpress.XtraGrid.Columns.GridColumn colId3;
+        private DevExpress.XtraGrid.Columns.GridColumn colCode3;
+        private DevExpress.Utils.DragDrop.DragDropEvents dragDropEvents2;
     }
 }

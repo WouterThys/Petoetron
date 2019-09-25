@@ -55,12 +55,14 @@ namespace Petoetron
             accordionControl.AllowItemSelection = true;
 
             images.DefaultSize = ImageSize.i16x16;
+            aceQuotations.Image = images.GetIcon(ModuleTypes.QuotationListModule);
             aceCustomers.Image = images.GetIcon(ModuleTypes.CustomerListModule);
             aceMaterialTypes.Image = images.GetIcon(ModuleTypes.MaterialTypeListModule);
             aceMaterials.Image = images.GetIcon(ModuleTypes.MaterialListModule);
             acePriceTypes.Image = images.GetIcon(ModuleTypes.PriceTypeListModule);
             acePauses.Image = images.GetIcon(ModuleTypes.PauseListModule);
 
+            aceQuotations.Tag = ModuleTypes.QuotationListModule;
             aceCustomers.Tag = ModuleTypes.CustomerListModule;
             aceMaterialTypes.Tag = ModuleTypes.MaterialTypeListModule;
             aceMaterials.Tag = ModuleTypes.MaterialListModule;

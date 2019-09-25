@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Threading.Tasks;
+using System.Linq;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.Mvvm.POCO;
 using Petoetron.Classes;
 using Petoetron.Dal;
-using Petoetron.Models.Base;
 using Petoetron.Models.Other;
 using Petoetron.Models.Quotations.Helpers;
 
@@ -20,6 +19,8 @@ namespace Petoetron.Models.QuotationMaterials
         {
             return ViewModelSource.Create(() => new QuotationMaterialEditViewModel(quotation));
         }
+
+        public virtual BindingList<PriceType> PriceTypes { get; set; }
         
         protected QuotationMaterialEditViewModel(Quotation quotation) : base (
             ModuleTypes.QuotationMaterialEditModule,
@@ -34,8 +35,22 @@ namespace Petoetron.Models.QuotationMaterials
         {
             base.UpdateCommands();
 
+            this.RaiseCanExecuteChanged(x => x.CopyGroup());
             this.RaiseCanExecuteChanged(x => x.Group());
             this.RaiseCanExecuteChanged(x => x.UnGroup());
+        }
+
+        private List<PriceType> tmpPrices;
+        public override void Loading()
+        {
+            base.Loading();
+            tmpPrices = new List<PriceType>(DataAccess.Dal.PriceTypes.Where(p => p.MaterialDependant));
+        }
+
+        public override void Loaded()
+        {
+            PriceTypes = new BindingList<PriceType>(tmpPrices);
+            base.Loaded();
         }
 
         protected override QuotationMaterial CreateQuotationItem(Material t)
@@ -48,6 +63,28 @@ namespace Petoetron.Models.QuotationMaterials
             return qm;
         }
 
+        public virtual bool CanCopyGroup()
+        {
+            return !IsLoading && Selection != null && Selection.Count > 0;
+        }
+        public virtual void CopyGroup()
+        {
+            InputDialogViewModel model = InputDialogViewModel.Create("Nuum");
+            var res = DialogService.ShowDialog(MessageButton.OKCancel, "Grup", "SimpleInputView", model);
+            if (res == MessageResult.OK)
+            {
+                List<QuotationMaterial> newQms = new List<QuotationMaterial>();
+                foreach (QuotationMaterial qm in Selection)
+                {
+                    QuotationMaterial newQm = (QuotationMaterial)qm.CreateCopy();
+                    newQm.Id = Classes.Helpers.AbstractQuoationItem.NextId;
+                    newQm.GroupCode = model.Value;
+                    newQms.Add(newQm);
+                }
+                AddQItems(newQms);
+            }
+            
+        }
 
 
         public virtual bool CanGroup()
@@ -78,6 +115,8 @@ namespace Petoetron.Models.QuotationMaterials
                 qm.GroupCode = "";
             }
         }
+
+
 
         public override void Zoom()
         {

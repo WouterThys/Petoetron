@@ -49,21 +49,21 @@ namespace Petoetron.Models.Quotations.Helpers
             }, DispatcherService);
         }
 
-        private List<T> ts = null;
-        List<QT> qTs = null;
-        public void Loading()
+        private List<T> tmpTs = null;
+        List<QT> tmpQTs = null;
+        public virtual void Loading()
         {
             IsLoading = true;
             ValuesChanged = false;
-            ts = new List<T>(_getData());
-            ts.RemoveAll(t => !t.IsValid());
-            qTs = new List<QT>(_getQData(Quotation).Values);
+            tmpTs = new List<T>(_getData());
+            tmpTs.RemoveAll(t => !t.IsValid());
+            tmpQTs = new List<QT>(_getQData(Quotation).Values);
         }
 
-        public void Loaded()
+        public virtual void Loaded()
         {
-            Data = new BindingList<T>(ts);
-            QData = new BindingList<QT>(qTs);
+            Data = new BindingList<T>(tmpTs);
+            QData = new BindingList<QT>(tmpQTs);
             IsLoading = false;
             OnLoaded();
         }
@@ -115,6 +115,7 @@ namespace Petoetron.Models.Quotations.Helpers
         }
         public virtual void AddItems(IEnumerable<T> ts)
         {
+            List<QT> newQTs = new List<QT>();
             if (ts != null)
             {
                 foreach (T t in ts)
@@ -122,12 +123,29 @@ namespace Petoetron.Models.Quotations.Helpers
                     if (t == null) continue;
 
                     var qt = CreateQuotationItem(t);
-
+                    newQTs.Add(qt);
                     _getQData(Quotation).Add(qt);
                     QData.Add(qt);
                 }
             }
-            UpdateCommands();
+            //UpdateCommands();
+            Selection = new List<QT>(newQTs);
+            DataChanged?.Invoke();
+        }
+
+        protected void AddQItems(IEnumerable<QT> qTs)
+        {
+            if (qTs != null)
+            {
+                foreach (QT qt in qTs)
+                {
+                    if (qt == null) continue;
+                    
+                    _getQData(Quotation).Add(qt);
+                    QData.Add(qt);
+                }
+            }
+            Selection = new List<QT>(qTs);
             DataChanged?.Invoke();
         }
 

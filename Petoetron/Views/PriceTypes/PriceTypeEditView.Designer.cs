@@ -32,28 +32,32 @@
             this.ItemForPriceTypeUnit = new DevExpress.XtraLayout.LayoutControlItem();
             this.UnitPriceTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.ItemForUnitPrice = new DevExpress.XtraLayout.LayoutControlItem();
-            ((System.ComponentModel.ISupportInitialize)(this.bsObject)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.validationProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).BeginInit();
-            this.dataLayoutControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.peObjectIcon.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CodeTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DescriptionMemoEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForDescription)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForCode)).BeginInit();
+            this.MaterialDependantCheckEdit = new DevExpress.XtraEditors.CheckEdit();
+            this.ItemForMaterialDependant = new DevExpress.XtraLayout.LayoutControlItem();
+            this.FactorSpinEdit = new DevExpress.XtraEditors.SpinEdit();
+            this.ItemForFactor = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InfoMemoEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peObjectIcon.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DescriptionMemoEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CodeTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForDescription)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgLogs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.validationProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).BeginInit();
+            this.dataLayoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsObject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel)).BeginInit();
             this.flyoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl)).BeginInit();
@@ -64,7 +68,55 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemForPriceTypeUnit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UnitPriceTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForUnitPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaterialDependantCheckEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForMaterialDependant)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FactorSpinEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForFactor)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dataLayoutControl1
+            // 
+            this.dataLayoutControl1.Controls.Add(this.PriceTypeUnitImageComboBoxEdit);
+            this.dataLayoutControl1.Controls.Add(this.UnitPriceTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.MaterialDependantCheckEdit);
+            this.dataLayoutControl1.Controls.Add(this.FactorSpinEdit);
+            this.dataLayoutControl1.Controls.SetChildIndex(this.FactorSpinEdit, 0);
+            this.dataLayoutControl1.Controls.SetChildIndex(this.MaterialDependantCheckEdit, 0);
+            this.dataLayoutControl1.Controls.SetChildIndex(this.UnitPriceTextEdit, 0);
+            this.dataLayoutControl1.Controls.SetChildIndex(this.PriceTypeUnitImageComboBoxEdit, 0);
+            this.dataLayoutControl1.Controls.SetChildIndex(this.InfoMemoEdit, 0);
+            // 
+            // InfoMemoEdit
+            // 
+            this.InfoMemoEdit.Location = new System.Drawing.Point(24, 129);
+            this.InfoMemoEdit.Size = new System.Drawing.Size(619, 201);
+            // 
+            // peObjectIcon
+            // 
+            // 
+            // DescriptionMemoEdit
+            // 
+            // 
+            // CodeTextEdit
+            // 
+            // 
+            // tabbedControlGroup
+            // 
+            this.tabbedControlGroup.SelectedTabPage = this.lcgData;
+            // 
+            // lcgData
+            // 
+            this.lcgData.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.ItemForUnitPrice,
+            this.ItemForPriceTypeUnit,
+            this.ItemForMaterialDependant,
+            this.ItemForFactor});
+            // 
+            // ItemForInfo
+            // 
+            this.ItemForInfo.Location = new System.Drawing.Point(0, 54);
+            this.ItemForInfo.Size = new System.Drawing.Size(623, 224);
+            this.ItemForInfo.TextSize = new System.Drawing.Size(54, 16);
             // 
             // bbiSave
             // 
@@ -90,48 +142,21 @@
             // 
             this.bbiCopy.ImageOptions.ImageIndex = 5;
             this.bbiCopy.ImageOptions.LargeImageIndex = 5;
-            // 
-            // bsObject
-            // 
-            this.bsObject.DataSource = typeof(Petoetron.Classes.PriceType);
             this.dataLayoutControl.Controls.SetChildIndex(this.DescriptionMemoEdit, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.CodeTextEdit, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.peObjectIcon, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.dataLayoutControl1, 0);
             // 
-            // peObjectIcon
+            // bsObject
             // 
+            this.bsObject.DataSource = typeof(Petoetron.Classes.PriceType);
             // 
-            // CodeTextEdit
+            // flyoutPanel
             // 
-            // 
-            // DescriptionTextEdit
-            // 
-            // 
-            // dataLayoutControl1
-            // 
-            this.dataLayoutControl1.Controls.Add(this.PriceTypeUnitImageComboBoxEdit);
-            this.dataLayoutControl1.Controls.Add(this.UnitPriceTextEdit);
-            this.dataLayoutControl1.Controls.SetChildIndex(this.UnitPriceTextEdit, 0);
-            this.dataLayoutControl1.Controls.SetChildIndex(this.PriceTypeUnitImageComboBoxEdit, 0);
-            this.dataLayoutControl1.Controls.SetChildIndex(this.InfoMemoEdit, 0);
-            // 
-            // InfoMemoEdit
-            // 
-            this.InfoMemoEdit.Location = new System.Drawing.Point(24, 101);
-            this.InfoMemoEdit.Size = new System.Drawing.Size(591, 219);
-            // 
-            // lcgData
-            // 
-            this.lcgData.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.ItemForUnitPrice,
-            this.ItemForPriceTypeUnit});
-            // 
-            // ItemForInfo
-            // 
-            this.ItemForInfo.Location = new System.Drawing.Point(0, 26);
-            this.ItemForInfo.Size = new System.Drawing.Size(595, 242);
-            this.ItemForInfo.TextSize = new System.Drawing.Size(54, 16);
+            this.flyoutPanel.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.flyoutPanel.Appearance.Options.UseBackColor = true;
+            this.flyoutPanel.OptionsBeakPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.flyoutPanel.OptionsButtonPanel.ButtonPanelHeight = 37;
             // 
             // lcSaving
             // 
@@ -153,7 +178,7 @@
             // PriceTypeUnitImageComboBoxEdit
             // 
             this.PriceTypeUnitImageComboBoxEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsObject, "PriceTypeUnit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.PriceTypeUnitImageComboBoxEdit.Location = new System.Drawing.Point(468, 56);
+            this.PriceTypeUnitImageComboBoxEdit.Location = new System.Drawing.Point(488, 56);
             this.PriceTypeUnitImageComboBoxEdit.MenuManager = this.ribbonControl;
             this.PriceTypeUnitImageComboBoxEdit.Name = "PriceTypeUnitImageComboBoxEdit";
             this.PriceTypeUnitImageComboBoxEdit.Properties.Appearance.Options.UseTextOptions = true;
@@ -166,16 +191,16 @@
             new DevExpress.XtraEditors.Controls.ImageComboBoxItem("PerKg", Petoetron.Classes.Helpers.PriceTypeUnit.PerKg, 2),
             new DevExpress.XtraEditors.Controls.ImageComboBoxItem("PerM", Petoetron.Classes.Helpers.PriceTypeUnit.PerM, 3)});
             this.PriceTypeUnitImageComboBoxEdit.Properties.UseCtrlScroll = true;
-            this.PriceTypeUnitImageComboBoxEdit.Size = new System.Drawing.Size(147, 22);
+            this.PriceTypeUnitImageComboBoxEdit.Size = new System.Drawing.Size(155, 22);
             this.PriceTypeUnitImageComboBoxEdit.StyleController = this.dataLayoutControl1;
             this.PriceTypeUnitImageComboBoxEdit.TabIndex = 5;
             // 
             // ItemForPriceTypeUnit
             // 
             this.ItemForPriceTypeUnit.Control = this.PriceTypeUnitImageComboBoxEdit;
-            this.ItemForPriceTypeUnit.Location = new System.Drawing.Point(444, 0);
+            this.ItemForPriceTypeUnit.Location = new System.Drawing.Point(464, 0);
             this.ItemForPriceTypeUnit.Name = "ItemForPriceTypeUnit";
-            this.ItemForPriceTypeUnit.Size = new System.Drawing.Size(151, 26);
+            this.ItemForPriceTypeUnit.Size = new System.Drawing.Size(159, 26);
             this.ItemForPriceTypeUnit.Text = "Price Type Unit";
             this.ItemForPriceTypeUnit.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForPriceTypeUnit.TextVisible = false;
@@ -191,7 +216,7 @@
             this.UnitPriceTextEdit.Properties.Mask.EditMask = "G";
             this.UnitPriceTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.UnitPriceTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.UnitPriceTextEdit.Size = new System.Drawing.Size(374, 22);
+            this.UnitPriceTextEdit.Size = new System.Drawing.Size(394, 22);
             this.UnitPriceTextEdit.StyleController = this.dataLayoutControl1;
             this.UnitPriceTextEdit.TabIndex = 6;
             // 
@@ -200,40 +225,92 @@
             this.ItemForUnitPrice.Control = this.UnitPriceTextEdit;
             this.ItemForUnitPrice.Location = new System.Drawing.Point(0, 0);
             this.ItemForUnitPrice.Name = "ItemForUnitPrice";
-            this.ItemForUnitPrice.Size = new System.Drawing.Size(444, 26);
+            this.ItemForUnitPrice.Size = new System.Drawing.Size(464, 26);
             this.ItemForUnitPrice.Text = "Unit Price";
             this.ItemForUnitPrice.TextSize = new System.Drawing.Size(54, 16);
+            // 
+            // MaterialDependantCheckEdit
+            // 
+            this.MaterialDependantCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsObject, "MaterialDependant", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.MaterialDependantCheckEdit.Location = new System.Drawing.Point(430, 82);
+            this.MaterialDependantCheckEdit.MenuManager = this.ribbonControl;
+            this.MaterialDependantCheckEdit.Name = "MaterialDependantCheckEdit";
+            this.MaterialDependantCheckEdit.Properties.Caption = "Material Dependant";
+            this.MaterialDependantCheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.MaterialDependantCheckEdit.Size = new System.Drawing.Size(213, 24);
+            this.MaterialDependantCheckEdit.StyleController = this.dataLayoutControl1;
+            this.MaterialDependantCheckEdit.TabIndex = 7;
+            // 
+            // ItemForMaterialDependant
+            // 
+            this.ItemForMaterialDependant.Control = this.MaterialDependantCheckEdit;
+            this.ItemForMaterialDependant.Location = new System.Drawing.Point(406, 26);
+            this.ItemForMaterialDependant.Name = "ItemForMaterialDependant";
+            this.ItemForMaterialDependant.Size = new System.Drawing.Size(217, 28);
+            this.ItemForMaterialDependant.Text = "Material Dependant";
+            this.ItemForMaterialDependant.TextSize = new System.Drawing.Size(0, 0);
+            this.ItemForMaterialDependant.TextVisible = false;
+            // 
+            // FactorSpinEdit
+            // 
+            this.FactorSpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsObject, "Factor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.FactorSpinEdit.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.FactorSpinEdit.Location = new System.Drawing.Point(90, 82);
+            this.FactorSpinEdit.MenuManager = this.ribbonControl;
+            this.FactorSpinEdit.Name = "FactorSpinEdit";
+            this.FactorSpinEdit.Properties.Appearance.Options.UseTextOptions = true;
+            this.FactorSpinEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.FactorSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.FactorSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.FactorSpinEdit.Properties.Mask.EditMask = "F";
+            this.FactorSpinEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.FactorSpinEdit.Size = new System.Drawing.Size(336, 24);
+            this.FactorSpinEdit.StyleController = this.dataLayoutControl1;
+            this.FactorSpinEdit.TabIndex = 8;
+            // 
+            // ItemForFactor
+            // 
+            this.ItemForFactor.Control = this.FactorSpinEdit;
+            this.ItemForFactor.Location = new System.Drawing.Point(0, 26);
+            this.ItemForFactor.Name = "ItemForFactor";
+            this.ItemForFactor.Size = new System.Drawing.Size(406, 28);
+            this.ItemForFactor.Text = "Factor";
+            this.ItemForFactor.TextSize = new System.Drawing.Size(54, 16);
             // 
             // PriceTypeEditView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "PriceTypeEditView";
-            ((System.ComponentModel.ISupportInitialize)(this.bsObject)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.validationProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).EndInit();
-            this.dataLayoutControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.peObjectIcon.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CodeTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DescriptionMemoEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForDescription)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InfoMemoEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peObjectIcon.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DescriptionMemoEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CodeTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForDescription)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcgLogs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.validationProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).EndInit();
+            this.dataLayoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsObject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanel)).EndInit();
             this.flyoutPanel.ResumeLayout(false);
-            this.flyoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl)).EndInit();
             this.flyoutPanelControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
@@ -242,6 +319,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemForPriceTypeUnit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UnitPriceTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForUnitPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaterialDependantCheckEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForMaterialDependant)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FactorSpinEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForFactor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,5 +334,9 @@
         private DevExpress.XtraEditors.TextEdit UnitPriceTextEdit;
         private DevExpress.XtraLayout.LayoutControlItem ItemForUnitPrice;
         private DevExpress.XtraLayout.LayoutControlItem ItemForPriceTypeUnit;
+        private DevExpress.XtraEditors.CheckEdit MaterialDependantCheckEdit;
+        private DevExpress.XtraEditors.SpinEdit FactorSpinEdit;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForMaterialDependant;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForFactor;
     }
 }

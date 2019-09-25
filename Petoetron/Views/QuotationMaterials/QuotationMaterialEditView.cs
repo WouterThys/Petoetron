@@ -33,13 +33,14 @@ namespace Petoetron.Views.QuotationMaterials
         public override void InitializeLayouts()
         {
             base.InitializeLayouts();
-           
+
             riSpinEditAmount.IsFloatValue = false;
             riSpinEditAmount.MinValue = 1;
             riSpinEditAmount.MaxValue = int.MaxValue;
 
             gvQMaterials.OptionsSelection.MultiSelect = true;
             gvQMaterials.OptionsBehavior.AutoExpandAllGroups = true;
+            gvQMaterials.ShownEditor += QMaterials_ShownEditor;
 
             gvMaterials.OptionsBehavior.Editable = false;
             gvMaterials.OptionsBehavior.AllowIncrementalSearch = true;
@@ -47,19 +48,26 @@ namespace Petoetron.Views.QuotationMaterials
             gvMaterials.OptionsView.ShowDetailButtons = false;
             gvMaterials.OptionsBehavior.AutoExpandAllGroups = true;
 
+            gvPrices.OptionsBehavior.Editable = false;
+            gvPrices.OptionsBehavior.AllowIncrementalSearch = true;
+            gvPrices.OptionsSelection.MultiSelect = true;
+            gvPrices.OptionsView.ShowDetailButtons = false;
+            gvPrices.OptionsBehavior.AutoExpandAllGroups = true;
+
             dragDropEvents.DragDrop += DragDropEvents_DragDrop;
         }
-
+        
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             if (!DesignMode)
             {
                 fluent = mvvmContext.OfType<QuotationMaterialEditViewModel>();
-                
+
                 fluent.SetBinding(gvQMaterials, gv => gv.LoadingPanelVisible, m => m.IsLoading);
                 fluent.SetObjectDataSourceBinding(bsMaterials, m => m.Data);
-                
+                fluent.SetObjectDataSourceBinding(bsPrices, m => m.PriceTypes);
+
                 // Materials
                 fluent.SetBinding(gvQMaterials, gv => gv.LoadingPanelVisible, m => m.IsLoading);
                 fluent.SetObjectDataSourceBinding(bsQuotationMaterials, m => m.QData, m => m.ValuesHaveChanged());
@@ -71,28 +79,65 @@ namespace Petoetron.Views.QuotationMaterials
                 // Commands
                 fluent.BindCommand(bbiAdd, m => m.Add());
                 fluent.BindCommand(bbiDelete, m => m.Delete());
+                fluent.BindCommand(bbiCopy, m => m.CopyGroup());
                 fluent.BindCommand(bbiGroup, m => m.Group());
                 fluent.BindCommand(bbiUnGroup, m => m.UnGroup());
             }
         }
 
-        
+        #region Cell Appearance
+
+        private void QMaterials_ShownEditor(object sender, EventArgs e)
+        {
+            GridView view = sender as GridView;
+            if (view.FocusedColumn.FieldName == "Value")
+            {
+                var qm = view.GetRow(view.FocusedRowHandle) as QuotationMaterial;
+                if (qm == null || qm.Material == null) return;
+
+                DevExpress.XtraEditors.SpinEdit edit = view.ActiveEditor as DevExpress.XtraEditors.SpinEdit;
+                edit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+
+                string mask = "";
+                switch (qm.Material.Unit)
+                {
+                    case Classes.Helpers.MaterialUnit.lm:
+                        mask = ",#######0.00 m";
+                        break;
+                    case Classes.Helpers.MaterialUnit.kg:
+                        mask = ",#######0.00 kg";
+                        break;
+                    case Classes.Helpers.MaterialUnit.st:
+                        mask = ",#######0 st";
+                        break;
+                }
+                edit.Properties.Mask.EditMask = mask;
+            }
+        }
+        #endregion
 
         #region Drag & Drop
-        
+
         private void DragDropEvents_DragDrop(object sender, DragDropEventArgs e)
         {
-            if (fluent != null  && e.Source is GridView source)
+            if (fluent != null && e.Source is GridView source)
             {
                 try
                 {
-                    IEnumerable<Material> materials = source.GetSelectedRows().Select(r => source.GetRow(r) as Material);
-                    fluent.ViewModel.AddItems(materials);
-                    e.Handled = true;
+                    if (source.Equals(gvMaterials))
+                    {
+                        IEnumerable<Material> materials = source.GetSelectedRows().Select(r => source.GetRow(r) as Material);
+                        fluent.ViewModel.AddItems(materials);
+                        e.Handled = true;
+                    }
+                    else if (source.Equals(gvPrices))
+                    {
+                        //
+                    }
                 }
                 catch
                 {
-                    
+
                 }
             }
         }

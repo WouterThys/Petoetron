@@ -8,6 +8,7 @@ namespace Petoetron.Classes.Helpers
     public abstract class AbstractQuoationItem : AbstractObject 
     {
         protected static long insertId = -10000;
+        public static long NextId { get { return insertId--; } }
 
         protected int amount;
         protected double value;
@@ -20,7 +21,7 @@ namespace Petoetron.Classes.Helpers
         public AbstractQuoationItem() : this("") { }
         public AbstractQuoationItem(string code) : base(code)
         {
-            Id = insertId--;
+            Id = NextId;
         }
         public AbstractQuoationItem(Quotation quotation) : this("")
         {
