@@ -123,9 +123,9 @@
     <Compile Include="Models\Pauses\PauseListViewModel.cs" />
     <Compile Include="Models\PriceTypes\PriceTypeEditViewModel.cs" />
     <Compile Include="Models\PriceTypes\PriceTypeListViewModel.cs" />
-    <Compile Include="Models\Quotations\Helpers\BaseQuoationListEditViewModel.cs" />
-    <Compile Include="Models\Quotations\Helpers\QuotationPriceEditViewModel .cs" />
-    <Compile Include="Models\Quotations\Helpers\QuotationMaterialEditViewModel.cs" />
+    <Compile Include="Models\Quotations\Helpers\BaseQuoationListItemViewModel.cs" />
+    <Compile Include="Models\QuotationPrices\QuotationPriceListViewModel .cs" />
+    <Compile Include="Models\QuotationMaterials\QuotationMaterialListViewModel.cs" />
     <Compile Include="Models\Quotations\QuotationEditViewModel.cs" />
     <Compile Include="Models\Quotations\QuotationListViewModel.cs" />
     <Compile Include="ModuleTypes.cs" />
@@ -237,17 +237,23 @@
     <Compile Include="Views\PriceTypes\PriceTypeListView.Designer.cs">
       <DependentUpon>PriceTypeListView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Quotations\Helpers\QuotationPriceEditView.cs">
+    <Compile Include="Views\QuotationMaterials\QuotationMaterialEditView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\Quotations\Helpers\QuotationPriceEditView.Designer.cs">
-      <DependentUpon>QuotationPriceEditView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Quotations\Helpers\QuotationMaterialEditView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\Quotations\Helpers\QuotationMaterialEditView.Designer.cs">
+    <Compile Include="Views\QuotationMaterials\QuotationMaterialEditView.Designer.cs">
       <DependentUpon>QuotationMaterialEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuotationPrices\QuotationPriceListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\QuotationPrices\QuotationPriceListView.Designer.cs">
+      <DependentUpon>QuotationPriceListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuotationMaterials\QuotationMaterialListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\QuotationMaterials\QuotationMaterialListView.Designer.cs">
+      <DependentUpon>QuotationMaterialListView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Quotations\QuotationEditView.cs">
       <SubType>UserControl</SubType>
@@ -332,11 +338,14 @@
     <EmbeddedResource Include="Views\PriceTypes\PriceTypeListView.resx">
       <DependentUpon>PriceTypeListView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Quotations\Helpers\QuotationPriceEditView.resx">
-      <DependentUpon>QuotationPriceEditView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Quotations\Helpers\QuotationMaterialEditView.resx">
+    <EmbeddedResource Include="Views\QuotationMaterials\QuotationMaterialEditView.resx">
       <DependentUpon>QuotationMaterialEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\QuotationPrices\QuotationPriceListView.resx">
+      <DependentUpon>QuotationPriceListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\QuotationMaterials\QuotationMaterialListView.resx">
+      <DependentUpon>QuotationMaterialListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Quotations\QuotationEditView.resx">
       <DependentUpon>QuotationEditView.cs</DependentUpon>
@@ -381,10 +390,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\QuotationMaterials\" />
-    <Folder Include="Models\QuotationPrices\" />
-    <Folder Include="Views\QuotationMaterials\" />
-    <Folder Include="Views\QuotationPrices\" />
+    <Folder Include="Views\Quotations\Helpers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

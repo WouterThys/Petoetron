@@ -11,12 +11,13 @@ using Petoetron.Classes;
 using Petoetron.Models.Quotations.Helpers;
 using DevExpress.Utils.DragDrop;
 using DevExpress.XtraGrid.Views.Grid;
+using Petoetron.Models.QuotationMaterials;
 
-namespace Petoetron.Views.Quotations.Helpers
+namespace Petoetron.Views.QuotationMaterials
 {
-    public partial class QuotationMaterialEditView : BaseUserControl
+    public partial class QuotationMaterialListView : BaseUserControl
     {
-        private MVVMContextFluentAPI<QuotationMaterialEditViewModel> fluent;
+        private MVVMContextFluentAPI<QuotationMaterialListViewModel> fluent;
 
         public bool Embedded { get; set; }
         public BindingSource MaterialSource { get => bsMaterials; }
@@ -24,7 +25,7 @@ namespace Petoetron.Views.Quotations.Helpers
         public BarButtonItem AddButton { get => bbiAddMaterial; }
         public BarButtonItem RemoveButton { get => bbiDeleteMaterial; }
 
-        public QuotationMaterialEditView()
+        public QuotationMaterialListView()
         {
             InitializeComponent();
             InitializeLayouts();
@@ -58,20 +59,20 @@ namespace Petoetron.Views.Quotations.Helpers
             base.OnLoad(e);
             if (!DesignMode && !Embedded)
             {
-                InitializeModel(typeof(QuotationMaterialEditViewModel));
-                fluent = mvvmContext.OfType<QuotationMaterialEditViewModel>();
+                InitializeModel(typeof(QuotationMaterialListViewModel));
+                fluent = mvvmContext.OfType<QuotationMaterialListViewModel>();
                 InitBinding(fluent);
             }
         }
 
-        public void InitializeBinding(QuotationMaterialEditViewModel model)
+        public void InitializeBinding(QuotationMaterialListViewModel model)
         {
-            InitializeModel(typeof(QuotationMaterialEditViewModel), model);
-            fluent = mvvmContext.OfType<QuotationMaterialEditViewModel>();
+            InitializeModel(typeof(QuotationMaterialListViewModel), model);
+            fluent = mvvmContext.OfType<QuotationMaterialListViewModel>();
             InitBinding(fluent);
         }
 
-        private void InitBinding(MVVMContextFluentAPI<QuotationMaterialEditViewModel> fluent)
+        private void InitBinding(MVVMContextFluentAPI<QuotationMaterialListViewModel> fluent)
         {
             fluent.SetBinding(gvMaterials, gv => gv.LoadingPanelVisible, m => m.IsLoading);
             fluent.SetObjectDataSourceBinding(bsMaterials, m => m.Data);

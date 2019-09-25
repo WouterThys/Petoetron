@@ -54,8 +54,8 @@ namespace Petoetron.Views.Quotations
                 fluent.BindCommand(bbiEditCustomer, m => m.EditCustomer());
 
                 // 
-                QMaterialsEditView.InitializeBinding(fluent.ViewModel.QMaterialModel);
-                QPriceEditView.InitializeBinding(fluent.ViewModel.QPriceModel);
+                QMaterialsListView.InitializeBinding(fluent.ViewModel.QMaterialModel);
+                QPriceListView.InitializeBinding(fluent.ViewModel.QPriceModel);
 
                 // Data
                 fluent.SetBinding(ItemForPaidDate, itm => itm.Enabled, m => m.Editable.Paid);

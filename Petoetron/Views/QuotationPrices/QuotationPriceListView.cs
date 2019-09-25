@@ -12,12 +12,13 @@ using Petoetron.Classes;
 using Petoetron.Models.Quotations.Helpers;
 using DevExpress.Utils.DragDrop;
 using DevExpress.XtraGrid.Views.Grid;
+using Petoetron.Models.QuotationPrices;
 
-namespace Petoetron.Views.Quotations.Helpers
+namespace Petoetron.Views.QuotationPrices
 {
-    public partial class QuotationPriceEditView : BaseUserControl
+    public partial class QuotationPriceListView : BaseUserControl
     {
-        private MVVMContextFluentAPI<QuotationPriceEditViewModel> fluent;
+        private MVVMContextFluentAPI<QuotationPriceListViewModel> fluent;
 
         public bool Embedded { get; set; }
         public BindingSource PriceSource { get => bsPrices; }
@@ -25,7 +26,7 @@ namespace Petoetron.Views.Quotations.Helpers
         public BarButtonItem AddButton { get => bbiAddPrice; }
         public BarButtonItem RemoveButton { get => bbiDeletePrice; }
 
-        public QuotationPriceEditView()
+        public QuotationPriceListView()
         {
             InitializeComponent();
             InitializeLayouts();
@@ -59,20 +60,20 @@ namespace Petoetron.Views.Quotations.Helpers
             base.OnLoad(e);
             if (!DesignMode && !Embedded)
             {
-                InitializeModel(typeof(QuotationPriceEditViewModel));
-                fluent = mvvmContext.OfType<QuotationPriceEditViewModel>();
+                InitializeModel(typeof(QuotationPriceListViewModel));
+                fluent = mvvmContext.OfType<QuotationPriceListViewModel>();
                 InitBinding(fluent);
             }
         }
 
-        public void InitializeBinding(QuotationPriceEditViewModel model)
+        public void InitializeBinding(QuotationPriceListViewModel model)
         {
-            InitializeModel(typeof(QuotationPriceEditViewModel), model);
-            fluent = mvvmContext.OfType<QuotationPriceEditViewModel>();
+            InitializeModel(typeof(QuotationPriceListViewModel), model);
+            fluent = mvvmContext.OfType<QuotationPriceListViewModel>();
             InitBinding(fluent);
         }
 
-        private void InitBinding(MVVMContextFluentAPI<QuotationPriceEditViewModel> fluent)
+        private void InitBinding(MVVMContextFluentAPI<QuotationPriceListViewModel> fluent)
         {
             fluent.SetBinding(gvPrices, gv => gv.LoadingPanelVisible, m => m.IsLoading);
             fluent.SetObjectDataSourceBinding(bsPrices, m => m.Data);

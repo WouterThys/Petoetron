@@ -13,7 +13,9 @@ namespace Petoetron
         public readonly static AddEditDataModule QuotationEditModule = new AddEditDataModule(-101, 21, "Quotation");
         public readonly static AddEditDataModule QuotationPriceEditModule = new AddEditDataModule(-110, 21, "QuotationPrice");
         public readonly static AddEditDataModule QuotationMaterialEditModule = new AddEditDataModule(-111, 21, "QuotationMaterial");
-        
+        public readonly static DataListModuleType QuotationPriceListModule = new DataListModuleType(-112, 21, "QuotationPrice");
+        public readonly static DataListModuleType QuotationMaterialListModule = new DataListModuleType(-113, 21, "QuotationMaterial");
+
 
         public readonly static DataListModuleType CustomerListModule = new DataListModuleType(-200, 18, "Customer");
         public readonly static AddEditDataModule CustomerEditModule = new AddEditDataModule(-201, 18, "Customer");

@@ -8,19 +8,20 @@ using DevExpress.Mvvm.POCO;
 using Petoetron.Classes;
 using Petoetron.Dal;
 using Petoetron.Models.Base;
+using Petoetron.Models.Quotations.Helpers;
 
-namespace Petoetron.Models.Quotations.Helpers
+namespace Petoetron.Models.QuotationMaterials
 {
     [POCOViewModel]
-    public class QuotationMaterialEditViewModel : BaseQuoationListEditViewModel<Material, QuotationMaterial>
+    public class QuotationMaterialListViewModel : BaseQuoationListEditViewModel<Material, QuotationMaterial>
     {
-        public static QuotationMaterialEditViewModel Create()
+        public static QuotationMaterialListViewModel Create()
         {
-            return ViewModelSource.Create(() => new QuotationMaterialEditViewModel());
+            return ViewModelSource.Create(() => new QuotationMaterialListViewModel());
         }
         
-        protected QuotationMaterialEditViewModel() : base (
-            ModuleTypes.QuotationMaterialEditModule,
+        protected QuotationMaterialListViewModel() : base (
+            ModuleTypes.QuotationMaterialListModule,
             ( ) => DataAccess.Dal.Materials,
             (q) => q.Materials)
         {

@@ -52,10 +52,10 @@
             this.ItemForPaid = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcgQMaterials = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.QMaterialsEditView = new Petoetron.Views.Quotations.Helpers.QuotationMaterialEditView();
+            this.QMaterialsListView = new Petoetron.Views.QuotationMaterials.QuotationMaterialListView();
             this.lcgQPrices = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.QPriceEditView = new Petoetron.Views.Quotations.Helpers.QuotationPriceEditView();
+            this.QPriceListView = new Petoetron.Views.QuotationPrices.QuotationPriceListView();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InfoMemoEdit.Properties)).BeginInit();
@@ -228,8 +228,8 @@
             // 
             // dataLayoutControl
             // 
-            this.dataLayoutControl.Controls.Add(this.QPriceEditView);
-            this.dataLayoutControl.Controls.Add(this.QMaterialsEditView);
+            this.dataLayoutControl.Controls.Add(this.QPriceListView);
+            this.dataLayoutControl.Controls.Add(this.QMaterialsListView);
             this.dataLayoutControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(660, 243, 650, 400);
             this.dataLayoutControl.Size = new System.Drawing.Size(947, 582);
@@ -237,8 +237,8 @@
             this.dataLayoutControl.Controls.SetChildIndex(this.CodeTextEdit, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.peObjectIcon, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.dataLayoutControl1, 0);
-            this.dataLayoutControl.Controls.SetChildIndex(this.QMaterialsEditView, 0);
-            this.dataLayoutControl.Controls.SetChildIndex(this.QPriceEditView, 0);
+            this.dataLayoutControl.Controls.SetChildIndex(this.QMaterialsListView, 0);
+            this.dataLayoutControl.Controls.SetChildIndex(this.QPriceListView, 0);
             // 
             // Root
             // 
@@ -514,7 +514,7 @@
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.QMaterialsEditView;
+            this.layoutControlItem3.Control = this.QMaterialsListView;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(492, 253);
@@ -523,12 +523,12 @@
             // 
             // QMaterialsEditView
             // 
-            this.QMaterialsEditView.Embedded = true;
-            this.QMaterialsEditView.Location = new System.Drawing.Point(445, 38);
-            this.QMaterialsEditView.Margin = new System.Windows.Forms.Padding(0);
-            this.QMaterialsEditView.Name = "QMaterialsEditView";
-            this.QMaterialsEditView.Size = new System.Drawing.Size(488, 249);
-            this.QMaterialsEditView.TabIndex = 14;
+            this.QMaterialsListView.Embedded = true;
+            this.QMaterialsListView.Location = new System.Drawing.Point(445, 38);
+            this.QMaterialsListView.Margin = new System.Windows.Forms.Padding(0);
+            this.QMaterialsListView.Name = "QMaterialsEditView";
+            this.QMaterialsListView.Size = new System.Drawing.Size(488, 249);
+            this.QMaterialsListView.TabIndex = 14;
             // 
             // lcgQPrices
             // 
@@ -542,7 +542,7 @@
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.Control = this.QPriceEditView;
+            this.layoutControlItem4.Control = this.QPriceListView;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(476, 237);
@@ -551,11 +551,11 @@
             // 
             // QPriceEditView
             // 
-            this.QPriceEditView.Embedded = true;
-            this.QPriceEditView.Location = new System.Drawing.Point(453, 329);
-            this.QPriceEditView.Name = "QPriceEditView";
-            this.QPriceEditView.Size = new System.Drawing.Size(472, 233);
-            this.QPriceEditView.TabIndex = 15;
+            this.QPriceListView.Embedded = true;
+            this.QPriceListView.Location = new System.Drawing.Point(453, 329);
+            this.QPriceListView.Name = "QPriceEditView";
+            this.QPriceListView.Size = new System.Drawing.Size(472, 233);
+            this.QPriceListView.TabIndex = 15;
             // 
             // QuotationEditView
             // 
@@ -642,8 +642,8 @@
         private DevExpress.XtraLayout.LayoutControlGroup lcgQMaterials;
         private DevExpress.XtraLayout.LayoutControlGroup lcgQPrices;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private Helpers.QuotationMaterialEditView QMaterialsEditView;
+        private Views.QuotationMaterials.QuotationMaterialListView QMaterialsListView;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private Helpers.QuotationPriceEditView QPriceEditView;
+        private Views.QuotationPrices.QuotationPriceListView QPriceListView;
     }
 }

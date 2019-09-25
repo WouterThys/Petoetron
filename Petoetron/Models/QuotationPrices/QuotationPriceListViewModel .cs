@@ -3,19 +3,20 @@ using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.Mvvm.POCO;
 using Petoetron.Classes;
 using Petoetron.Dal;
+using Petoetron.Models.Quotations.Helpers;
 
-namespace Petoetron.Models.Quotations.Helpers
+namespace Petoetron.Models.QuotationPrices
 {
     [POCOViewModel]
-    public class QuotationPriceEditViewModel : BaseQuoationListEditViewModel<PriceType, QuotationPrice>
+    public class QuotationPriceListViewModel : BaseQuoationListEditViewModel<PriceType, QuotationPrice>
     {
-        public static QuotationPriceEditViewModel Create()
+        public static QuotationPriceListViewModel Create()
         {
-            return ViewModelSource.Create(() => new QuotationPriceEditViewModel());
+            return ViewModelSource.Create(() => new QuotationPriceListViewModel());
         }
         
-        protected QuotationPriceEditViewModel() : base (
-            ModuleTypes.QuotationPriceEditModule,
+        protected QuotationPriceListViewModel() : base (
+            ModuleTypes.QuotationPriceListModule,
             ( ) => DataAccess.Dal.PriceTypes,
             (q) => q.Prices)
         {

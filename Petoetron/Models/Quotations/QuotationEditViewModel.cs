@@ -4,6 +4,8 @@ using Petoetron.Classes;
 using Petoetron.Dal;
 using Petoetron.Models.Base;
 using Petoetron.Models.Customers;
+using Petoetron.Models.QuotationMaterials;
+using Petoetron.Models.QuotationPrices;
 using Petoetron.Models.Quotations.Helpers;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,14 +24,14 @@ namespace Petoetron.Models.Quotations
 
         public virtual BindingList<Customer> Customers { get; protected set; }
 
-        public virtual QuotationMaterialEditViewModel QMaterialModel { get; protected set; }
-        public virtual QuotationPriceEditViewModel QPriceModel { get; protected set; }
+        public virtual QuotationMaterialListViewModel QMaterialModel { get; protected set; }
+        public virtual QuotationPriceListViewModel QPriceModel { get; protected set; }
 
         protected QuotationEditViewModel(Quotation original) : base(ModuleTypes.QuotationEditModule, original)
         {
-            QMaterialModel = QuotationMaterialEditViewModel.Create();
+            QMaterialModel = QuotationMaterialListViewModel.Create();
             QMaterialModel.DataChanged = () => UpdateCommands();
-            QPriceModel = QuotationPriceEditViewModel.Create();
+            QPriceModel = QuotationPriceListViewModel.Create();
             QPriceModel.DataChanged = () => UpdateCommands();
             Load();
 

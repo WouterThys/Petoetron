@@ -1,4 +1,4 @@
-﻿namespace Petoetron.Views.Quotations.Helpers
+﻿namespace Petoetron.Views.QuotationMaterials
 {
     partial class QuotationMaterialEditView
     {
