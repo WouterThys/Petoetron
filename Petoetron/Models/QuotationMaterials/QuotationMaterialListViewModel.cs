@@ -25,7 +25,7 @@ namespace Petoetron.Models.QuotationMaterials
             ( ) => DataAccess.Dal.Materials,
             (q) => q.Materials)
         {
-            
+
         }
 
         protected override QuotationMaterial CreateQuotationItem(Material t)
@@ -38,10 +38,24 @@ namespace Petoetron.Models.QuotationMaterials
             return qm;
         }
 
+        private bool zoomed = false;
         public override void Zoom()
         {
-            DialogService.ShowDialog(MessageButton.OK, "Muturiuul", this);
+            DialogService.ShowDialog(MessageButton.OK, "Muturiuul", QuotationMaterialEditViewModel.Create(Quotation));
+            zoomed = true;
+            Load();
         }
-        
+
+        public override void OnLoaded()
+        {
+            base.OnLoaded();
+            if (zoomed)
+            {
+                zoomed = false;
+                UpdateCommands();
+                DataChanged?.Invoke();
+            }
+        }
+
     }
 }

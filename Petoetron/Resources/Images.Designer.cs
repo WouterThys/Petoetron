@@ -77,6 +77,8 @@
             this.imageCollection16x16.Images.SetKeyName(34, "document_zoom_in.png");
             this.imageCollection16x16.Images.SetKeyName(35, "folder_document.png");
             this.imageCollection16x16.Images.SetKeyName(36, "webcam.png");
+            this.imageCollection16x16.Images.SetKeyName(37, "selection_delete.png");
+            this.imageCollection16x16.Images.SetKeyName(38, "selection.png");
             // 
             // imageCollection24x24
             // 
@@ -119,6 +121,8 @@
             this.imageCollection24x24.Images.SetKeyName(34, "document_zoom_in.png");
             this.imageCollection24x24.Images.SetKeyName(35, "folder_document.png");
             this.imageCollection24x24.Images.SetKeyName(36, "webcam.png");
+            this.imageCollection24x24.Images.SetKeyName(37, "selection_delete.png");
+            this.imageCollection24x24.Images.SetKeyName(38, "selection.png");
             // 
             // imageCollection48x48
             // 
@@ -161,6 +165,8 @@
             this.imageCollection48x48.Images.SetKeyName(34, "document_zoom_in.png");
             this.imageCollection48x48.Images.SetKeyName(35, "folder_document.png");
             this.imageCollection48x48.Images.SetKeyName(36, "webcam.png");
+            this.imageCollection48x48.Images.SetKeyName(37, "selection_delete.png");
+            this.imageCollection48x48.Images.SetKeyName(38, "selection.png");
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection16x16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection24x24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection48x48)).EndInit();

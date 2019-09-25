@@ -15,82 +15,68 @@ using Petoetron.Models.QuotationMaterials;
 
 namespace Petoetron.Views.QuotationMaterials
 {
-    public partial class QuotationMaterialEditView : BaseUserControl
+    public partial class QuotationMaterialEditView : BaseRibbonControl
     {
-        private MVVMContextFluentAPI<QuotationMaterialListViewModel> fluent;
-
-        public bool Embedded { get; set; }
-        public BindingSource MaterialSource { get => bsMaterials; }
-        public BindingSource QMaterialSource { get => bsQuotationMaterials; }
-        public BarButtonItem AddButton { get => bbiAddMaterial; }
-        public BarButtonItem RemoveButton { get => bbiDeleteMaterial; }
+        private MVVMContextFluentAPI<QuotationMaterialEditViewModel> fluent;
 
         public QuotationMaterialEditView()
         {
+            InitializeModel(typeof(QuotationMaterialEditViewModel));
             InitializeComponent();
-            InitializeLayouts();
+            if (!DesignMode)
+            {
+                InitializeLayouts();
+                InitializeServices();
+            }
         }
 
         public override void InitializeLayouts()
         {
             base.InitializeLayouts();
-            barManager.Images = images.Images16x16;
-            barManager.LargeImages = images.Images24x24;
-
-            bbiAddMaterial.ImageIndex = 0;
-            bbiAddMaterial.LargeImageIndex = 0;
-            bbiDeleteMaterial.ImageIndex = 2;
-            bbiDeleteMaterial.LargeImageIndex = 2;
-            bbiZoom.ImageIndex = 34;
-            bbiZoom.LargeImageIndex = 34;
-            
+           
             riSpinEditAmount.IsFloatValue = false;
             riSpinEditAmount.MinValue = 1;
             riSpinEditAmount.MaxValue = int.MaxValue;
 
+            gvQMaterials.OptionsSelection.MultiSelect = true;
+            gvQMaterials.OptionsBehavior.AutoExpandAllGroups = true;
+
+            gvMaterials.OptionsBehavior.Editable = false;
+            gvMaterials.OptionsBehavior.AllowIncrementalSearch = true;
             gvMaterials.OptionsSelection.MultiSelect = true;
+            gvMaterials.OptionsView.ShowDetailButtons = false;
             gvMaterials.OptionsBehavior.AutoExpandAllGroups = true;
-            
+
             dragDropEvents.DragDrop += DragDropEvents_DragDrop;
         }
 
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            if (!DesignMode && !Embedded)
+            if (!DesignMode)
             {
-                InitializeModel(typeof(QuotationMaterialListViewModel));
-                fluent = mvvmContext.OfType<QuotationMaterialListViewModel>();
-                InitBinding(fluent);
+                fluent = mvvmContext.OfType<QuotationMaterialEditViewModel>();
+                
+                fluent.SetBinding(gvQMaterials, gv => gv.LoadingPanelVisible, m => m.IsLoading);
+                fluent.SetObjectDataSourceBinding(bsMaterials, m => m.Data);
+                
+                // Materials
+                fluent.SetBinding(gvQMaterials, gv => gv.LoadingPanelVisible, m => m.IsLoading);
+                fluent.SetObjectDataSourceBinding(bsQuotationMaterials, m => m.QData, m => m.ValuesHaveChanged());
+                // GridView - Multiple selected
+                fluent.WithEvent<SelectionChangedEventArgs>(gvQMaterials, "SelectionChanged").SetBinding(
+                    m => m.Selection,
+                    g => new List<QuotationMaterial>(gvQMaterials.GetSelectedRows().Select(r => gvQMaterials.GetRow(r) as QuotationMaterial)));
+
+                // Commands
+                fluent.BindCommand(bbiAdd, m => m.Add());
+                fluent.BindCommand(bbiDelete, m => m.Delete());
+                fluent.BindCommand(bbiGroup, m => m.Group());
+                fluent.BindCommand(bbiUnGroup, m => m.UnGroup());
             }
         }
 
-        public void InitializeBinding(QuotationMaterialListViewModel model)
-        {
-            InitializeModel(typeof(QuotationMaterialListViewModel), model);
-            fluent = mvvmContext.OfType<QuotationMaterialListViewModel>();
-            InitBinding(fluent);
-        }
-
-        private void InitBinding(MVVMContextFluentAPI<QuotationMaterialListViewModel> fluent)
-        {
-            fluent.SetBinding(gvMaterials, gv => gv.LoadingPanelVisible, m => m.IsLoading);
-            fluent.SetObjectDataSourceBinding(bsMaterials, m => m.Data);
-            fluent.BindCommand(bbiAddMaterial, m => m.Add());
-            fluent.BindCommand(bbiDeleteMaterial, m => m.Delete());
-            fluent.BindCommand(bbiZoom, m => m.Zoom());
-
-            // Materials
-            fluent.SetBinding(gvMaterials, gv => gv.LoadingPanelVisible, m => m.IsLoading);
-            fluent.SetObjectDataSourceBinding(bsQuotationMaterials, m => m.QData, m => m.ValuesHaveChanged());
-            // GridView - Multiple selected
-            fluent.WithEvent<SelectionChangedEventArgs>(gvMaterials, "SelectionChanged").SetBinding(
-                m => m.Selection,
-                g => new List<QuotationMaterial>(gvMaterials.GetSelectedRows().Select(r => gvMaterials.GetRow(r) as QuotationMaterial)));
-
-
-            bbiZoom.Visibility = BarItemVisibility.Never; //Embedded ? BarItemVisibility.Always : BarItemVisibility.Never;
-        }
+        
 
         #region Drag & Drop
         

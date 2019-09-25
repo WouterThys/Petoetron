@@ -29,19 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.barManager = new DevExpress.XtraBars.BarManager(this.components);
-            this.MenuBar = new DevExpress.XtraBars.Bar();
-            this.bbiAddMaterial = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiDeleteMaterial = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiZoom = new DevExpress.XtraBars.BarButtonItem();
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.bsQuotationMaterials = new System.Windows.Forms.BindingSource(this.components);
             this.bsMaterials = new System.Windows.Forms.BindingSource(this.components);
-            this.gcMaterials = new DevExpress.XtraGrid.GridControl();
-            this.gvMaterials = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gcQMaterials = new DevExpress.XtraGrid.GridControl();
+            this.gvQMaterials = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMaterialType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMaterialUnit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAmount = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -69,14 +60,37 @@
             this.colCode1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colGroupCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.behaviorManager = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.dragDropEvents = new DevExpress.Utils.DragDrop.DragDropEvents(this.components);
+            this.gvMaterials = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colUnitPrice1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUnit1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colWeight1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colType1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDescription1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInfo2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIconPath1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEnabled1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLastModified1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colId2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCode2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcMaterials = new DevExpress.XtraGrid.GridControl();
+            this.dragDropEvents1 = new DevExpress.Utils.DragDrop.DragDropEvents(this.components);
+            this.bbiAdd = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiDelete = new DevExpress.XtraBars.BarButtonItem();
+            this.rpgGroups = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.bbiGroup = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiUnGroup = new DevExpress.XtraBars.BarButtonItem();
+            this.dockManager = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.MaterialsDockPanel = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsQuotationMaterials)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsMaterials)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcMaterials)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvMaterials)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcQMaterials)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvQMaterials)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riSpinEditAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riSpinEditValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riDateEditDate)).BeginInit();
@@ -84,99 +98,35 @@
             ((System.ComponentModel.ISupportInitialize)(this.riSearchLookUpEditMaterial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvMaterials)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcMaterials)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dockManager)).BeginInit();
+            this.MaterialsDockPanel.SuspendLayout();
+            this.dockPanel1_Container.SuspendLayout();
             this.SuspendLayout();
             // 
-            // barManager
+            // ribbonControl
             // 
-            this.barManager.AllowMoveBarOnToolbar = false;
-            this.barManager.AllowQuickCustomization = false;
-            this.barManager.AllowShowToolbarsPopup = false;
-            this.barManager.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.MenuBar});
-            this.barManager.DockControls.Add(this.barDockControlTop);
-            this.barManager.DockControls.Add(this.barDockControlBottom);
-            this.barManager.DockControls.Add(this.barDockControlLeft);
-            this.barManager.DockControls.Add(this.barDockControlRight);
-            this.barManager.Form = this;
-            this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.bbiAddMaterial,
-            this.bbiDeleteMaterial,
-            this.bbiZoom});
-            this.barManager.MainMenu = this.MenuBar;
-            this.barManager.MaxItemId = 3;
+            this.ribbonControl.ExpandCollapseItem.Id = 0;
+            this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.bbiAdd,
+            this.bbiDelete,
+            this.bbiGroup,
+            this.bbiUnGroup});
+            this.ribbonControl.MaxItemId = 5;
+            this.ribbonControl.Size = new System.Drawing.Size(2054, 194);
             // 
-            // MenuBar
+            // ribbonPage1
             // 
-            this.MenuBar.BarName = "Main menu";
-            this.MenuBar.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Top;
-            this.MenuBar.DockCol = 0;
-            this.MenuBar.DockRow = 0;
-            this.MenuBar.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.MenuBar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiAddMaterial),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiDeleteMaterial),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiZoom)});
-            this.MenuBar.OptionsBar.DrawDragBorder = false;
-            this.MenuBar.OptionsBar.MultiLine = true;
-            this.MenuBar.OptionsBar.UseWholeRow = true;
-            this.MenuBar.Text = "Main menu";
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rpgGroups});
+            this.ribbonPage1.Text = "Tub1";
             // 
-            // bbiAddMaterial
+            // ribbonPageGroup1
             // 
-            this.bbiAddMaterial.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.bbiAddMaterial.Caption = "Tuvugen";
-            this.bbiAddMaterial.Id = 0;
-            this.bbiAddMaterial.Name = "bbiAddMaterial";
-            // 
-            // bbiDeleteMaterial
-            // 
-            this.bbiDeleteMaterial.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.bbiDeleteMaterial.Caption = "Wug";
-            this.bbiDeleteMaterial.Id = 1;
-            this.bbiDeleteMaterial.Name = "bbiDeleteMaterial";
-            // 
-            // bbiZoom
-            // 
-            this.bbiZoom.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.bbiZoom.Caption = "Upen";
-            this.bbiZoom.Id = 2;
-            this.bbiZoom.Name = "bbiZoom";
-            // 
-            // barDockControlTop
-            // 
-            this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Manager = this.barManager;
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlTop.Size = new System.Drawing.Size(555, 33);
-            // 
-            // barDockControlBottom
-            // 
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 535);
-            this.barDockControlBottom.Manager = this.barManager;
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(555, 0);
-            // 
-            // barDockControlLeft
-            // 
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 33);
-            this.barDockControlLeft.Manager = this.barManager;
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 502);
-            // 
-            // barDockControlRight
-            // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(555, 33);
-            this.barDockControlRight.Manager = this.barManager;
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 502);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bbiAdd);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bbiDelete);
+            this.ribbonPageGroup1.Text = "Mututiulen";
             // 
             // bsQuotationMaterials
             // 
@@ -186,31 +136,30 @@
             // 
             this.bsMaterials.DataSource = typeof(Petoetron.Classes.Material);
             // 
-            // gcMaterials
+            // gcQMaterials
             // 
-            this.gcMaterials.DataSource = this.bsQuotationMaterials;
-            this.gcMaterials.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcMaterials.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gcMaterials.Location = new System.Drawing.Point(0, 33);
-            this.gcMaterials.MainView = this.gvMaterials;
-            this.gcMaterials.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gcMaterials.MenuManager = this.barManager;
-            this.gcMaterials.Name = "gcMaterials";
-            this.gcMaterials.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.gcQMaterials.DataSource = this.bsQuotationMaterials;
+            this.gcQMaterials.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcQMaterials.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gcQMaterials.Location = new System.Drawing.Point(484, 194);
+            this.gcQMaterials.MainView = this.gvQMaterials;
+            this.gcQMaterials.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gcQMaterials.Name = "gcQMaterials";
+            this.gcQMaterials.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.riSpinEditAmount,
             this.riSpinEditValue,
             this.riDateEditDate,
             this.riSearchLookUpEditMaterial});
-            this.gcMaterials.Size = new System.Drawing.Size(555, 502);
-            this.gcMaterials.TabIndex = 4;
-            this.gcMaterials.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvMaterials});
+            this.gcQMaterials.Size = new System.Drawing.Size(1570, 847);
+            this.gcQMaterials.TabIndex = 4;
+            this.gcQMaterials.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvQMaterials});
             // 
-            // gvMaterials
+            // gvQMaterials
             // 
-            this.behaviorManager.SetBehaviors(this.gvMaterials, new DevExpress.Utils.Behaviors.Behavior[] {
+            this.behaviorManager.SetBehaviors(this.gvQMaterials, new DevExpress.Utils.Behaviors.Behavior[] {
             ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.DragDrop.DragDropBehavior.Create(typeof(DevExpress.XtraGrid.Extensions.ColumnViewDragDropSource), true, true, true, this.dragDropEvents)))});
-            this.gvMaterials.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gvQMaterials.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMaterialType,
             this.colMaterialUnit,
             this.colAmount,
@@ -220,16 +169,16 @@
             this.colQuotationId,
             this.colMaterialId,
             this.colId,
-            this.colCode});
-            this.gvMaterials.DetailHeight = 431;
-            this.gvMaterials.GridControl = this.gcMaterials;
-            this.gvMaterials.Name = "gvMaterials";
-            this.gvMaterials.OptionsView.ShowGroupPanel = false;
+            this.colCode,
+            this.colGroupCode});
+            this.gvQMaterials.DetailHeight = 431;
+            this.gvQMaterials.GridControl = this.gcQMaterials;
+            this.gvQMaterials.Name = "gvQMaterials";
+            this.gvQMaterials.OptionsView.ShowGroupPanel = false;
             // 
             // colMaterialType
             // 
             this.colMaterialType.AppearanceCell.FontStyleDelta = System.Drawing.FontStyle.Italic;
-            this.colMaterialType.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.colMaterialType.AppearanceCell.Options.UseFont = true;
             this.colMaterialType.AppearanceCell.Options.UseForeColor = true;
             this.colMaterialType.Caption = "Type";
@@ -240,12 +189,11 @@
             this.colMaterialType.OptionsColumn.ReadOnly = true;
             this.colMaterialType.Visible = true;
             this.colMaterialType.VisibleIndex = 2;
-            this.colMaterialType.Width = 87;
+            this.colMaterialType.Width = 341;
             // 
             // colMaterialUnit
             // 
             this.colMaterialUnit.AppearanceCell.FontStyleDelta = System.Drawing.FontStyle.Italic;
-            this.colMaterialUnit.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.colMaterialUnit.AppearanceCell.Options.UseFont = true;
             this.colMaterialUnit.AppearanceCell.Options.UseForeColor = true;
             this.colMaterialUnit.Caption = "Unit";
@@ -255,8 +203,8 @@
             this.colMaterialUnit.OptionsColumn.AllowEdit = false;
             this.colMaterialUnit.OptionsColumn.ReadOnly = true;
             this.colMaterialUnit.Visible = true;
-            this.colMaterialUnit.VisibleIndex = 4;
-            this.colMaterialUnit.Width = 87;
+            this.colMaterialUnit.VisibleIndex = 5;
+            this.colMaterialUnit.Width = 347;
             // 
             // colAmount
             // 
@@ -287,8 +235,8 @@
             this.colValue.MinWidth = 23;
             this.colValue.Name = "colValue";
             this.colValue.Visible = true;
-            this.colValue.VisibleIndex = 3;
-            this.colValue.Width = 195;
+            this.colValue.VisibleIndex = 4;
+            this.colValue.Width = 766;
             // 
             // riSpinEditValue
             // 
@@ -317,7 +265,6 @@
             // colInfo
             // 
             this.colInfo.AppearanceCell.FontStyleDelta = System.Drawing.FontStyle.Italic;
-            this.colInfo.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.colInfo.AppearanceCell.Options.UseFont = true;
             this.colInfo.AppearanceCell.Options.UseForeColor = true;
             this.colInfo.FieldName = "Info";
@@ -330,7 +277,6 @@
             // colQuotationId
             // 
             this.colQuotationId.AppearanceCell.FontStyleDelta = System.Drawing.FontStyle.Italic;
-            this.colQuotationId.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.colQuotationId.AppearanceCell.Options.UseFont = true;
             this.colQuotationId.AppearanceCell.Options.UseForeColor = true;
             this.colQuotationId.FieldName = "QuotationId";
@@ -349,7 +295,7 @@
             this.colMaterialId.Name = "colMaterialId";
             this.colMaterialId.Visible = true;
             this.colMaterialId.VisibleIndex = 1;
-            this.colMaterialId.Width = 195;
+            this.colMaterialId.Width = 766;
             // 
             // riSearchLookUpEditMaterial
             // 
@@ -457,7 +403,6 @@
             // colId
             // 
             this.colId.AppearanceCell.FontStyleDelta = System.Drawing.FontStyle.Italic;
-            this.colId.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.colId.AppearanceCell.Options.UseFont = true;
             this.colId.AppearanceCell.Options.UseForeColor = true;
             this.colId.FieldName = "Id";
@@ -470,7 +415,6 @@
             // colCode
             // 
             this.colCode.AppearanceCell.FontStyleDelta = System.Drawing.FontStyle.Italic;
-            this.colCode.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.colCode.AppearanceCell.Options.UseFont = true;
             this.colCode.AppearanceCell.Options.UseForeColor = true;
             this.colCode.FieldName = "Code";
@@ -480,24 +424,241 @@
             this.colCode.OptionsColumn.ReadOnly = true;
             this.colCode.Width = 208;
             // 
+            // colGroupCode
+            // 
+            this.colGroupCode.Caption = "Grup";
+            this.colGroupCode.FieldName = "GroupCode";
+            this.colGroupCode.MinWidth = 25;
+            this.colGroupCode.Name = "colGroupCode";
+            this.colGroupCode.Visible = true;
+            this.colGroupCode.VisibleIndex = 3;
+            this.colGroupCode.Width = 182;
+            // 
+            // gvMaterials
+            // 
+            this.behaviorManager.SetBehaviors(this.gvMaterials, new DevExpress.Utils.Behaviors.Behavior[] {
+            ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.DragDrop.DragDropBehavior.Create(typeof(DevExpress.XtraGrid.Extensions.ColumnViewDragDropSource), true, true, false, this.dragDropEvents1)))});
+            this.gvMaterials.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colUnitPrice1,
+            this.colUnit1,
+            this.colWeight1,
+            this.colType1,
+            this.colDescription1,
+            this.colInfo2,
+            this.colIconPath1,
+            this.colEnabled1,
+            this.colLastModified1,
+            this.colId2,
+            this.colCode2});
+            this.gvMaterials.GridControl = this.gcMaterials;
+            this.gvMaterials.GroupCount = 1;
+            this.gvMaterials.Name = "gvMaterials";
+            this.gvMaterials.OptionsFind.AlwaysVisible = true;
+            this.gvMaterials.OptionsFind.FindNullPrompt = "Zuukt muur hu..";
+            this.gvMaterials.OptionsView.ShowGroupPanel = false;
+            this.gvMaterials.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colType1, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colCode2, DevExpress.Data.ColumnSortOrder.Ascending)});
+            // 
+            // colUnitPrice1
+            // 
+            this.colUnitPrice1.FieldName = "UnitPrice";
+            this.colUnitPrice1.MinWidth = 25;
+            this.colUnitPrice1.Name = "colUnitPrice1";
+            this.colUnitPrice1.Visible = true;
+            this.colUnitPrice1.VisibleIndex = 3;
+            this.colUnitPrice1.Width = 532;
+            // 
+            // colUnit1
+            // 
+            this.colUnit1.FieldName = "Unit";
+            this.colUnit1.MinWidth = 25;
+            this.colUnit1.Name = "colUnit1";
+            this.colUnit1.Visible = true;
+            this.colUnit1.VisibleIndex = 4;
+            this.colUnit1.Width = 532;
+            // 
+            // colWeight1
+            // 
+            this.colWeight1.FieldName = "Weight";
+            this.colWeight1.MinWidth = 25;
+            this.colWeight1.Name = "colWeight1";
+            this.colWeight1.Visible = true;
+            this.colWeight1.VisibleIndex = 2;
+            this.colWeight1.Width = 538;
+            // 
+            // colType1
+            // 
+            this.colType1.Caption = "Type";
+            this.colType1.FieldName = "Type.Code";
+            this.colType1.MinWidth = 25;
+            this.colType1.Name = "colType1";
+            this.colType1.OptionsColumn.ReadOnly = true;
+            this.colType1.Visible = true;
+            this.colType1.VisibleIndex = 4;
+            this.colType1.Width = 94;
+            // 
+            // colDescription1
+            // 
+            this.colDescription1.FieldName = "Description";
+            this.colDescription1.MinWidth = 25;
+            this.colDescription1.Name = "colDescription1";
+            this.colDescription1.Visible = true;
+            this.colDescription1.VisibleIndex = 1;
+            this.colDescription1.Width = 532;
+            // 
+            // colInfo2
+            // 
+            this.colInfo2.FieldName = "Info";
+            this.colInfo2.MinWidth = 25;
+            this.colInfo2.Name = "colInfo2";
+            this.colInfo2.Width = 94;
+            // 
+            // colIconPath1
+            // 
+            this.colIconPath1.FieldName = "IconPath";
+            this.colIconPath1.MinWidth = 25;
+            this.colIconPath1.Name = "colIconPath1";
+            this.colIconPath1.Width = 94;
+            // 
+            // colEnabled1
+            // 
+            this.colEnabled1.FieldName = "Enabled";
+            this.colEnabled1.MinWidth = 25;
+            this.colEnabled1.Name = "colEnabled1";
+            this.colEnabled1.Width = 94;
+            // 
+            // colLastModified1
+            // 
+            this.colLastModified1.FieldName = "LastModified";
+            this.colLastModified1.MinWidth = 25;
+            this.colLastModified1.Name = "colLastModified1";
+            this.colLastModified1.Width = 94;
+            // 
+            // colId2
+            // 
+            this.colId2.FieldName = "Id";
+            this.colId2.MinWidth = 25;
+            this.colId2.Name = "colId2";
+            this.colId2.Width = 94;
+            // 
+            // colCode2
+            // 
+            this.colCode2.FieldName = "Code";
+            this.colCode2.MinWidth = 25;
+            this.colCode2.Name = "colCode2";
+            this.colCode2.Visible = true;
+            this.colCode2.VisibleIndex = 0;
+            this.colCode2.Width = 328;
+            // 
+            // gcMaterials
+            // 
+            this.gcMaterials.DataSource = this.bsMaterials;
+            this.gcMaterials.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcMaterials.Location = new System.Drawing.Point(0, 0);
+            this.gcMaterials.MainView = this.gvMaterials;
+            this.gcMaterials.MenuManager = this.ribbonControl;
+            this.gcMaterials.Name = "gcMaterials";
+            this.gcMaterials.Size = new System.Drawing.Size(474, 806);
+            this.gcMaterials.TabIndex = 0;
+            this.gcMaterials.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvMaterials});
+            // 
+            // bbiAdd
+            // 
+            this.bbiAdd.Caption = "Tuvugen";
+            this.bbiAdd.Id = 1;
+            this.bbiAdd.ImageOptions.ImageIndex = 0;
+            this.bbiAdd.ImageOptions.LargeImageIndex = 0;
+            this.bbiAdd.Name = "bbiAdd";
+            // 
+            // bbiDelete
+            // 
+            this.bbiDelete.Caption = "Wug";
+            this.bbiDelete.Id = 2;
+            this.bbiDelete.ImageOptions.ImageIndex = 2;
+            this.bbiDelete.ImageOptions.LargeImageIndex = 2;
+            this.bbiDelete.Name = "bbiDelete";
+            // 
+            // rpgGroups
+            // 
+            this.rpgGroups.ItemLinks.Add(this.bbiGroup);
+            this.rpgGroups.ItemLinks.Add(this.bbiUnGroup);
+            this.rpgGroups.Name = "rpgGroups";
+            this.rpgGroups.Text = "Units";
+            // 
+            // bbiGroup
+            // 
+            this.bbiGroup.Caption = "Grup";
+            this.bbiGroup.Id = 3;
+            this.bbiGroup.ImageOptions.ImageIndex = 38;
+            this.bbiGroup.ImageOptions.LargeImageIndex = 38;
+            this.bbiGroup.Name = "bbiGroup";
+            // 
+            // bbiUnGroup
+            // 
+            this.bbiUnGroup.Caption = "Ungrup";
+            this.bbiUnGroup.Id = 4;
+            this.bbiUnGroup.ImageOptions.ImageIndex = 37;
+            this.bbiUnGroup.ImageOptions.LargeImageIndex = 37;
+            this.bbiUnGroup.Name = "bbiUnGroup";
+            // 
+            // dockManager
+            // 
+            this.dockManager.Form = this;
+            this.dockManager.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
+            this.MaterialsDockPanel});
+            this.dockManager.TopZIndexControls.AddRange(new string[] {
+            "DevExpress.XtraBars.BarDockControl",
+            "DevExpress.XtraBars.StandaloneBarDockControl",
+            "System.Windows.Forms.StatusBar",
+            "System.Windows.Forms.MenuStrip",
+            "System.Windows.Forms.StatusStrip",
+            "DevExpress.XtraBars.Ribbon.RibbonStatusBar",
+            "DevExpress.XtraBars.Ribbon.RibbonControl",
+            "DevExpress.XtraBars.Navigation.OfficeNavigationBar",
+            "DevExpress.XtraBars.Navigation.TileNavPane",
+            "DevExpress.XtraBars.TabFormControl",
+            "DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl"});
+            // 
+            // MaterialsDockPanel
+            // 
+            this.MaterialsDockPanel.Controls.Add(this.dockPanel1_Container);
+            this.MaterialsDockPanel.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
+            this.MaterialsDockPanel.ID = new System.Guid("34e2a989-09b5-42e5-ae12-0cac8f339924");
+            this.MaterialsDockPanel.Location = new System.Drawing.Point(0, 194);
+            this.MaterialsDockPanel.Name = "MaterialsDockPanel";
+            this.MaterialsDockPanel.Options.ShowCloseButton = false;
+            this.MaterialsDockPanel.OriginalSize = new System.Drawing.Size(484, 200);
+            this.MaterialsDockPanel.SavedSizeFactor = 0D;
+            this.MaterialsDockPanel.Size = new System.Drawing.Size(484, 847);
+            this.MaterialsDockPanel.Text = "Muturiulen";
+            // 
+            // dockPanel1_Container
+            // 
+            this.dockPanel1_Container.Controls.Add(this.gcMaterials);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 37);
+            this.dockPanel1_Container.Name = "dockPanel1_Container";
+            this.dockPanel1_Container.Size = new System.Drawing.Size(474, 806);
+            this.dockPanel1_Container.TabIndex = 0;
+            // 
             // QuotationMaterialEditView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.gcMaterials);
-            this.Controls.Add(this.barDockControlLeft);
-            this.Controls.Add(this.barDockControlRight);
-            this.Controls.Add(this.barDockControlBottom);
-            this.Controls.Add(this.barDockControlTop);
-            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Controls.Add(this.gcQMaterials);
+            this.Controls.Add(this.MaterialsDockPanel);
             this.Name = "QuotationMaterialEditView";
-            this.Size = new System.Drawing.Size(555, 535);
+            this.Size = new System.Drawing.Size(2054, 1041);
+            this.Controls.SetChildIndex(this.ribbonControl, 0);
+            this.Controls.SetChildIndex(this.MaterialsDockPanel, 0);
+            this.Controls.SetChildIndex(this.gcQMaterials, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsQuotationMaterials)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsMaterials)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcMaterials)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvMaterials)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcQMaterials)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvQMaterials)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riSpinEditAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riSpinEditValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riDateEditDate.CalendarTimeProperties)).EndInit();
@@ -505,25 +666,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.riSearchLookUpEditMaterial)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvMaterials)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcMaterials)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dockManager)).EndInit();
+            this.MaterialsDockPanel.ResumeLayout(false);
+            this.dockPanel1_Container.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private DevExpress.XtraBars.BarManager barManager;
-        private DevExpress.XtraBars.Bar MenuBar;
-        private DevExpress.XtraBars.BarDockControl barDockControlTop;
-        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
-        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
-        private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraBars.BarButtonItem bbiAddMaterial;
-        private DevExpress.XtraBars.BarButtonItem bbiDeleteMaterial;
         private System.Windows.Forms.BindingSource bsQuotationMaterials;
         private System.Windows.Forms.BindingSource bsMaterials;
-        private DevExpress.XtraGrid.GridControl gcMaterials;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvMaterials;
+        private DevExpress.XtraGrid.GridControl gcQMaterials;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvQMaterials;
         private DevExpress.XtraGrid.Columns.GridColumn colAmount;
         private DevExpress.XtraGrid.Columns.GridColumn colValue;
         private DevExpress.XtraGrid.Columns.GridColumn colDate;
@@ -551,8 +708,30 @@
         private DevExpress.XtraGrid.Columns.GridColumn colLastModified;
         private DevExpress.XtraGrid.Columns.GridColumn colId1;
         private DevExpress.XtraGrid.Columns.GridColumn colCode1;
-        private DevExpress.XtraBars.BarButtonItem bbiZoom;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager;
         private DevExpress.Utils.DragDrop.DragDropEvents dragDropEvents;
+        private DevExpress.XtraBars.BarButtonItem bbiAdd;
+        private DevExpress.XtraBars.BarButtonItem bbiDelete;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgGroups;
+        private DevExpress.XtraBars.BarButtonItem bbiGroup;
+        private DevExpress.XtraBars.BarButtonItem bbiUnGroup;
+        private DevExpress.XtraGrid.Columns.GridColumn colGroupCode;
+        private DevExpress.XtraBars.Docking.DockManager dockManager;
+        private DevExpress.XtraBars.Docking.DockPanel MaterialsDockPanel;
+        private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
+        private DevExpress.XtraGrid.GridControl gcMaterials;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvMaterials;
+        private DevExpress.Utils.DragDrop.DragDropEvents dragDropEvents1;
+        private DevExpress.XtraGrid.Columns.GridColumn colUnitPrice1;
+        private DevExpress.XtraGrid.Columns.GridColumn colUnit1;
+        private DevExpress.XtraGrid.Columns.GridColumn colWeight1;
+        private DevExpress.XtraGrid.Columns.GridColumn colType1;
+        private DevExpress.XtraGrid.Columns.GridColumn colDescription1;
+        private DevExpress.XtraGrid.Columns.GridColumn colInfo2;
+        private DevExpress.XtraGrid.Columns.GridColumn colIconPath1;
+        private DevExpress.XtraGrid.Columns.GridColumn colEnabled1;
+        private DevExpress.XtraGrid.Columns.GridColumn colLastModified1;
+        private DevExpress.XtraGrid.Columns.GridColumn colId2;
+        private DevExpress.XtraGrid.Columns.GridColumn colCode2;
     }
 }

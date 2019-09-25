@@ -39,7 +39,14 @@ namespace Petoetron.Models.Quotations.Helpers
 
         public override Task Load()
         {
-            return null;
+            return Task.Factory.StartNew((dispatcher) =>
+            {
+                Loading();
+                ((IDispatcherService)dispatcher).BeginInvoke(() =>
+                {
+                    Loaded();
+                });
+            }, DispatcherService);
         }
 
         private List<T> ts = null;
@@ -58,9 +65,12 @@ namespace Petoetron.Models.Quotations.Helpers
             Data = new BindingList<T>(ts);
             QData = new BindingList<QT>(qTs);
             IsLoading = false;
+            OnLoaded();
         }
 
-        public void UpdateCommands()
+        public virtual void OnLoaded() { }
+
+        public virtual void UpdateCommands()
         {
             this.RaiseCanExecuteChanged(x => x.Add());
             this.RaiseCanExecuteChanged(x => x.Delete());

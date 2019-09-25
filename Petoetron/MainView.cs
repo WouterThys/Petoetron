@@ -77,6 +77,7 @@ namespace Petoetron
             mvvmContext.RegisterDefaultService("DataChangedService", new DataChangedService());
             //mvvmContext.RegisterDefaultService("ErrorManagerService", new ErrorManagerService(mvvmContext.GetViewModel<MainViewModel>()));
             //mvvmContext.RegisterService("DisplayMessageService", new DisplayMessageService(this));
+            
         }
 
         void InitializeBindings()

@@ -8,10 +8,10 @@ using DevExpress.XtraBars;
 using DevExpress.Utils.MVVM;
 using DevExpress.Data;
 using Petoetron.Classes;
-using Petoetron.Models.Quotations.Helpers;
 using DevExpress.Utils.DragDrop;
 using DevExpress.XtraGrid.Views.Grid;
 using Petoetron.Models.QuotationMaterials;
+using DevExpress.Utils.MVVM.Services;
 
 namespace Petoetron.Views.QuotationMaterials
 {
@@ -29,6 +29,7 @@ namespace Petoetron.Views.QuotationMaterials
         {
             InitializeComponent();
             InitializeLayouts();
+            InitializeServices();
         }
 
         public override void InitializeLayouts()
@@ -52,6 +53,18 @@ namespace Petoetron.Views.QuotationMaterials
             gvMaterials.OptionsBehavior.AutoExpandAllGroups = true;
             
             dragDropEvents.DragDrop += DragDropEvents_DragDrop;
+        }
+
+        protected override void InitializeServices()
+        {
+            base.InitializeServices();
+            //var service = DialogService.CreateXtraDialogService(this);
+            //service.DialogFormStyle = f =>
+            //{
+            //    Form form = f as Form;
+            //    form.FormBorderStyle = FormBorderStyle.Sizable;
+            //};
+            //mvvmContext.RegisterDefaultService(service);
         }
 
         protected override void OnLoad(EventArgs e)
@@ -87,9 +100,7 @@ namespace Petoetron.Views.QuotationMaterials
             fluent.WithEvent<SelectionChangedEventArgs>(gvMaterials, "SelectionChanged").SetBinding(
                 m => m.Selection,
                 g => new List<QuotationMaterial>(gvMaterials.GetSelectedRows().Select(r => gvMaterials.GetRow(r) as QuotationMaterial)));
-
-
-            bbiZoom.Visibility = BarItemVisibility.Never; //Embedded ? BarItemVisibility.Always : BarItemVisibility.Never;
+            
         }
 
         #region Drag & Drop

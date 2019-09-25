@@ -119,10 +119,12 @@
     <Compile Include="Models\MaterialTypes\MaterialTypeListViewModel.cs" />
     <Compile Include="Models\ObjectFilesModel.cs" />
     <Compile Include="Models\ObjectLogModel.cs" />
+    <Compile Include="Models\Other\InputDialogViewModel.cs" />
     <Compile Include="Models\Pauses\PauseEditViewModel.cs" />
     <Compile Include="Models\Pauses\PauseListViewModel.cs" />
     <Compile Include="Models\PriceTypes\PriceTypeEditViewModel.cs" />
     <Compile Include="Models\PriceTypes\PriceTypeListViewModel.cs" />
+    <Compile Include="Models\QuotationMaterials\QuotationMaterialEditViewModel.cs" />
     <Compile Include="Models\Quotations\Helpers\BaseQuoationListItemViewModel.cs" />
     <Compile Include="Models\QuotationPrices\QuotationPriceListViewModel .cs" />
     <Compile Include="Models\QuotationMaterials\QuotationMaterialListViewModel.cs" />
@@ -212,6 +214,12 @@
     </Compile>
     <Compile Include="Views\MaterialTypes\MaterialTypeListView.Designer.cs">
       <DependentUpon>MaterialTypeListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Other\SimpleInputView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Other\SimpleInputView.Designer.cs">
+      <DependentUpon>SimpleInputView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Pauses\PauseEditView.cs">
       <SubType>UserControl</SubType>
@@ -325,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MaterialTypes\MaterialTypeListView.resx">
       <DependentUpon>MaterialTypeListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Other\SimpleInputView.resx">
+      <DependentUpon>SimpleInputView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pauses\PauseEditView.resx">
       <DependentUpon>PauseEditView.cs</DependentUpon>
