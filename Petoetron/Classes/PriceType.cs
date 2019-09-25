@@ -12,6 +12,9 @@ namespace Petoetron.Classes
         private decimal unitPrice;
         private PriceTypeUnit priceTypeUnit;
 
+        private bool materialDependant;
+        private double factor;
+
         public PriceType() : this("") { }
         public PriceType(string code) : base(code) { }
         
@@ -31,6 +34,8 @@ namespace Petoetron.Classes
                 base.CopyFrom(toCopy);
                 PriceTypeUnit = p.PriceTypeUnit;
                 UnitPrice = p.UnitPrice;
+                MaterialDependant = p.MaterialDependant;
+                Factor = p.Factor;
             }
         }
 
@@ -40,7 +45,9 @@ namespace Petoetron.Classes
             {
                 return base.PropertiesEqual(p) &&
                 PriceTypeUnit == p.PriceTypeUnit &&
-                UnitPrice == p.UnitPrice;
+                UnitPrice == p.UnitPrice &&
+                MaterialDependant == p.MaterialDependant &&
+                Factor == p.Factor;
             }
             return false;
         }
@@ -54,6 +61,8 @@ namespace Petoetron.Classes
             base.AddBaseSqlParameters(command);
             DatabaseAccess.AddDbValue(command, "priceTypeUnit", PriceTypeUnitInt);
             DatabaseAccess.AddDbValue(command, "unitPrice", UnitPrice);
+            DatabaseAccess.AddDbValue(command, "materialDependant", MaterialDependant);
+            DatabaseAccess.AddDbValue(command, "factor", Factor);
         }
 
         public override void InitFromReader(DbDataReader reader)
@@ -61,6 +70,8 @@ namespace Petoetron.Classes
             base.InitBaseFromReader(reader);
             PriceTypeUnitInt = DatabaseAccess.RGetInt(reader, "priceTypeUnit");
             UnitPrice = DatabaseAccess.RGetDecimal(reader, "unitPrice");
+            MaterialDependant = DatabaseAccess.RGetBool(reader, "materialDependant");
+            Factor = DatabaseAccess.RGetDouble(reader, "factor");
         }
 
         public override void OnChanged(ActionType queryType)
@@ -109,6 +120,26 @@ namespace Petoetron.Classes
             {
                 unitPrice = value;
                 OnPropertyChanged("UnitPrice");
+            }
+        }
+
+        public bool MaterialDependant
+        {
+            get => materialDependant;
+            set
+            {
+                materialDependant = value;
+                OnPropertyChanged("MaterialDependant");
+            }
+        }
+
+        public double Factor
+        {
+            get => factor;
+            set
+            {
+                factor = value;
+                OnPropertyChanged("Factor");
             }
         }
 

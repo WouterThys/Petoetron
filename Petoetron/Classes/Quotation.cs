@@ -60,6 +60,17 @@ namespace Petoetron.Classes
             }
         }
 
+        public void UpdatePrices()
+        {
+            if (Prices != null)
+            {
+                foreach (QuotationPrice qp in Prices.Values)
+                {
+                    qp.UpdatePrice()
+                }
+            }
+        }
+
         #region Base overrides
 
         public override IObject CreateCopy()
