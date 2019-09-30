@@ -88,9 +88,7 @@ namespace Petoetron.Views.QuotationPrices
             fluent.WithEvent<SelectionChangedEventArgs>(gvPrices, "SelectionChanged").SetBinding(
                 m => m.Selection,
                 g => new List<QuotationPrice>(gvPrices.GetSelectedRows().Select(r => gvPrices.GetRow(r) as QuotationPrice)));
-
-
-            bbiZoom.Visibility = BarItemVisibility.Never; //Embedded ? BarItemVisibility.Always : BarItemVisibility.Never;
+            
         }
 
         #region Drag & Drop

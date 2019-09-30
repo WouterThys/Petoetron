@@ -14,6 +14,8 @@ namespace Petoetron.Classes
         private PriceType priceType;
         private decimal totalPrice;
 
+        private QuotationPriceMaterialList materials;
+
         public QuotationPrice() : base() { }
         public QuotationPrice(string code) : base(code) { }
         public QuotationPrice(Quotation quotation) : base(quotation) { }
@@ -156,6 +158,22 @@ namespace Petoetron.Classes
             {
                 totalPrice = value;
                 OnPropertyChanged("TotalPrice");
+            }
+        }
+
+        public QuotationPriceMaterialList Materials
+        {
+            get
+            {
+                if (materials == null)
+                {
+                    materials = new QuotationPriceMaterialList(Id);
+                }
+                return materials;
+            }
+            set
+            {
+                materials = value;
             }
         }
 

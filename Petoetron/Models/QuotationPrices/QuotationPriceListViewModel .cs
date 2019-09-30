@@ -33,10 +33,29 @@ namespace Petoetron.Models.QuotationPrices
             return qm;
         }
 
+        private bool zoomed = false;
+        private bool change = false;
         public override void Zoom()
         {
-            DialogService.ShowDialog(MessageButton.OK, "Pruzen", this);
+            var model = QuotationPriceEditViewModel.Create(Quotation);
+            DialogService.ShowDialog(MessageButton.OK, "Pruzen", model);
+            zoomed = true;
+            change = ValuesChanged;
+            Load();
         }
-        
+
+        public override void OnLoaded()
+        {
+            base.OnLoaded();
+            if (zoomed)
+            {
+                zoomed = false;
+                ValuesChanged = change;
+                UpdateCommands();
+                DataChanged?.Invoke();
+                change = false;
+            }
+        }
+
     }
 }

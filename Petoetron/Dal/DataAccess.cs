@@ -271,5 +271,12 @@ namespace Petoetron.Dal
             IEnumerable<long> ids = Db.FindIds(sql, (cmd) => DatabaseAccess.AddDbValue(cmd, "qId", id));
             return ids;
         }
+
+        public IEnumerable<long> FindMaterialIdsForPrice(long id)
+        {
+            string sql = "quotationPricesFindMaterials";
+            IEnumerable<long> ids = Db.FindIds(sql, (cmd) => DatabaseAccess.AddDbValue(cmd, "pId", id));
+            return ids;
+        }
     }
 }

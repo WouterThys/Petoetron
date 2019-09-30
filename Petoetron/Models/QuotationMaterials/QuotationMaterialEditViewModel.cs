@@ -19,8 +19,6 @@ namespace Petoetron.Models.QuotationMaterials
         {
             return ViewModelSource.Create(() => new QuotationMaterialEditViewModel(quotation));
         }
-
-        public virtual BindingList<PriceType> PriceTypes { get; set; }
         
         protected QuotationMaterialEditViewModel(Quotation quotation) : base (
             ModuleTypes.QuotationMaterialEditModule,
@@ -39,20 +37,7 @@ namespace Petoetron.Models.QuotationMaterials
             this.RaiseCanExecuteChanged(x => x.Group());
             this.RaiseCanExecuteChanged(x => x.UnGroup());
         }
-
-        private List<PriceType> tmpPrices;
-        public override void Loading()
-        {
-            base.Loading();
-            tmpPrices = new List<PriceType>(DataAccess.Dal.PriceTypes.Where(p => p.MaterialDependant));
-        }
-
-        public override void Loaded()
-        {
-            PriceTypes = new BindingList<PriceType>(tmpPrices);
-            base.Loaded();
-        }
-
+        
         protected override QuotationMaterial CreateQuotationItem(Material t)
         {
             QuotationMaterial qm = base.CreateQuotationItem(t);

@@ -51,4 +51,28 @@ namespace Petoetron.Classes
             return DataAccess.Dal.QuotationPrices.ById(id);
         }
     }
+
+    public class QuotationPriceMaterialList : LinkList<QuotationMaterial>
+    {
+        public QuotationPriceMaterialList(long objectId) : base(objectId)
+        {
+        }
+
+        public override LinkList<QuotationMaterial> CreateCopy()
+        {
+            QuotationPriceMaterialList ll = new QuotationPriceMaterialList(ObjectId);
+            ll.CopyFrom(this);
+            return ll;
+        }
+
+        protected override IEnumerable<long> GetIds(long id)
+        {
+            return DataAccess.Dal.FindMaterialIdsForPrice(id);
+        }
+
+        protected override QuotationMaterial GetById(long id)
+        {
+            return DataAccess.Dal.QuotationMaterials.ById(id);
+        }
+    }
 }

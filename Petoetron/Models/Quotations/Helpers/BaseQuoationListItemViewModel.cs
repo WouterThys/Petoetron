@@ -50,7 +50,7 @@ namespace Petoetron.Models.Quotations.Helpers
         }
 
         private List<T> tmpTs = null;
-        List<QT> tmpQTs = null;
+        private List<QT> tmpQTs = null;
         public virtual void Loading()
         {
             IsLoading = true;
@@ -83,7 +83,7 @@ namespace Petoetron.Models.Quotations.Helpers
             DataChanged?.Invoke(); //UpdateCommands();
         }
 
-        public void OnSelectionChanged()
+        public virtual void OnSelectionChanged()
         {
             UpdateCommands();
         }

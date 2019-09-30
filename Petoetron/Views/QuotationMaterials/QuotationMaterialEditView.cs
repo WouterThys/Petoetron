@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Windows.Forms;
 using Petoetron.Views.Base;
-using DevExpress.XtraBars;
 using DevExpress.Utils.MVVM;
 using DevExpress.Data;
 using Petoetron.Classes;
-using Petoetron.Models.Quotations.Helpers;
 using DevExpress.Utils.DragDrop;
 using DevExpress.XtraGrid.Views.Grid;
 using Petoetron.Models.QuotationMaterials;
@@ -48,12 +45,6 @@ namespace Petoetron.Views.QuotationMaterials
             gvMaterials.OptionsView.ShowDetailButtons = false;
             gvMaterials.OptionsBehavior.AutoExpandAllGroups = true;
 
-            gvPrices.OptionsBehavior.Editable = false;
-            gvPrices.OptionsBehavior.AllowIncrementalSearch = true;
-            gvPrices.OptionsSelection.MultiSelect = true;
-            gvPrices.OptionsView.ShowDetailButtons = false;
-            gvPrices.OptionsBehavior.AutoExpandAllGroups = true;
-
             dragDropEvents.DragDrop += DragDropEvents_DragDrop;
         }
         
@@ -66,7 +57,6 @@ namespace Petoetron.Views.QuotationMaterials
 
                 fluent.SetBinding(gvQMaterials, gv => gv.LoadingPanelVisible, m => m.IsLoading);
                 fluent.SetObjectDataSourceBinding(bsMaterials, m => m.Data);
-                fluent.SetObjectDataSourceBinding(bsPrices, m => m.PriceTypes);
 
                 // Materials
                 fluent.SetBinding(gvQMaterials, gv => gv.LoadingPanelVisible, m => m.IsLoading);
@@ -129,10 +119,6 @@ namespace Petoetron.Views.QuotationMaterials
                         IEnumerable<Material> materials = source.GetSelectedRows().Select(r => source.GetRow(r) as Material);
                         fluent.ViewModel.AddItems(materials);
                         e.Handled = true;
-                    }
-                    else if (source.Equals(gvPrices))
-                    {
-                        //
                     }
                 }
                 catch

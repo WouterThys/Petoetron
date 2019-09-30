@@ -437,7 +437,7 @@
             this.colCode.OptionsColumn.ReadOnly = true;
             this.colCode.Width = 208;
             // 
-            // QuotationPriceEditView
+            // QuotationPriceListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -447,7 +447,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.Name = "QuotationPriceEditView";
+            this.Name = "QuotationPriceListView";
             this.Size = new System.Drawing.Size(555, 535);
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
