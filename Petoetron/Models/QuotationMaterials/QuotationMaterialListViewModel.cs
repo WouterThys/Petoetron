@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Threading.Tasks;
-using DevExpress.Mvvm;
+﻿using DevExpress.Mvvm;
 using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.Mvvm.POCO;
 using Petoetron.Classes;
 using Petoetron.Dal;
-using Petoetron.Models.Base;
 using Petoetron.Models.Quotations.Helpers;
 
 namespace Petoetron.Models.QuotationMaterials
