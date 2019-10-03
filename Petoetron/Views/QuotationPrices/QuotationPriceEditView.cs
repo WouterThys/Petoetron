@@ -9,6 +9,8 @@ using Petoetron.Classes;
 using DevExpress.Utils.DragDrop;
 using DevExpress.XtraGrid.Views.Grid;
 using Petoetron.Models.QuotationPrices;
+using DevExpress.XtraGrid.Views.Base;
+using System.Windows.Forms;
 
 namespace Petoetron.Views.QuotationPrices
 {
@@ -36,7 +38,7 @@ namespace Petoetron.Views.QuotationPrices
             //riSpinEditAmount.MaxValue = int.MaxValue;
 
             gvQPrices.OptionsBehavior.Editable = false;
-            gvQPrices.OptionsSelection.MultiSelect = false;
+            gvQPrices.OptionsSelection.MultiSelect = true;
             gvQPrices.OptionsView.ShowDetailButtons = false;
             gvQPrices.OptionsBehavior.AutoExpandAllGroups = true;
             gvQPrices.ShownEditor += QPrices_ShownEditor;
@@ -48,8 +50,12 @@ namespace Petoetron.Views.QuotationPrices
             gvPrices.OptionsBehavior.AutoExpandAllGroups = true;
 
             gvPriceMaterials.OptionsSelection.MultiSelect = true;
+            gvPriceMaterials.OptionsSelection.MultiSelectMode = GridMultiSelectMode.CheckBoxRowSelect;
             gvPriceMaterials.OptionsView.ShowDetailButtons = false;
             gvPriceMaterials.OptionsBehavior.AutoExpandAllGroups = true;
+            gvPriceMaterials.OptionsSelection.EnableAppearanceFocusedCell = false;
+            gvPriceMaterials.OptionsSelection.CheckBoxSelectorField = "Selected";
+            gvPriceMaterials.CustomRowFilter += PriceMaterials_CustomTypeRowFilter;
 
 
             dragDropEvents.DragDrop += DragDropEvents_DragDrop;
@@ -64,6 +70,7 @@ namespace Petoetron.Views.QuotationPrices
 
                 fluent.SetBinding(gvQPrices, gv => gv.LoadingPanelVisible, m => m.IsLoading);
                 fluent.SetObjectDataSourceBinding(bsPrices, m => m.Data);
+                fluent.SetObjectDataSourceBinding(bsPriceMaterials, m => m.PriceMaterials);
 
                 // Prices
                 fluent.SetBinding(gvQPrices, gv => gv.LoadingPanelVisible, m => m.IsLoading);
@@ -79,6 +86,20 @@ namespace Petoetron.Views.QuotationPrices
 
             }
         }
+
+        #region Selected Materials
+        protected bool ShowOnlySelected { get; set; } = false;
+        protected void PriceMaterials_CustomTypeRowFilter(object sender, RowFilterEventArgs e)
+        {
+            ColumnView view = sender as ColumnView;
+            QuotationMaterial bObj = (QuotationMaterial)view.GetRow(e.ListSourceRow);
+            if (bObj != null)
+            {
+                e.Visible = !ShowOnlySelected || bObj.Selected;
+                e.Handled = true;
+            }
+        }
+        #endregion
 
         #region Cell Appearance
 

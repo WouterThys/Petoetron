@@ -20,6 +20,7 @@ namespace Petoetron.Models.QuotationPrices
             return ViewModelSource.Create(() => new QuotationPriceEditViewModel(quotation));
         }
 
+        private readonly List<QuotationMaterial> allMaterials = new List<QuotationMaterial>();
         public virtual BindingList<QuotationMaterial> PriceMaterials { get; set; }
 
         protected QuotationPriceEditViewModel(Quotation quotation) : base(
@@ -34,17 +35,30 @@ namespace Petoetron.Models.QuotationPrices
         public override void UpdateCommands()
         {
             base.UpdateCommands();
-            
         }
 
+        public override void Loading()
+        {
+            base.Loading();
+            allMaterials.AddRange(Quotation.Materials.Values);
+        }
+
+        private QuotationPrice currentPrice;
         public override void OnSelectionChanged()
         {
+            SaveSelection();
+
+            // New selection
             if (Selection != null && Selection.Count == 1)
             {
-                QuotationPrice price = Selection[0];
-                if (price != null && price.PriceType != null && price.PriceType.MaterialDependant)
+                currentPrice = Selection[0];
+                if (currentPrice != null && currentPrice.PriceType != null && currentPrice.PriceType.MaterialDependant)
                 {
-                    PriceMaterials = new BindingList<QuotationMaterial>(new List<QuotationMaterial>(price.Materials.Values));
+                    PriceMaterials = new BindingList<QuotationMaterial>(allMaterials);
+                    foreach (QuotationMaterial qm in PriceMaterials)
+                    {
+                        qm.Selected = currentPrice.Materials.Contains(qm.Id);
+                    }
                 }
                 else
                 {
@@ -58,6 +72,15 @@ namespace Petoetron.Models.QuotationPrices
             base.OnSelectionChanged();
         }
 
+        public void SaveSelection()
+        {
+            // Save old selection
+            if (currentPrice != null && PriceMaterials != null)
+            {
+                currentPrice.Materials.Set(PriceMaterials.Where(pm => pm.Selected));
+            }
+        }
+
         protected override QuotationPrice CreateQuotationItem(PriceType t)
         {
             QuotationPrice qm = base.CreateQuotationItem(t);
@@ -67,10 +90,7 @@ namespace Petoetron.Models.QuotationPrices
             }
             return qm;
         }
-
-       
-
-
+        
         public override void Zoom()
         {
             throw new NotImplementedException();

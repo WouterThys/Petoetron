@@ -68,6 +68,7 @@ namespace Petoetron.Classes
             {
                 base.CopyFrom(toCopy);
                 PriceTypeId = qp.PriceTypeId;
+                Materials = (QuotationPriceMaterialList)qp.Materials.CreateCopy();
             }
         }
 
@@ -77,7 +78,8 @@ namespace Petoetron.Classes
             {
                 return
                      PriceTypeId == qp.PriceTypeId &&
-                     base.PropertiesEqual(iObject);
+                     base.PropertiesEqual(iObject) &&
+                     Materials.Equals(qp.Materials);
             }
             return false;
         }

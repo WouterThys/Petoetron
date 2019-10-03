@@ -424,6 +424,33 @@ namespace Database
             }
         }
 
+        public void ExecuteScript(string sql, Action<DbCommand> addParams) 
+        {
+            DbConnection connection = null;
+            DbCommand cmd = null;
+            try
+            {
+                using (connection = GetConnection())
+                {
+                    connection.Open();
+                    using (cmd = connection.CreateCommand())
+                    {
+                        cmd.CommandText = sql;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        if (addParams != null)
+                        {
+                            addParams(cmd);
+                        }
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                LogBackError(new DbException(DbExceptionType.QueryFailed, e, "Execute failed", null, cmd, ActionType.Custom));
+            }
+        }
+
         public void ExecuteScript(string script, Action<DbDataReader> onRead)
         {
             DbConnection connection = null;

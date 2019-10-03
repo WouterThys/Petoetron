@@ -108,6 +108,19 @@ namespace Petoetron.Classes.Helpers
             }
         }
 
+        public void Set(IEnumerable<T> items)
+        {
+            if (items != null)
+            {
+                values = new HashSet<T>(items);
+                ids = new HashSet<long>(items.Select(i => i.Id));
+            }
+            else
+            {
+                Ids = new HashSet<long>();
+            }
+        }
+
         public void UpdateValues()
         {
             values = null;

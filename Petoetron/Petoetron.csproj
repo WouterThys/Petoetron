@@ -81,6 +81,7 @@
     <Compile Include="Classes\Helpers\IniFile.cs" />
     <Compile Include="Classes\Helpers\Interfaces.cs" />
     <Compile Include="Classes\Helpers\LinkList.cs" />
+    <Compile Include="Classes\Helpers\PriceMaterialLink.cs" />
     <Compile Include="Classes\Helpers\Toolbox.cs" />
     <Compile Include="Classes\Info.cs" />
     <Compile Include="Classes\Material.cs" />

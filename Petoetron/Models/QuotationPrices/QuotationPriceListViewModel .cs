@@ -39,6 +39,7 @@ namespace Petoetron.Models.QuotationPrices
         {
             var model = QuotationPriceEditViewModel.Create(Quotation);
             DialogService.ShowDialog(MessageButton.OK, "Pruzen", model);
+            model.SaveSelection();
             zoomed = true;
             change = ValuesChanged;
             Load();

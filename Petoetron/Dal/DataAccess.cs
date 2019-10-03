@@ -122,6 +122,11 @@ namespace Petoetron.Dal
             Db.Delete(instance);
         }
 
+        public void Execute(string script, Action<System.Data.Common.DbCommand> addParams)
+        {
+            Db.ExecuteScript(script, addParams);
+        }
+
         #endregion
 
         #region Cache methods

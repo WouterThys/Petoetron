@@ -45,9 +45,36 @@ namespace Petoetron.Views.QuotationMaterials
             gvMaterials.OptionsView.ShowDetailButtons = false;
             gvMaterials.OptionsBehavior.AutoExpandAllGroups = true;
 
+            gvQMaterials.SelectionChanged += GvQMaterials_SelectionChanged;
+
             dragDropEvents.DragDrop += DragDropEvents_DragDrop;
         }
-        
+
+        private void GvQMaterials_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            GridView grid = sender as GridView;
+            int[] handles = grid.GetSelectedRows();
+            foreach (int handle in handles)
+            {
+                if (grid.IsGroupRow(handle))
+                {
+                    SelectChild(grid, handle);
+                }
+            }
+        }
+
+        private void SelectChild(GridView grid, int handle)
+        {
+            int childRowCount = grid.GetChildRowCount(handle);
+            grid.BeginSelection();
+            for (int i = 0; i < childRowCount; i++)
+            {
+                int childRowHandle = grid.GetChildRowHandle(handle, i);
+                grid.SelectRow(childRowHandle);
+            }
+            grid.EndSelection();
+        }
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);

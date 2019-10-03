@@ -236,6 +236,26 @@ namespace Petoetron.Classes
                 }
             }
             Task.WaitAll(tasks.ToArray());
+
+            // Price Materials
+            Task.Factory.StartNew(() => 
+            {
+                foreach (QuotationPrice qp in Prices.Values)
+                {
+                    if (qp.PriceType != null && qp.PriceType.MaterialDependant)
+                    {
+                        // Delete all
+                        DataAccess.Dal.Execute("linkpricematerialsDeleteAll", cmd => DatabaseAccess.AddDbValue(cmd, "qpId", qp.Id));
+
+                        // Insert all new
+                        foreach (QuotationMaterial qm in qp.Materials.Values)
+                        {
+                            new PriceMaterialLink(qm.QuotationId, qp.Id, qm.Id).Save();
+                        }
+                    }
+                }
+            });
+            
             if (oldQuotation != null)
             {
                 oldQuotation.Prices.Ids = null;

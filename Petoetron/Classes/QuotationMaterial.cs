@@ -14,6 +14,9 @@ namespace Petoetron.Classes
         private Material material;
         private string groupCode;
 
+        // Helper
+        private bool selected;
+
         public QuotationMaterial() : base() { }
         public QuotationMaterial(string code) : base(code) { }
         public QuotationMaterial(Quotation quotation) : base(quotation) { }
@@ -161,6 +164,12 @@ namespace Petoetron.Classes
                 groupCode = value;
                 OnPropertyChanged("GroupCode");
             }
+        }
+
+        public bool Selected
+        {
+            get { return selected; }
+            set { selected = value; OnPropertyChanged("Selected"); }
         }
 
         #endregion
