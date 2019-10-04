@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using DevExpress.Mvvm;
 using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.Mvvm.POCO;
 using Petoetron.Classes;
 using Petoetron.Dal;
-using Petoetron.Models.Other;
 using Petoetron.Models.Quotations.Helpers;
 
 namespace Petoetron.Models.QuotationPrices
@@ -22,6 +20,10 @@ namespace Petoetron.Models.QuotationPrices
 
         private readonly List<QuotationMaterial> allMaterials = new List<QuotationMaterial>();
         public virtual BindingList<QuotationMaterial> PriceMaterials { get; set; }
+        public virtual List<QuotationMaterial> SelectedPriceMaterials { get; set; }
+
+        public Action<Quotation, CancelEventArgs> OnDone;
+        public Action OnOpenMaterials;
 
         protected QuotationPriceEditViewModel(Quotation quotation) : base(
             ModuleTypes.QuotationPriceEditModule,
@@ -35,6 +37,8 @@ namespace Petoetron.Models.QuotationPrices
         public override void UpdateCommands()
         {
             base.UpdateCommands();
+            this.RaiseCanExecuteChanged(x => x.Done());
+            this.RaiseCanExecuteChanged(x => x.ToMaterials());
         }
 
         public override void Loading()
@@ -72,6 +76,15 @@ namespace Petoetron.Models.QuotationPrices
             base.OnSelectionChanged();
         }
 
+        public virtual void OnSelectedPriceMaterialsChanged()
+        {
+            if (currentPrice != null)
+            {
+                currentPrice.Materials.Set(SelectedPriceMaterials);
+                currentPrice.UpdatePrice();
+            }
+        }
+
         public void SaveSelection()
         {
             // Save old selection
@@ -90,7 +103,32 @@ namespace Petoetron.Models.QuotationPrices
             }
             return qm;
         }
-        
+
+        public virtual bool CanDone()
+        {
+            return !IsLoading;
+        }
+        public virtual void Done()
+        {
+            SaveSelection();
+            OnDone?.Invoke(Quotation, null);
+        }
+        public override void OnClose(CancelEventArgs e)
+        {
+            OnDone?.Invoke(Quotation, e);
+            base.OnClose(e);
+        }
+
+        public virtual bool CanToMaterials()
+        {
+            return !IsLoading;
+        }
+        public virtual void ToMaterials()
+        {
+            Done();
+            OnOpenMaterials?.Invoke();
+        }
+
         public override void Zoom()
         {
             throw new NotImplementedException();

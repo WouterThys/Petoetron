@@ -3,6 +3,7 @@ using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.Mvvm.POCO;
 using Petoetron.Classes;
 using Petoetron.Dal;
+using Petoetron.Models.Quotations;
 using Petoetron.Models.Quotations.Helpers;
 
 namespace Petoetron.Models.QuotationMaterials
@@ -33,28 +34,20 @@ namespace Petoetron.Models.QuotationMaterials
             return qm;
         }
 
-        private bool zoomed = false;
-        private bool change = false;
         public override void Zoom()
         {
             var model = QuotationMaterialEditViewModel.Create(Quotation);
-            DialogService.ShowDialog(MessageButton.OK, "Muturiuul", model);
-            zoomed = true;
-            change = ValuesChanged;
-            Load();
-        }
-
-        public override void OnLoaded()
-        {
-            base.OnLoaded();
-            if (zoomed)
+            var document = ShowFloatingDocument(model);
+            model.OnDone = (q, args) =>
             {
-                zoomed = false;
-                ValuesChanged = change;
-                UpdateCommands();
+                document.Close(true);
                 DataChanged?.Invoke();
-                change = false;
-            }
+                Load();
+            };
+            model.OnOpenPrices = () =>
+            {
+                ((QuotationEditViewModel)ParentViewModel).QPriceModel.Zoom();
+            };
         }
 
     }

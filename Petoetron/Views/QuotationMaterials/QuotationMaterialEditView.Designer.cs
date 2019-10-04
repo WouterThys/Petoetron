@@ -89,6 +89,9 @@
             this.dockManager = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.MaterialsDockPanel = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.rpgMaterials = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.bbiDone = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiToPrices = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsQuotationMaterials)).BeginInit();
@@ -118,8 +121,10 @@
             this.bbiDelete,
             this.bbiGroup,
             this.bbiUnGroup,
-            this.bbiCopy});
-            this.ribbonControl.MaxItemId = 6;
+            this.bbiCopy,
+            this.bbiDone,
+            this.bbiToPrices});
+            this.ribbonControl.MaxItemId = 8;
             this.ribbonControl.ShowCategoryInCaption = false;
             this.ribbonControl.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
@@ -133,14 +138,15 @@
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rpgMaterials,
             this.rpgGroups});
             this.ribbonPage1.Text = "Tub1";
             // 
             // ribbonPageGroup1
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.bbiAdd);
-            this.ribbonPageGroup1.ItemLinks.Add(this.bbiDelete);
-            this.ribbonPageGroup1.Text = "Mututiulen";
+            this.ribbonPageGroup1.ItemLinks.Add(this.bbiDone);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bbiToPrices);
+            this.ribbonPageGroup1.Text = "Munu";
             // 
             // bsQuotationMaterials
             // 
@@ -710,6 +716,29 @@
             this.dockPanel1_Container.Size = new System.Drawing.Size(474, 843);
             this.dockPanel1_Container.TabIndex = 0;
             // 
+            // rpgMaterials
+            // 
+            this.rpgMaterials.ItemLinks.Add(this.bbiAdd);
+            this.rpgMaterials.ItemLinks.Add(this.bbiDelete);
+            this.rpgMaterials.Name = "rpgMaterials";
+            this.rpgMaterials.Text = "Muturiulen";
+            // 
+            // bbiDone
+            // 
+            this.bbiDone.Caption = "Kluur";
+            this.bbiDone.Id = 6;
+            this.bbiDone.ImageOptions.ImageIndex = 39;
+            this.bbiDone.ImageOptions.LargeImageIndex = 39;
+            this.bbiDone.Name = "bbiDone";
+            // 
+            // bbiToPrices
+            // 
+            this.bbiToPrices.Caption = "Nuur Pruzen";
+            this.bbiToPrices.Id = 7;
+            this.bbiToPrices.ImageOptions.ImageIndex = 20;
+            this.bbiToPrices.ImageOptions.LargeImageIndex = 20;
+            this.bbiToPrices.Name = "bbiToPrices";
+            // 
             // QuotationMaterialEditView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -806,5 +835,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTotalWeight;
         private DevExpress.XtraBars.BarButtonItem bbiCopy;
         private System.Windows.Forms.BindingSource bsPrices;
+        private DevExpress.XtraBars.BarButtonItem bbiDone;
+        private DevExpress.XtraBars.BarButtonItem bbiToPrices;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgMaterials;
     }
 }

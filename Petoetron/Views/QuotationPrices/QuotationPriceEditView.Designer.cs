@@ -83,6 +83,9 @@
             this.dragDropEvents = new DevExpress.Utils.DragDrop.DragDropEvents(this.components);
             this.bbiAdd = new DevExpress.XtraBars.BarButtonItem();
             this.bbiDelete = new DevExpress.XtraBars.BarButtonItem();
+            this.rpgPrices = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.bbiDone = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiToMaterials = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager)).BeginInit();
@@ -107,19 +110,23 @@
             this.ribbonControl.ExpandCollapseItem.Id = 0;
             this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.bbiAdd,
-            this.bbiDelete});
-            this.ribbonControl.MaxItemId = 3;
-            this.ribbonControl.Size = new System.Drawing.Size(1709, 194);
+            this.bbiDelete,
+            this.bbiDone,
+            this.bbiToMaterials});
+            this.ribbonControl.MaxItemId = 5;
+            this.ribbonControl.Size = new System.Drawing.Size(2063, 194);
             // 
             // ribbonPage1
             // 
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rpgPrices});
             this.ribbonPage1.Text = "Tub1";
             // 
             // ribbonPageGroup1
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.bbiAdd);
-            this.ribbonPageGroup1.ItemLinks.Add(this.bbiDelete);
-            this.ribbonPageGroup1.Text = "Pruzen";
+            this.ribbonPageGroup1.ItemLinks.Add(this.bbiDone);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bbiToMaterials);
+            this.ribbonPageGroup1.Text = "Munu";
             // 
             // dockManager
             // 
@@ -150,7 +157,7 @@
             this.PricesDockPanel.Options.ShowCloseButton = false;
             this.PricesDockPanel.OriginalSize = new System.Drawing.Size(451, 200);
             this.PricesDockPanel.SavedSizeFactor = 0D;
-            this.PricesDockPanel.Size = new System.Drawing.Size(451, 401);
+            this.PricesDockPanel.Size = new System.Drawing.Size(451, 760);
             this.PricesDockPanel.Text = "Pruzen";
             // 
             // dockPanel1_Container
@@ -158,7 +165,7 @@
             this.dockPanel1_Container.Controls.Add(this.gcPrices);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 37);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(441, 360);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(441, 719);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // gcPrices
@@ -169,7 +176,7 @@
             this.gcPrices.MainView = this.gvPrices;
             this.gcPrices.MenuManager = this.ribbonControl;
             this.gcPrices.Name = "gcPrices";
-            this.gcPrices.Size = new System.Drawing.Size(441, 360);
+            this.gcPrices.Size = new System.Drawing.Size(441, 719);
             this.gcPrices.TabIndex = 0;
             this.gcPrices.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvPrices});
@@ -289,12 +296,12 @@
             this.MaterialPriceDockPanel.Controls.Add(this.controlContainer1);
             this.MaterialPriceDockPanel.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
             this.MaterialPriceDockPanel.ID = new System.Guid("b1e1868b-2547-4dbb-9982-d3a5e851dae5");
-            this.MaterialPriceDockPanel.Location = new System.Drawing.Point(1283, 194);
+            this.MaterialPriceDockPanel.Location = new System.Drawing.Point(1574, 194);
             this.MaterialPriceDockPanel.Name = "MaterialPriceDockPanel";
             this.MaterialPriceDockPanel.Options.ShowCloseButton = false;
-            this.MaterialPriceDockPanel.OriginalSize = new System.Drawing.Size(426, 200);
+            this.MaterialPriceDockPanel.OriginalSize = new System.Drawing.Size(489, 200);
             this.MaterialPriceDockPanel.SavedSizeFactor = 0D;
-            this.MaterialPriceDockPanel.Size = new System.Drawing.Size(426, 401);
+            this.MaterialPriceDockPanel.Size = new System.Drawing.Size(489, 760);
             this.MaterialPriceDockPanel.Text = "Muturiuul per pruus";
             // 
             // controlContainer1
@@ -302,7 +309,7 @@
             this.controlContainer1.Controls.Add(this.gcPriceMaterials);
             this.controlContainer1.Location = new System.Drawing.Point(6, 37);
             this.controlContainer1.Name = "controlContainer1";
-            this.controlContainer1.Size = new System.Drawing.Size(416, 360);
+            this.controlContainer1.Size = new System.Drawing.Size(479, 719);
             this.controlContainer1.TabIndex = 0;
             // 
             // gcPriceMaterials
@@ -313,7 +320,7 @@
             this.gcPriceMaterials.MainView = this.gvPriceMaterials;
             this.gcPriceMaterials.MenuManager = this.ribbonControl;
             this.gcPriceMaterials.Name = "gcPriceMaterials";
-            this.gcPriceMaterials.Size = new System.Drawing.Size(416, 360);
+            this.gcPriceMaterials.Size = new System.Drawing.Size(479, 719);
             this.gcPriceMaterials.TabIndex = 0;
             this.gcPriceMaterials.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvPriceMaterials});
@@ -453,7 +460,7 @@
             this.gcQPrices.MainView = this.gvQPrices;
             this.gcQPrices.MenuManager = this.ribbonControl;
             this.gcQPrices.Name = "gcQPrices";
-            this.gcQPrices.Size = new System.Drawing.Size(832, 401);
+            this.gcQPrices.Size = new System.Drawing.Size(1123, 760);
             this.gcQPrices.TabIndex = 2;
             this.gcQPrices.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvQPrices});
@@ -591,6 +598,29 @@
             this.bbiDelete.ImageOptions.LargeImageIndex = 2;
             this.bbiDelete.Name = "bbiDelete";
             // 
+            // rpgPrices
+            // 
+            this.rpgPrices.ItemLinks.Add(this.bbiAdd);
+            this.rpgPrices.ItemLinks.Add(this.bbiDelete);
+            this.rpgPrices.Name = "rpgPrices";
+            this.rpgPrices.Text = "Pruzen";
+            // 
+            // bbiDone
+            // 
+            this.bbiDone.Caption = "Kluur";
+            this.bbiDone.Id = 3;
+            this.bbiDone.ImageOptions.ImageIndex = 39;
+            this.bbiDone.ImageOptions.LargeImageIndex = 39;
+            this.bbiDone.Name = "bbiDone";
+            // 
+            // bbiToMaterials
+            // 
+            this.bbiToMaterials.Caption = "Nuur Muturiuul";
+            this.bbiToMaterials.Id = 4;
+            this.bbiToMaterials.ImageOptions.ImageIndex = 17;
+            this.bbiToMaterials.ImageOptions.LargeImageIndex = 17;
+            this.bbiToMaterials.Name = "bbiToMaterials";
+            // 
             // QuotationPriceEditView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -599,7 +629,7 @@
             this.Controls.Add(this.MaterialPriceDockPanel);
             this.Controls.Add(this.PricesDockPanel);
             this.Name = "QuotationPriceEditView";
-            this.Size = new System.Drawing.Size(1709, 595);
+            this.Size = new System.Drawing.Size(2063, 954);
             this.Controls.SetChildIndex(this.ribbonControl, 0);
             this.Controls.SetChildIndex(this.PricesDockPanel, 0);
             this.Controls.SetChildIndex(this.MaterialPriceDockPanel, 0);
@@ -682,5 +712,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colQuotation1;
         private DevExpress.XtraGrid.Columns.GridColumn colId2;
         private DevExpress.XtraGrid.Columns.GridColumn colCode2;
+        private DevExpress.XtraBars.BarButtonItem bbiDone;
+        private DevExpress.XtraBars.BarButtonItem bbiToMaterials;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgPrices;
     }
 }

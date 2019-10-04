@@ -75,7 +75,7 @@ namespace Petoetron
         {
             mvvmContext.RegisterService(DocumentManagerService.Create(tabbedView1));
             mvvmContext.RegisterService(MessageBoxService.Create(DefaultMessageBoxServiceType.XtraMessageBox));
-            mvvmContext.RegisterService("FloatingDocumentService", WindowedDocumentManagerService.CreateXtraFormService(this));
+            mvvmContext.RegisterDefaultService("FloatingDocumentService", WindowedDocumentManagerService.CreateXtraFormService(this));
             mvvmContext.RegisterDefaultService("DataChangedService", new DataChangedService());
             //mvvmContext.RegisterDefaultService("ErrorManagerService", new ErrorManagerService(mvvmContext.GetViewModel<MainViewModel>()));
             //mvvmContext.RegisterService("DisplayMessageService", new DisplayMessageService(this));

@@ -40,11 +40,11 @@ namespace Petoetron.Classes
                 if (PriceType.MaterialDependant)
                 {
                     double weigth = 0.0;
-                    foreach (QuotationMaterial qm in Quotation.MaterialList)
+                    foreach (QuotationMaterial qm in Materials.Values)
                     {
                         weigth += qm.TotalWeight;
                     }
-                    TotalPrice = Amount * (decimal)weigth * 1;
+                    TotalPrice = Amount * (decimal)weigth * PriceType.UnitPrice;
                 }
                 else
                 {

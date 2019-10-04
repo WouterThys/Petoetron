@@ -58,13 +58,6 @@ namespace Petoetron.Views.QuotationMaterials
         protected override void InitializeServices()
         {
             base.InitializeServices();
-            //var service = DialogService.CreateXtraDialogService(this);
-            //service.DialogFormStyle = f =>
-            //{
-            //    Form form = f as Form;
-            //    form.FormBorderStyle = FormBorderStyle.Sizable;
-            //};
-            //mvvmContext.RegisterDefaultService(service);
         }
 
         protected override void OnLoad(EventArgs e)

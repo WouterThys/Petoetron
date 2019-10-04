@@ -79,10 +79,15 @@ namespace Petoetron.Views.QuotationPrices
                 fluent.WithEvent<SelectionChangedEventArgs>(gvQPrices, "SelectionChanged").SetBinding(
                     m => m.Selection,
                     g => new List<QuotationPrice>(gvQPrices.GetSelectedRows().Select(r => gvQPrices.GetRow(r) as QuotationPrice)));
+                fluent.WithEvent<SelectionChangedEventArgs>(gvPriceMaterials, "SelectionChanged").SetBinding(
+                    m => m.SelectedPriceMaterials,
+                    g => new List<QuotationMaterial>(gvPriceMaterials.GetSelectedRows().Select(r => gvPriceMaterials.GetRow(r) as QuotationMaterial)));
 
                 // Commands
                 fluent.BindCommand(bbiAdd, m => m.Add());
                 fluent.BindCommand(bbiDelete, m => m.Delete());
+                fluent.BindCommand(bbiDone, m => m.Done());
+                fluent.BindCommand(bbiToMaterials, m => m.ToMaterials());
 
             }
         }

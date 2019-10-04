@@ -79,6 +79,7 @@
             this.imageCollection16x16.Images.SetKeyName(36, "webcam.png");
             this.imageCollection16x16.Images.SetKeyName(37, "selection_delete.png");
             this.imageCollection16x16.Images.SetKeyName(38, "selection.png");
+            this.imageCollection16x16.Images.SetKeyName(39, "ok.png");
             // 
             // imageCollection24x24
             // 
@@ -123,6 +124,7 @@
             this.imageCollection24x24.Images.SetKeyName(36, "webcam.png");
             this.imageCollection24x24.Images.SetKeyName(37, "selection_delete.png");
             this.imageCollection24x24.Images.SetKeyName(38, "selection.png");
+            this.imageCollection24x24.Images.SetKeyName(39, "ok.png");
             // 
             // imageCollection48x48
             // 
@@ -167,6 +169,7 @@
             this.imageCollection48x48.Images.SetKeyName(36, "webcam.png");
             this.imageCollection48x48.Images.SetKeyName(37, "selection_delete.png");
             this.imageCollection48x48.Images.SetKeyName(38, "selection.png");
+            this.imageCollection48x48.Images.SetKeyName(39, "ok.png");
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection16x16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection24x24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection48x48)).EndInit();

@@ -19,7 +19,10 @@ namespace Petoetron.Models.QuotationMaterials
         {
             return ViewModelSource.Create(() => new QuotationMaterialEditViewModel(quotation));
         }
-        
+
+        public Action<Quotation, CancelEventArgs> OnDone;
+        public Action OnOpenPrices;
+
         protected QuotationMaterialEditViewModel(Quotation quotation) : base (
             ModuleTypes.QuotationMaterialEditModule,
             ( ) => DataAccess.Dal.Materials,
@@ -33,6 +36,8 @@ namespace Petoetron.Models.QuotationMaterials
         {
             base.UpdateCommands();
 
+            this.RaiseCanExecuteChanged(x => x.Done());
+            this.RaiseCanExecuteChanged(x => x.ToPrices());
             this.RaiseCanExecuteChanged(x => x.CopyGroup());
             this.RaiseCanExecuteChanged(x => x.Group());
             this.RaiseCanExecuteChanged(x => x.UnGroup());
@@ -46,6 +51,31 @@ namespace Petoetron.Models.QuotationMaterials
                 qm.SetMaterial(t);
             }
             return qm;
+        }
+
+
+        public virtual bool CanDone()
+        {
+            return !IsLoading;
+        }
+        public virtual void Done()
+        {
+            OnDone?.Invoke(Quotation, null);
+        }
+        public override void OnClose(CancelEventArgs e)
+        {
+            OnDone?.Invoke(Quotation, e);
+            base.OnClose(e);
+        }
+
+        public virtual bool CanToPrices()
+        {
+            return !IsLoading;
+        }
+        public virtual void ToPrices()
+        {
+            Done();
+            OnOpenPrices?.Invoke();
         }
 
         public virtual bool CanCopyGroup()

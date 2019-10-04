@@ -94,6 +94,8 @@ namespace Petoetron.Views.QuotationMaterials
                     g => new List<QuotationMaterial>(gvQMaterials.GetSelectedRows().Select(r => gvQMaterials.GetRow(r) as QuotationMaterial)));
 
                 // Commands
+                fluent.BindCommand(bbiDone, m => m.Done());
+                fluent.BindCommand(bbiToPrices, m => m.ToPrices());
                 fluent.BindCommand(bbiAdd, m => m.Add());
                 fluent.BindCommand(bbiDelete, m => m.Delete());
                 fluent.BindCommand(bbiCopy, m => m.CopyGroup());

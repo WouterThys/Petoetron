@@ -31,8 +31,10 @@ namespace Petoetron.Models.Quotations
         {
             QMaterialModel = QuotationMaterialListViewModel.Create();
             QMaterialModel.DataChanged = () => UpdateCommands();
+            QMaterialModel.SetParentViewModel(this);
             QPriceModel = QuotationPriceListViewModel.Create();
             QPriceModel.DataChanged = () => UpdateCommands();
+            QPriceModel.SetParentViewModel(this);
             Load();
 
             DataChangedService.AddListener((IDataChanged<Customer>)this);

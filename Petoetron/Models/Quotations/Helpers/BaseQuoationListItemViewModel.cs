@@ -13,7 +13,7 @@ using Petoetron.Models.Base;
 namespace Petoetron.Models.Quotations.Helpers
 {
     [POCOViewModel]
-    public abstract class BaseQuoationListEditViewModel<T, QT> : BaseViewModel
+    public abstract class BaseQuoationListEditViewModel<T, QT> : BaseDocumentViewModel
         where T : IBaseObject
         where QT : AbstractQuoationItem, new()
     {
@@ -68,7 +68,10 @@ namespace Petoetron.Models.Quotations.Helpers
             OnLoaded();
         }
 
-        public virtual void OnLoaded() { }
+        public virtual void OnLoaded()
+        {
+            UpdateCommands();
+        }
 
         public virtual void UpdateCommands()
         {

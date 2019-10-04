@@ -22,7 +22,8 @@ namespace Petoetron
 
         protected MainViewModel() : base(ModuleTypes.MainViewModule)
         {
-            
+            // Settings
+            Context.Initialize();
         }
 
         public override Task Load()
@@ -30,8 +31,7 @@ namespace Petoetron
             IsLoading = true;
             return Task.Factory.StartNew((dispatcher) => 
             {
-                // Settings
-                Context.Initialize();
+                
 
                 // Database
                 DataAccess.Dal.AttachDataListener(DataChangedService);
